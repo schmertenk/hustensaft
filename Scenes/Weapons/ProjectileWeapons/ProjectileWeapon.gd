@@ -11,12 +11,13 @@ export (float, 0, 1) var fire_range_random = 0
 export (int) var stack_size = 0
 export (float) var reload_time = 0 # time the reloading process takes in seconds
 export (bool) var can_reload = true
-export (bool) var preinstanciate_projectiles = false
+export (bool) var pool_projectiles = false
 
 var projectile_scene
 var shots_in_stack
 var reload_tween : Tween
-var preinstanciated_projectiles = []
+var projectile_pool = []
+var used_projectile_pool = []
 
 func _ready():
 	shots_in_stack = stack_size
@@ -25,21 +26,32 @@ func _ready():
 		
 	reload_tween = Tween.new()
 	add_child(reload_tween)
-	finish_reload()
+	if pool_projectiles:
+		for i in range(stack_size * projectiles_per_shot):
+			var p = make_projectile()
+			projectile_pool.append(p)
+			p.set_process(false)
+			p.visible = false
+			p.state = Projectile.STATE_WAITING
+			p.free_when_finished = false
+			get_node("/root/Game").add_child(p)
 	
 func start_reload():
 	if reload_tween.is_active() || !can_reload:
 		return
 	reload_tween.interpolate_property($Sprite, "rotation_degrees", 0, 360, reload_time)
 	reload_tween.interpolate_callback(self, reload_time, "finish_reload")
+
 	reload_tween.start()
 	
 func finish_reload():
 	shots_in_stack = stack_size
-	if preinstanciate_projectiles:
-		preinstanciated_projectiles.clear()
-		for i in range(stack_size * projectiles_per_shot):
-			preinstanciated_projectiles.append(make_projectile())
+	
+	if pool_projectiles:
+		for p in used_projectile_pool:
+			projectile_pool.append(p)
+		used_projectile_pool.clear()
+		
 	reload_tween.stop_all()
 	
 func make_projectile():
@@ -57,6 +69,8 @@ func make_projectile():
 		
 	if p.has_method("_on_trigger_released"):
 		connect("trigger_released", p, "_on_trigger_released")
+	
+	p.connect("hit", self, "on_projectile_hit")
 		
 	return p
 	
@@ -79,18 +93,24 @@ func shoot():
 			
 	for i in range(projectiles_per_shot):
 		var p
-		if preinstanciate_projectiles:
-			p = preinstanciated_projectiles[projectiles_per_shot - 1 - i]
-			preinstanciated_projectiles.erase(p)
+		if pool_projectiles:
+			p = projectile_pool[projectiles_per_shot - 1 - i]
+			projectile_pool.erase(p)
+			used_projectile_pool.append(p)
+			p.state = Projectile.STATE_STOPPED
+			p.set_process(true)
+			p.visible = true
 		else:
 			p = make_projectile()
 			
 		p.initial_direction = (direction + Vector2((0.5 - randf()) * spray, (0.5 - randf()) * spray)).normalized()
-		
-		get_node("/root/Game").add_child(p)
+		# We havt to set initial_direction before adding the projectile to the scene
+		if !pool_projectiles:
+			get_node("/root/Game").add_child(p)
+			
+			
 		p.global_position = spawn_position
 		#p.rotation_degrees = 0
-		p.connect("hit", self, "on_projectile_hit")
 	return true
 	
 	

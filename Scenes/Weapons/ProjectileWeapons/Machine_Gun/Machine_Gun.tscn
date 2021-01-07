@@ -17,6 +17,7 @@ spray = 0.1
 fire_range = 1500.0
 stack_size = 20
 reload_time = 0.6
+pool_projectiles = true
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, 30 )
