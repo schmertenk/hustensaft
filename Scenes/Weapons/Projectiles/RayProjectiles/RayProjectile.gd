@@ -8,13 +8,11 @@ var fire_range_random = 0
 var ray
 var fire_range
 var initialized = false
+var explosion_scene
 
-func init():
+func _ready():
 	if fire_range != -1 && fire_range_random > 0:
 		var _min = fire_range * (1 - fire_range_random)
 		fire_range = rand_range(_min, fire_range)
 	initialized = true
-	
-func _process(delta):
-	if !initialized:
-		init()
+	explosion_scene = load(explosion_path)

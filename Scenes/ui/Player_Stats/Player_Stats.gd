@@ -8,7 +8,7 @@ func _ready():
 		update()
 	visible = false
 		
-func _process(delta):
+func _process(_delta):
 	rect_position = player.get_global_transform_with_canvas().origin + (offset / get_node("/root/Game/Camera").zoom)
 	rect_scale = Vector2(0.5,0.5) / get_node("/root/Game/Camera").zoom
 func update():

@@ -18,6 +18,7 @@ fire_range = 500.0
 fire_range_random = 0.3
 stack_size = 2
 reload_time = 1.0
+preinstanciate_projectiles = true
 
 [node name="Sprite" type="Sprite" parent="."]
 modulate = Color( 0.756863, 0.756863, 0.756863, 1 )

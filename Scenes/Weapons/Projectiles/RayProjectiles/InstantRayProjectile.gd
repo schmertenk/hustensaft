@@ -24,8 +24,7 @@ func init():
 	if fire_range == -1:
 		fire_range = 1000000
 
-func _process(delta):
-	._process(delta)
+func _process(_delta):
 	if state == STATE_STOPPED:
 		state = STATE_FLYING
 		ray.cast_to = initial_direction * fire_range
@@ -34,8 +33,8 @@ func _process(delta):
 		if ray.get_collider():
 			var b = ray.get_collider()
 			draw_ray_line(ray.get_collision_point() - global_position)
-			if explosion_path:
-				var e = load(explosion_path).instance()
+			if explosion_scene:
+				var e = explosion_scene.instance()
 				e.global_position = ray.get_collision_point()
 				get_node("/root/Game").add_child(e)
 				e.explode()

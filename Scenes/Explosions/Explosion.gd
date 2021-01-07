@@ -5,13 +5,12 @@ class_name Explosion
 const STATE_WAITING = 0
 const STATE_EXPLODING = 1
 
-
+export (float) var duration = 3
 var state = STATE_WAITING
 
 func explode():
-	$AnimationPlayer.play("explode")
 	state = STATE_EXPLODING
-	
-func _process(delta):
-	if state == STATE_EXPLODING && !$AnimationPlayer.is_playing():
-		queue_free()
+	$Tween.interpolate_property($Light2D, "energy", 1, 0, duration / 6)
+	$Tween.interpolate_callback(self, duration, "queue_free")
+	$Particles2D.emitting = true
+	$Tween.start()

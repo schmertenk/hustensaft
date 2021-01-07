@@ -9,8 +9,7 @@ var initial_position
 func _ready():
 	ray = RayCast2D.new()
 	add_child(ray)
-		
-func init():
+	
 	for b in ignore_bodies:
 		ray.add_exception(b)
 	initialized = true
@@ -18,7 +17,6 @@ func init():
 	initial_position = global_position
 	
 func _process(delta):
-	._process(delta)
 	
 	var velocity = initial_direction * speed * delta * 60
 		
