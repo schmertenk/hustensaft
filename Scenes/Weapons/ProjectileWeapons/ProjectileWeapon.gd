@@ -65,6 +65,8 @@ func make_projectile():
 	elif p is RayProjectile:
 		p.fire_range = fire_range
 		p.fire_range_random = fire_range_random
+		if p is TravelRayProjectile:
+			p.initial_position = global_position
 	p.ignore_bodies.append(player)
 		
 	if p.has_method("_on_trigger_released"):

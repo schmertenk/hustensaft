@@ -133,71 +133,71 @@ font_data = ExtResource( 8 )
 size = 150
 font_data = ExtResource( 8 )
 
-[sub_resource type="AtlasTexture" id=19]
+[sub_resource type="AtlasTexture" id=10]
 flags = 4
 atlas = ExtResource( 30 )
 region = Rect2( 0, 0, 1026, 700 )
 
-[sub_resource type="AtlasTexture" id=20]
+[sub_resource type="AtlasTexture" id=11]
 flags = 4
 atlas = ExtResource( 30 )
 region = Rect2( 1026, 0, 1026, 700 )
 
-[sub_resource type="AtlasTexture" id=21]
+[sub_resource type="AtlasTexture" id=12]
 flags = 4
 atlas = ExtResource( 30 )
 region = Rect2( 2052, 0, 1026, 700 )
 
-[sub_resource type="AtlasTexture" id=22]
+[sub_resource type="AtlasTexture" id=13]
 flags = 4
 atlas = ExtResource( 30 )
 region = Rect2( 3078, 0, 1026, 700 )
 
-[sub_resource type="AtlasTexture" id=23]
+[sub_resource type="AtlasTexture" id=14]
 flags = 4
 atlas = ExtResource( 30 )
 region = Rect2( 0, 700, 1026, 700 )
 
-[sub_resource type="AtlasTexture" id=24]
+[sub_resource type="AtlasTexture" id=15]
 flags = 4
 atlas = ExtResource( 30 )
 region = Rect2( 1026, 700, 1026, 700 )
 
-[sub_resource type="AtlasTexture" id=25]
+[sub_resource type="AtlasTexture" id=16]
 flags = 4
 atlas = ExtResource( 30 )
 region = Rect2( 2052, 700, 1026, 700 )
 
-[sub_resource type="AtlasTexture" id=26]
+[sub_resource type="AtlasTexture" id=17]
 flags = 4
 atlas = ExtResource( 30 )
 region = Rect2( 3078, 700, 1026, 700 )
 
-[sub_resource type="AtlasTexture" id=27]
+[sub_resource type="AtlasTexture" id=18]
 flags = 4
 atlas = ExtResource( 30 )
 region = Rect2( 0, 1400, 1026, 700 )
 
-[sub_resource type="AtlasTexture" id=28]
+[sub_resource type="AtlasTexture" id=19]
 flags = 4
 atlas = ExtResource( 30 )
 region = Rect2( 1026, 1400, 1026, 700 )
 
-[sub_resource type="SpriteFrames" id=29]
+[sub_resource type="SpriteFrames" id=20]
 animations = [ {
-"frames": [ SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ) ],
+"frames": [ SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ) ],
 "loop": true,
 "name": "default",
 "speed": 2.0
 } ]
 
-[sub_resource type="Curve" id=10]
+[sub_resource type="Curve" id=21]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.153559 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=11]
-curve = SubResource( 10 )
+[sub_resource type="CurveTexture" id=22]
+curve = SubResource( 21 )
 
-[sub_resource type="ParticlesMaterial" id=12]
+[sub_resource type="ParticlesMaterial" id=23]
 emission_shape = 1
 emission_sphere_radius = 78.64
 flag_disable_z = true
@@ -207,36 +207,36 @@ initial_velocity = 762.3
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 scale = 9.2
-scale_curve = SubResource( 11 )
+scale_curve = SubResource( 22 )
 
-[sub_resource type="AtlasTexture" id=13]
+[sub_resource type="AtlasTexture" id=24]
 flags = 4
 atlas = ExtResource( 21 )
 region = Rect2( 0, 0, 544, 297 )
 
-[sub_resource type="AtlasTexture" id=14]
+[sub_resource type="AtlasTexture" id=25]
 flags = 4
 atlas = ExtResource( 21 )
 region = Rect2( 544, 0, 544, 297 )
 
-[sub_resource type="AtlasTexture" id=15]
+[sub_resource type="AtlasTexture" id=26]
 flags = 4
 atlas = ExtResource( 21 )
 region = Rect2( 1088, 0, 544, 297 )
 
-[sub_resource type="AtlasTexture" id=16]
+[sub_resource type="AtlasTexture" id=27]
 flags = 4
 atlas = ExtResource( 21 )
 region = Rect2( 1632, 0, 544, 297 )
 
-[sub_resource type="AtlasTexture" id=17]
+[sub_resource type="AtlasTexture" id=28]
 flags = 4
 atlas = ExtResource( 21 )
 region = Rect2( 2176, 0, 544, 297 )
 
-[sub_resource type="SpriteFrames" id=18]
+[sub_resource type="SpriteFrames" id=29]
 animations = [ {
-"frames": [ SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ],
+"frames": [ SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ) ],
 "loop": true,
 "name": "default",
 "speed": 15.0
@@ -257,7 +257,6 @@ smoothing_enabled = true
 smoothing_speed = 10.0
 editor_draw_limits = true
 script = ExtResource( 4 )
-max_zoom = 5.5
 
 [node name="Players" type="Node2D" parent="."]
 
@@ -1163,15 +1162,15 @@ texture = ExtResource( 32 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Background/Assets"]
 position = Vector2( 0, -183.846 )
 scale = Vector2( 0.3, 0.3 )
-frames = SubResource( 29 )
-frame = 9
+frames = SubResource( 20 )
+frame = 8
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="Background/Assets"]
 position = Vector2( 280.183, -183.846 )
 scale = Vector2( 0.3, 0.3 )
-frames = SubResource( 29 )
-frame = 6
+frames = SubResource( 20 )
+frame = 5
 playing = true
 
 [node name="Pngtreetransformer_equipment_vector_oil_filter_5780525" type="Sprite" parent="Background/Assets"]
@@ -1280,14 +1279,14 @@ position = Vector2( 2992.48, -1804.54 )
 scale = Vector2( 5, 5 )
 amount = 100
 lifetime = 0.5
-process_material = SubResource( 12 )
+process_material = SubResource( 23 )
 
 [node name="Particles2D2" type="Particles2D" parent="Engines"]
 position = Vector2( 2916.97, 566.475 )
 scale = Vector2( 5, 5 )
 amount = 100
 lifetime = 0.5
-process_material = SubResource( 12 )
+process_material = SubResource( 23 )
 
 [node name="engine" type="Sprite" parent="Engines"]
 position = Vector2( 2660.07, 583.226 )
@@ -1302,41 +1301,43 @@ texture = ExtResource( 20 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Engines"]
 position = Vector2( 3388.46, 294.156 )
 scale = Vector2( 2, 2 )
-frames = SubResource( 18 )
-frame = 1
+frames = SubResource( 29 )
+frame = 4
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="Engines"]
 position = Vector2( 3411.08, 780.646 )
 scale = Vector2( 2, 2 )
-frames = SubResource( 18 )
-frame = 1
+frames = SubResource( 29 )
+frame = 4
 playing = true
 
 [node name="AnimatedSprite3" type="AnimatedSprite" parent="Engines"]
 position = Vector2( 3139.55, 571.342 )
 scale = Vector2( 2, 2 )
-frames = SubResource( 18 )
+frames = SubResource( 29 )
+frame = 3
 playing = true
 
 [node name="AnimatedSprite4" type="AnimatedSprite" parent="Engines"]
 position = Vector2( 3422.4, -1555.63 )
 scale = Vector2( 2, 2 )
-frames = SubResource( 18 )
+frames = SubResource( 29 )
+frame = 3
 playing = true
 
 [node name="AnimatedSprite5" type="AnimatedSprite" parent="Engines"]
 position = Vector2( 3422.4, -2053.44 )
 scale = Vector2( 2, 2 )
-frames = SubResource( 18 )
-frame = 4
+frames = SubResource( 29 )
+frame = 2
 playing = true
 
 [node name="AnimatedSprite6" type="AnimatedSprite" parent="Engines"]
 position = Vector2( 3150.87, -1798.88 )
 scale = Vector2( 2, 2 )
-frames = SubResource( 18 )
-frame = 4
+frames = SubResource( 29 )
+frame = 2
 playing = true
 
 [editable path="Doors/Door/Door2"]

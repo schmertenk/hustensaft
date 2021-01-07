@@ -1,9 +1,6 @@
-extends Camera2D
+extends Node2D
 #Godot uses pixels, so this is a percentage 4 = 4%
 export var PaddingPercent = 50
-export (float) var min_zoom = 2
-export (float) var max_zoom = 4.5
-onready var game = get_node("/root/Game")
 
 func CalculateBox(InScreenSize):
 	#infinity for the min max formulas to work
@@ -12,7 +9,7 @@ func CalculateBox(InScreenSize):
 	var MinY = INF
 	var MaxY = -INF
 	#The way this works is it keeps the data from the nodes with the lowest -x,-y and highest x,y
-	for eachChild in game.get_node("Players").get_children():
+	for eachChild in self.get_children():
 		#Will only work with 2D, 3D needs transform.origin
 		var pos = eachChild.position
 
@@ -46,22 +43,15 @@ func Rect2From4PointList(InList):
 
 func _process(delta):
 	#You must have a camera 2D for this to work
+	var ActiveCamera = get_node("/root/Game/Camera") #Use the path to your camera
 	var ScreenSize = self.get_viewport().size
 
 	#This function will have to update every frame
 	var CustomRect2 = CalculateBox(ScreenSize)
 
-	var z = max(CustomRect2.size.x/ ScreenSize.x ,\
+	var ZoomRatio = max(CustomRect2.size.x/ ScreenSize.x ,\
 	 CustomRect2.size.y/ ScreenSize.y)
 
-	position = CustomRect2.position
+	ActiveCamera.position = CustomRect2.position
 	#ZoomRatio is a scalar so we need to turn it into a vector
-	z = clamp(z, min_zoom, max_zoom)
-	zoom = zoom.linear_interpolate( (Vector2(z,z)), 0.1)
-
-	
-func get_size_covered_by_camera():
-	return get_viewport().size * zoom
-	
-	
-	
+	ActiveCamera.zoom = Vector2(1,1) * clamp(ZoomRatio, 2.0, 5.5)

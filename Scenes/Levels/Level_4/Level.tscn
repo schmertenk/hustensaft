@@ -1,0 +1,1963 @@
+[gd_scene load_steps=62 format=2]
+
+[ext_resource path="res://Images/floor.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Assets/Door/Door.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Game.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/GameCamera.gd" type="Script" id=4]
+[ext_resource path="res://Images/Level_2/Background/bridge_window.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/Assets/Moving_Platform/Moving_Platform.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Weapons/ProjectileWeapons/Granade_Launcher/G_L_Dummy.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Retrophile Regular.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://Images/Level_4/metal_plate_light.png" type="Texture" id=9]
+[ext_resource path="res://Scripts/Countdown.gd" type="Script" id=10]
+[ext_resource path="res://Images/Level_2/Background/star_back.jpg" type="Texture" id=11]
+[ext_resource path="res://Images/Level_2/Background/earth.png" type="Texture" id=12]
+[ext_resource path="res://Scenes/Menues/Pause_Menu/Pause_Menu.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/TransitionMask.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Images/Level_2/Background/ship_tile_slope.png" type="Texture" id=15]
+[ext_resource path="res://Images/Level_4/blue.png" type="Texture" id=16]
+[ext_resource path="res://Images/Level_2/Background/moon.png" type="Texture" id=17]
+[ext_resource path="res://Images/Level_4/saturn.png" type="Texture" id=18]
+[ext_resource path="res://Scenes/Levels/Level_4/Level_Logic.gd" type="Script" id=19]
+[ext_resource path="res://Images/Level_2/engine.png" type="Texture" id=20]
+[ext_resource path="res://Images/Level_2/flash/sheet.png" type="Texture" id=21]
+[ext_resource path="res://Scenes/FPS.gd" type="Script" id=22]
+[ext_resource path="res://Scenes/Weapons/ProjectileWeapons/Flame_Thrower/F_T_Dummy.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Scenes/Weapons/ProjectileWeapons/Machine_Gun/M_G_Dummy.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Scenes/Weapons/ProjectileWeapons/Laser_Gun/Laser_Gun_Dummy.tscn" type="PackedScene" id=27]
+[ext_resource path="res://Scenes/Weapons/ProjectileWeapons/Shot_Gun/Shot_Gun_Dummy.tscn" type="PackedScene" id=28]
+[ext_resource path="res://Images/Level_2/Background/ship_tile.png" type="Texture" id=29]
+
+[sub_resource type="OccluderPolygon2D" id=1]
+polygon = PoolVector2Array( 100, 100, 0, 100, 0, 0, 100, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=2]
+points = PoolVector2Array( 100, 100, 0, 100, 0, 0, 100, 0 )
+
+[sub_resource type="OccluderPolygon2D" id=3]
+polygon = PoolVector2Array( 0, 0, 100, 0, 100, 100, 0, 100 )
+
+[sub_resource type="ConvexPolygonShape2D" id=4]
+points = PoolVector2Array( 0, 0, 100, 0, 100, 100, 0, 100 )
+
+[sub_resource type="OccluderPolygon2D" id=5]
+polygon = PoolVector2Array( 100, 0, 0, 100, 0, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=6]
+points = PoolVector2Array( 0, 100, 0, 0, 100, 0, 100, 0 )
+
+[sub_resource type="TileSet" id=7]
+0/name = "floor.png 0"
+0/texture = ExtResource( 1 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 100, 100 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/occluder = SubResource( 1 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 2 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 2 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+1/name = "ship_tile.png 1"
+1/texture = ExtResource( 29 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 0, 0, 100, 100 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/occluder = SubResource( 3 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape = SubResource( 4 )
+1/shape_one_way = false
+1/shape_one_way_margin = 1.0
+1/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 4 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+1/z_index = 0
+2/name = "ship_tile_slope.png 2"
+2/texture = ExtResource( 15 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 0, 0, 100, 100 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/occluder = SubResource( 5 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape = SubResource( 6 )
+2/shape_one_way = false
+2/shape_one_way_margin = 1.0
+2/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 6 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+2/z_index = 0
+
+[sub_resource type="DynamicFont" id=8]
+size = 22
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 150
+font_data = ExtResource( 8 )
+
+[sub_resource type="Curve" id=10]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.153559 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=11]
+curve = SubResource( 10 )
+
+[sub_resource type="ParticlesMaterial" id=12]
+emission_shape = 1
+emission_sphere_radius = 78.64
+flag_disable_z = true
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 762.3
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 9.2
+scale_curve = SubResource( 11 )
+
+[sub_resource type="AtlasTexture" id=13]
+flags = 4
+atlas = ExtResource( 21 )
+region = Rect2( 0, 0, 544, 297 )
+
+[sub_resource type="AtlasTexture" id=14]
+flags = 4
+atlas = ExtResource( 21 )
+region = Rect2( 544, 0, 544, 297 )
+
+[sub_resource type="AtlasTexture" id=15]
+flags = 4
+atlas = ExtResource( 21 )
+region = Rect2( 1088, 0, 544, 297 )
+
+[sub_resource type="AtlasTexture" id=16]
+flags = 4
+atlas = ExtResource( 21 )
+region = Rect2( 1632, 0, 544, 297 )
+
+[sub_resource type="AtlasTexture" id=17]
+flags = 4
+atlas = ExtResource( 21 )
+region = Rect2( 2176, 0, 544, 297 )
+
+[sub_resource type="SpriteFrames" id=18]
+animations = [ {
+"frames": [ SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ],
+"loop": true,
+"name": "default",
+"speed": 15.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=19]
+extents = Vector2( 50, 50 )
+
+[sub_resource type="OccluderPolygon2D" id=20]
+polygon = PoolVector2Array( 50, -50, 50, 50, -50, 50, -50, -50 )
+
+[sub_resource type="Animation" id=21]
+resource_name = "move_back"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2, 3 ),
+"transitions": PoolRealArray( 2.14355, 0.482968, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 200, 0 ), Vector2( 100, 0 ), Vector2( 0, 0 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=22]
+length = 6.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2, 3, 4, 5 ),
+"transitions": PoolRealArray( 2.37841, 0.482968, 1, 2.07053, 0.482968, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 250, 0 ), Vector2( 500, 0 ), Vector2( 500, 0 ), Vector2( 250, 0 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=23]
+resource_name = "move_to"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2, 3 ),
+"transitions": PoolRealArray( 2.14355, 0.482968, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 100, 0 ), Vector2( 200, 0 ), Vector2( 200, 0 ) ]
+}
+
+[sub_resource type="Animation" id=24]
+resource_name = "move_back"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2, 3 ),
+"transitions": PoolRealArray( 2.14355, 0.482968, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 200, 0 ), Vector2( 100, 0 ), Vector2( 0, 0 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=25]
+length = 6.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2, 3, 4, 5 ),
+"transitions": PoolRealArray( 2.37841, 0.482968, 1, 2.07053, 0.482968, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 250, 0 ), Vector2( 500, 0 ), Vector2( 500, 0 ), Vector2( 250, 0 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=26]
+resource_name = "move_to"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2, 3 ),
+"transitions": PoolRealArray( 2.14355, 0.482968, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 100, 0 ), Vector2( 200, 0 ), Vector2( 200, 0 ) ]
+}
+
+[sub_resource type="Animation" id=27]
+resource_name = "move_back"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2, 3 ),
+"transitions": PoolRealArray( 2.14355, 0.482968, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 200, 0 ), Vector2( 100, 0 ), Vector2( 0, 0 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=28]
+length = 6.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2, 3, 4, 5 ),
+"transitions": PoolRealArray( 2.37841, 0.482968, 1, 2.07053, 0.482968, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 250, 0 ), Vector2( 500, 0 ), Vector2( 500, 0 ), Vector2( 250, 0 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=29]
+resource_name = "move_to"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2, 3 ),
+"transitions": PoolRealArray( 2.14355, 0.482968, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 100, 0 ), Vector2( 200, 0 ), Vector2( 200, 0 ) ]
+}
+
+[sub_resource type="Animation" id=30]
+resource_name = "move_back"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2, 3 ),
+"transitions": PoolRealArray( 2.14355, 0.482968, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 200, 0 ), Vector2( 100, 0 ), Vector2( 0, 0 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=31]
+length = 6.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2, 3, 4, 5 ),
+"transitions": PoolRealArray( 2.37841, 0.482968, 1, 2.07053, 0.482968, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 250, 0 ), Vector2( 500, 0 ), Vector2( 500, 0 ), Vector2( 250, 0 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=32]
+resource_name = "move_to"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2, 3 ),
+"transitions": PoolRealArray( 2.14355, 0.482968, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 100, 0 ), Vector2( 200, 0 ), Vector2( 200, 0 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=33]
+extents = Vector2( 200, 50 )
+
+[sub_resource type="OccluderPolygon2D" id=34]
+polygon = PoolVector2Array( 200, -50, 200, 50, -200, 50, -200, -50 )
+
+[node name="Game" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2( -300, -950 )
+current = true
+zoom = Vector2( 12, 12 )
+limit_left = -10000
+limit_top = -4300
+limit_right = 10000
+limit_bottom = 4000
+smoothing_enabled = true
+smoothing_speed = 10.0
+editor_draw_limits = true
+script = ExtResource( 4 )
+max_zoom = 12.0
+
+[node name="Players" type="Node2D" parent="."]
+
+[node name="TileMap" type="TileMap" parent="."]
+z_index = -100
+tile_set = SubResource( 7 )
+cell_size = Vector2( 100, 100 )
+format = 1
+tile_data = PoolIntArray( -2752513, 1610612738, 0, -2818048, -1073741822, 0, -2686978, 1610612738, 0, -2686977, 1, 0, -2752512, 1, 0, -2752511, -1073741822, 0, -2621443, 1610612738, 0, -2621442, 1, 0, -2621441, 2, 0, -2686976, -1610612734, 0, -2686975, 1, 0, -2686974, -1073741822, 0, -2555907, 1, 0, -2555906, 2, 0, -2621439, -1610612734, 0, -2621438, 1, 0, -2490371, 1, 0, -2555902, 1, 0, -2424836, 1610612738, 0, -2424835, 1, 0, -2490366, 1, 0, -2359300, 1, 0, -2359299, 1, 0, -2359297, 1, 0, -2424832, 1, 0, -2424830, 1, 0, -2424829, -1073741822, 0, -2293764, 1, 0, -2293763, 2, 0, -2359294, -1610612734, 0, -2359293, 1, 0, -2228229, 1610612738, 0, -2228228, 1, 0, -2293757, 1, 0, -2293756, -1073741822, 0, -2162693, 1, 0, -2162692, 1, 0, -2162691, 1, 0, -2162690, 1, 0, -2228223, 1, 0, -2228222, 1, 0, -2228221, 1, 0, -2228220, 1, 0, -2097158, 1610612738, 0, -2097157, 1, 0, -2162684, 1, 0, -2031622, 1, 0, -2031621, 1, 0, -2097148, 1, 0, -2097147, -1073741822, 0, -1966086, 1, 0, -1966085, 2, 0, -1966081, 1, 0, -2031612, -1610612734, 0, -2031611, 1, 0, -1900550, 1, 0, -1966080, 1, 0, -1966075, 1, 0, -1835014, 1, 0, -1835013, 1, 0, -1835012, 1, 0, -1900541, 1, 0, -1900540, 1, 0, -1900539, 1, 0, -1769478, 1, 0, -1769476, 1, 0, -1835005, 1, 0, -1835003, 1, 0, -1703942, 1, 0, -1769467, 1, 0, -1638406, 1, 0, -1703931, 1, 0, -1572870, 1, 0, -1638395, 1, 0, -1507334, 1, 0, -1572859, 1, 0, -1441798, 1, 0, -1507323, 1, 0, -1376262, 1, 0, -1441792, 1, 0, -1441791, 1, 0, -1441790, 1, 0, -1441789, 1, 0, -1441788, 1, 0, -1441787, 1, 0, -1310726, 1, 0, -1376251, 1, 0, -1245190, 1, 0, -1310715, 1, 0, -1179654, 1, 0, -1245179, 1, 0, -1114118, 1, 0, -1179643, 1, 0, -1048582, 1, 0, -1114107, 1, 0, -983046, 1, 0, -1048571, 1, 0, -917510, 1, 0, -983035, 1, 0, -851974, 1, 0, -917499, 1, 0, -786438, 1, 0, -851963, 1, 0, -720903, 1610612738, 0, -720902, 1, 0, -720901, 1, 0, -720900, 1, 0, -720899, 1, 0, -720898, 1, 0, -720897, 1, 0, -786427, 1, 0, -786426, -1073741822, 0, -655367, 1, 0, -720891, -1610612734, 0, -720890, 1, 0, -589831, 1, 0, -655354, 1, 0, -524295, 1, 0, -589818, 1, 0, -458759, 1, 0, -524282, 1, 0, -393223, 1, 0, -458746, 1, 0, -327688, 1610612738, 0, -327687, 1, 0, -393210, 1, 0, -393209, -1073741822, 0, -262152, 1, 0, -262151, 2, 0, -327674, -1610612734, 0, -327673, 1, 0, -196616, 1, 0, -262137, 1, 0, -131080, 1, 0, -196601, 1, 0, -65545, 1610612738, 0, -65544, 1, 0, -131065, 1, 0, -131064, -1073741822, 0, -9, 1, 0, -65528, 1, 0, 65527, 1, 0, 8, 1, 0, 131062, 1610612738, 0, 131063, 1, 0, 65544, 1, 0, 65545, -1073741822, 0, 196596, 1610612738, 0, 196597, 1, 0, 196598, 1, 0, 196599, 1, 0, 131080, 1, 0, 131081, 1, 0, 131082, 1, 0, 131083, -1073741822, 0, 262131, 1610612738, 0, 262132, 1, 0, 262133, 2, 0, 262135, 1, 0, 262136, 1, 0, 262137, 1, 0, 262138, 1, 0, 262139, 1, 0, 196612, 1, 0, 196613, 1, 0, 196614, 1, 0, 196615, 1, 0, 196616, 1, 0, 196618, -1610612734, 0, 196619, 1, 0, 196620, -1073741822, 0, 327666, 1610612738, 0, 327667, 1, 0, 327668, 2, 0, 327672, 1, 0, 327673, 1, 0, 262150, 1, 0, 262151, 1, 0, 262155, -1610612734, 0, 262156, 1, 0, 262157, -1073741822, 0, 393201, 1610612738, 0, 393202, 1, 0, 393203, 2, 0, 393209, 1, 0, 327686, 1, 0, 327692, -1610612734, 0, 327693, 1, 0, 327694, -1073741822, 0, 458735, 1610612738, 0, 458736, 1, 0, 458737, 1, 0, 458738, 2, 0, 393229, -1610612734, 0, 393230, 1, 0, 393231, 1, 0, 393232, -1073741822, 0, 524269, 1610612738, 0, 524270, 1, 0, 524271, 1, 0, 524272, 2, 0, 524283, 1, 0, 524284, 1, 0, 458755, 1, 0, 458756, 1, 0, 458767, -1610612734, 0, 458768, 1, 0, 458769, 1, 0, 458770, -1073741822, 0, 589804, 1610612738, 0, 589805, 1, 0, 589806, 2, 0, 589820, 1, 0, 589821, 1, 0, 589823, 1, 0, 524288, 1, 0, 524290, 1, 0, 524291, 1, 0, 524305, -1610612734, 0, 524306, 1, 0, 524307, -1073741822, 0, 655339, 1610612738, 0, 655340, 1, 0, 655341, 2, 0, 655357, 1, 0, 655358, 1, 0, 655359, 1, 0, 589824, 1, 0, 589825, 1, 0, 589826, 1, 0, 589842, -1610612734, 0, 589843, 1, 0, 589844, -1073741822, 0, 720873, 1610612738, 0, 720874, 1, 0, 720875, 1, 0, 720876, 2, 0, 720894, 1, 0, 720895, 1, 0, 655360, 1, 0, 655361, 1, 0, 655379, -1610612734, 0, 655380, 1, 0, 655381, 1, 0, 655382, -1073741822, 0, 786408, 1610612738, 0, 786409, 1, 0, 786410, 2, 0, 786431, 1, 0, 720896, 1, 0, 720917, -1610612734, 0, 720918, 1, 0, 720919, -1073741822, 0, 851943, 1610612738, 0, 851944, 1, 0, 851945, 2, 0, 851967, 1, 0, 786432, 1, 0, 786454, -1610612734, 0, 786455, 1, 0, 786456, -1073741822, 0, 917478, 1610612738, 0, 917479, 1, 0, 917480, 2, 0, 917503, 1, 0, 851968, 1, 0, 851991, -1610612734, 0, 851992, 1, 0, 851993, -1073741822, 0, 983013, 1610612738, 0, 983014, 1, 0, 983015, 2, 0, 983039, 1, 0, 917504, 1, 0, 917528, -1610612734, 0, 917529, 1, 0, 917530, -1073741822, 0, 1048549, 1, 0, 1048550, 1, 0, 1048551, 1, 0, 1048552, 1, 0, 1048556, 1, 0, 1048557, 1, 0, 1048558, 1, 0, 1048575, 1, 0, 983040, 1, 0, 983057, 1, 0, 983058, 1, 0, 983059, 1, 0, 983063, 1, 0, 983064, 1, 0, 983065, 1, 0, 983066, 1, 0, 1114085, 1, 0, 1114094, 1, 0, 1114111, 1, 0, 1048576, 1, 0, 1048593, 1, 0, 1048602, 1, 0, 1179621, 1, 0, 1179630, 1, 0, 1179647, 1, 0, 1114112, 1, 0, 1114129, 1, 0, 1114138, 1, 0, 1245157, 1, 0, 1245166, 1, 0, 1245167, 1, 0, 1245168, 1, 0, 1245183, 1, 0, 1179648, 1, 0, 1179663, 1, 0, 1179664, 1, 0, 1179665, 1, 0, 1179674, 1, 0, 1310693, 1, 0, 1310704, 1, 0, 1310705, 1, 0, 1310706, 1, 0, 1310707, 1, 0, 1310708, 1, 0, 1310709, 1, 0, 1310710, 1, 0, 1310719, 1, 0, 1245184, 1, 0, 1245193, 1, 0, 1245194, 1, 0, 1245195, 1, 0, 1245196, 1, 0, 1245197, 1, 0, 1245198, 1, 0, 1245199, 1, 0, 1245210, 1, 0, 1376229, 1, 0, 1376246, 1, 0, 1376247, 1, 0, 1376248, 1, 0, 1376249, 1, 0, 1376250, 1, 0, 1376251, 1, 0, 1376255, 1, 0, 1310720, 1, 0, 1310724, 1, 0, 1310725, 1, 0, 1310726, 1, 0, 1310727, 1, 0, 1310728, 1, 0, 1310729, 1, 0, 1310746, 1, 0, 1441765, 1, 0, 1441787, 1, 0, 1441791, 1, 0, 1376256, 1, 0, 1376260, 1, 0, 1376282, 1, 0, 1507301, -1610612734, 0, 1507302, 1, 0, 1507303, 1, 0, 1507304, 1, 0, 1507305, 1, 0, 1507306, 1, 0, 1507307, 1, 0, 1507308, 1, 0, 1507309, 1, 0, 1507310, 1, 0, 1507323, 1, 0, 1507327, 1, 0, 1441792, 1, 0, 1441796, 1, 0, 1441809, 1, 0, 1441810, 1, 0, 1441811, 1, 0, 1441812, 1, 0, 1441813, 1, 0, 1441814, 1, 0, 1441815, 1, 0, 1441816, 1, 0, 1441817, 1, 0, 1441818, 2, 0, 1572845, -1610612734, 0, 1572846, 1, 0, 1572847, 1, 0, 1572848, 1, 0, 1572849, 1, 0, 1572850, 1, 0, 1572851, 1, 0, 1572852, 1, 0, 1572853, 1, 0, 1572859, 1, 0, 1572863, 1, 0, 1507328, 1, 0, 1507332, 1, 0, 1507338, 1, 0, 1507339, 1, 0, 1507340, 1, 0, 1507341, 1, 0, 1507342, 1, 0, 1507343, 1, 0, 1507344, 1, 0, 1507345, 1, 0, 1507346, 2, 0, 1638388, -1610612734, 0, 1638389, 1, 0, 1638390, 1, 0, 1638391, 1, 0, 1638395, 1, 0, 1638396, 1, 0, 1638397, 1, 0, 1638398, 1, 0, 1638399, 1, 0, 1572864, 1, 0, 1572865, 1, 0, 1572866, 1, 0, 1572867, 1, 0, 1572868, 1, 0, 1572872, 1, 0, 1572873, 1, 0, 1572874, 1, 0, 1572875, 2, 0, 1703926, -1610612734, 0, 1703927, 1, 0, 1638408, 1, 0, 1638409, 2, 0, 1769463, 1, 0, 1703944, 1, 0, 1834999, -1610612734, 0, 1835000, 1, 0, 1835001, 1, 0, 1835002, 1, 0, 1835003, 1, 0, 1835004, 1, 0, 1835005, 1, 0, 1835006, 1, 0, 1835007, 1, 0, 1769472, 1, 0, 1769473, 1, 0, 1769474, 1, 0, 1769475, 1, 0, 1769476, 1, 0, 1769477, 1, 0, 1769478, 1, 0, 1769479, 1, 0, 1769480, 2, 0 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Player_Stats" type="Node" parent="CanvasLayer"]
+
+[node name="FPS" type="Label" parent="CanvasLayer"]
+margin_right = 48.0
+margin_bottom = 23.0
+custom_fonts/font = SubResource( 8 )
+text = "test"
+script = ExtResource( 22 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Countdown" type="Label" parent="CanvasLayer"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 36.73
+margin_top = -59.8565
+margin_right = 36.73
+margin_bottom = 90.1435
+custom_fonts/font = SubResource( 9 )
+align = 1
+valign = 1
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+last_string = "GO!!"
+
+[node name="Pause_Menu" parent="CanvasLayer" instance=ExtResource( 13 )]
+visible = false
+
+[node name="TransitionMask" parent="CanvasLayer" instance=ExtResource( 14 )]
+visible = false
+
+[node name="Spawns" type="Node2D" parent="."]
+
+[node name="Player_Spawn_1" type="Node2D" parent="Spawns"]
+position = Vector2( 48, -3870.99 )
+
+[node name="Player_Spawn_2" type="Node2D" parent="Spawns"]
+position = Vector2( -50.9512, 741.055 )
+
+[node name="Player_Spawn_3" type="Node2D" parent="Spawns"]
+position = Vector2( 2521.03, 2093.82 )
+
+[node name="Player_Spawn_4" type="Node2D" parent="Spawns"]
+position = Vector2( -2535.26, 2093.82 )
+
+[node name="Weapons" type="Node2D" parent="."]
+
+[node name="Pistol_Dummy" parent="Weapons" instance=ExtResource( 27 )]
+position = Vector2( -2250, 2150 )
+
+[node name="Shot_Gunl_Dummy" parent="Weapons/Pistol_Dummy" instance=ExtResource( 28 )]
+position = Vector2( 1850, -3400 )
+
+[node name="Pistol_Dummy2" parent="Weapons" instance=ExtResource( 27 )]
+position = Vector2( 2250, 2150 )
+
+[node name="Pistol_Dummy3" parent="Weapons" instance=ExtResource( 27 )]
+position = Vector2( 50, 750 )
+
+[node name="Pistol_Dummy4" parent="Weapons" instance=ExtResource( 27 )]
+position = Vector2( -50, -3750 )
+
+[node name="G_L_Dummy" parent="Weapons" instance=ExtResource( 7 )]
+position = Vector2( -250, 2350 )
+
+[node name="G_L_Dummy2" parent="Weapons" instance=ExtResource( 23 )]
+position = Vector2( -50, 2600 )
+
+[node name="Background" type="Node2D" parent="."]
+z_index = -1000
+
+[node name="Sprite" type="Sprite" parent="Background"]
+light_mask = 0
+position = Vector2( 250, -2400 )
+scale = Vector2( 1, 1.3 )
+texture = ExtResource( 11 )
+
+[node name="Sprite2" type="Sprite" parent="Background"]
+light_mask = 0
+position = Vector2( 200, 2262.5 )
+scale = Vector2( 1, 1.06875 )
+texture = ExtResource( 11 )
+
+[node name="Sprite3" type="Sprite" parent="Background"]
+light_mask = 0
+position = Vector2( 8150, 2075 )
+scale = Vector2( 1, 1.1875 )
+texture = ExtResource( 11 )
+
+[node name="Sprite4" type="Sprite" parent="Background"]
+light_mask = 0
+position = Vector2( 8100, -2850 )
+scale = Vector2( 1, 1.325 )
+texture = ExtResource( 11 )
+
+[node name="Sprite5" type="Sprite" parent="Background"]
+light_mask = 0
+position = Vector2( -7150, -2825 )
+scale = Vector2( 1, 1.3125 )
+texture = ExtResource( 11 )
+
+[node name="Sprite6" type="Sprite" parent="Background"]
+light_mask = 0
+position = Vector2( -7500, 1600 )
+texture = ExtResource( 11 )
+
+[node name="Sprite7" type="Sprite" parent="Background"]
+light_mask = 0
+position = Vector2( -7450, 2300 )
+texture = ExtResource( 11 )
+
+[node name="Engines" type="Node2D" parent="Background"]
+position = Vector2( -1800, 150 )
+rotation = 1.5708
+
+[node name="Particles2D" type="Particles2D" parent="Background/Engines"]
+position = Vector2( 2992.48, -1804.54 )
+scale = Vector2( 5, 5 )
+amount = 100
+lifetime = 0.5
+process_material = SubResource( 12 )
+
+[node name="engine2" type="Sprite" parent="Background/Engines"]
+position = Vector2( 2660.07, -1775.68 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 20 )
+
+[node name="AnimatedSprite4" type="AnimatedSprite" parent="Background/Engines"]
+position = Vector2( 3422.4, -1555.63 )
+scale = Vector2( 2, 2 )
+frames = SubResource( 18 )
+playing = true
+
+[node name="AnimatedSprite5" type="AnimatedSprite" parent="Background/Engines"]
+position = Vector2( 3422.4, -2053.44 )
+scale = Vector2( 2, 2 )
+frames = SubResource( 18 )
+frame = 4
+playing = true
+
+[node name="AnimatedSprite6" type="AnimatedSprite" parent="Background/Engines"]
+position = Vector2( 3150.87, -1798.88 )
+scale = Vector2( 2, 2 )
+frames = SubResource( 18 )
+frame = 4
+playing = true
+
+[node name="Planets" type="Node2D" parent="Background"]
+
+[node name="saturn" type="Sprite" parent="Background/Planets"]
+position = Vector2( 1600, -1250 )
+scale = Vector2( 3.25, 3.35 )
+texture = ExtResource( 18 )
+
+[node name="earth" type="Sprite" parent="Background/Planets"]
+position = Vector2( 500, -7950 )
+scale = Vector2( 1.6, 1.55 )
+texture = ExtResource( 12 )
+
+[node name="moon" type="Sprite" parent="Background/Planets/earth"]
+position = Vector2( -625, 548.388 )
+scale = Vector2( 0.1875, 0.177419 )
+texture = ExtResource( 17 )
+
+[node name="blue" type="Sprite" parent="Background/Planets"]
+position = Vector2( -1350, -2150 )
+scale = Vector2( 0.45, 0.4 )
+texture = ExtResource( 16 )
+
+[node name="Plates" type="Node2D" parent="Background"]
+
+[node name="metal_plate_light" type="Sprite" parent="Background/Plates"]
+position = Vector2( -950, 400 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light2" type="Sprite" parent="Background/Plates"]
+position = Vector2( -1200, 500 )
+scale = Vector2( 0.666667, 1 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light3" type="Sprite" parent="Background/Plates"]
+position = Vector2( -1200, 700 )
+scale = Vector2( 0.666667, 1 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light4" type="Sprite" parent="Background/Plates"]
+position = Vector2( -1450, 700 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light5" type="Sprite" parent="Background/Plates"]
+position = Vector2( -1450, 900 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light6" type="Sprite" parent="Background/Plates"]
+position = Vector2( -1750, 900 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light7" type="Sprite" parent="Background/Plates"]
+position = Vector2( -2050, 1100 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light8" type="Sprite" parent="Background/Plates"]
+position = Vector2( -2300, 1300 )
+scale = Vector2( 0.666667, 1 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light9" type="Sprite" parent="Background/Plates"]
+position = Vector2( -2500, 1450 )
+scale = Vector2( 0.666667, 0.5 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light10" type="Sprite" parent="Background/Plates"]
+position = Vector2( -2300, 1450 )
+scale = Vector2( 0.666667, 0.5 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light11" type="Sprite" parent="Background/Plates"]
+position = Vector2( -2050, 1300 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light12" type="Sprite" parent="Background/Plates"]
+position = Vector2( -2050, 1400 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light13" type="Sprite" parent="Background/Plates"]
+position = Vector2( -1750, 1100 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light14" type="Sprite" parent="Background/Plates"]
+position = Vector2( -1450, 1100 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light15" type="Sprite" parent="Background/Plates"]
+position = Vector2( -1750, 1300 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light16" type="Sprite" parent="Background/Plates"]
+position = Vector2( -1750, 1400 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light17" type="Sprite" parent="Background/Plates"]
+position = Vector2( -1450, 1300 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light18" type="Sprite" parent="Background/Plates"]
+position = Vector2( -1450, 1500 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light19" type="Sprite" parent="Background/Plates"]
+position = Vector2( -1750, 1600 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light20" type="Sprite" parent="Background/Plates"]
+position = Vector2( -1450, 1700 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light21" type="Sprite" parent="Background/Plates"]
+position = Vector2( -1750, 1700 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light22" type="Sprite" parent="Background/Plates"]
+position = Vector2( -2050, 1700 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light271" type="Sprite" parent="Background/Plates"]
+position = Vector2( -2050, 1600 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light27" type="Sprite" parent="Background/Plates"]
+position = Vector2( -2050, 1900 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light28" type="Sprite" parent="Background/Plates"]
+position = Vector2( -2050, 2100 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light29" type="Sprite" parent="Background/Plates"]
+position = Vector2( -2350, 1900 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light30" type="Sprite" parent="Background/Plates"]
+position = Vector2( -2350, 2100 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light31" type="Sprite" parent="Background/Plates"]
+position = Vector2( -2600, 1700 )
+scale = Vector2( 0.666667, 1 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light32" type="Sprite" parent="Background/Plates"]
+position = Vector2( -2600, 1900 )
+scale = Vector2( 0.666667, 1 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light33" type="Sprite" parent="Background/Plates"]
+position = Vector2( -2600, 2100 )
+scale = Vector2( 0.666667, 1 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light34" type="Sprite" parent="Background/Plates"]
+position = Vector2( -1450, 1900 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light35" type="Sprite" parent="Background/Plates"]
+position = Vector2( -1450, 2100 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light36" type="Sprite" parent="Background/Plates"]
+position = Vector2( -1450, 2200 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light39" type="Sprite" parent="Background/Plates"]
+position = Vector2( -1450, 2200 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light40" type="Sprite" parent="Background/Plates"]
+position = Vector2( -950, 600 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light251" type="Sprite" parent="Background/Plates"]
+position = Vector2( -650, 300 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light252" type="Sprite" parent="Background/Plates"]
+position = Vector2( -350, 300 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light257" type="Sprite" parent="Background/Plates"]
+position = Vector2( -350, 500 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light258" type="Sprite" parent="Background/Plates"]
+position = Vector2( -350, 700 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light259" type="Sprite" parent="Background/Plates"]
+position = Vector2( -50, 800 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light260" type="Sprite" parent="Background/Plates"]
+position = Vector2( -50, 600 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light261" type="Sprite" parent="Background/Plates"]
+position = Vector2( -50, 450 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light262" type="Sprite" parent="Background/Plates"]
+position = Vector2( 250, 500 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light268" type="Sprite" parent="Background/Plates"]
+position = Vector2( 550, 500 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light263" type="Sprite" parent="Background/Plates"]
+position = Vector2( 250, 700 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light264" type="Sprite" parent="Background/Plates"]
+position = Vector2( 250, 800 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light265" type="Sprite" parent="Background/Plates"]
+position = Vector2( 250, 800 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light253" type="Sprite" parent="Background/Plates"]
+position = Vector2( -50, 300 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light254" type="Sprite" parent="Background/Plates"]
+position = Vector2( 250, 300 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light255" type="Sprite" parent="Background/Plates"]
+position = Vector2( 550, 300 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light256" type="Sprite" parent="Background/Plates"]
+position = Vector2( 550, 300 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light266" type="Sprite" parent="Background/Plates"]
+position = Vector2( 650, 300 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light41" type="Sprite" parent="Background/Plates"]
+position = Vector2( -950, 800 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light42" type="Sprite" parent="Background/Plates"]
+position = Vector2( -950, 1000 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light58" type="Sprite" parent="Background/Plates"]
+position = Vector2( -650, 600 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light59" type="Sprite" parent="Background/Plates"]
+position = Vector2( -650, 750 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light60" type="Sprite" parent="Background/Plates"]
+position = Vector2( -650, 950 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light61" type="Sprite" parent="Background/Plates"]
+position = Vector2( -650, 1150 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light62" type="Sprite" parent="Background/Plates"]
+position = Vector2( -650, 1350 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light63" type="Sprite" parent="Background/Plates"]
+position = Vector2( -650, 1550 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light64" type="Sprite" parent="Background/Plates"]
+position = Vector2( -650, 1750 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light77" type="Sprite" parent="Background/Plates"]
+position = Vector2( -350, 1900 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light80" type="Sprite" parent="Background/Plates"]
+position = Vector2( -350, 1700 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light81" type="Sprite" parent="Background/Plates"]
+position = Vector2( -350, 1500 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light82" type="Sprite" parent="Background/Plates"]
+position = Vector2( -350, 1300 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light83" type="Sprite" parent="Background/Plates"]
+position = Vector2( -350, 1100 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light84" type="Sprite" parent="Background/Plates"]
+position = Vector2( -350, 900 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light85" type="Sprite" parent="Background/Plates"]
+position = Vector2( -50, 1200 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light86" type="Sprite" parent="Background/Plates"]
+position = Vector2( -50, 1400 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light87" type="Sprite" parent="Background/Plates"]
+position = Vector2( -50, 1600 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light88" type="Sprite" parent="Background/Plates"]
+position = Vector2( -50, 1700 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light89" type="Sprite" parent="Background/Plates"]
+position = Vector2( -350, 2100 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light90" type="Sprite" parent="Background/Plates"]
+position = Vector2( -350, 2300 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light91" type="Sprite" parent="Background/Plates"]
+position = Vector2( -50, 2300 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light92" type="Sprite" parent="Background/Plates"]
+position = Vector2( -50, 2100 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light93" type="Sprite" parent="Background/Plates"]
+position = Vector2( 50, 2300 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light94" type="Sprite" parent="Background/Plates"]
+position = Vector2( 50, 2100 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light95" type="Sprite" parent="Background/Plates"]
+position = Vector2( 50, 1900 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light96" type="Sprite" parent="Background/Plates"]
+position = Vector2( 50, 1700 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light97" type="Sprite" parent="Background/Plates"]
+position = Vector2( 50, 1500 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light98" type="Sprite" parent="Background/Plates"]
+position = Vector2( 50, 1300 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light99" type="Sprite" parent="Background/Plates"]
+position = Vector2( 50, 1100 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light100" type="Sprite" parent="Background/Plates"]
+position = Vector2( 350, 900 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light267" type="Sprite" parent="Background/Plates"]
+position = Vector2( 350, 900 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light101" type="Sprite" parent="Background/Plates"]
+position = Vector2( 350, 1100 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light102" type="Sprite" parent="Background/Plates"]
+position = Vector2( 350, 1300 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light103" type="Sprite" parent="Background/Plates"]
+position = Vector2( 350, 1500 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light104" type="Sprite" parent="Background/Plates"]
+position = Vector2( 350, 1700 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light105" type="Sprite" parent="Background/Plates"]
+position = Vector2( 350, 1900 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light106" type="Sprite" parent="Background/Plates"]
+position = Vector2( 350, 2100 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light107" type="Sprite" parent="Background/Plates"]
+position = Vector2( 350, 2300 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light108" type="Sprite" parent="Background/Plates"]
+position = Vector2( 650, 1900 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light109" type="Sprite" parent="Background/Plates"]
+position = Vector2( 650, 1700 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light110" type="Sprite" parent="Background/Plates"]
+position = Vector2( 650, 1500 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light111" type="Sprite" parent="Background/Plates"]
+position = Vector2( 650, 1300 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light112" type="Sprite" parent="Background/Plates"]
+position = Vector2( 650, 1100 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light113" type="Sprite" parent="Background/Plates"]
+position = Vector2( 650, 900 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light114" type="Sprite" parent="Background/Plates"]
+position = Vector2( 650, 700 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light115" type="Sprite" parent="Background/Plates"]
+position = Vector2( 650, 500 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light116" type="Sprite" parent="Background/Plates"]
+position = Vector2( 950, 400 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light126" type="Sprite" parent="Background/Plates"]
+position = Vector2( 1200, 500 )
+scale = Vector2( 0.666667, 1 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light127" type="Sprite" parent="Background/Plates"]
+position = Vector2( 1200, 700 )
+scale = Vector2( 0.666667, 1 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light128" type="Sprite" parent="Background/Plates"]
+position = Vector2( 1200, 900 )
+scale = Vector2( 0.666667, 1 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light129" type="Sprite" parent="Background/Plates"]
+position = Vector2( 1200, 1100 )
+scale = Vector2( 0.666667, 1 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light130" type="Sprite" parent="Background/Plates"]
+position = Vector2( 1200, 1300 )
+scale = Vector2( 0.666667, 1 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light131" type="Sprite" parent="Background/Plates"]
+position = Vector2( 1200, 1500 )
+scale = Vector2( 0.666667, 1 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light132" type="Sprite" parent="Background/Plates"]
+position = Vector2( 1200, 1700 )
+scale = Vector2( 0.666667, 1 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light133" type="Sprite" parent="Background/Plates"]
+position = Vector2( 1200, 1900 )
+scale = Vector2( 0.666667, 1 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light117" type="Sprite" parent="Background/Plates"]
+position = Vector2( 950, 600 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light134" type="Sprite" parent="Background/Plates"]
+position = Vector2( 1450, 700 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light135" type="Sprite" parent="Background/Plates"]
+position = Vector2( 1750, 900 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light136" type="Sprite" parent="Background/Plates"]
+position = Vector2( 2050, 1100 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light137" type="Sprite" parent="Background/Plates"]
+position = Vector2( 2300, 1300 )
+scale = Vector2( 0.666667, 1 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light138" type="Sprite" parent="Background/Plates"]
+position = Vector2( 2300, 1500 )
+scale = Vector2( 0.666667, 1 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light139" type="Sprite" parent="Background/Plates"]
+position = Vector2( 2500, 1500 )
+scale = Vector2( 0.666667, 1 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light140" type="Sprite" parent="Background/Plates"]
+position = Vector2( 2050, 1300 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light141" type="Sprite" parent="Background/Plates"]
+position = Vector2( 2050, 1500 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light142" type="Sprite" parent="Background/Plates"]
+position = Vector2( 1750, 1100 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light143" type="Sprite" parent="Background/Plates"]
+position = Vector2( 1750, 1300 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light144" type="Sprite" parent="Background/Plates"]
+position = Vector2( 1750, 1500 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light145" type="Sprite" parent="Background/Plates"]
+position = Vector2( 1750, 1700 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light146" type="Sprite" parent="Background/Plates"]
+position = Vector2( 1450, 1800 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light147" type="Sprite" parent="Background/Plates"]
+position = Vector2( 1450, 1600 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light166" type="Sprite" parent="Background/Plates"]
+position = Vector2( 2050, 1700 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light167" type="Sprite" parent="Background/Plates"]
+position = Vector2( 2050, 1900 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light168" type="Sprite" parent="Background/Plates"]
+position = Vector2( 2050, 2100 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light169" type="Sprite" parent="Background/Plates"]
+position = Vector2( 2350, 1700 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light170" type="Sprite" parent="Background/Plates"]
+position = Vector2( 2350, 1900 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light171" type="Sprite" parent="Background/Plates"]
+position = Vector2( 2350, 2100 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light172" type="Sprite" parent="Background/Plates"]
+position = Vector2( 2600, 1700 )
+scale = Vector2( 0.666667, 1 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light173" type="Sprite" parent="Background/Plates"]
+position = Vector2( 2600, 1900 )
+scale = Vector2( 0.666667, 1 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light174" type="Sprite" parent="Background/Plates"]
+position = Vector2( 2600, 2100 )
+scale = Vector2( 0.666667, 1 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light175" type="Sprite" parent="Background/Plates"]
+position = Vector2( 2600, 2100 )
+scale = Vector2( 0.666667, 1 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light148" type="Sprite" parent="Background/Plates"]
+position = Vector2( 1450, 1400 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light149" type="Sprite" parent="Background/Plates"]
+position = Vector2( 1450, 1200 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light150" type="Sprite" parent="Background/Plates"]
+position = Vector2( 1450, 1000 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light151" type="Sprite" parent="Background/Plates"]
+position = Vector2( 1450, 900 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light152" type="Sprite" parent="Background/Plates"]
+position = Vector2( 1450, 900 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light118" type="Sprite" parent="Background/Plates"]
+position = Vector2( 950, 800 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light249" type="Sprite" parent="Background/Plates"]
+position = Vector2( -650, 400 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light250" type="Sprite" parent="Background/Plates"]
+position = Vector2( -650, 400 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light119" type="Sprite" parent="Background/Plates"]
+position = Vector2( 950, 1000 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light269" type="Sprite" parent="Background/Plates"]
+position = Vector2( 450, 550 )
+scale = Vector2( 0.333333, 1.5 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light120" type="Sprite" parent="Background/Plates"]
+position = Vector2( 950, 1200 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light121" type="Sprite" parent="Background/Plates"]
+position = Vector2( 950, 1400 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light122" type="Sprite" parent="Background/Plates"]
+position = Vector2( 950, 1600 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light123" type="Sprite" parent="Background/Plates"]
+position = Vector2( 950, 1800 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light124" type="Sprite" parent="Background/Plates"]
+position = Vector2( 950, 1900 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light125" type="Sprite" parent="Background/Plates"]
+position = Vector2( 950, 1900 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light78" type="Sprite" parent="Background/Plates"]
+position = Vector2( -50, 1900 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light79" type="Sprite" parent="Background/Plates"]
+position = Vector2( -50, 1900 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light65" type="Sprite" parent="Background/Plates"]
+position = Vector2( -650, 1950 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light66" type="Sprite" parent="Background/Plates"]
+position = Vector2( -650, 2150 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light67" type="Sprite" parent="Background/Plates"]
+position = Vector2( -650, 2350 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light68" type="Sprite" parent="Background/Plates"]
+position = Vector2( -650, 2600 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light69" type="Sprite" parent="Background/Plates"]
+position = Vector2( -650, 2500 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light70" type="Sprite" parent="Background/Plates"]
+position = Vector2( -350, 2600 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light71" type="Sprite" parent="Background/Plates"]
+position = Vector2( -50, 2600 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light72" type="Sprite" parent="Background/Plates"]
+position = Vector2( 250, 2600 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light73" type="Sprite" parent="Background/Plates"]
+position = Vector2( 550, 2600 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light74" type="Sprite" parent="Background/Plates"]
+position = Vector2( 550, 2400 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light75" type="Sprite" parent="Background/Plates"]
+position = Vector2( 550, 2200 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light76" type="Sprite" parent="Background/Plates"]
+position = Vector2( 550, 2200 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light153" type="Sprite" parent="Background/Plates"]
+position = Vector2( 800, 2600 )
+scale = Vector2( 0.666667, 1 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light154" type="Sprite" parent="Background/Plates"]
+position = Vector2( 800, 2400 )
+scale = Vector2( 0.666667, 1 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light155" type="Sprite" parent="Background/Plates"]
+position = Vector2( 800, 2200 )
+scale = Vector2( 0.666667, 1 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light156" type="Sprite" parent="Background/Plates"]
+position = Vector2( 1050, 2300 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light157" type="Sprite" parent="Background/Plates"]
+position = Vector2( 1050, 2100 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light158" type="Sprite" parent="Background/Plates"]
+position = Vector2( 1350, 2200 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light159" type="Sprite" parent="Background/Plates"]
+position = Vector2( 1350, 2100 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light160" type="Sprite" parent="Background/Plates"]
+position = Vector2( 1650, 2200 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light161" type="Sprite" parent="Background/Plates"]
+position = Vector2( 1650, 2100 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light162" type="Sprite" parent="Background/Plates"]
+position = Vector2( 1650, 2000 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light163" type="Sprite" parent="Background/Plates"]
+position = Vector2( 1750, 1900 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light164" type="Sprite" parent="Background/Plates"]
+position = Vector2( 1750, 2100 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light165" type="Sprite" parent="Background/Plates"]
+position = Vector2( 1750, 2100 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light43" type="Sprite" parent="Background/Plates"]
+position = Vector2( -950, 1200 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light44" type="Sprite" parent="Background/Plates"]
+position = Vector2( -950, 1350 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light45" type="Sprite" parent="Background/Plates"]
+position = Vector2( -950, 1350 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light46" type="Sprite" parent="Background/Plates"]
+position = Vector2( -950, 1550 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light47" type="Sprite" parent="Background/Plates"]
+position = Vector2( -950, 1600 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light48" type="Sprite" parent="Background/Plates"]
+position = Vector2( -950, 1650 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light49" type="Sprite" parent="Background/Plates"]
+position = Vector2( -950, 1850 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light50" type="Sprite" parent="Background/Plates"]
+position = Vector2( -950, 2050 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light51" type="Sprite" parent="Background/Plates"]
+position = Vector2( -950, 2250 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light52" type="Sprite" parent="Background/Plates"]
+position = Vector2( -950, 2300 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light53" type="Sprite" parent="Background/Plates"]
+position = Vector2( -1200, 2150 )
+scale = Vector2( 0.666667, 1.5 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light54" type="Sprite" parent="Background/Plates"]
+position = Vector2( -1200, 1750 )
+scale = Vector2( 0.666667, 1.5 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light55" type="Sprite" parent="Background/Plates"]
+position = Vector2( -1200, 1450 )
+scale = Vector2( 0.666667, 1.5 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light56" type="Sprite" parent="Background/Plates"]
+position = Vector2( -1200, 1150 )
+scale = Vector2( 0.666667, 1.5 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light57" type="Sprite" parent="Background/Plates"]
+position = Vector2( -1200, 900 )
+scale = Vector2( 0.666667, 1.5 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light37" type="Sprite" parent="Background/Plates"]
+position = Vector2( -1750, 2200 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light38" type="Sprite" parent="Background/Plates"]
+position = Vector2( -1750, 2200 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light23" type="Sprite" parent="Background/Plates"]
+position = Vector2( -2350, 1700 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light270" type="Sprite" parent="Background/Plates"]
+position = Vector2( -2350, 1600 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light24" type="Sprite" parent="Background/Plates"]
+position = Vector2( -1750, 1900 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light25" type="Sprite" parent="Background/Plates"]
+position = Vector2( -1750, 2100 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light26" type="Sprite" parent="Background/Plates"]
+position = Vector2( -1750, 2100 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light176" type="Sprite" parent="Background/Plates"]
+position = Vector2( -100, -3950 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light177" type="Sprite" parent="Background/Plates"]
+position = Vector2( 100, -3950 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light178" type="Sprite" parent="Background/Plates"]
+position = Vector2( -200, -3650 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light179" type="Sprite" parent="Background/Plates"]
+position = Vector2( 0, -3650 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light180" type="Sprite" parent="Background/Plates"]
+position = Vector2( 200, -3650 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light181" type="Sprite" parent="Background/Plates"]
+position = Vector2( 300, -3350 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light182" type="Sprite" parent="Background/Plates"]
+position = Vector2( 100, -3350 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light183" type="Sprite" parent="Background/Plates"]
+position = Vector2( -100, -3350 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light184" type="Sprite" parent="Background/Plates"]
+position = Vector2( -300, -3350 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light185" type="Sprite" parent="Background/Plates"]
+position = Vector2( -400, -3050 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light186" type="Sprite" parent="Background/Plates"]
+position = Vector2( -200, -3050 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light187" type="Sprite" parent="Background/Plates"]
+position = Vector2( 0, -3050 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light188" type="Sprite" parent="Background/Plates"]
+position = Vector2( 200, -3050 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light189" type="Sprite" parent="Background/Plates"]
+position = Vector2( 400, -3050 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light190" type="Sprite" parent="Background/Plates"]
+position = Vector2( -400, -2750 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light191" type="Sprite" parent="Background/Plates"]
+position = Vector2( -250, -2750 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light192" type="Sprite" parent="Background/Plates"]
+position = Vector2( -150, -2750 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light193" type="Sprite" parent="Background/Plates"]
+position = Vector2( 0, -2750 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light194" type="Sprite" parent="Background/Plates"]
+position = Vector2( 150, -2750 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light195" type="Sprite" parent="Background/Plates"]
+position = Vector2( 300, -2750 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light196" type="Sprite" parent="Background/Plates"]
+position = Vector2( 450, -2750 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light197" type="Sprite" parent="Background/Plates"]
+position = Vector2( -400, -2450 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light198" type="Sprite" parent="Background/Plates"]
+position = Vector2( -400, -2150 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light199" type="Sprite" parent="Background/Plates"]
+position = Vector2( -500, -1850 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light200" type="Sprite" parent="Background/Plates"]
+position = Vector2( -400, -1550 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light201" type="Sprite" parent="Background/Plates"]
+position = Vector2( -450, -1250 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light202" type="Sprite" parent="Background/Plates"]
+position = Vector2( -300, -1850 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light203" type="Sprite" parent="Background/Plates"]
+position = Vector2( -200, -1550 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light204" type="Sprite" parent="Background/Plates"]
+position = Vector2( -250, -1250 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light205" type="Sprite" parent="Background/Plates"]
+position = Vector2( -50, -1250 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light206" type="Sprite" parent="Background/Plates"]
+position = Vector2( 150, -1250 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light207" type="Sprite" parent="Background/Plates"]
+position = Vector2( 0, -1550 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light208" type="Sprite" parent="Background/Plates"]
+position = Vector2( 200, -1550 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light209" type="Sprite" parent="Background/Plates"]
+position = Vector2( 400, -1550 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light210" type="Sprite" parent="Background/Plates"]
+position = Vector2( 350, -1250 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light211" type="Sprite" parent="Background/Plates"]
+position = Vector2( 450, -1250 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light227" type="Sprite" parent="Background/Plates"]
+position = Vector2( -500, -950 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light228" type="Sprite" parent="Background/Plates"]
+position = Vector2( -300, -950 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light229" type="Sprite" parent="Background/Plates"]
+position = Vector2( -100, -950 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light230" type="Sprite" parent="Background/Plates"]
+position = Vector2( 100, -950 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light231" type="Sprite" parent="Background/Plates"]
+position = Vector2( 300, -950 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light232" type="Sprite" parent="Background/Plates"]
+position = Vector2( 500, -950 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light233" type="Sprite" parent="Background/Plates"]
+position = Vector2( -500, -650 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light241" type="Sprite" parent="Background/Plates"]
+position = Vector2( -600, -450 )
+rotation = 1.5708
+scale = Vector2( 0.333, 1 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light242" type="Sprite" parent="Background/Plates"]
+position = Vector2( -400, -450 )
+rotation = 1.5708
+scale = Vector2( 0.333, 1 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light243" type="Sprite" parent="Background/Plates"]
+position = Vector2( -200, -450 )
+rotation = 1.5708
+scale = Vector2( 0.333, 1 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light244" type="Sprite" parent="Background/Plates"]
+position = Vector2( 0, -450 )
+rotation = 1.5708
+scale = Vector2( 0.333, 1 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light245" type="Sprite" parent="Background/Plates"]
+position = Vector2( 200, -450 )
+rotation = 1.5708
+scale = Vector2( 0.333, 1 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light246" type="Sprite" parent="Background/Plates"]
+position = Vector2( 400, -450 )
+rotation = 1.5708
+scale = Vector2( 0.333, 1 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light247" type="Sprite" parent="Background/Plates"]
+position = Vector2( 600, -450 )
+rotation = 1.5708
+scale = Vector2( 0.333, 1 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light248" type="Sprite" parent="Background/Plates"]
+position = Vector2( 600, -450 )
+rotation = 1.5708
+scale = Vector2( 0.333, 1 )
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light234" type="Sprite" parent="Background/Plates"]
+position = Vector2( -350, -650 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light235" type="Sprite" parent="Background/Plates"]
+position = Vector2( -200, -650 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light236" type="Sprite" parent="Background/Plates"]
+position = Vector2( 0, -650 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light237" type="Sprite" parent="Background/Plates"]
+position = Vector2( 200, -650 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light238" type="Sprite" parent="Background/Plates"]
+position = Vector2( 400, -650 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light239" type="Sprite" parent="Background/Plates"]
+position = Vector2( 500, -650 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light240" type="Sprite" parent="Background/Plates"]
+position = Vector2( 500, -650 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light212" type="Sprite" parent="Background/Plates"]
+position = Vector2( -100, -1850 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light213" type="Sprite" parent="Background/Plates"]
+position = Vector2( 100, -1850 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light214" type="Sprite" parent="Background/Plates"]
+position = Vector2( 200, -1850 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light215" type="Sprite" parent="Background/Plates"]
+position = Vector2( 350, -1850 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light216" type="Sprite" parent="Background/Plates"]
+position = Vector2( 400, -1850 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light217" type="Sprite" parent="Background/Plates"]
+position = Vector2( -200, -2150 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light218" type="Sprite" parent="Background/Plates"]
+position = Vector2( 0, -2150 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light219" type="Sprite" parent="Background/Plates"]
+position = Vector2( 200, -2150 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light220" type="Sprite" parent="Background/Plates"]
+position = Vector2( 400, -2150 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light221" type="Sprite" parent="Background/Plates"]
+position = Vector2( -200, -2450 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light222" type="Sprite" parent="Background/Plates"]
+position = Vector2( -50, -2450 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light223" type="Sprite" parent="Background/Plates"]
+position = Vector2( 150, -2450 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light224" type="Sprite" parent="Background/Plates"]
+position = Vector2( 350, -2450 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light225" type="Sprite" parent="Background/Plates"]
+position = Vector2( 450, -2450 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+
+[node name="metal_plate_light226" type="Sprite" parent="Background/Plates"]
+position = Vector2( 450, -2450 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+
+[node name="Corridor" type="Node2D" parent="Background"]
+
+[node name="bridge_window" type="Sprite" parent="Background/Corridor"]
+position = Vector2( 0, -250 )
+scale = Vector2( 1.5, 1 )
+texture = ExtResource( 5 )
+
+[node name="bridge_window3" type="Sprite" parent="Background/Corridor"]
+position = Vector2( 500, 50 )
+scale = Vector2( 1.5, 1 )
+texture = ExtResource( 5 )
+
+[node name="bridge_window5" type="Sprite" parent="Background/Corridor"]
+position = Vector2( 1.52588e-05, 50 )
+scale = Vector2( 1, 1 )
+texture = ExtResource( 5 )
+
+[node name="bridge_window4" type="Sprite" parent="Background/Corridor"]
+position = Vector2( -500, 50 )
+scale = Vector2( 1.5, 1 )
+texture = ExtResource( 5 )
+
+[node name="bridge_window2" type="Sprite" parent="Background/Corridor"]
+position = Vector2( 500, -250 )
+texture = ExtResource( 5 )
+
+[node name="bridge_window6" type="Sprite" parent="Background/Corridor"]
+position = Vector2( -500, -250 )
+texture = ExtResource( 5 )
+
+[node name="Assets" type="Node2D" parent="Background"]
+
+[node name="Level_Logic" type="Node" parent="."]
+script = ExtResource( 19 )
+
+[node name="Doors" type="Node2D" parent="."]
+
+[node name="Door" parent="Doors" instance=ExtResource( 2 )]
+position = Vector2( -1750, 2050 )
+
+[node name="Door2" parent="Doors" instance=ExtResource( 2 )]
+position = Vector2( 1750, 2050 )
+
+[node name="Door3" parent="Doors" instance=ExtResource( 2 )]
+position = Vector2( 457, 550 )
+
+[node name="Door4" parent="Doors" instance=ExtResource( 2 )]
+position = Vector2( -450, 550 )
+
+[node name="Door5" parent="Doors" instance=ExtResource( 2 )]
+position = Vector2( 2150, 1550 )
+rotation = 1.5708
+
+[node name="Door6" parent="Doors" instance=ExtResource( 2 )]
+position = Vector2( -2150, 1550 )
+rotation = -1.5708
+
+[node name="Moving_Platforms" type="Node2D" parent="."]
+
+[node name="MovingPlatform" parent="Moving_Platforms" instance=ExtResource( 6 )]
+position = Vector2( 150, -950 )
+
+[node name="Sprite" parent="Moving_Platforms/MovingPlatform" index="0"]
+scale = Vector2( 1, 1 )
+
+[node name="CollisionShape2D" parent="Moving_Platforms/MovingPlatform" index="1"]
+shape = SubResource( 19 )
+
+[node name="to_position" parent="Moving_Platforms/MovingPlatform" index="3"]
+position = Vector2( 0, 700 )
+
+[node name="LightOccluder2D" parent="Moving_Platforms/MovingPlatform" index="4"]
+occluder = SubResource( 20 )
+
+[node name="MovingPlatform2" parent="Moving_Platforms" instance=ExtResource( 6 )]
+position = Vector2( 350, -750 )
+
+[node name="Sprite" parent="Moving_Platforms/MovingPlatform2" index="0"]
+scale = Vector2( 1, 1 )
+
+[node name="CollisionShape2D" parent="Moving_Platforms/MovingPlatform2" index="1"]
+shape = SubResource( 19 )
+
+[node name="AnimationPlayer" parent="Moving_Platforms/MovingPlatform2" index="2"]
+anims/move_back = SubResource( 21 )
+anims/move_r = SubResource( 22 )
+anims/move_to = SubResource( 23 )
+
+[node name="to_position" parent="Moving_Platforms/MovingPlatform2" index="3"]
+position = Vector2( 0, 400 )
+
+[node name="LightOccluder2D" parent="Moving_Platforms/MovingPlatform2" index="4"]
+occluder = SubResource( 20 )
+
+[node name="MovingPlatform3" parent="Moving_Platforms" instance=ExtResource( 6 )]
+position = Vector2( 450, -250 )
+
+[node name="Sprite" parent="Moving_Platforms/MovingPlatform3" index="0"]
+scale = Vector2( 1, 1 )
+
+[node name="CollisionShape2D" parent="Moving_Platforms/MovingPlatform3" index="1"]
+shape = SubResource( 19 )
+
+[node name="AnimationPlayer" parent="Moving_Platforms/MovingPlatform3" index="2"]
+anims/move_back = SubResource( 24 )
+anims/move_r = SubResource( 25 )
+anims/move_to = SubResource( 26 )
+
+[node name="to_position" parent="Moving_Platforms/MovingPlatform3" index="3"]
+position = Vector2( 0, -500 )
+
+[node name="LightOccluder2D" parent="Moving_Platforms/MovingPlatform3" index="4"]
+occluder = SubResource( 20 )
+
+[node name="MovingPlatform4" parent="Moving_Platforms" instance=ExtResource( 6 )]
+position = Vector2( 50, -350 )
+
+[node name="Sprite" parent="Moving_Platforms/MovingPlatform4" index="0"]
+scale = Vector2( 1, 1 )
+
+[node name="CollisionShape2D" parent="Moving_Platforms/MovingPlatform4" index="1"]
+shape = SubResource( 19 )
+
+[node name="AnimationPlayer" parent="Moving_Platforms/MovingPlatform4" index="2"]
+anims/move_back = SubResource( 27 )
+anims/move_r = SubResource( 28 )
+anims/move_to = SubResource( 29 )
+
+[node name="to_position" parent="Moving_Platforms/MovingPlatform4" index="3"]
+position = Vector2( -2, -300 )
+
+[node name="LightOccluder2D" parent="Moving_Platforms/MovingPlatform4" index="4"]
+occluder = SubResource( 20 )
+
+[node name="MovingPlatform5" parent="Moving_Platforms" instance=ExtResource( 6 )]
+position = Vector2( 250, -450 )
+
+[node name="Sprite" parent="Moving_Platforms/MovingPlatform5" index="0"]
+scale = Vector2( 1, 1 )
+
+[node name="CollisionShape2D" parent="Moving_Platforms/MovingPlatform5" index="1"]
+shape = SubResource( 19 )
+
+[node name="AnimationPlayer" parent="Moving_Platforms/MovingPlatform5" index="2"]
+anims/move_back = SubResource( 30 )
+anims/move_r = SubResource( 31 )
+anims/move_to = SubResource( 32 )
+
+[node name="to_position" parent="Moving_Platforms/MovingPlatform5" index="3"]
+position = Vector2( 0, -700 )
+
+[node name="LightOccluder2D" parent="Moving_Platforms/MovingPlatform5" index="4"]
+occluder = SubResource( 20 )
+
+[node name="MovingPlatform6" parent="Moving_Platforms" instance=ExtResource( 6 )]
+position = Vector2( 0, -2750 )
+
+[node name="Sprite" parent="Moving_Platforms/MovingPlatform6" index="0"]
+scale = Vector2( 4, 1 )
+
+[node name="CollisionShape2D" parent="Moving_Platforms/MovingPlatform6" index="1"]
+shape = SubResource( 33 )
+
+[node name="to_position" parent="Moving_Platforms/MovingPlatform6" index="3"]
+position = Vector2( -250, 600 )
+
+[node name="LightOccluder2D" parent="Moving_Platforms/MovingPlatform6" index="4"]
+occluder = SubResource( 34 )
+
+[node name="Pistol_Dummy" parent="." instance=ExtResource( 24 )]
+position = Vector2( 250, 2350 )
+
+[editable path="Moving_Platforms/MovingPlatform"]
+
+[editable path="Moving_Platforms/MovingPlatform2"]
+
+[editable path="Moving_Platforms/MovingPlatform3"]
+
+[editable path="Moving_Platforms/MovingPlatform4"]
+
+[editable path="Moving_Platforms/MovingPlatform5"]
+
+[editable path="Moving_Platforms/MovingPlatform6"]

@@ -14,7 +14,7 @@ func _ready():
 		ray.add_exception(b)
 	initialized = true
 	rotation = initial_direction.angle()
-	initial_position = global_position
+	initial_position = weapon.global_position
 	
 func _process(delta):
 	
