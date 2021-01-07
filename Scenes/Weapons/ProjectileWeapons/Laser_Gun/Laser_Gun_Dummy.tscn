@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Images/Weapons/laser.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Weapons/Rigid_Dummy.gd" type="Script" id=2]
+
+[node name="Pistol_Dummy" type="RigidBody2D"]
+mass = 0.3
+gravity_scale = 30.0
+script = ExtResource( 2 )
+initial_weapon_path = "res://Scenes/Weapons/ProjectileWeapons/Laser_Gun/Laser_Gun.tscn"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2( 0.2, 0.2 )
+polygon = PoolVector2Array( -114.211, -72.3929, -58.8568, -117.58, 361.384, -123.228, 352.347, -21.5573, 182.895, -9.13082, 167.079, 6.68468, 81.2235, 13.4628, 24.7395, 84.6326, -53.2084, 82.3732, -131.156, 120.782, -168.436, 72.2061, -87.0988, -0.0933838 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 1 )
+offset = Vector2( 98.8117, -36.2552 )

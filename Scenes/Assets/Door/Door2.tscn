@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/Assets/Moving_Platform/Moving_Platform.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Assets/Door/Door.gd" type="Script" id=2]
+[ext_resource path="res://Images/Level_2/door.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 169.316, 149.926 )
+
+[node name="Door" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Trigger_Area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trigger_Area"]
+shape = SubResource( 1 )
+
+[node name="MovingPlatform" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, 0 )
+movign_r_on_default = false
+is_child = true
+
+[node name="Sprite" parent="MovingPlatform" index="0"]
+scale = Vector2( 0.8, 1 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" parent="MovingPlatform" index="1"]
+rotation = 1.5708
+
+[node name="LightOccluder2D" parent="MovingPlatform" index="4"]
+rotation = 1.5708
+
+[node name="to_position" type="Node2D" parent="."]
+position = Vector2( 0, -300 )
+[connection signal="body_entered" from="Trigger_Area" to="." method="_on_Trigger_Area_body_entered"]
+[connection signal="body_exited" from="Trigger_Area" to="." method="_on_Trigger_Area_body_exited"]
+
+[editable path="MovingPlatform"]

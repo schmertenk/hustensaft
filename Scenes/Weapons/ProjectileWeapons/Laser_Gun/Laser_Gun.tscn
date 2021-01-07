@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Images/Weapons/laser.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Weapons/ProjectileWeapons/ProjectileWeapon.gd" type="Script" id=2]
+
+[node name="Laser_Gun" type="Node2D"]
+script = ExtResource( 2 )
+damage = 20.0
+armor_multiplier = 1.0
+flesh_multiplier = 1.0
+rigid_dummy_path = "res://Scenes/Weapons/ProjectileWeapons/Laser_Gun/Laser_Gun_Dummy.tscn"
+fire_rate = 400.0
+shoot_sound_name = "laser_shot"
+projectile_path = "res://Scenes/Weapons/Projectiles/RayProjectiles/LaserBullet.tscn"
+projectile_speed = 100.0
+spray = 0.06
+fire_range = 1350.0
+stack_size = 99999
+can_reload = false
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, 5 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 1 )
+offset = Vector2( 155, 0 )

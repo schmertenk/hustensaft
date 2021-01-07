@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Images/Secondaries/armor_recharger.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Secondaries/Stat_Buff.gd" type="Script" id=2]
+
+[node name="Medipack" type="Node2D"]
+script = ExtResource( 2 )
+reload_time = 1000
+uses_per_round = 2
+uses_per_set = 2
+set_length = 2
+icon = ExtResource( 1 )
+_name = "Shield recharger"
+description = "gives you back a good amount of your shield"
+stat = "armor"
+value = 50.0
+time = 300.0

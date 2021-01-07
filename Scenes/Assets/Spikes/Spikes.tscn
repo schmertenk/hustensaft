@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Images/spikes.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Assets/Spikes/Spikes.gd" type="Script" id=2]
+
+[node name="Node2D" type="Sprite"]
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PoolVector2Array( -49.2885, 48.9089, -24.2013, 0.0547714, 0.00572205, 48.9089, 25.093, 1.37515, 49.7401, 50.2293 )
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Medi_Exlosion.wav-721a240006f1b528c9fce12279d7e740.sample"
+
+[deps]
+
+source_file="res://Sounds/Effects/Medi_Exlosion.wav"
+dest_files=[ "res://.import/Medi_Exlosion.wav-721a240006f1b528c9fce12279d7e740.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

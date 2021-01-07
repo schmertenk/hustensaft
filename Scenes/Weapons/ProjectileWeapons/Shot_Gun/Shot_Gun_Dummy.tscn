@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Images/Weapons/shotgun.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Weapons/Rigid_Dummy.gd" type="Script" id=2]
+
+[node name="Shot_Gunl_Dummy" type="RigidBody2D"]
+mass = 0.3
+gravity_scale = 30.0
+script = ExtResource( 2 )
+initial_weapon_path = "res://Scenes/Weapons/ProjectileWeapons/Shot_Gun/Shot_Gun.tscn"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 77.9515, -21.7108, 77.6741, -11.7247, 65.4689, -12.0021, 65.4689, -7.00909, 16.9257, -7.28648, 16.3709, -3.68041, -31.3402, -3.12563, -29.6759, 1.03522, -37.7202, 7.69258, -44.9323, 9.63432, -48.261, 8.24736, -54.9184, 23.2264, -65.414, 26.0003, -73.4583, 21.5621, -76.2322, 11.8534, -73.1809, 2.14478, -65.1366, -5.89953, -54.041, -8.95082, -47.6611, -16.4404, -41.0037, -18.3821, -40.7263, -21.7108 )
+
+[node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 0.756863, 0.756863, 0.756863, 1 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 1 )

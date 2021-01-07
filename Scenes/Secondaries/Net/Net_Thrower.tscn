@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Secondaries/Net/Net_Thrower.gd" type="Script" id=1]
+[ext_resource path="res://Images/circle.png" type="Texture" id=2]
+
+[node name="Net_Thrower" type="Node2D"]
+script = ExtResource( 1 )
+uses_per_set = 3
+icon = ExtResource( 2 )
+_name = "Net"
+description = "Throw a net against an enemy to pin him to a wall for some time"

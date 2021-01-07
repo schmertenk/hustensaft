@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Secondaries/Gravity_Changer/Gravity_Changer.gd" type="Script" id=1]
+[ext_resource path="res://Images/Secondaries/gravity_flip.png" type="Texture" id=2]
+
+[node name="Gravity_Changer" type="Node2D"]
+script = ExtResource( 1 )
+reload_time = 1000
+icon = ExtResource( 2 )
+_name = "gravity flipper"
+description = "flips gravity for all enemies when used"

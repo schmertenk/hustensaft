@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/ui/Out_Of_Screen_Indicator/Out_Of_Screen_Indicator.gd" type="Script" id=1]
+[ext_resource path="res://Images/ui/arrow.png" type="Texture" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "point"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 2.82843, 0.466517, 0.466517 ),
+"update": 0,
+"values": [ Vector2( 0, 200 ), Vector2( 0, 150 ), Vector2( 0, 200 ) ]
+}
+
+[node name="OOSI" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+rotation = 1.5708
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 2 )
+offset = Vector2( 0, 174.57 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/point = SubResource( 1 )
