@@ -6,6 +6,7 @@ signal hit
 
 const STATE_STOPPED = 0
 const STATE_FLYING = 1
+const STATE_WAITING = 2
 
 var speed = 10
 var flies_through = 1
