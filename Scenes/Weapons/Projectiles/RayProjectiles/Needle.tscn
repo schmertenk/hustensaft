@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Images/needle_bullet.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Weapons/Projectiles/RayProjectiles/FollowRayProjectile.gd" type="Script" id=2]
+
+[node name="Needle" type="Sprite"]
+texture = ExtResource( 1 )
+offset = Vector2( -30, 0 )
+script = ExtResource( 2 )
+accuracy = 0.2

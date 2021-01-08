@@ -19,7 +19,8 @@ func initialize():
 		var _min = fire_range * (1 - fire_range_random)
 		fire_range = rand_range(_min, fire_range)
 	initialized = true
-	explosion_scene = load(explosion_path)
+	if explosion_path:
+		explosion_scene = load(explosion_path)
 	
 func finish():
 	if free_when_finished:

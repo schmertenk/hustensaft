@@ -31,6 +31,7 @@ var joypad_ids = []
 var player_infos = []
 var test_mode = true
 var test_level = "res://Scenes/Levels/Level_6/Level.tscn"
+
 var secondarie_paths = [
 	"res://Scenes/Secondaries/Armor_Recharger/Armor_Recharger.tscn",
 	"res://Scenes/Secondaries/Gravity_Changer/Gravity_Changer.tscn",
