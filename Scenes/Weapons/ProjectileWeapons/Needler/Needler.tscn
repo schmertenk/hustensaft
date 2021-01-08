@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Images/Weapons/needler.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Weapons/ProjectileWeapons/ProjectileWeapon.gd" type="Script" id=2]
+
+[node name="Needler" type="Node2D"]
+script = ExtResource( 2 )
+damage = 4.0
+armor_multiplier = 1.0
+flesh_multiplier = 1.0
+continues = true
+rigid_dummy_path = "res://Scenes/Weapons/ProjectileWeapons/Needler/Needler_Dummy.tscn"
+fire_rate = 50.0
+projectile_path = "res://Scenes/Weapons/Projectiles/RayProjectiles/Needle.tscn"
+projectile_speed = 25.0
+spray = 0.25
+fire_range = 1500.0
+stack_size = 15
+reload_time = 0.8
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, 5 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 1 )

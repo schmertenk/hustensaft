@@ -5,6 +5,8 @@ class_name TravelRayProjectile
 var traveling = true
 var hit_target = null
 var initial_position
+var direction : Vector2
+var travled_distance = 0
 
 func _ready():
 	ray = RayCast2D.new()
@@ -15,10 +17,11 @@ func _ready():
 	initialized = true
 	rotation = initial_direction.angle()
 	initial_position = weapon.global_position
+	direction = Vector2(initial_direction.x, initial_direction.y)
 	
 func _process(delta):
-	
-	var velocity = initial_direction * speed * delta * 60
+	var velocity = direction * speed * delta * 60
+	rotation = direction.angle()
 		
 	if hit_target:
 		hit_target(hit_target)
@@ -38,7 +41,8 @@ func _process(delta):
 	
 	if traveling:
 		global_position += velocity
-		if fire_range != -1 and initial_position.distance_to(global_position) >= fire_range:
+		travled_distance += velocity.length()
+		if fire_range != -1 and travled_distance >= fire_range:
 			queue_free()
 
 func hit_target(target):
