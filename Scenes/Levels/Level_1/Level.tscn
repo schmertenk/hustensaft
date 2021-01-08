@@ -99,7 +99,7 @@ last_string = "GO!!"
 [node name="Spawns" type="Node2D" parent="."]
 
 [node name="Player_Spawn_1" type="Node2D" parent="Spawns"]
-position = Vector2( 542.268, -1293.64 )
+position = Vector2( 500, -1450 )
 
 [node name="Player_Spawn_2" type="Node2D" parent="Spawns"]
 position = Vector2( 1587.66, -1616.55 )
