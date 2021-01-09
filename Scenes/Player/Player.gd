@@ -139,7 +139,10 @@ func _physics_process(delta):
 	if !player_stats.visible:	
 		player_stats.visible = true
 	get_input(delta)
-	apply_force(Vector2(0, gravity * g * mods["g_multiplier"]))
+	
+	# only apply gravity when in air or on steil slopes
+	if !is_on_floor() || in_jump || get_slide_count() > 0 and abs(rad2deg(abs(get_slide_collision(0).normal.angle())) - 90) > 45:
+		apply_force(Vector2(0, gravity * g * mods["g_multiplier"]))
 	apply_force(Vector2(- (velocity.x * friction * mass * mods["friction_speed_multiplier"]), 0))
 
 	impuls.x = lerp(impuls.x, 0, friction)
@@ -149,8 +152,11 @@ func _physics_process(delta):
 			velocity.y =-max_fall_speed
 		else:
 			velocity.y = max_fall_speed
-	velocity = move_and_slide(velocity, Vector2(0, -g),
-					false, 4, PI/4, false)
+	var snap = Vector2(0, 100 * g)
+	if in_jump:
+		snap = Vector2(0, 0)
+	velocity = move_and_slide_with_snap(velocity, snap, Vector2(0, -g),
+					true, 4, PI/4, false)
 	
 	acceleration = Vector2.ZERO
 	

@@ -9,7 +9,6 @@ func _ready():
 	var player = Global.player_infos.duplicate()
 	
 	player.sort_custom(self, "sort_for_wins")
-	print(player)
 	
 	get_node("VBoxContainer/1st_place/name").text = "Player " + str(player[0].id)
 	get_node("VBoxContainer/1st_place/wins").text = str(player[0].win_count) + " Wins"
