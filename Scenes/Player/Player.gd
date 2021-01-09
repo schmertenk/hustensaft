@@ -14,6 +14,7 @@ export (float) var health = 100 setget set_health
 export (Color) var color
 export (float) var friction = 0.04
 export (float) var mass = 3
+export (float) var max_fall_speed = 2400
 
 var icon = null
 var last_move_direction = 0 # 1 for right, -1 for left
@@ -143,6 +144,11 @@ func _physics_process(delta):
 
 	impuls.x = lerp(impuls.x, 0, friction)
 	apply_force(Vector2(impuls.x, 0))
+	if abs(velocity.y) > max_fall_speed:
+		if velocity.y < 0:
+			velocity.y =-max_fall_speed
+		else:
+			velocity.y = max_fall_speed
 	velocity = move_and_slide(velocity, Vector2(0, -g),
 					false, 4, PI/4, false)
 	
