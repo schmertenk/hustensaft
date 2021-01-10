@@ -168,9 +168,12 @@ __meta__ = {
 position = Vector2( -2352, 552 )
 rotation = -1.57292
 
+
 [node name="Door3" parent="Door" instance=ExtResource( 6 )]
 position = Vector2( -1450, -1150 )
 rotation = -0.00313807
+scale = Vector2( 1, 1 )
+
 
 [node name="Door" parent="Door" instance=ExtResource( 6 )]
 position = Vector2( 1848, -1248 )
