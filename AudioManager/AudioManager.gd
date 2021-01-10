@@ -3,13 +3,13 @@ extends Node
 var sound_script = load("res://AudioManager/ASP.gd")
 
 export var sound_dictionary = {
-	#"main_menu_bgm" : ["res://Sounds/Music/8bit.ogg", "BGM"],
-	#"lvl_3_bgm" : ["res://Sounds/Music/backing_lvl_3.ogg", "BGM"],
-	#"collish_stuff": ["res://Sounds/Music/Space_2_draft_C.ogg", "BGM"],
+	"main_menu_bgm" : ["res://Sounds/Music/8bit.ogg", "BGM"],
+	"lvl_3_bgm" : ["res://Sounds/Music/backing_lvl_3.ogg", "BGM"],
+	"collish_stuff": ["res://Sounds/Music/Space_2_draft_C.ogg", "BGM"],
 	
-	"laser_shot" : ["res://Sounds/Effects/Weapons/Laser_Shoot.wav", "BGM"],
-	"pistol_shot" : ["res://Sounds/Effects/Weapons/gunshot.wav", "BGM"],
-	"shotgun_shot" : ["res://Sounds/Effects/Weapons/Shotgun.wav", "BGM"],
+	"laser_shot" : ["res://Sounds/Effects/Weapons/Laser_Shoot.wav", "SE"],
+	"pistol_shot" : ["res://Sounds/Effects/Weapons/gunshot.wav", "SE"],
+	"shotgun_shot" : ["res://Sounds/Effects/Weapons/Shotgun.wav", "SE"],
 	"grenade_launcher_shot" : ["res://Sounds/Effects/Weapons/grenade_launcher_1.wav", "SE"],
 	"sticky_grenade_launcher_shot" : ["res://Sounds/Effects/Weapons/grenade_launcher_2.wav", "SE"],
 	"flame_thrower_shot" : ["res://Sounds/Effects/Weapons/flame_sound.wav", "SE"],
