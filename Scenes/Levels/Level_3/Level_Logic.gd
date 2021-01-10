@@ -3,8 +3,8 @@ extends Node
 var game
 
 func _ready():
-	AudioManager.stop_all_of_type("BGM")
-	AudioManager.play("lvl_3_bgm")
+	#AudioManager.stop_all_of_type("BGM")
+	#AudioManager.play("lvl_3_bgm")
 	
 	game = get_node("/root/Game")
 	for l in game.get_node("Lights").get_children():

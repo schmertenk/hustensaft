@@ -29,6 +29,13 @@ export var sound_dictionary = {
 	"hurt3":["res://Sounds/Effects/Player/hurt1.wav", "SE"],
 	"hurt4":["res://Sounds/Effects/Player/hurt2.wav", "SE"],
 	"die":["res://Sounds/Effects/Player/die.wav", "SE"],
+	
+	"cat1": ["res://Sounds/Effects/cats/cat1.wav", "SE"],
+	"cat2": ["res://Sounds/Effects/cats/cat2.wav", "SE"],
+	"cat3": ["res://Sounds/Effects/cats/cat3.wav", "SE"],
+	"cat4": ["res://Sounds/Effects/cats/cat4.wav", "SE"],
+	"cat5": ["res://Sounds/Effects/cats/cat5.wav", "SE"],
+	"fish": ["res://Sounds/Effects/cats/fish.wav", "SE"],
 }
 	
 var player_dictionary = {

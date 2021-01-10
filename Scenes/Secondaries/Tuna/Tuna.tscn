@@ -1,12 +1,11 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scenes/Secondaries/Tuna/Tuna.gd" type="Script" id=1]
-[ext_resource path="res://Images/Secondaries/cat.png" type="Texture" id=2]
+[ext_resource path="res://Images/Secondaries/fish.png" type="Texture" id=2]
 
 [node name="Tuna" type="Node2D"]
 script = ExtResource( 1 )
 reload_time = 3000
-uses_per_round = 0
 icon = ExtResource( 2 )
 _name = "Tuna"
 description = "Throw it and see what happens"

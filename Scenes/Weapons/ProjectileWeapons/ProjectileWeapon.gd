@@ -127,3 +127,14 @@ func pick_up():
 	$Sprite.rotation_degrees = 0
 	if reload_tween:
 		reload_tween.stop_all()
+	
+	if pool_projectiles:
+		projectile_pool = []
+		for i in range(stack_size * projectiles_per_shot):
+			var p = make_projectile()
+			projectile_pool.append(p)
+			p.set_process(false)
+			p.visible = false
+			p.state = Projectile.STATE_WAITING
+			p.free_when_finished = false
+			get_node("/root/Game").add_child(p)

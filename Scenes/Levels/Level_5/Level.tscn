@@ -11,8 +11,8 @@
 [ext_resource path="res://Scenes/Weapons/ProjectileWeapons/Shot_Gun/Shot_Gun_Dummy.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scripts/Countdown.gd" type="Script" id=10]
 [ext_resource path="res://Scenes/Menues/Pause_Menu/Pause_Menu.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Weapons/ProjectileWeapons/Needler/Needler_Dummy.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/TransitionMask.tscn" type="PackedScene" id=16]
-[ext_resource path="res://Scenes/Weapons/ProjectileWeapons/Machine_Gun/M_G_Dummy.tscn" type="PackedScene" id=18]
 
 [sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( 100, 100, 0, 100, 0, 0, 100, 0 )
@@ -120,9 +120,6 @@ position = Vector2( -1750, -250 )
 [node name="Pistol_Dummy2" parent="Weapons" instance=ExtResource( 5 )]
 position = Vector2( 50, -750 )
 
-[node name="Pistol_Dummy3" parent="Weapons" instance=ExtResource( 18 )]
-position = Vector2( -550, -1750 )
-
 [node name="G_L_Dummy2" parent="Weapons" instance=ExtResource( 2 )]
 position = Vector2( 250, 450 )
 
@@ -178,3 +175,6 @@ rotation = -1.56538
 [node name="Door4" parent="Doors" instance=ExtResource( 6 )]
 position = Vector2( 750, 550 )
 rotation = -1.56538
+
+[node name="Needler_Dummy" parent="." instance=ExtResource( 12 )]
+position = Vector2( -592.532, -1780.86 )

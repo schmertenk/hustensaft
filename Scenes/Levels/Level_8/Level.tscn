@@ -139,17 +139,18 @@ z_index = -1000
 [node name="Spikes" type="Node2D" parent="."]
 
 [node name="Camera" type="Camera2D" parent="."]
-position = Vector2( 14, -2 )
+position = Vector2( 50, 500 )
 current = true
-zoom = Vector2( 5.9, 5.9 )
-limit_left = -3000
+zoom = Vector2( 7.2, 7.2 )
+limit_left = -10000
 limit_top = -2300
-limit_right = 3000
-limit_bottom = 1200
+limit_right = 10000
+limit_bottom = 2000
 smoothing_enabled = true
 smoothing_speed = 10.0
 editor_draw_limits = true
 script = ExtResource( 4 )
+max_zoom = 7.2
 
 [node name="FPS" type="Label" parent="Camera"]
 visible = false

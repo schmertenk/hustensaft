@@ -21,6 +21,8 @@ signal eaten
 func _on_Fish_body_entered(body):
 	if body != exception && !ok && !spawned:
 		ok = true
+	if !spawned:
+		AudioManager.play("fish", false, false)
 
 
 func _process(delta):

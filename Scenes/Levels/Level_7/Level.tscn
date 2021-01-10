@@ -146,11 +146,12 @@ zoom = Vector2( 5.9, 5.9 )
 limit_left = -3000
 limit_top = -2300
 limit_right = 3000
-limit_bottom = 1200
+limit_bottom = 1600
 smoothing_enabled = true
 smoothing_speed = 10.0
 editor_draw_limits = true
 script = ExtResource( 4 )
+max_zoom = 5.9
 
 [node name="FPS" type="Label" parent="Camera"]
 visible = false
