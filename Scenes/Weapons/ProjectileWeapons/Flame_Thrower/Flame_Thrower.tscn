@@ -36,6 +36,7 @@ flesh_multiplier = 1.2
 continues = true
 rigid_dummy_path = "res://Scenes/Weapons/ProjectileWeapons/Flame_Thrower/F_T_Dummy.tscn"
 fire_rate = 20.0
+shoot_sound_name = "flame_thrower_shot"
 is_power_weapon = true
 projectiles_per_shot = 2
 projectile_path = "res://Scenes/Weapons/Projectiles/OtherProjectiles/Flame.tscn"

@@ -39,6 +39,7 @@ func _ready():
 func start_reload():
 	if reload_tween.is_active() || !can_reload:
 		return
+	AudioManager.play("weapon_reload")
 	reload_tween.interpolate_property($Sprite, "rotation_degrees", 0, 360, reload_time)
 	reload_tween.interpolate_callback(self, reload_time, "finish_reload")
 

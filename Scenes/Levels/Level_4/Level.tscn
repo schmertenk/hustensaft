@@ -541,20 +541,21 @@ texture = ExtResource( 20 )
 position = Vector2( 3422.4, -1555.63 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 18 )
+frame = 2
 playing = true
 
 [node name="AnimatedSprite5" type="AnimatedSprite" parent="Background/Engines"]
 position = Vector2( 3422.4, -2053.44 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 18 )
-frame = 4
+frame = 1
 playing = true
 
 [node name="AnimatedSprite6" type="AnimatedSprite" parent="Background/Engines"]
 position = Vector2( 3150.87, -1798.88 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 18 )
-frame = 4
+frame = 1
 playing = true
 
 [node name="Planets" type="Node2D" parent="Background"]
@@ -1792,7 +1793,6 @@ texture = ExtResource( 5 )
 
 [node name="bridge_window5" type="Sprite" parent="Background/Corridor"]
 position = Vector2( 1.52588e-05, 50 )
-scale = Vector2( 1, 1 )
 texture = ExtResource( 5 )
 
 [node name="bridge_window4" type="Sprite" parent="Background/Corridor"]

@@ -247,8 +247,8 @@ func damage(damage, armor_multiplier = 1, flesh_multiplier = 1, ignore_armor = f
 	if health <= 0:
 		die(cause)
 	else:
-		var i = randi() % 2 + 1
-		AudioManager.play("hit_" + str(i))
+		var i = randi() % 4 + 1
+		AudioManager.play("hurt" + str(i), false, false)
 	
 
 func die(cause):

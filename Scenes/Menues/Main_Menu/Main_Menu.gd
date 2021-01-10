@@ -16,9 +16,8 @@ func init():
 	initialized = true
 	$VBoxContainer/CenterContainer2/Start.grab_focus()
 	
-	if !AudioManager.is_playing("main_menu_bgm"):
-		AudioManager.stop_all_of_type("BGM")
-		AudioManager.play("main_menu_bgm")
+	if !AudioManager.bgm_queue_playing:
+		AudioManager.play_bgm_queue()
 
 
 func _process(_delta):

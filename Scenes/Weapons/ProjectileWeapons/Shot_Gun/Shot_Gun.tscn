@@ -10,6 +10,7 @@ armor_multiplier = 1.0
 flesh_multiplier = 1.0
 rigid_dummy_path = "res://Scenes/Weapons/ProjectileWeapons/Shot_Gun/Shot_Gun_Dummy.tscn"
 fire_rate = 370.0
+shoot_sound_name = "shotgun_shot"
 projectiles_per_shot = 8
 projectile_path = "res://Scenes/Weapons/Projectiles/RayProjectiles/Bullet.tscn"
 projectile_speed = 0.0

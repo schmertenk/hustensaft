@@ -6,6 +6,7 @@ const STATE_WAITING = 0
 const STATE_EXPLODING = 1
 
 export (float) var duration = 3
+export (String) var sound_name
 var state = STATE_WAITING
 
 func explode():
@@ -14,3 +15,4 @@ func explode():
 	$Tween.interpolate_callback(self, duration, "queue_free")
 	$Particles2D.emitting = true
 	$Tween.start()
+	AudioManager.play(sound_name, true)

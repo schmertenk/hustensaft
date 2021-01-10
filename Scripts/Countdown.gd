@@ -27,10 +27,14 @@ func _process(delta):
 	visible = true
 	var sec = ceil((started_at + time - OS.get_ticks_msec()) / devider)
 	if sec == 0 && last_string:
-		text = last_string
+		if text != last_string:
+			AudioManager.play("countdown_go")
+			text = last_string
 	else:
-		text = str(sec) 
-		
+		if str(sec) != text:
+			AudioManager.play("countdown_number")
+			text = str(sec)
+
 	
 func start():
 	state = STATE_RUNNING

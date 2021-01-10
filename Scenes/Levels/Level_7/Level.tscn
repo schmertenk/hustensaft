@@ -1,0 +1,177 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://Images/floor.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Weapons/ProjectileWeapons/Granade_Launcher/G_L_Dummy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Game.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/GameCamera.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/Weapons/ProjectileWeapons/Pistol/Pistol_Dummy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Assets/Door/Door.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Weapons/ProjectileWeapons/Flame_Thrower/F_T_Dummy.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Retrophile Regular.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://Scenes/Weapons/ProjectileWeapons/Shot_Gun/Shot_Gun_Dummy.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scripts/Countdown.gd" type="Script" id=10]
+[ext_resource path="res://Scenes/Menues/Pause_Menu/Pause_Menu.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/TransitionMask.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scenes/Weapons/ProjectileWeapons/Machine_Gun/M_G_Dummy.tscn" type="PackedScene" id=18]
+
+[sub_resource type="OccluderPolygon2D" id=1]
+polygon = PoolVector2Array( 100, 100, 0, 100, 0, 0, 100, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=2]
+points = PoolVector2Array( 100, 100, 0, 100, 0, 0, 100, 0 )
+
+[sub_resource type="TileSet" id=3]
+0/name = "floor.png 0"
+0/texture = ExtResource( 1 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 100, 100 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/occluder = SubResource( 1 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 2 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 2 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+
+[sub_resource type="DynamicFont" id=4]
+size = 150
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 22
+font_data = ExtResource( 8 )
+
+[node name="Game" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Players" type="Node2D" parent="."]
+
+[node name="TileMap" type="TileMap" parent="."]
+z_index = -100
+tile_set = SubResource( 3 )
+cell_size = Vector2( 100, 100 )
+format = 1
+tile_data = PoolIntArray( -1114123, 0, 0, -1114122, 0, 0, -1114120, 0, 0, -1114119, 0, 0, -1114118, 0, 0, -1114117, 0, 0, -1114116, 0, 0, -1179636, 0, 0, -1048589, 0, 0, -1048588, 0, 0, -1048585, 0, 0, -1048584, 0, 0, -1114101, 0, 0, -1114100, 0, 0, -1114099, 0, 0, -983055, 0, 0, -983054, 0, 0, -983047, 0, 0, -983046, 0, 0, -1048566, 0, 0, -1048565, 0, 0, -1048563, 0, 0, -1048562, 0, 0, -917520, 0, 0, -917509, 0, 0, -917508, 0, 0, -983031, 0, 0, -983030, 0, 0, -983026, 0, 0, -983025, 0, 0, -851984, 0, 0, -851983, 0, 0, -851971, 0, 0, -917496, 0, 0, -917495, 0, 0, -917489, 0, 0, -917488, 0, 0, -786435, 0, 0, -786434, 0, 0, -851961, 0, 0, -851953, 0, 0, -851952, 0, 0, -851948, 0, 0, -851947, 0, 0, -720899, 0, 0, -720898, 0, 0, -720897, 0, 0, -786425, 0, 0, -786411, 0, 0, -786410, 0, 0, -786409, 0, 0, -655363, 0, 0, -655362, 0, 0, -720889, 0, 0, -720875, 0, 0, -720874, 0, 0, -720873, 0, 0, -589840, 0, 0, -589839, 0, 0, -589827, 0, 0, -655353, 0, 0, -655352, 0, 0, -655345, 0, 0, -655344, 0, 0, -655343, 0, 0, -655342, 0, 0, -655341, 0, 0, -655340, 0, 0, -655339, 0, 0, -524304, 0, 0, -524293, 0, 0, -524292, 0, 0, -589816, 0, 0, -589815, 0, 0, -589809, 0, 0, -589808, 0, 0, -458767, 0, 0, -458766, 0, 0, -458759, 0, 0, -458758, 0, 0, -524279, 0, 0, -524278, 0, 0, -524274, 0, 0, -524273, 0, 0, -393229, 0, 0, -393228, 0, 0, -393225, 0, 0, -393224, 0, 0, -458742, 0, 0, -458741, 0, 0, -458739, 0, 0, -458738, 0, 0, -327691, 0, 0, -327690, 0, 0, -327688, 0, 0, -327687, 0, 0, -327686, 0, 0, -327685, 0, 0, -327684, 0, 0, -393205, 0, 0, -393204, 0, 0, -393203, 0, 0, -327668, 0, 0, -65558, 0, 0, -65557, 0, 0, -65556, 0, 0, -65555, 0, 0, -65537, 0, 0, -131072, 0, 0, -22, 0, 0, -2, 0, 0, -1, 0, 0, -65536, 0, 0, -65535, 0, 0, 65514, 0, 0, 65518, 0, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 131045, 0, 0, 131046, 0, 0, 131047, 0, 0, 131048, 0, 0, 131049, 0, 0, 131050, 0, 0, 131051, 0, 0, 131052, 0, 0, 131053, 0, 0, 131054, 0, 0, 131055, 0, 0, 131071, 0, 0, 65536, 0, 0, 196580, 0, 0, 196590, 0, 0, 196591, 0, 0, 196592, 0, 0, 196605, 0, 0, 196606, 0, 0, 131073, 0, 0, 131074, 0, 0, 262115, 0, 0, 262116, 0, 0, 262126, 0, 0, 262127, 0, 0, 262128, 0, 0, 262129, 0, 0, 262140, 0, 0, 262141, 0, 0, 196610, 0, 0, 196611, 0, 0, 327652, 0, 0, 327662, 0, 0, 327663, 0, 0, 327664, 0, 0, 262147, 0, 0, 262148, 0, 0, 393189, 0, 0, 393190, 0, 0, 393194, 0, 0, 393195, 0, 0, 393196, 0, 0, 393197, 0, 0, 393198, 0, 0, 393199, 0, 0, 327683, 0, 0, 327684, 0, 0, 458730, 0, 0, 458734, 0, 0, 458748, 0, 0, 458749, 0, 0, 393218, 0, 0, 393219, 0, 0, 524266, 0, 0, 524285, 0, 0, 524286, 0, 0, 458753, 0, 0, 458754, 0, 0, 589802, 0, 0, 589803, 0, 0, 589804, 0, 0, 589805, 0, 0, 589823, 0, 0, 524288, 0, 0, 655357, 0, 0, 655358, 0, 0, 655359, 0, 0, 589824, 0, 0, 589825, 0, 0, 589826, 0, 0, 720894, 0, 0, 720895, 0, 0, 655360, 0, 0, 655361, 0, 0, 786431, 0, 0, 720896, 0, 0 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Player_Stats" type="Node" parent="CanvasLayer"]
+
+[node name="Pause_Menu" parent="CanvasLayer" instance=ExtResource( 11 )]
+visible = false
+
+[node name="TransitionMask" parent="CanvasLayer" instance=ExtResource( 16 )]
+visible = false
+
+[node name="Countdown" type="Label" parent="CanvasLayer"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 36.73
+margin_top = -59.8565
+margin_right = 36.73
+margin_bottom = 90.1435
+custom_fonts/font = SubResource( 4 )
+align = 1
+valign = 1
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+last_string = "GO!!"
+
+[node name="Spawns" type="Node2D" parent="."]
+
+[node name="Player_Spawn_1" type="Node2D" parent="Spawns"]
+position = Vector2( 840, -1040 )
+
+[node name="Player_Spawn_2" type="Node2D" parent="Spawns"]
+position = Vector2( 264, 568 )
+
+[node name="Player_Spawn_3" type="Node2D" parent="Spawns"]
+position = Vector2( -344, -936 )
+
+[node name="Player_Spawn_4" type="Node2D" parent="Spawns"]
+position = Vector2( -2072, 480 )
+
+[node name="Weapons" type="Node2D" parent="."]
+
+[node name="G_L_Dummy" parent="Weapons" instance=ExtResource( 7 )]
+position = Vector2( -2616, 464 )
+
+[node name="Shot_Gunl_Dummy" parent="Weapons" instance=ExtResource( 9 )]
+position = Vector2( 0, 744 )
+
+[node name="Pistol_Dummy" parent="Weapons" instance=ExtResource( 5 )]
+position = Vector2( 2040, -1056 )
+
+[node name="Pistol_Dummy2" parent="Weapons" instance=ExtResource( 5 )]
+position = Vector2( -1848, 464 )
+
+[node name="Pistol_Dummy3" parent="Weapons" instance=ExtResource( 18 )]
+position = Vector2( 1248, -640 )
+
+[node name="G_L_Dummy2" parent="Weapons" instance=ExtResource( 2 )]
+position = Vector2( -1000, -632 )
+
+[node name="Pistol_Dummy4" parent="Weapons" instance=ExtResource( 5 )]
+position = Vector2( 152, 648 )
+
+[node name="Pistol_Dummy5" parent="Weapons" instance=ExtResource( 5 )]
+position = Vector2( -1256, -744 )
+
+[node name="Background" type="Node2D" parent="."]
+show_behind_parent = true
+scale = Vector2( 1.2, 1.2 )
+z_index = -1000
+
+[node name="Spikes" type="Node2D" parent="."]
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2( 14, -2 )
+current = true
+zoom = Vector2( 5.9, 5.9 )
+limit_left = -3000
+limit_top = -2300
+limit_right = 3000
+limit_bottom = 1200
+smoothing_enabled = true
+smoothing_speed = 10.0
+editor_draw_limits = true
+script = ExtResource( 4 )
+
+[node name="FPS" type="Label" parent="Camera"]
+visible = false
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 5 )
+text = "test"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Door" type="Node2D" parent="."]
+
+[node name="Door2" parent="Door" instance=ExtResource( 6 )]
+position = Vector2( -2352, 552 )
+rotation = -1.57292
+
+[node name="Door3" parent="Door" instance=ExtResource( 6 )]
+position = Vector2( -1450, -1150 )
+rotation = -0.00313807
+
+[node name="Door" parent="Door" instance=ExtResource( 6 )]
+position = Vector2( 1848, -1248 )
+rotation = -1.57292

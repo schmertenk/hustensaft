@@ -9,6 +9,7 @@ damage = 50.0
 armor_multiplier = 1.0
 flesh_multiplier = 1.0
 rigid_dummy_path = "res://Scenes/Weapons/ProjectileWeapons/Sticky_Granade_Launcher/G_L_Dummy.tscn"
+shoot_sound_name = "sticky_grenade_launcher_shot"
 projectile_path = "res://Scenes/Weapons/Projectiles/RigidProjectiles/Sticky_Granade.tscn"
 projectile_speed = 750.0
 stack_size = 3

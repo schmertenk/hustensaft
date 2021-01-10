@@ -42,6 +42,7 @@ hue_variation_curve = SubResource( 4 )
 [node name="Explosion" type="Node2D"]
 scale = Vector2( 5, 5 )
 script = ExtResource( 2 )
+sound_name = "medium_explosion"
 
 [node name="Particles2D" type="Particles2D" parent="."]
 emitting = false
