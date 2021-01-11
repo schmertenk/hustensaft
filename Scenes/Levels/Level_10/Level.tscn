@@ -1,0 +1,170 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://Images/floor.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Weapons/ProjectileWeapons/Granade_Launcher/G_L_Dummy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Game.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/GameCamera.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/Weapons/ProjectileWeapons/Pistol/Pistol_Dummy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Assets/Door/Door.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Weapons/ProjectileWeapons/Flame_Thrower/F_T_Dummy.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Retrophile Regular.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://Scenes/Weapons/ProjectileWeapons/Shot_Gun/Shot_Gun_Dummy.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scripts/Countdown.gd" type="Script" id=10]
+[ext_resource path="res://Scenes/Menues/Pause_Menu/Pause_Menu.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/TransitionMask.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scenes/Weapons/ProjectileWeapons/Machine_Gun/M_G_Dummy.tscn" type="PackedScene" id=18]
+
+[sub_resource type="OccluderPolygon2D" id=1]
+polygon = PoolVector2Array( 100, 100, 0, 100, 0, 0, 100, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=2]
+points = PoolVector2Array( 100, 100, 0, 100, 0, 0, 100, 0 )
+
+[sub_resource type="TileSet" id=3]
+0/name = "floor.png 0"
+0/texture = ExtResource( 1 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 100, 100 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/occluder = SubResource( 1 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 2 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 2 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+
+[sub_resource type="DynamicFont" id=4]
+size = 150
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 22
+font_data = ExtResource( 8 )
+
+[node name="Game" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Players" type="Node2D" parent="."]
+
+[node name="TileMap" type="TileMap" parent="."]
+z_index = -100
+tile_set = SubResource( 3 )
+cell_size = Vector2( 100, 100 )
+format = 1
+tile_data = PoolIntArray( -983042, 0, 0, -983041, 0, 0, -1048576, 0, 0, -1048575, 0, 0, -917509, 0, 0, -917508, 0, 0, -917507, 0, 0, -983038, 0, 0, -983037, 0, 0, -983036, 0, 0, -851975, 0, 0, -851974, 0, 0, -917499, 0, 0, -917498, 0, 0, -786441, 0, 0, -786440, 0, 0, -851961, 0, 0, -851960, 0, 0, -720906, 0, 0, -786423, 0, 0, -655369, 0, 0, -655368, 0, 0, -720889, 0, 0, -720888, 0, 0, -589831, 0, 0, -589830, 0, 0, -655355, 0, 0, -655354, 0, 0, -524293, 0, 0, -524292, 0, 0, -524291, 0, 0, -589822, 0, 0, -589821, 0, 0, -589820, 0, 0, -458754, 0, 0, -524287, 0, 0, 65511, 0, 0, 131046, 0, 0, 131048, 0, 0, 131058, 0, 0, 131059, 0, 0, 131060, 0, 0, 131061, 0, 0, 196581, 0, 0, 196585, 0, 0, 196593, 0, 0, 196598, 0, 0, 196599, 0, 0, 262116, 0, 0, 262117, 0, 0, 262122, 0, 0, 262123, 0, 0, 262124, 0, 0, 262125, 0, 0, 262126, 0, 0, 262127, 0, 0, 262128, 0, 0, 262129, 0, 0, 262136, 0, 0, 262137, 0, 0, 327651, 0, 0, 327664, 0, 0, 327665, 0, 0, 327673, 0, 0, 327674, 0, 0, 262152, 0, 0, 393186, 0, 0, 393199, 0, 0, 393200, 0, 0, 393211, 0, 0, 393215, 0, 0, 327680, 0, 0, 458723, 0, 0, 458736, 0, 0, 458748, 0, 0, 524260, 0, 0, 524261, 0, 0, 524266, 0, 0, 524267, 0, 0, 524271, 0, 0, 524272, 0, 0, 524273, 0, 0, 524284, 0, 0, 589797, 0, 0, 589801, 0, 0, 589809, 0, 0, 589819, 0, 0, 655334, 0, 0, 655336, 0, 0, 655345, 0, 0, 655346, 0, 0, 655355, 0, 0, 720871, 0, 0, 720882, 0, 0, 720883, 0, 0, 720884, 0, 0, 720889, 0, 0, 720890, 0, 0, 786423, 0, 0, 786424, 0, 0 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Player_Stats" type="Node" parent="CanvasLayer"]
+
+[node name="Pause_Menu" parent="CanvasLayer" instance=ExtResource( 11 )]
+visible = false
+
+[node name="TransitionMask" parent="CanvasLayer" instance=ExtResource( 16 )]
+visible = false
+
+[node name="Countdown" type="Label" parent="CanvasLayer"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 36.73
+margin_top = -59.8565
+margin_right = 36.73
+margin_bottom = 90.1435
+custom_fonts/font = SubResource( 4 )
+align = 1
+valign = 1
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+last_string = "GO!!"
+
+[node name="Spawns" type="Node2D" parent="."]
+
+[node name="Player_Spawn_1" type="Node2D" parent="Spawns"]
+position = Vector2( -8, -1632 )
+
+[node name="Player_Spawn_2" type="Node2D" parent="Spawns"]
+position = Vector2( -2744, 664 )
+
+[node name="Player_Spawn_3" type="Node2D" parent="Spawns"]
+position = Vector2( -560, 960 )
+
+[node name="Player_Spawn_4" type="Node2D" parent="Spawns"]
+position = Vector2( -552, -1056 )
+
+[node name="Weapons" type="Node2D" parent="."]
+
+[node name="G_L_Dummy" parent="Weapons" instance=ExtResource( 7 )]
+position = Vector2( -2776, 264 )
+
+[node name="Shot_Gunl_Dummy" parent="Weapons" instance=ExtResource( 9 )]
+position = Vector2( 384, -928 )
+
+[node name="Pistol_Dummy" parent="Weapons" instance=ExtResource( 5 )]
+position = Vector2( 72, -1632 )
+
+[node name="Pistol_Dummy2" parent="Weapons" instance=ExtResource( 5 )]
+position = Vector2( -624, -1048 )
+
+[node name="Pistol_Dummy3" parent="Weapons" instance=ExtResource( 18 )]
+position = Vector2( 848, 368 )
+
+[node name="G_L_Dummy2" parent="Weapons" instance=ExtResource( 2 )]
+position = Vector2( -1600, 240 )
+
+[node name="Pistol_Dummy4" parent="Weapons" instance=ExtResource( 5 )]
+position = Vector2( -2648, 656 )
+
+[node name="Pistol_Dummy5" parent="Weapons" instance=ExtResource( 5 )]
+position = Vector2( -624, 968 )
+
+[node name="Background" type="Node2D" parent="."]
+show_behind_parent = true
+scale = Vector2( 1.2, 1.2 )
+z_index = -1000
+
+[node name="Spikes" type="Node2D" parent="."]
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2( 14, -2 )
+current = true
+zoom = Vector2( 5.9, 5.9 )
+limit_left = -3000
+limit_top = -2300
+limit_right = 3000
+limit_bottom = 1600
+smoothing_enabled = true
+smoothing_speed = 10.0
+editor_draw_limits = true
+script = ExtResource( 4 )
+max_zoom = 5.9
+
+[node name="FPS" type="Label" parent="Camera"]
+visible = false
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 5 )
+text = "test"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Door" type="Node2D" parent="."]
+
+[node name="Door" parent="Door" instance=ExtResource( 6 )]
+position = Vector2( -1856, 744 )
+rotation = -1.57241
