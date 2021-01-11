@@ -12,7 +12,6 @@
 [ext_resource path="res://Scenes/Weapons/ProjectileWeapons/Machine_Gun/M_G_Dummy.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Weapons/ProjectileWeapons/Granade_Launcher/G_L_Dummy.tscn" type="PackedScene" id=11]
 
-
 [sub_resource type="DynamicFont" id=1]
 size = 200
 font_data = ExtResource( 8 )

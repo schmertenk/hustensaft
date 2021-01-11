@@ -5,6 +5,9 @@ export (float) var min_zoom = 2
 export (float) var max_zoom = 4.5
 onready var game = get_node("/root/Game")
 
+func _ready():
+	smoothing_speed = 5
+
 func CalculateBox(InScreenSize):
 	#infinity for the min max formulas to work
 	var MinX = INF

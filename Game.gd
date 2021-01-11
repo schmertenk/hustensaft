@@ -17,9 +17,12 @@ func _ready():
 	$CanvasLayer/Countdown.connect("finished", self, "_on_countdown_finished")
 	Global.connect("game_paused", self, "_on_game_paused")
 	Global.connect("game_unpaused", self, "_on_game_unpaused")
+	var spawn_arr = [1,2,3,4]
+	spawn_arr.shuffle()
+	
 	for i in range(Global.player_infos.size()):
 		var p = load("res://Scenes/Player/Player.tscn").instance()
-		p.global_position = $Spawns.get_node("Player_Spawn_" + str(i+1)).global_position
+		p.global_position = $Spawns.get_node("Player_Spawn_" + str(spawn_arr[i+1])).global_position
 		p.p_number = Global.player_infos[i].id
 		p.joypad_id = Global.player_infos[i].joypad_id
 		p.game = self
