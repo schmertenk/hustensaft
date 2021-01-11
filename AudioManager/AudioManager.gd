@@ -80,7 +80,7 @@ func randomaize_bgm_queue():
 	if bgms:
 		for i in range(100):
 			var r = randi() % bgms.size() - 1
-			if bgms[r] == bgm_queue.back():
+			if bgm_queue && bgms[r] == bgm_queue.back():
 				if r == 0:
 					r = bgms.size() -1
 				else:
@@ -93,12 +93,15 @@ func play_bgm_queue(from_start = false):
 	bgm_queue_playing = true
 	play(bgm_queue[bgm_queue_index])
 	player_dictionary[bgm_queue[bgm_queue_index]].connect("sound_finished", self, "_on_queue_sound_finished")
-	bgm_queue_index += 1
+	
+
 func _on_queue_sound_finished(player : MyAudioStreamPlayer):
 	player.disconnect("sound_finished", self, "_on_queue_sound_finished")
 	if bgm_queue_playing:
+		bgm_queue_index += 1
+		if bgm_queue_index >= 100:
+			bgm_queue_index = 0
 		play_bgm_queue()
-
 		
 
 func stop_bgm_queue():

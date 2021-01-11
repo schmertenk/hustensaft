@@ -9,7 +9,7 @@ export (Color) var color = Color(1,1,1,1)
 var player setget set_player
 
 func _ready():
-	self_modulate = color
+	modulate = color
 	visible = false
 	$AnimationPlayer.play("point")
 	
@@ -18,6 +18,7 @@ func _process(_delta):
 	position.x = clamp(player_screen_position.x, 10, get_viewport().size.x - 10)
 	position.y = clamp(player_screen_position.y, 10, get_viewport().size.y - 10)
 	look_at(player_screen_position)
+	$Sprite.global_rotation_degrees = rad2deg(player.velocity.angle()) + 90
 func _on_player_screen_entered():
 	visible = false
 	
