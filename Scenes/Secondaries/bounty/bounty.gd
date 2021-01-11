@@ -22,6 +22,7 @@ func use():
 					p.invincible_against_player.append(_p)
 	$Tween.connect("tween_all_completed", self, "_on_tween_finished")
 	play_indicator(best_player)
+	
 				
 func play_indicator(player):
 	shown_at = OS.get_ticks_msec()
@@ -42,10 +43,14 @@ func _on_tween_finished():
 	state = STATE_READY
 	Global.pause()
 	Global.unpause()
-	
+
 func _on_best_player_killed(murder):
-	$CanvasLayer/Sprite.visible = false
 	if murder != hunted_player:
 		g.end_round([murder])
 	else:
 		g.end_round([])
+		
+func _on_new_round_started():
+	._on_new_round_started()
+	$CanvasLayer/Sprite.visible = false
+	

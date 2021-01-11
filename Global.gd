@@ -29,8 +29,8 @@ var pause_state = STATE_UNPAUSED
 var one_player_mode = false
 var joypad_ids = []
 var player_infos = []
-var test_mode = false
-var test_level = "res://Scenes/Levels/Level_8/Level.tscn"
+var test_mode = true
+var test_level = "res://Scenes/Levels/Level_1/Level.tscn"
 
 var secondarie_paths = [
 	"res://Scenes/Secondaries/Armor_Recharger/Armor_Recharger.tscn",
@@ -63,7 +63,6 @@ func load_and_apply_options():
 	var settings = get_options_from_file()
 	if !settings:
 		return
-	print(settings)
 	options = settings
 		
 	AudioManager.set_type_volume_db("BGM", options["bm_volume"])
@@ -138,7 +137,7 @@ func end_round(winners):
 	for winner in winners:
 		if winner:
 			winner.player_info.win_count += 1
-
+	
 	if round_count % int(options["rounds_per_set"]) == 0:
 		if set_count == options["sets"]:
 			set_count = 0

@@ -9,14 +9,14 @@ func _ready():
 	var player = Global.player_infos.duplicate()
 	
 	player.sort_custom(self, "sort_for_wins")
-	
-	get_node("VBoxContainer/1st_place/name").text = "Player " + str(player[0].id)
+	get_node("VBoxContainer/1st_place").rect_pivot_offset = get_node("VBoxContainer/1st_place").rect_size / 2
+	get_node("VBoxContainer/1st_place/CenterContainer/icon").texture = player[0].icon
 	get_node("VBoxContainer/1st_place/wins").text = str(player[0].win_count) + " Wins"
 	
 	for i in range(player.size()):
 		if i == 0:
 			continue
-		get_node("VBoxContainer/CenterContainer/ranks/" + str(i) + "/name").text = "Player " + str(player[i].id)
+		get_node("VBoxContainer/CenterContainer/ranks/" + str(i) + "/icon").texture = player[i].icon
 		get_node("VBoxContainer/CenterContainer/ranks/" + str(i) + "/wins").text = str(player[i].win_count) + " Wins"
 		get_node("VBoxContainer/CenterContainer/ranks/" + str(i)).visible = true
 	$VBoxContainer/HBoxContainer/CenterContainer2/Play_Again.focus_neighbour_left = $VBoxContainer/HBoxContainer/CenterContainer/Main_Menu.get_path()

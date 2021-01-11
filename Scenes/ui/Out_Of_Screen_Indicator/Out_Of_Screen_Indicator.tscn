@@ -16,17 +16,20 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5, 1 ),
 "transitions": PoolRealArray( 2.82843, 0.466517, 0.466517 ),
 "update": 0,
-"values": [ Vector2( 0, 200 ), Vector2( 0, 150 ), Vector2( 0, 200 ) ]
+"values": [ Vector2( 0, 25 ), Vector2( 0, -25 ), Vector2( 0, 25 ) ]
 }
 
 [node name="OOSI" type="Node2D"]
 script = ExtResource( 1 )
+color = Color( 0.592157, 0, 0, 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+playback_speed = 2.0
+anims/point = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -30, 0 )
 rotation = 1.5708
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 2 )
-offset = Vector2( 0, 174.57 )
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/point = SubResource( 1 )
+offset = Vector2( 0, 22.1937 )

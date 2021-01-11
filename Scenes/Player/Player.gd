@@ -35,6 +35,7 @@ var game # the current game object
 var mouse_mode = false # if mouse mode is active, the players look_direction is towards the mouse pointer
 var impuls = Vector2.ZERO
 var player_info # player infos get saved in Global context
+var dead = false
 
 # variables reguarding the animation
 var walk_button_pressed = false
@@ -252,6 +253,9 @@ func damage(damage, armor_multiplier = 1, flesh_multiplier = 1, ignore_armor = f
 	
 
 func die(cause):
+	if dead:
+		return
+	dead = true
 	AudioManager.play("die")
 	if look_direction.x < 0:
 		$Movement_Animation_Player.play("die_l_" + color_char)
@@ -262,6 +266,10 @@ func die(cause):
 	set_process_input(false)
 	set_physics_process(false)
 	emit_signal("got_killed", cause)
+	for p in game.players:
+		if p != self:
+			add_collision_exception_with(p)
+	dead = true
 	
 
 func update_labels():

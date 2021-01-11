@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Images/ui/pixel.png" type="Texture" id=1]
 [ext_resource path="res://Images/ui/arrow.png" type="Texture" id=2]
@@ -7,13 +7,9 @@
 [ext_resource path="res://Scenes/Menues/Intermission_menu/Intermission_Select_Slot.gd" type="Script" id=5]
 
 [sub_resource type="DynamicFont" id=1]
-size = 32
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=2]
-font_data = ExtResource( 3 )
-
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "wiggle"
 loop = true
 step = 0.25
@@ -34,7 +30,7 @@ tracks/0/keys = {
 anchor_right = 0.224609
 anchor_bottom = 0.75
 grow_horizontal = 2
-rect_min_size = Vector2( 230, 450 )
+rect_min_size = Vector2( 230, 500 )
 size_flags_horizontal = 3
 script = ExtResource( 5 )
 __meta__ = {
@@ -57,25 +53,27 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = 10.0
 grow_horizontal = 2
 grow_vertical = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Player_Number" type="Label" parent="VBoxContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
 margin_right = 230.0
-margin_bottom = 33.0
-rect_min_size = Vector2( 200, 33 )
-custom_fonts/font = SubResource( 1 )
-text = "Player 1"
-align = 1
-valign = 1
+margin_bottom = 80.0
+
+[node name="icon" type="TextureRect" parent="VBoxContainer/CenterContainer"]
+margin_left = 75.0
+margin_right = 155.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
 
 [node name="Up_Container" type="CenterContainer" parent="VBoxContainer"]
-margin_top = 37.0
+margin_top = 84.0
 margin_right = 230.0
-margin_bottom = 107.0
+margin_bottom = 144.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -83,37 +81,37 @@ __meta__ = {
 [node name="Button_Up" type="TextureRect" parent="VBoxContainer/Up_Container"]
 margin_left = 65.0
 margin_right = 165.0
-margin_bottom = 70.0
-rect_min_size = Vector2( 100, 70 )
+margin_bottom = 60.0
+rect_min_size = Vector2( 100, 60 )
 size_flags_horizontal = 3
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 6
 
 [node name="Current_Container" type="CenterContainer" parent="VBoxContainer"]
-margin_top = 111.0
+margin_top = 148.0
 margin_right = 230.0
-margin_bottom = 315.0
+margin_bottom = 365.0
 size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Current" type="TextureRect" parent="VBoxContainer/Current_Container"]
-margin_left = 15.0
-margin_top = 2.0
-margin_right = 215.0
-margin_bottom = 202.0
-rect_min_size = Vector2( 200, 200 )
+margin_left = 14.0
+margin_top = 33.0
+margin_right = 214.0
+margin_bottom = 183.0
+rect_min_size = Vector2( 200, 150 )
 rect_pivot_offset = Vector2( 100, 100 )
 texture = ExtResource( 4 )
 expand = true
 stretch_mode = 6
 
 [node name="Down_Container" type="CenterContainer" parent="VBoxContainer"]
-margin_top = 319.0
+margin_top = 369.0
 margin_right = 230.0
-margin_bottom = 389.0
+margin_bottom = 429.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -121,23 +119,24 @@ __meta__ = {
 [node name="Button_Down" type="TextureRect" parent="VBoxContainer/Down_Container"]
 margin_left = 65.0
 margin_right = 165.0
-margin_bottom = 70.0
-rect_min_size = Vector2( 100, 70 )
+margin_bottom = 60.0
+rect_min_size = Vector2( 100, 60 )
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 6
 flip_v = true
 
 [node name="Label" type="Label" parent="VBoxContainer"]
-margin_top = 393.0
+margin_top = 433.0
 margin_right = 230.0
-margin_bottom = 450.0
-custom_fonts/font = SubResource( 2 )
+margin_bottom = 490.0
+custom_fonts/font = SubResource( 1 )
 text = "Some Infora
 sd
 "
+align = 1
 autowrap = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 1.5
-anims/wiggle = SubResource( 3 )
+anims/wiggle = SubResource( 2 )
