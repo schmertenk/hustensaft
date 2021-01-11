@@ -11,5 +11,5 @@ dest_files=[ "res://.import/backing_lvl_3.ogg-ae3d8d1267bb493c8d3df1e88a28e01e.o
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

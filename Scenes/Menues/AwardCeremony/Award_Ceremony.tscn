@@ -65,8 +65,12 @@ valign = 1
 [node name="1st_place" type="VBoxContainer" parent="VBoxContainer"]
 margin_top = 130.0
 margin_right = 1024.0
+<<<<<<< Updated upstream
 margin_bottom = 247.0
 rect_rotation = -4.93005
+=======
+margin_bottom = 263.0
+>>>>>>> Stashed changes
 rect_pivot_offset = Vector2( 512, 58 )
 
 [node name="name" type="Label" parent="VBoxContainer/1st_place"]
@@ -89,6 +93,7 @@ valign = 1
 [node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
 margin_top = 297.0
 margin_right = 1024.0
+<<<<<<< Updated upstream
 margin_bottom = 297.0
 
 [node name="ranks" type="VBoxContainer" parent="VBoxContainer/CenterContainer"]
@@ -108,6 +113,21 @@ margin_bottom = 33.0
 rect_min_size = Vector2( 40, 0 )
 custom_fonts/font = SubResource( 3 )
 text = "2."
+=======
+margin_bottom = 293.0
+
+[node name="ranks" type="HBoxContainer" parent="VBoxContainer/CenterContainer"]
+margin_left = 512.0
+margin_right = 512.0
+custom_constants/separation = 100
+
+[node name="1" type="VBoxContainer" parent="VBoxContainer/CenterContainer/ranks"]
+visible = false
+margin_right = 88.0
+margin_bottom = 133.0
+size_flags_horizontal = 3
+custom_constants/separation = 20
+>>>>>>> Stashed changes
 
 [node name="name" type="Label" parent="VBoxContainer/CenterContainer/ranks/1"]
 margin_left = 90.0
@@ -123,12 +143,21 @@ margin_bottom = 33.0
 custom_fonts/font = SubResource( 3 )
 text = "3 Wins"
 
+<<<<<<< Updated upstream
 [node name="2" type="HBoxContainer" parent="VBoxContainer/CenterContainer/ranks"]
 visible = false
 margin_top = 83.0
 margin_right = 358.0
 margin_bottom = 116.0
 custom_constants/separation = 50
+=======
+[node name="2" type="VBoxContainer" parent="VBoxContainer/CenterContainer/ranks"]
+visible = false
+margin_right = 88.0
+margin_bottom = 133.0
+size_flags_horizontal = 3
+custom_constants/separation = 20
+>>>>>>> Stashed changes
 
 [node name="place" type="Label" parent="VBoxContainer/CenterContainer/ranks/2"]
 margin_right = 40.0
@@ -151,6 +180,7 @@ margin_bottom = 33.0
 custom_fonts/font = SubResource( 3 )
 text = "3 Wins"
 
+<<<<<<< Updated upstream
 [node name="3" type="HBoxContainer" parent="VBoxContainer/CenterContainer/ranks"]
 visible = false
 margin_right = 358.0
@@ -163,6 +193,14 @@ margin_bottom = 33.0
 rect_min_size = Vector2( 40, 0 )
 custom_fonts/font = SubResource( 3 )
 text = "4."
+=======
+[node name="3" type="VBoxContainer" parent="VBoxContainer/CenterContainer/ranks"]
+visible = false
+margin_right = 88.0
+margin_bottom = 133.0
+size_flags_horizontal = 3
+custom_constants/separation = 20
+>>>>>>> Stashed changes
 
 [node name="name" type="Label" parent="VBoxContainer/CenterContainer/ranks/3"]
 margin_left = 90.0
@@ -179,14 +217,22 @@ custom_fonts/font = SubResource( 3 )
 text = "3 Wins"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+<<<<<<< Updated upstream
 margin_top = 347.0
+=======
+margin_top = 323.0
+>>>>>>> Stashed changes
 margin_right = 1024.0
 margin_bottom = 600.0
 size_flags_vertical = 3
 
 [node name="CenterContainer" type="Control" parent="VBoxContainer/HBoxContainer"]
 margin_right = 510.0
+<<<<<<< Updated upstream
 margin_bottom = 253.0
+=======
+margin_bottom = 316.0
+>>>>>>> Stashed changes
 size_flags_horizontal = 3
 
 [node name="Main_Menu" parent="VBoxContainer/HBoxContainer/CenterContainer" instance=ExtResource( 4 )]
@@ -205,7 +251,11 @@ text = "Main Menu"
 [node name="CenterContainer2" type="Control" parent="VBoxContainer/HBoxContainer"]
 margin_left = 514.0
 margin_right = 1024.0
+<<<<<<< Updated upstream
 margin_bottom = 253.0
+=======
+margin_bottom = 316.0
+>>>>>>> Stashed changes
 size_flags_horizontal = 3
 
 [node name="Play_Again" parent="VBoxContainer/HBoxContainer/CenterContainer2" instance=ExtResource( 4 )]

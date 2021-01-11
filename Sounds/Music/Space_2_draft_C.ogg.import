@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Space_2_draft_C.ogg-4a8ec03b210a7f24bda5e62febaa1377
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
