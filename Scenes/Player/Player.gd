@@ -296,7 +296,7 @@ func drop_weapon():
 func pull_trigger():
 	if weapon:
 		weapon.pull_trigger()
-		if player_stats.get_node("VBoxContainer/Stack").visible:
+		if player_stats.stack.visible:
 			player_stats.update()
 
 func release_trigger():

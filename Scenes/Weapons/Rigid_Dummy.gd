@@ -8,8 +8,11 @@ var containing_weapon = null
 var initialized = false
 
 var pickupable = true
+var tween : Tween
 
 func _ready():
+	tween = Tween.new()
+	add_child(tween)
 	if initial_weapon_path && containing_weapon == null:
 		containing_weapon = load(initial_weapon_path).instance()
 	
@@ -23,6 +26,7 @@ func init():
 		
 	for w in get_tree().get_nodes_in_group("weapons"):
 		add_collision_exception_with(w)
+		
 	initialized = true
 
 	

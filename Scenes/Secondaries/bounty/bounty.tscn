@@ -91,10 +91,10 @@ pause_mode = 2
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Sprite" type="Sprite" parent="CanvasLayer"]
-visible = false
 texture = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="CanvasLayer/Sprite"]
 modulate = Color( 1, 0.92549, 0.8, 1 )
 position = Vector2( 34.8203, -26.3087 )
 rotation = 0.0698132
+scale = Vector2( 1.4, 1.4 )

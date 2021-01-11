@@ -29,7 +29,7 @@ func _ready():
 		p.secondary = Global.player_infos[i].secondary
 		p.player_info = Global.player_infos[i]
 		p.color_char = Global.player_infos[i].color_char
-		var stat = load("res://Scenes/ui/Player_Stats/Player_Stats.tscn").instance()
+		var stat = load("res://Scenes/ui/Player_Stats/Player_Stats" + str(p.p_number) + ".tscn").instance()
 		stat.player = p
 		p.player_stats = stat
 		$CanvasLayer/Player_Stats.add_child(stat)
@@ -70,17 +70,21 @@ func _on_countdown_finished():
 	get_tree().paused = false
 	
 func end_round(winners = null):
-	if winners == null:
-		winners = get_living_players()
+	if state == STATE_ENDED:
+		return
+	state = STATE_ENDED
 		
 	#removing players secondaiy, so it wont be freed
 	for p in players:
 		p.remove_child(p.secondary)
 		p.secondary = null
 	
+	
+	if winners == null:
+		winners = get_living_players()
+	
 	# let transitionlayer slide in and then call Global.end_round() 
-	if !$CanvasLayer/TransitionMask.is_active():
-		$CanvasLayer/TransitionMask.slide_in(Global, "end_round", winners)
+	$CanvasLayer/TransitionMask.slide_in(Global, "end_round", winners)
 
 func _process(_delta):
 	var living_players = get_living_players()

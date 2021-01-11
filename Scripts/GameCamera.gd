@@ -60,7 +60,7 @@ func _process(delta):
 	position = CustomRect2.position
 	#ZoomRatio is a scalar so we need to turn it into a vector
 	z = clamp(z, min_zoom, max_zoom)
-	zoom = zoom.linear_interpolate( (Vector2(z,z)), 0.1)
+	zoom = zoom.linear_interpolate( (Vector2(z,z)), 0.05)
 
 	
 func get_size_covered_by_camera():

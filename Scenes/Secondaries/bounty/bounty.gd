@@ -33,8 +33,8 @@ func play_indicator(player):
 	$AnimationPlayer.play("show")
 		
 func slide_to_corner():
-	$Tween.interpolate_property($CanvasLayer/Sprite, "position", $CanvasLayer/Sprite.position, Vector2(120, 120), 0.3, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
-	$Tween2.interpolate_property($CanvasLayer/Sprite, "scale", Vector2(1, 1), Vector2(0.5, 0.5), 0.3, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	$Tween.interpolate_property($CanvasLayer/Sprite, "position", $CanvasLayer/Sprite.position, Vector2(get_viewport().size.x / 2, 55), 0.3, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	$Tween2.interpolate_property($CanvasLayer/Sprite, "scale", Vector2(1, 1), Vector2(0.3, 0.3), 0.3, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	$Tween.start()
 	$Tween2.start()
 	

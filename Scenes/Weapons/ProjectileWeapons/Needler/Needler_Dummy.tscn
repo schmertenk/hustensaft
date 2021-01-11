@@ -1,7 +1,16 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Images/Weapons/needler.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Weapons/Rigid_Dummy.gd" type="Script" id=2]
+[ext_resource path="res://outline.shader" type="Shader" id=3]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 3 )
+shader_param/Smooth = false
+shader_param/width = 16.0
+shader_param/outline_color = Color( 0, 0, 0, 1 )
+shader_param/pixel_size = 1
+shader_param/pulse = true
 
 [node name="Needler_Dummy" type="RigidBody2D"]
 mass = 0.3
@@ -9,10 +18,11 @@ gravity_scale = 30.0
 script = ExtResource( 2 )
 initial_weapon_path = "res://Scenes/Weapons/ProjectileWeapons/Needler/Needler.tscn"
 
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -13.6786, -22.477, -10.1431, -29.0178, 6.29715, -29.9017, 26.6265, -26.0126, 45.0113, -18.4112, 71.1742, -3.7387, 71.7045, 2.97881, 49.4307, 19.0655, 29.2781, 28.4347, 0.286743, 25.6062, -31.3563, 16.0603, -34.3615, 13.2319, -26.053, 6.8679, 9.47913, 7.92856, 11.6005, -8.86523, -8.19854, -11.6937 )
+
 [node name="Sprite" type="Sprite" parent="."]
+material = SubResource( 1 )
 scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 1 )
 offset = Vector2( 98.8117, -36.2552 )
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PoolVector2Array( -13.6786, -22.477, -10.1431, -29.0178, 6.29715, -29.9017, 26.6265, -26.0126, 45.0113, -18.4112, 71.1742, -3.7387, 71.7045, 2.97881, 49.4307, 19.0655, 29.2781, 28.4347, 0.286743, 25.6062, -31.3563, 16.0603, -34.3615, 13.2319, -26.053, 6.8679, 9.47913, 7.92856, 11.6005, -8.86523, -8.19854, -11.6937 )

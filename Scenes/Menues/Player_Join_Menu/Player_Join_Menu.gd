@@ -12,9 +12,10 @@ func _ready():
 func _input(event):		
 	if event.is_action_pressed("pad_join_game") || event.is_action_pressed("keyboard_join_game"):
 		var new = false
-		if event.is_action_pressed("keyboard_join_game") && !keyboard_in:
-			keyboard_in = true
-			new = true
+		if event.is_action_pressed("keyboard_join_game"):
+			if !keyboard_in:
+				keyboard_in = true
+				new = true
 		else:
 			new = true
 			for pi in Global.player_infos:
