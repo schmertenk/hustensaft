@@ -10,6 +10,7 @@ var players
 var count_down = 2500
 var state = 0 setget set_state
 var countdown_startet_at
+var spawn_indicators = []
 
 export (int) var level_boundury_radius = 4000
 
@@ -34,6 +35,11 @@ func _ready():
 		p.player_stats = stat
 		$CanvasLayer/Player_Stats.add_child(stat)
 		$Players.add_child(p)
+		var si = load("res://Scenes/ui/Player_Spaw_Indicator/Spawn_Indicator.tscn").instance()
+
+		si.player = p
+		$CanvasLayer.add_child(si)
+		spawn_indicators.append(si)
 
 	players = get_node("Players").get_children() 
 	map_joypad_to_player()
@@ -87,6 +93,11 @@ func end_round(winners = null):
 	$CanvasLayer/TransitionMask.slide_in(Global, "end_round", winners)
 
 func _process(_delta):
+	if spawn_indicators:
+		for si in spawn_indicators:
+			si.stop()
+		spawn_indicators.clear()
+		
 	var living_players = get_living_players()
 	if living_players.size() <= 1:
 		if !Global.one_player_mode || !living_players.size():

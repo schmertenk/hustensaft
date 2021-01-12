@@ -15,6 +15,7 @@ script = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
+rotation = 0.733038
 scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 2 )
 [connection signal="body_entered" from="Hit_Box" to="." method="_on_Hit_Box_body_entered"]

@@ -19,7 +19,7 @@ func _ready():
 		c.visible = true
 		
 		
-func _process(delta):
+func _process(_delta):
 	var all_ready = true
 	for slot in slots:
 		all_ready = all_ready && slot.ready

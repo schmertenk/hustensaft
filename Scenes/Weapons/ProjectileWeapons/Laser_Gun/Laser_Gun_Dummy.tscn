@@ -7,7 +7,7 @@
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 3 )
 shader_param/Smooth = false
-shader_param/width = 16.0
+shader_param/width = 32.0
 shader_param/outline_color = Color( 0, 0, 0, 1 )
 shader_param/pixel_size = 1
 shader_param/pulse = true

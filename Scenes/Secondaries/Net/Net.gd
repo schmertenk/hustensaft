@@ -16,8 +16,10 @@ var excluded_player
 
 
 func _physics_process(delta):
+	var velocity = direction * speed * delta
 	if net_state == NET_FLYING:
-		position += direction * speed * delta
+		position += velocity
+		rotation = velocity.angle()
 	if caught_player:
 		caught_player.global_position = global_position
 	if net_state == NET_STICKING:

@@ -79,9 +79,11 @@ func _ready():
 	update_labels()
 	
 	$Armor_Indicator.visible = false
+	$Sprite.texture = load("res://Images/Characters/" + color_char + "/idle.png")
 	
 func initialize_animation(a_name, image_name):
 	var new_name = a_name + "_" + color_char
+
 	$Movement_Animation_Player.add_animation(new_name, $Movement_Animation_Player.get_animation(a_name).duplicate())
 	$Movement_Animation_Player.get_animation(new_name).track_set_key_value(0, 0, load("res://Images/Characters/" + color_char + "/" + image_name + ".png"))
 	

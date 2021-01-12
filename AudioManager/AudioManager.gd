@@ -36,6 +36,9 @@ export var sound_dictionary = {
 	"cat4": ["res://Sounds/Effects/cats/cat4.wav", "SE"],
 	"cat5": ["res://Sounds/Effects/cats/cat5.wav", "SE"],
 	"fish": ["res://Sounds/Effects/cats/fish.wav", "SE"],
+	
+	"door_open": ["res://Sounds/Effects/door_open.wav", "SE"],
+	"door_close": ["res://Sounds/Effects/door_close.wav", "SE"],
 }
 	
 var player_dictionary = {
@@ -78,7 +81,7 @@ func randomaize_bgm_queue():
 	var bgms = get_all_bgm_names()
 	bgm_queue_index = 0
 	if bgms:
-		for i in range(100):
+		for _i in range(100):
 			var r = randi() % bgms.size() - 1
 			if bgm_queue && bgms[r] == bgm_queue.back():
 				if r == 0:

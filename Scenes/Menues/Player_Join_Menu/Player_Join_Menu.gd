@@ -28,7 +28,7 @@ func _input(event):
 				info = Global.add_player_info(Global.player_infos.size() + 1, event.device)
 			player_added(info)
 	
-func _process(delta):
+func _process(_delta):
 	$VBoxContainer/Label2.rect_pivot_offset = $VBoxContainer/Label2.rect_size / 2
 	var all_ready = true
 	

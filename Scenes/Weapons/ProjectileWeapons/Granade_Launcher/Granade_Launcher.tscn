@@ -5,15 +5,16 @@
 
 [node name="Granade_Launcher" type="Node2D"]
 script = ExtResource( 2 )
-damage = 50.0
+damage = 35.0
 armor_multiplier = 1.0
-flesh_multiplier = 1.0
+flesh_multiplier = 1.1
 rigid_dummy_path = "res://Scenes/Weapons/ProjectileWeapons/Granade_Launcher/G_L_Dummy.tscn"
+fire_rate = 240.0
 shoot_sound_name = "grenade_launcher_shot"
 projectile_path = "res://Scenes/Weapons/Projectiles/RigidProjectiles/Granade.tscn"
 projectile_speed = 750.0
-stack_size = 5
-reload_time = 1.0
+stack_size = 3
+reload_time = 0.6
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 0.35, 0.35 )

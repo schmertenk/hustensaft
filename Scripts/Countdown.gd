@@ -14,7 +14,7 @@ export (String) var last_string = ""
 var started_at
 var state = 0
 
-func _process(delta):
+func _process(_delta):
 	if state == STATE_STOPPED:
 		return
 	

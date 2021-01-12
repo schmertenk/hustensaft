@@ -5,7 +5,7 @@
 
 [node name="Needler" type="Node2D"]
 script = ExtResource( 2 )
-damage = 4.0
+damage = 9.0
 armor_multiplier = 1.0
 flesh_multiplier = 1.0
 continues = true

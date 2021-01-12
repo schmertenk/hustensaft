@@ -27,7 +27,7 @@ func _ready():
 	reload_tween = Tween.new()
 	add_child(reload_tween)
 	if pool_projectiles:
-		for i in range(stack_size * projectiles_per_shot):
+		for _i in range(stack_size * projectiles_per_shot):
 			var p = make_projectile()
 			projectile_pool.append(p)
 			p.set_process(false)
@@ -117,7 +117,7 @@ func shoot():
 	return true
 	
 	
-func on_projectile_hit(target, projectile):
+func on_projectile_hit(_target, _projectile):
 	pass
 		
 func get_shoot_direction():
