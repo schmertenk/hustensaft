@@ -7,6 +7,7 @@ const STATE_EXPLODING = 1
 
 export (float) var duration = 3
 export (String) var sound_name
+export (float) var screenshake_amp = 0
 var state = STATE_WAITING
 
 func explode():
@@ -16,3 +17,5 @@ func explode():
 	$Particles2D.emitting = true
 	$Tween.start()
 	AudioManager.play(sound_name, true)
+	if screenshake_amp:
+		get_node("/root/Game/Camera").shake(0.2, 20.0, screenshake_amp)

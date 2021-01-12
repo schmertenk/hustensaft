@@ -43,6 +43,7 @@ hue_variation_curve = SubResource( 4 )
 scale = Vector2( 5, 5 )
 script = ExtResource( 2 )
 sound_name = "medium_explosion"
+screenshake_amp = 43.0
 
 [node name="Particles2D" type="Particles2D" parent="."]
 emitting = false

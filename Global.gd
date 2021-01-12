@@ -30,7 +30,7 @@ var one_player_mode = false
 var joypad_ids = []
 var player_infos = []
 
-var test_mode = true
+var test_mode = false
 var test_level = "res://Scenes/Levels/Level_3/Level.tscn"
 
 
