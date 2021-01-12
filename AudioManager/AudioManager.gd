@@ -93,10 +93,27 @@ func randomaize_bgm_queue():
 func play_bgm_queue(from_start = false):
 	if from_start:
 		bgm_queue_index = 0
+		stop_all_of_type("BGM")
 	bgm_queue_playing = true
 	play(bgm_queue[bgm_queue_index])
 	player_dictionary[bgm_queue[bgm_queue_index]].connect("sound_finished", self, "_on_queue_sound_finished")
+
+func play_next_in_queue():
+	bgm_queue_index += 1
+	play_bgm_queue()
 	
+# relative_position: 0 = play immediately, -1 = append
+func insert_song_to_queue(sound_name = null, relative_position = 1):
+	if !sound_name || !get_all_bgm_names().has(sound_name):
+		return
+	var pos = bgm_queue_index + relative_position
+	if relative_position == -1:
+		pos = bgm_queue.size()
+	bgm_queue.insert(pos, sound_name)
+	if relative_position == 0:
+		stop_all_of_type("BGM")
+		play_bgm_queue()
+		
 
 func _on_queue_sound_finished(player : MyAudioStreamPlayer):
 	player.disconnect("sound_finished", self, "_on_queue_sound_finished")
