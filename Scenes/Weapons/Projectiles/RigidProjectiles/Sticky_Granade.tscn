@@ -22,7 +22,7 @@ mass = 0.3
 physics_material_override = SubResource( 1 )
 gravity_scale = 30.0
 continuous_cd = 2
-contacts_reported = 1
+contacts_reported = 6
 contact_monitor = true
 can_sleep = false
 linear_damp = 0.0
@@ -47,5 +47,6 @@ visible = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExplosionRadius"]
 shape = SubResource( 4 )
 [connection signal="body_entered" from="." to="." method="_on_Granade_body_entered"]
+[connection signal="body_shape_entered" from="." to="." method="_on_Granade_body_shape_entered"]
 [connection signal="body_entered" from="ExplosionRadius" to="." method="_on_ExplosionRadius_body_entered"]
 [connection signal="body_exited" from="ExplosionRadius" to="." method="_on_ExplosionRadius_body_exited"]

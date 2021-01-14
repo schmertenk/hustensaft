@@ -21,7 +21,7 @@ var bodies_in_explosion_radius = []
 var body_hit_time = 0
 var explosion_state = EXPLOSION_STATE_NOT_FIRED
 var last_global_positions = []
-var pos_i = 1
+var pos_i = 0
 
 onready var explosion_scene = load(explosion_path)
 
@@ -62,7 +62,7 @@ func handly_stickyness(original_hit_position, hit_body):
 	linear_velocity = Vector2.ZERO
 	$CollisionShape2D.disabled = true
 	global_position = original_hit_position
-	var index = clamp(pos_i, pos_i, last_global_positions.size() -1)
+	var index = clamp(pos_i, pos_i, max(0, last_global_positions.size() -1))
 	var ray = RayCast2D.new()
 	ray.enabled = true
 	ray.cast_to = (global_position - last_global_positions[index]) * 3
@@ -125,3 +125,9 @@ func do_damage(target):
 			var vec = (global_position - body.global_position).normalized() * -kb
 			# more x than y to overcome players friction which is affecting only x
 			body.apply_impulse(position, vec * explosion_knock_back / 2)
+
+
+
+func _on_Granade_body_shape_entered(body_id, body, body_shape, local_shape):
+	var arr = get_colliding_bodies()
+	pass

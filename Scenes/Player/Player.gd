@@ -141,7 +141,9 @@ func get_input(delta):
 func _physics_process(delta):
 	if !player_stats.visible:	
 		player_stats.visible = true
-	get_input(delta)
+		
+	if !dead:
+		get_input(delta)
 	
 	# only apply gravity when in air or on steil slopes
 	if !is_on_floor() || in_jump || get_slide_count() > 0 and abs(rad2deg(abs(get_slide_collision(0).normal.angle())) - 90) > 45:
@@ -215,6 +217,7 @@ func apply_force(force):
 func knock_back(i):
 	impuls = Vector2(i.x / friction, i.y)
 	apply_force(Vector2(0, i.y))
+	in_jump = true
 
 
 func pause():
@@ -266,7 +269,6 @@ func die(cause):
 	drop_weapon()
 	set_process(false)
 	set_process_input(false)
-	set_physics_process(false)
 	emit_signal("got_killed", cause)
 	for p in game.players:
 		if p != self:

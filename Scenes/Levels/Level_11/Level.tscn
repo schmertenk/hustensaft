@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://Images/floor.png" type="Texture" id=1]
 [ext_resource path="res://Images/lvl_11/background.jpg" type="Texture" id=2]
@@ -22,6 +22,7 @@
 [ext_resource path="res://Scenes/Weapons/ProjectileWeapons/Laser_Gun/Laser_Gun_Dummy.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Scenes/Weapons/ProjectileWeapons/Sticky_Granade_Launcher/G_L_Dummy.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Scenes/Weapons/ProjectileWeapons/Pistol/Pistol_Dummy.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Scenes/Levels/Level_11/Rocket.gd" type="Script" id=23]
 
 [sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( 100, 100, 0, 100, 0, 0, 100, 0 )
@@ -64,8 +65,98 @@ font_data = ExtResource( 8 )
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 344.896, 333.612 )
 
-[sub_resource type="Animation" id=7]
-resource_name = "wiggle"
+[sub_resource type="Curve" id=7]
+max_value = 2.0
+_data = [ Vector2( 0, 1 ), 0.0, 3.3361, 0, 0, Vector2( 1, 0 ), -1.81451, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=8]
+curve = SubResource( 7 )
+
+[sub_resource type="ParticlesMaterial" id=9]
+emission_shape = 1
+emission_sphere_radius = 63.24
+flag_disable_z = true
+direction = Vector3( -0.4, -1, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 1000.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle = 720.0
+angle_random = 1.0
+scale = 184.12
+scale_curve = SubResource( 8 )
+color = Color( 0, 0.694118, 1, 1 )
+
+[sub_resource type="ParticlesMaterial" id=10]
+emission_shape = 1
+emission_sphere_radius = 63.24
+flag_disable_z = true
+direction = Vector3( -0.4, -1, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 1000.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle = 720.0
+angle_random = 1.0
+scale = 50.79
+scale_curve = SubResource( 8 )
+
+[sub_resource type="ParticlesMaterial" id=11]
+trail_divisor = 10
+emission_shape = 1
+emission_sphere_radius = 116.95
+flag_disable_z = true
+direction = Vector3( -0.4, -1, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 1000.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 11.58
+color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="Animation" id=12]
+resource_name = "Fire"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Particles2D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Particles2D3:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Particles2D2:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=13]
 length = 5.0
 loop = true
 tracks/0/type = "value"
@@ -93,36 +184,36 @@ tracks/1/keys = {
 "values": [ Vector2( -1787.57, -1176.63 ), Vector2( -1787.57, -1220 ), Vector2( -1787.57, -1250 ), Vector2( -1787.57, -1220 ), Vector2( -1787.57, -1176.63 ) ]
 }
 
-[sub_resource type="Gradient" id=8]
+[sub_resource type="Gradient" id=14]
 offsets = PoolRealArray( 0, 0.598837, 1 )
 colors = PoolColorArray( 0.940041, 0.916348, 0.172586, 1, 0.96026, 0.438518, 0.114388, 0.662791, 1, 0, 0, 0 )
 
-[sub_resource type="GradientTexture" id=9]
-gradient = SubResource( 8 )
+[sub_resource type="GradientTexture" id=15]
+gradient = SubResource( 14 )
 
-[sub_resource type="Curve" id=10]
-_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.133187 ), -2.98141, 0.0, 0, 0 ]
+[sub_resource type="Curve" id=16]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.128261, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.133187 ), -2.98141, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=11]
-curve = SubResource( 10 )
+[sub_resource type="CurveTexture" id=17]
+curve = SubResource( 16 )
 
-[sub_resource type="ParticlesMaterial" id=12]
-lifetime_randomness = 0.52
+[sub_resource type="ParticlesMaterial" id=18]
 emission_shape = 1
-emission_sphere_radius = 25.37
+emission_sphere_radius = 54.41
 flag_disable_z = true
 direction = Vector3( 0, -1, 0 )
-spread = 24.43
+spread = 39.56
 gravity = Vector3( 0, -98, 0 )
 initial_velocity = 211.9
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 linear_accel = 100.0
 linear_accel_random = 1.0
-scale_curve = SubResource( 11 )
-color_ramp = SubResource( 9 )
+scale = 2.0
+scale_curve = SubResource( 17 )
+color_ramp = SubResource( 15 )
 
-[sub_resource type="Environment" id=13]
+[sub_resource type="Environment" id=19]
 background_mode = 4
 glow_enabled = true
 glow_bloom = 0.08
@@ -247,6 +338,7 @@ modulate = Color( 0.615686, 0.615686, 0.615686, 1 )
 texture = ExtResource( 15 )
 
 [node name="Spikes" type="Node2D" parent="."]
+visible = false
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2( 14, -2 )
@@ -276,20 +368,55 @@ shape = SubResource( 6 )
 z_index = -1
 
 [node name="Rocket" type="StaticBody2D" parent="Assets"]
-rotation = 2.71748
+position = Vector2( 1597.79, 142.983 )
+script = ExtResource( 23 )
 
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Assets/Rocket"]
-polygon = PoolVector2Array( -1141.71, -1008.06, -1235.57, -1014.5, -1224.35, -1529.21, -1247.33, -1625.29, -1203.54, -1630.41, -1163.62, -1675.97, -1133.76, -1576.78 )
+[node name="Area2D" type="Area2D" parent="Assets/Rocket"]
+position = Vector2( -616.597, -1473.61 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Assets/Rocket"]
-polygon = PoolVector2Array( -1360.69, -1839.6, -1423.2, -1894.37, -1465.34, -1882.05, -1518.39, -1822.4, -1548.25, -1733.12, -1600.69, -1532.12, -1601.78, 163.719, -1233.15, 161.217, -1237.69, -642.648, -1143.24, -643.543, -1138.9, -440.984, -731.021, 171.643, -1142.81, 250.451, -1280.73, 621.486, -1557.99, 599.061, -1726.49, 254.757, -2096.02, 108.809, -1729.77, -474.743, -1725.16, -1545.76, -1688.54, -1715.58, -1632.55, -1862.73, -1559.06, -1998.5, -1468.65, -2121.58, -1430.48, -2144.41, -1320.36, -2010.26, -1230.74, -1846.14, -1313.43, -1870.79 )
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Assets/Rocket/Area2D"]
+polygon = PoolVector2Array( -78.1576, 233.692, 187.16, 137.078, 226.218, 85.4209, 216.139, 33.7642, -46.4096, -344.121, -130.542, -356.821, -189.276, -286.975, -166.878, 174.875, -135.379, 217.713 )
+
+[node name="Particles2D" type="Particles2D" parent="Assets/Rocket"]
+position = Vector2( -538.36, -1270.03 )
+emitting = false
+amount = 40
+lifetime = 0.6
+process_material = SubResource( 9 )
+
+[node name="Particles2D3" type="Particles2D" parent="Assets/Rocket"]
+position = Vector2( -538.36, -1270.03 )
+emitting = false
+amount = 40
+lifetime = 0.35
+process_material = SubResource( 10 )
+
+[node name="Particles2D2" type="Particles2D" parent="Assets/Rocket"]
+position = Vector2( -538.36, -1270.03 )
+emitting = false
+amount = 80
+lifetime = 0.4
+speed_scale = 2.0
+process_material = SubResource( 11 )
 
 [node name="rocket" type="Sprite" parent="Assets/Rocket"]
-position = Vector2( -1401.52, -792.104 )
-rotation = 3.97364e-08
+rotation = 2.71748
 scale = Vector2( 0.75, 0.75 )
 texture = ExtResource( 5 )
 flip_h = true
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Assets/Rocket"]
+polygon = PoolVector2Array( -62.98, 271.506, 151.02, 739.506, 201.02, 825.506, 163.02, 851.506, 149.02, 903.506, 85.02, 831.506, -152.98, 307.506 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Assets/Rocket"]
+polygon = PoolVector2Array( -674.361, -849.927, -694.52, -1240.5, -427.416, -1341.3, -135.115, -1089.31, 250.421, -1104.43, 169.786, -424.073, 608.239, 550.32, 643.517, 676.312, 668.715, 889.444, 638.477, 1068.35, 547.763, 1196.86, 389.013, 1113.71, 283.179, 1033.07, 348.695, 1020.48, 386.493, 990.238, 391.532, 965.039, 462.088, 1000.32, 487.286, 959.999, 517.524, 939.841, 528.965, 848.731, 509.365, 729.351, 494.846, 597.142, -213.23, -954.155, -543.329, -800.445, -208.19, -59.6111, -293.865, -21.8134, -394.658, -215.841, -1004.46, -603.897 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Assets/Rocket"]
+anims/Fire = SubResource( 12 )
+
+[node name="Timer" type="Timer" parent="Assets/Rocket"]
+wait_time = 3.0
+autostart = true
 
 [node name="UFO" type="StaticBody2D" parent="Assets"]
 position = Vector2( -1787.57, -1248.22 )
@@ -315,7 +442,7 @@ polygon = PoolVector2Array( 352.736, 151.439, 196.912, 263.812, 36.5935, 316.253
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Assets/UFO"]
 playback_process_mode = 0
-anims/wiggle = SubResource( 7 )
+anims/wiggle = SubResource( 13 )
 
 [node name="ground" type="StaticBody2D" parent="Assets"]
 z_index = 10
@@ -323,7 +450,7 @@ z_as_relative = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Assets/ground"]
 position = Vector2( 0.793701, 0.793701 )
-polygon = PoolVector2Array( -1069.88, 657.558, -1064.84, 685.277, -1082.48, 715.515, -1127.84, 758.352, -2320.69, 753.312, -2373.61, 770.951, -2373.61, 844.027, -2429.05, 869.225, -2471.88, 949.86, -2413.93, 1116.17, -2497.08, 1191.76, -2494.56, 1292.56, -2431.57, 1354.29, -2330.77, 1384.53, -2235.02, 1349.25, -2103.99, 1349.25, -2030.91, 1387.05, -1897.36, 1301.37, -1758.77, 1286.25, -1572.3, 1351.77, -1285.9, 1350.65, -1272.41, 1209.81, -1230.46, 1118.41, -1188.51, 1115.42, -1173.52, 1089.94, -1055.16, 1064.47, -1025.19, 1083.95, -978.743, 1049.49, -893.339, 1086.95, -887.346, 1142.39, -843.895, 1205.31, -837.902, 1350.65, -801.227, 1344.21, -559.323, 1344.21, -256.947, 1361.85, -78.0381, 1296.33, 143.708, 1296.33, 529.244, 1334.13, 839.185, 1407.21, 1159.2, 1397.13, 1484.26, 1392.09, 1632.37, 1422.33, 1823.88, 1419.81, 2063.27, 1331.61, 2194.3, 1203.1, 2058.84, 1134, 2090.66, 1095.82, 2165.61, 1049.15, 2240.17, 769.178, 2551.3, 876.658, 2989.71, 947.369, 2989.71, 1244.35, 3001.02, 1419.72, 2993.72, 1550.5, 1860.5, 1540.76, -3001.92, 1493.49, -2980.54, 684.551, -2723.96, 588.334, -2269.41, 524.521, -2244.95, 425.361, -2181.96, 364.885, -2103.84, 322.048, -2055.96, 228.814, -2005.57, 193.536, -1881.07, 163.159, -1857.01, 184.54, -1810.06, 146.823, -1729.3, 177.525, -1714.91, 240.376, -1672.05, 299.904, -1669.67, 343.558, -1579.98, 358.638, -1562.46, 381.077, -1508.66, 383.908, -1415.22, 484.903, -1423.41, 580.874 )
+polygon = PoolVector2Array( -1069.88, 657.558, -1064.84, 685.277, -1082.48, 715.515, -1127.84, 758.352, -2320.69, 753.312, -2373.61, 770.951, -2373.61, 844.027, -2429.05, 869.225, -2471.88, 949.86, -2413.93, 1116.17, -2497.08, 1191.76, -2494.56, 1292.56, -2431.57, 1354.29, -2330.77, 1384.53, -2235.02, 1349.25, -2103.99, 1349.25, -2030.91, 1387.05, -1897.36, 1301.37, -1758.77, 1286.25, -1572.3, 1351.77, -1285.9, 1350.65, -1272.41, 1209.81, -1230.46, 1118.41, -1188.51, 1115.42, -1173.52, 1089.94, -1055.16, 1064.47, -1025.19, 1083.95, -978.743, 1049.49, -893.339, 1086.95, -887.346, 1142.39, -843.895, 1205.31, -837.902, 1350.65, -801.227, 1344.21, -559.323, 1344.21, -256.947, 1361.85, -78.0381, 1296.33, 143.708, 1296.33, 529.244, 1334.13, 839.185, 1407.21, 1159.2, 1397.13, 1484.26, 1392.09, 1632.37, 1422.33, 1823.88, 1419.81, 2063.27, 1331.61, 2194.3, 1203.1, 2058.84, 1134, 2090.66, 1095.82, 2165.61, 1049.15, 2240.17, 769.178, 2551.3, 876.658, 2989.71, 947.369, 7032.1, 914.616, 6994.34, 1548.9, 2993.72, 1550.5, 1860.5, 1540.76, -3001.92, 1493.49, -3225.74, 1459.46, -5524.42, 1554.95, -5706.16, 745.858, -3167.37, 741.089, -2723.96, 588.334, -2269.41, 524.521, -2244.95, 425.361, -2181.96, 364.885, -2103.84, 322.048, -2055.96, 228.814, -2005.57, 193.536, -1881.07, 163.159, -1857.01, 184.54, -1810.06, 146.823, -1729.3, 177.525, -1714.91, 240.376, -1672.05, 299.904, -1669.67, 343.558, -1579.98, 358.638, -1562.46, 381.077, -1508.66, 383.908, -1415.22, 484.903, -1423.41, 580.874 )
 
 [node name="ground" type="Sprite" parent="Assets/ground"]
 texture = ExtResource( 14 )
@@ -357,112 +484,114 @@ texture = ExtResource( 18 )
 [node name="Particles" type="Node2D" parent="."]
 scale = Vector2( 1.2, 1.2 )
 
-[node name="Particles2D" type="Particles2D" parent="Particles"]
-position = Vector2( 1935.67, 704.269 )
-z_index = -2
-amount = 120
-lifetime = 2.0
-visibility_rect = Rect2( -1000, -1000, 2000, 2000 )
-local_coords = false
-draw_order = 1
-process_material = SubResource( 12 )
-texture = ExtResource( 7 )
-
-[node name="Particles2D2" type="Particles2D" parent="Particles"]
-position = Vector2( 1984.95, 788.831 )
-z_index = -2
-amount = 120
-lifetime = 2.0
-visibility_rect = Rect2( -1000, -1000, 2000, 2000 )
-draw_order = 1
-process_material = SubResource( 12 )
-texture = ExtResource( 7 )
-
-[node name="Particles2D3" type="Particles2D" parent="Particles"]
-position = Vector2( 2034.95, 742.164 )
-z_index = -2
-amount = 120
-lifetime = 2.0
-visibility_rect = Rect2( -1000, -1000, 2000, 2000 )
-draw_order = 1
-process_material = SubResource( 12 )
-texture = ExtResource( 7 )
-
-[node name="Particles2D4" type="Particles2D" parent="Particles"]
-position = Vector2( 814.952, -814.502 )
-z_index = -2
-amount = 120
-lifetime = 2.0
-visibility_rect = Rect2( -1000, -1000, 2000, 2000 )
-draw_order = 1
-process_material = SubResource( 12 )
-texture = ExtResource( 7 )
-
-[node name="Particles2D5" type="Particles2D" parent="Particles"]
-position = Vector2( 954.952, -754.502 )
-z_index = -2
-amount = 120
-lifetime = 2.0
-visibility_rect = Rect2( -1000, -1000, 2000, 2000 )
-draw_order = 1
-process_material = SubResource( 12 )
-texture = ExtResource( 7 )
-
 [node name="Particles2D6" type="Particles2D" parent="Particles"]
 position = Vector2( 1260.21, 654.584 )
 z_index = -2
-amount = 120
+amount = 45
 lifetime = 2.0
 visibility_rect = Rect2( -1000, -1000, 2000, 2000 )
 draw_order = 1
-process_material = SubResource( 12 )
+process_material = SubResource( 18 )
+texture = ExtResource( 7 )
+
+[node name="Particles2D11" type="Particles2D" parent="Particles"]
+position = Vector2( 818.767, -878.106 )
+z_index = -2
+amount = 45
+lifetime = 2.0
+visibility_rect = Rect2( -1000, -1000, 2000, 2000 )
+draw_order = 1
+process_material = SubResource( 18 )
+texture = ExtResource( 7 )
+
+[node name="Particles2D12" type="Particles2D" parent="Particles"]
+position = Vector2( 914.119, -892.232 )
+z_index = -2
+amount = 45
+lifetime = 2.0
+visibility_rect = Rect2( -1000, -1000, 2000, 2000 )
+draw_order = 1
+process_material = SubResource( 18 )
+texture = ExtResource( 7 )
+
+[node name="Particles2D13" type="Particles2D" parent="Particles"]
+position = Vector2( 1913.55, 704.026 )
+z_index = -2
+amount = 45
+lifetime = 2.0
+visibility_rect = Rect2( -1000, -1000, 2000, 2000 )
+draw_order = 1
+process_material = SubResource( 18 )
+texture = ExtResource( 7 )
+
+[node name="Particles2D14" type="Particles2D" parent="Particles"]
+position = Vector2( 1782.88, 530.98 )
+z_index = -2
+amount = 45
+lifetime = 2.0
+visibility_rect = Rect2( -1000, -1000, 2000, 2000 )
+draw_order = 1
+process_material = SubResource( 18 )
+texture = ExtResource( 7 )
+
+[node name="Particles2D15" type="Particles2D" parent="Particles"]
+position = Vector2( 1782.88, 530.98 )
+z_index = -2
+amount = 45
+lifetime = 2.0
+visibility_rect = Rect2( -1000, -1000, 2000, 2000 )
+draw_order = 1
+process_material = SubResource( 18 )
 texture = ExtResource( 7 )
 
 [node name="Particles2D7" type="Particles2D" parent="Particles"]
 position = Vector2( 1700.68, 170.062 )
 z_index = -2
-amount = 120
+amount = 45
 lifetime = 2.0
 visibility_rect = Rect2( -1000, -1000, 2000, 2000 )
 draw_order = 1
-process_material = SubResource( 12 )
+process_material = SubResource( 18 )
 texture = ExtResource( 7 )
 
 [node name="Particles2D8" type="Particles2D" parent="Particles"]
 position = Vector2( 1581.12, 6.45673 )
 z_index = -2
-amount = 120
+amount = 45
 lifetime = 2.0
 visibility_rect = Rect2( -1000, -1000, 2000, 2000 )
 draw_order = 1
-process_material = SubResource( 12 )
+process_material = SubResource( 18 )
 texture = ExtResource( 7 )
 
 [node name="Particles2D9" type="Particles2D" parent="Particles"]
 position = Vector2( 1581.12, 6.45673 )
 z_index = -2
-amount = 120
+amount = 45
 lifetime = 2.0
 visibility_rect = Rect2( -1000, -1000, 2000, 2000 )
 draw_order = 1
-process_material = SubResource( 12 )
+process_material = SubResource( 18 )
 texture = ExtResource( 7 )
 
 [node name="Particles2D10" type="Particles2D" parent="Particles"]
 position = Vector2( 1466.17, 583.222 )
 z_index = -2
-amount = 120
+amount = 45
 lifetime = 2.0
 visibility_rect = Rect2( -1000, -1000, 2000, 2000 )
 draw_order = 1
-process_material = SubResource( 12 )
+process_material = SubResource( 18 )
 texture = ExtResource( 7 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 13 )
+environment = SubResource( 19 )
 
 [node name="Needler_Dummy" parent="." instance=ExtResource( 19 )]
 position = Vector2( 1641.74, 1358.34 )
+[connection signal="body_entered" from="Assets/Rocket/Area2D" to="Assets/Rocket" method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Assets/Rocket/Area2D" to="Assets/Rocket" method="_on_Area2D_body_exited"]
+[connection signal="timeout" from="Assets/Rocket/Timer" to="Assets/Rocket" method="_on_Timer_timeout"]
 [connection signal="body_entered" from="Assets/UFO/Area2D" to="Assets/UFO" method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Assets/UFO/Area2D" to="Assets/UFO" method="_on_Area2D_body_exited"]
 

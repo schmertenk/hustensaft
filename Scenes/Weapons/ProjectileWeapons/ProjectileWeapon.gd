@@ -40,7 +40,7 @@ func start_reload():
 	if reload_tween.is_active() || !can_reload:
 		return
 	AudioManager.play("weapon_reload")
-	reload_tween.interpolate_property($Sprite, "rotation_degrees", 0, 360, reload_time)
+	reload_tween.interpolate_property($Sprite, "rotation_degrees", 0, 360, reload_time, 0, 2, 0)
 	reload_tween.interpolate_callback(self, reload_time, "finish_reload")
 
 	reload_tween.start()
@@ -108,11 +108,12 @@ func shoot():
 			
 		p.initial_direction = (direction + Vector2((0.5 - randf()) * spray, (0.5 - randf()) * spray)).normalized()
 		# We havt to set initial_direction before adding the projectile to the scene
+		p.position = spawn_position
 		if !pool_projectiles:
 			get_node("/root/Game").add_child(p)
 			
 			
-		p.global_position = spawn_position
+		
 		#p.rotation_degrees = 0
 	return true
 	
