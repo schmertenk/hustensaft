@@ -1,0 +1,469 @@
+[gd_scene load_steps=36 format=2]
+
+[ext_resource path="res://Images/floor.png" type="Texture" id=1]
+[ext_resource path="res://Images/lvl_11/background.jpg" type="Texture" id=2]
+[ext_resource path="res://Game.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/GameCamera.gd" type="Script" id=4]
+[ext_resource path="res://Images/lvl_11/rocket.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/Assets/Door/Door.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Images/circle.png" type="Texture" id=7]
+[ext_resource path="res://Retrophile Regular.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://Images/lvl_11/ufo_front.png" type="Texture" id=9]
+[ext_resource path="res://Scripts/Countdown.gd" type="Script" id=10]
+[ext_resource path="res://Scenes/Menues/Pause_Menu/Pause_Menu.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Images/lvl_11/ufo_in.png" type="Texture" id=12]
+[ext_resource path="res://Scenes/Levels/Level_11/UFO.gd" type="Script" id=13]
+[ext_resource path="res://Images/lvl_11/ground.png" type="Texture" id=14]
+[ext_resource path="res://Images/lvl_11/ground_for.png" type="Texture" id=15]
+[ext_resource path="res://Scenes/TransitionMask.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scenes/FPS.gd" type="Script" id=17]
+[ext_resource path="res://Images/lvl_11/stones.png" type="Texture" id=18]
+[ext_resource path="res://Scenes/Weapons/ProjectileWeapons/Needler/Needler_Dummy.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Scenes/Weapons/ProjectileWeapons/Laser_Gun/Laser_Gun_Dummy.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Scenes/Weapons/ProjectileWeapons/Sticky_Granade_Launcher/G_L_Dummy.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Scenes/Weapons/ProjectileWeapons/Pistol/Pistol_Dummy.tscn" type="PackedScene" id=22]
+
+[sub_resource type="OccluderPolygon2D" id=1]
+polygon = PoolVector2Array( 100, 100, 0, 100, 0, 0, 100, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=2]
+points = PoolVector2Array( 100, 100, 0, 100, 0, 0, 100, 0 )
+
+[sub_resource type="TileSet" id=3]
+0/name = "floor.png 0"
+0/texture = ExtResource( 1 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 100, 100 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/occluder = SubResource( 1 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 2 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 2 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+
+[sub_resource type="DynamicFont" id=4]
+size = 150
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 22
+font_data = ExtResource( 8 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 344.896, 333.612 )
+
+[sub_resource type="Animation" id=7]
+resource_name = "wiggle"
+length = 5.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.7, 1.3, 1.8, 2.4, 2.9, 3.5, 4.2, 4.7 ),
+"transitions": PoolRealArray( 2.82843, 0.267943, 2.73208, 0.267943, 2.21914, 0.267943, 2.73208, 0.267943, 0.258816 ),
+"update": 0,
+"values": [ 14.0, 17.8, 20.0, 17.8, 14.0, 17.8, 20.0, 17.8, 14.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 2.5, 3.5, 5 ),
+"transitions": PoolRealArray( 2.46229, 0.366022, 2.63902, 0.378929, 1 ),
+"update": 0,
+"values": [ Vector2( -1787.57, -1176.63 ), Vector2( -1787.57, -1220 ), Vector2( -1787.57, -1250 ), Vector2( -1787.57, -1220 ), Vector2( -1787.57, -1176.63 ) ]
+}
+
+[sub_resource type="Gradient" id=8]
+offsets = PoolRealArray( 0, 0.598837, 1 )
+colors = PoolColorArray( 0.940041, 0.916348, 0.172586, 1, 0.96026, 0.438518, 0.114388, 0.662791, 1, 0, 0, 0 )
+
+[sub_resource type="GradientTexture" id=9]
+gradient = SubResource( 8 )
+
+[sub_resource type="Curve" id=10]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.133187 ), -2.98141, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=11]
+curve = SubResource( 10 )
+
+[sub_resource type="ParticlesMaterial" id=12]
+lifetime_randomness = 0.52
+emission_shape = 1
+emission_sphere_radius = 25.37
+flag_disable_z = true
+direction = Vector3( 0, -1, 0 )
+spread = 24.43
+gravity = Vector3( 0, -98, 0 )
+initial_velocity = 211.9
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 100.0
+linear_accel_random = 1.0
+scale_curve = SubResource( 11 )
+color_ramp = SubResource( 9 )
+
+[sub_resource type="Environment" id=13]
+background_mode = 4
+glow_enabled = true
+glow_bloom = 0.08
+glow_blend_mode = 0
+adjustment_enabled = true
+
+[node name="Game" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Players" type="Node2D" parent="."]
+
+[node name="TileMap" type="TileMap" parent="."]
+z_index = -100
+tile_set = SubResource( 3 )
+cell_size = Vector2( 100, 100 )
+format = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Player_Stats" type="Node" parent="CanvasLayer"]
+
+[node name="Pause_Menu" parent="CanvasLayer" instance=ExtResource( 11 )]
+visible = false
+
+[node name="TransitionMask" parent="CanvasLayer" instance=ExtResource( 16 )]
+visible = false
+
+[node name="Countdown" type="Label" parent="CanvasLayer"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 36.73
+margin_top = -59.8565
+margin_right = 36.73
+margin_bottom = 90.1435
+custom_fonts/font = SubResource( 4 )
+align = 1
+valign = 1
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+last_string = "GO!!"
+
+[node name="FPS" type="Label" parent="CanvasLayer"]
+visible = false
+margin_left = 14.0
+margin_top = -2.0
+margin_right = 62.0
+margin_bottom = 21.0
+custom_fonts/font = SubResource( 5 )
+text = "test"
+script = ExtResource( 17 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Spawns" type="Node2D" parent="."]
+
+[node name="Player_Spawn_1" type="Node2D" parent="Spawns"]
+position = Vector2( -2103.37, 1107.85 )
+
+[node name="Player_Spawn_2" type="Node2D" parent="Spawns"]
+position = Vector2( 2784.06, 662.387 )
+
+[node name="Player_Spawn_3" type="Node2D" parent="Spawns"]
+position = Vector2( 1335.35, -550.804 )
+
+[node name="Player_Spawn_4" type="Node2D" parent="Spawns"]
+position = Vector2( -2101.3, -1217.92 )
+
+[node name="Weapons" type="Node2D" parent="."]
+
+[node name="Needler_Dummy" parent="Weapons" instance=ExtResource( 19 )]
+position = Vector2( -1839.17, 1187.58 )
+
+[node name="Needler_Dummy2" parent="Weapons" instance=ExtResource( 19 )]
+position = Vector2( 2613.18, 858.454 )
+rotation = 4.30224
+
+[node name="Pistol_Dummy" parent="Weapons" instance=ExtResource( 22 )]
+position = Vector2( 2051.51, 1071.82 )
+
+[node name="Pistol_Dummy2" parent="Weapons" instance=ExtResource( 20 )]
+position = Vector2( 1028.75, 680.785 )
+
+[node name="Pistol_Dummy3" parent="Weapons" instance=ExtResource( 20 )]
+position = Vector2( -1366.98, -1117.54 )
+
+[node name="G_L_Dummy" parent="Weapons" instance=ExtResource( 21 )]
+position = Vector2( 1171, -1222 )
+
+[node name="Background" type="Node2D" parent="."]
+show_behind_parent = true
+z_index = -1000
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Background"]
+follow_viewport_enable = true
+scroll_ignore_camera_zoom = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Background/ParallaxBackground"]
+motion_scale = Vector2( -0.25, 0 )
+
+[node name="background" type="Sprite" parent="Background/ParallaxBackground/ParallaxLayer"]
+position = Vector2( 0, 205.831 )
+scale = Vector2( 1.35, 1.35 )
+texture = ExtResource( 2 )
+offset = Vector2( 0, -500 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="Background/ParallaxBackground"]
+motion_scale = Vector2( -0.6, 0 )
+
+[node name="ground_f" type="Sprite" parent="Background"]
+modulate = Color( 0.615686, 0.615686, 0.615686, 1 )
+texture = ExtResource( 15 )
+
+[node name="Spikes" type="Node2D" parent="."]
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2( 14, -2 )
+current = true
+zoom = Vector2( 3.85, 3.85 )
+limit_left = -3000
+limit_top = -2000
+limit_right = 3000
+limit_bottom = 1500
+smoothing_enabled = true
+smoothing_speed = 10.0
+editor_draw_limits = true
+script = ExtResource( 4 )
+max_zoom = 3.85
+
+[node name="Doors" type="Node2D" parent="."]
+
+[node name="Door" parent="Doors" instance=ExtResource( 6 )]
+position = Vector2( 1422.29, 266.182 )
+rotation = -0.418879
+scale = Vector2( 0.9, 1.2 )
+
+[node name="CollisionShape2D" parent="Doors/Door/Trigger_Area" index="0"]
+shape = SubResource( 6 )
+
+[node name="Assets" type="Node2D" parent="."]
+z_index = -1
+
+[node name="Rocket" type="StaticBody2D" parent="Assets"]
+rotation = 2.71748
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Assets/Rocket"]
+polygon = PoolVector2Array( -1141.71, -1008.06, -1235.57, -1014.5, -1224.35, -1529.21, -1247.33, -1625.29, -1203.54, -1630.41, -1163.62, -1675.97, -1133.76, -1576.78 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Assets/Rocket"]
+polygon = PoolVector2Array( -1360.69, -1839.6, -1423.2, -1894.37, -1465.34, -1882.05, -1518.39, -1822.4, -1548.25, -1733.12, -1600.69, -1532.12, -1601.78, 163.719, -1233.15, 161.217, -1237.69, -642.648, -1143.24, -643.543, -1138.9, -440.984, -731.021, 171.643, -1142.81, 250.451, -1280.73, 621.486, -1557.99, 599.061, -1726.49, 254.757, -2096.02, 108.809, -1729.77, -474.743, -1725.16, -1545.76, -1688.54, -1715.58, -1632.55, -1862.73, -1559.06, -1998.5, -1468.65, -2121.58, -1430.48, -2144.41, -1320.36, -2010.26, -1230.74, -1846.14, -1313.43, -1870.79 )
+
+[node name="rocket" type="Sprite" parent="Assets/Rocket"]
+position = Vector2( -1401.52, -792.104 )
+rotation = 3.97364e-08
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 5 )
+flip_h = true
+
+[node name="UFO" type="StaticBody2D" parent="Assets"]
+position = Vector2( -1787.57, -1248.22 )
+rotation = 0.263997
+script = ExtResource( 13 )
+
+[node name="ufo_front" type="Sprite" parent="Assets/UFO"]
+texture = ExtResource( 9 )
+
+[node name="ufo_in" type="Sprite" parent="Assets/UFO"]
+z_index = -1
+texture = ExtResource( 12 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Assets/UFO"]
+polygon = PoolVector2Array( 353.577, 154.877, 382.15, 110.43, 488.296, 50.5793, 586.57, -7.37708, 626.887, -71.6331, 619.328, -123.29, 575.23, -182.506, 469.397, -244.242, 274.109, -258.101, 236.249, -325.997, 191.35, -373.14, 143.084, -393.344, 8.38892, -392.222, -99.3674, -358.548, -159.98, -324.874, -219.471, -264.261, -257.635, -198.036, -291.309, -132.933, -304.778, -92.5247, -371.003, -26.2993, -382.228, -12.8298, -390.085, 36.5586, -477.637, 157.784, -481.664, 214.645, -458.972, 244.679, -420.929, 268.706, -354.187, 290.731, -258.746, 300.075, -172.436, 311.896, -244.355, 353.1, -363.47, 350.103, -440.633, 333.622, -504.311, 297.662, -523.04, 255.71, -547.013, 255.71, -585.969, 238.479, -594.21, 201.021, -553.006, 104.935, -476.593, 24.7758, -437.637, -9.6853, -436.138, -32.9091, -412.166, -71.865, -366.467, -105.577, -318.521, -218.284, -251.847, -310.429, -166.443, -374.857, -68.304, -410.816, -21.05, -426.111, 39.2712, -437.223, 56.7327, -437.223, 77.0319, -437.786, 144.474, -436.287, 197.664, -418.307, 259.095, -389.091, 308.539, -342.643, 326.519, -308.931, 386.451, -306.684, 443.386, -298.443, 502.57, -285.707, 540.027, -271.473, 558.756, -251.246, 623.183, -234.765, 659.892, -218.284, 687.611, -195.06, 710.085, -162.846, 713.831, -125.388, 705.59, -94.6732, 686.861, -56.4663, 667.383, -44.4799, 623.932, 9.9314, 579.732, 54.8806, 509.312, 102.077, 453.875, 138.037 )
+
+[node name="Area2D" type="Area2D" parent="Assets/UFO"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Assets/UFO/Area2D"]
+polygon = PoolVector2Array( 352.736, 151.439, 196.912, 263.812, 36.5935, 316.253, -165.678, 313.256, -372.444, 281.792, -436.872, 259.317, -481.821, 211.371, -471.333, 143.947, -381.434, 31.5742, -376.939, -17.8699, -305.021, -86.7921, -170.173, -314.535, 68.058, -390.948, 216.39, -344.501, 273.326, -256.101, 472.601, -245.613, 610.445, -127.246, 611.943, -56.8259, 547.516, 15.0928, 376.709, 107.988 )
+
+[node name="Tween" type="Tween" parent="Assets/UFO"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Assets/UFO"]
+playback_process_mode = 0
+anims/wiggle = SubResource( 7 )
+
+[node name="ground" type="StaticBody2D" parent="Assets"]
+z_index = 10
+z_as_relative = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Assets/ground"]
+position = Vector2( 0.793701, 0.793701 )
+polygon = PoolVector2Array( -1069.88, 657.558, -1064.84, 685.277, -1082.48, 715.515, -1127.84, 758.352, -2320.69, 753.312, -2373.61, 770.951, -2373.61, 844.027, -2429.05, 869.225, -2471.88, 949.86, -2413.93, 1116.17, -2497.08, 1191.76, -2494.56, 1292.56, -2431.57, 1354.29, -2330.77, 1384.53, -2235.02, 1349.25, -2103.99, 1349.25, -2030.91, 1387.05, -1897.36, 1301.37, -1758.77, 1286.25, -1572.3, 1351.77, -1285.9, 1350.65, -1272.41, 1209.81, -1230.46, 1118.41, -1188.51, 1115.42, -1173.52, 1089.94, -1055.16, 1064.47, -1025.19, 1083.95, -978.743, 1049.49, -893.339, 1086.95, -887.346, 1142.39, -843.895, 1205.31, -837.902, 1350.65, -801.227, 1344.21, -559.323, 1344.21, -256.947, 1361.85, -78.0381, 1296.33, 143.708, 1296.33, 529.244, 1334.13, 839.185, 1407.21, 1159.2, 1397.13, 1484.26, 1392.09, 1632.37, 1422.33, 1823.88, 1419.81, 2063.27, 1331.61, 2194.3, 1203.1, 2058.84, 1134, 2090.66, 1095.82, 2165.61, 1049.15, 2240.17, 769.178, 2551.3, 876.658, 2989.71, 947.369, 2989.71, 1244.35, 3001.02, 1419.72, 2993.72, 1550.5, 1860.5, 1540.76, -3001.92, 1493.49, -2980.54, 684.551, -2723.96, 588.334, -2269.41, 524.521, -2244.95, 425.361, -2181.96, 364.885, -2103.84, 322.048, -2055.96, 228.814, -2005.57, 193.536, -1881.07, 163.159, -1857.01, 184.54, -1810.06, 146.823, -1729.3, 177.525, -1714.91, 240.376, -1672.05, 299.904, -1669.67, 343.558, -1579.98, 358.638, -1562.46, 381.077, -1508.66, 383.908, -1415.22, 484.903, -1423.41, 580.874 )
+
+[node name="ground" type="Sprite" parent="Assets/ground"]
+texture = ExtResource( 14 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Assets/ground"]
+polygon = PoolVector2Array( 1572.16, 710.703, 1646.16, 866.703, 1554.16, 876.703, 1486.16, 848.703, 1362.16, 926.703, 1282.16, 946.703, 1120.16, 940.703, 870.086, 930.075, 854.529, 939.975, 715.936, 942.803, 561.787, 937.146, 25.6125, 947.046, -163.892, 927.247, -366.125, 911.69, -523.102, 901.791, -650.382, 866.436, -701.293, 807.039, -698.465, 761.784, -681.494, 736.328, -664.524, 736.328, -605.127, 751.884, 43.9973, 856.536, 400.379, 855.122, 787.874, 773.097, 1194.23, 730.671, 1161.9, 627.457, 1207.28, 531.348, 1386.15, 467.276, 1485.05, 436.275, 1543.66, 483.294 )
+
+[node name="stones" type="Sprite" parent="Assets"]
+position = Vector2( 1365.44, 624.039 )
+texture = ExtResource( 18 )
+
+[node name="stones2" type="Sprite" parent="Assets"]
+position = Vector2( -2057.27, 463.832 )
+texture = ExtResource( 18 )
+
+[node name="stones3" type="Sprite" parent="Assets"]
+position = Vector2( -1903.56, 320.201 )
+texture = ExtResource( 18 )
+
+[node name="stones4" type="Sprite" parent="Assets"]
+position = Vector2( -1753.63, 481.471 )
+scale = Vector2( 1.62996, 1 )
+texture = ExtResource( 18 )
+flip_h = true
+
+[node name="stones5" type="Sprite" parent="Assets"]
+modulate = Color( 1, 0, 0.866667, 1 )
+position = Vector2( -1075.03, 1219.06 )
+texture = ExtResource( 18 )
+
+[node name="Particles" type="Node2D" parent="."]
+scale = Vector2( 1.2, 1.2 )
+
+[node name="Particles2D" type="Particles2D" parent="Particles"]
+position = Vector2( 1935.67, 704.269 )
+z_index = -2
+amount = 120
+lifetime = 2.0
+visibility_rect = Rect2( -1000, -1000, 2000, 2000 )
+local_coords = false
+draw_order = 1
+process_material = SubResource( 12 )
+texture = ExtResource( 7 )
+
+[node name="Particles2D2" type="Particles2D" parent="Particles"]
+position = Vector2( 1984.95, 788.831 )
+z_index = -2
+amount = 120
+lifetime = 2.0
+visibility_rect = Rect2( -1000, -1000, 2000, 2000 )
+draw_order = 1
+process_material = SubResource( 12 )
+texture = ExtResource( 7 )
+
+[node name="Particles2D3" type="Particles2D" parent="Particles"]
+position = Vector2( 2034.95, 742.164 )
+z_index = -2
+amount = 120
+lifetime = 2.0
+visibility_rect = Rect2( -1000, -1000, 2000, 2000 )
+draw_order = 1
+process_material = SubResource( 12 )
+texture = ExtResource( 7 )
+
+[node name="Particles2D4" type="Particles2D" parent="Particles"]
+position = Vector2( 814.952, -814.502 )
+z_index = -2
+amount = 120
+lifetime = 2.0
+visibility_rect = Rect2( -1000, -1000, 2000, 2000 )
+draw_order = 1
+process_material = SubResource( 12 )
+texture = ExtResource( 7 )
+
+[node name="Particles2D5" type="Particles2D" parent="Particles"]
+position = Vector2( 954.952, -754.502 )
+z_index = -2
+amount = 120
+lifetime = 2.0
+visibility_rect = Rect2( -1000, -1000, 2000, 2000 )
+draw_order = 1
+process_material = SubResource( 12 )
+texture = ExtResource( 7 )
+
+[node name="Particles2D6" type="Particles2D" parent="Particles"]
+position = Vector2( 1260.21, 654.584 )
+z_index = -2
+amount = 120
+lifetime = 2.0
+visibility_rect = Rect2( -1000, -1000, 2000, 2000 )
+draw_order = 1
+process_material = SubResource( 12 )
+texture = ExtResource( 7 )
+
+[node name="Particles2D7" type="Particles2D" parent="Particles"]
+position = Vector2( 1700.68, 170.062 )
+z_index = -2
+amount = 120
+lifetime = 2.0
+visibility_rect = Rect2( -1000, -1000, 2000, 2000 )
+draw_order = 1
+process_material = SubResource( 12 )
+texture = ExtResource( 7 )
+
+[node name="Particles2D8" type="Particles2D" parent="Particles"]
+position = Vector2( 1581.12, 6.45673 )
+z_index = -2
+amount = 120
+lifetime = 2.0
+visibility_rect = Rect2( -1000, -1000, 2000, 2000 )
+draw_order = 1
+process_material = SubResource( 12 )
+texture = ExtResource( 7 )
+
+[node name="Particles2D9" type="Particles2D" parent="Particles"]
+position = Vector2( 1581.12, 6.45673 )
+z_index = -2
+amount = 120
+lifetime = 2.0
+visibility_rect = Rect2( -1000, -1000, 2000, 2000 )
+draw_order = 1
+process_material = SubResource( 12 )
+texture = ExtResource( 7 )
+
+[node name="Particles2D10" type="Particles2D" parent="Particles"]
+position = Vector2( 1466.17, 583.222 )
+z_index = -2
+amount = 120
+lifetime = 2.0
+visibility_rect = Rect2( -1000, -1000, 2000, 2000 )
+draw_order = 1
+process_material = SubResource( 12 )
+texture = ExtResource( 7 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 13 )
+
+[node name="Needler_Dummy" parent="." instance=ExtResource( 19 )]
+position = Vector2( 1641.74, 1358.34 )
+[connection signal="body_entered" from="Assets/UFO/Area2D" to="Assets/UFO" method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Assets/UFO/Area2D" to="Assets/UFO" method="_on_Area2D_body_exited"]
+
+[editable path="Doors/Door"]
