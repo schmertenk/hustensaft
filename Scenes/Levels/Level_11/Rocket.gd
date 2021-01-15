@@ -13,7 +13,6 @@ func _ready():
 
 
 func _process(delta):
-	print(state)
 	if state == STATE_OFF:
 		return
 	var d = damage_per_secound * delta
@@ -25,6 +24,8 @@ func _process(delta):
 func _on_Timer_timeout():
 	$AnimationPlayer.play("Fire")
 	state = STATE_ON
+	get_node("/root/Game/Camera").shake(1, 50.0, 30)
+	AudioManager.play("rocket_engine")
 	
 func _on_animation_end(animation_name):
 	$Timer.start()

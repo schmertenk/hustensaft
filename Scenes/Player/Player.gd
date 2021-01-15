@@ -319,7 +319,7 @@ func pickup_objects():
 			self.weapon = obj.containing_weapon
 			player_stats.update()
 			obj.get_parent().remove_child(obj)
-			obj.queue_free()
+
 	
 func set_weapon(w):
 	if w == weapon:

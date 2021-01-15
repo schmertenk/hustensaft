@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/Menues/Main_Menu/Main_Menu.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Menues/Menu_Background.tscn" type="PackedScene" id=2]
@@ -8,10 +8,6 @@
 
 [sub_resource type="DynamicFont" id=1]
 size = 40
-font_data = ExtResource( 3 )
-
-[sub_resource type="DynamicFont" id=2]
-size = 23
 font_data = ExtResource( 3 )
 
 [node name="Menu" type="Control"]
@@ -27,7 +23,7 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_constants/separation = 40
+custom_constants/separation = 30
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -42,16 +38,16 @@ align = 1
 valign = 1
 
 [node name="CenterContainer2" type="CenterContainer" parent="VBoxContainer"]
-margin_top = 123.0
+margin_top = 113.0
 margin_right = 1024.0
-margin_bottom = 173.0
+margin_bottom = 163.0
 
 [node name="Start" parent="VBoxContainer/CenterContainer2" instance=ExtResource( 4 )]
 
 [node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
-margin_top = 213.0
+margin_top = 193.0
 margin_right = 1024.0
-margin_bottom = 263.0
+margin_bottom = 243.0
 
 [node name="Options" parent="VBoxContainer/CenterContainer" instance=ExtResource( 4 )]
 
@@ -61,10 +57,36 @@ margin_right = 18.0
 rect_scale = Vector2( 0.8, 1 )
 text = "Game Options"
 
-[node name="CenterContainer3" type="CenterContainer" parent="VBoxContainer"]
-margin_top = 303.0
+[node name="CenterContainer4" type="CenterContainer" parent="VBoxContainer"]
+margin_top = 273.0
 margin_right = 1024.0
-margin_bottom = 353.0
+margin_bottom = 323.0
+
+[node name="How_To_Play" parent="VBoxContainer/CenterContainer4" instance=ExtResource( 4 )]
+
+[node name="Label" parent="VBoxContainer/CenterContainer4/How_To_Play" index="0"]
+margin_left = 12.8909
+margin_right = 18.8909
+rect_scale = Vector2( 0.8, 1 )
+text = "How To Play"
+
+[node name="CenterContainer5" type="CenterContainer" parent="VBoxContainer"]
+margin_top = 353.0
+margin_right = 1024.0
+margin_bottom = 403.0
+
+[node name="Credits" parent="VBoxContainer/CenterContainer5" instance=ExtResource( 4 )]
+
+[node name="Label" parent="VBoxContainer/CenterContainer5/Credits" index="0"]
+margin_left = 12.8909
+margin_right = 18.8909
+rect_scale = Vector2( 0.8, 1 )
+text = "Credits"
+
+[node name="CenterContainer3" type="CenterContainer" parent="VBoxContainer"]
+margin_top = 433.0
+margin_right = 1024.0
+margin_bottom = 483.0
 
 [node name="Quit" parent="VBoxContainer/CenterContainer3" instance=ExtResource( 4 )]
 
@@ -72,25 +94,18 @@ margin_bottom = 353.0
 margin_bottom = -4.0
 text = "Quit"
 
-[node name="Controlls" type="Label" parent="VBoxContainer"]
-margin_top = 393.0
-margin_right = 1024.0
-margin_bottom = 579.0
-custom_fonts/font = SubResource( 2 )
-text = "Controls:
-Run: left Stick
-Aim: Right Stick
-Jump: A
-Shoot: rt
-Change Gravity: lb
-Pickup: y"
-align = 1
-
 [node name="TransitionMask" parent="." instance=ExtResource( 5 )]
+visible = false
 [connection signal="pressed" from="VBoxContainer/CenterContainer2/Start" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="VBoxContainer/CenterContainer/Options" to="." method="_on_Options_pressed"]
+[connection signal="pressed" from="VBoxContainer/CenterContainer4/How_To_Play" to="." method="_on_How_To_Play_pressed"]
+[connection signal="pressed" from="VBoxContainer/CenterContainer5/Credits" to="." method="_on_Credits_pressed"]
 [connection signal="pressed" from="VBoxContainer/CenterContainer3/Quit" to="." method="_on_Quit_pressed"]
 
 [editable path="VBoxContainer/CenterContainer/Options"]
+
+[editable path="VBoxContainer/CenterContainer4/How_To_Play"]
+
+[editable path="VBoxContainer/CenterContainer5/Credits"]
 
 [editable path="VBoxContainer/CenterContainer3/Quit"]

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/rocket_engine.wav-5152c4ad0886462b89a8ddd1f03f4a22.sample"
+
+[deps]
+
+source_file="res://Sounds/Effects/Levels/Level_11/rocket_engine.wav"
+dest_files=[ "res://.import/rocket_engine.wav-5152c4ad0886462b89a8ddd1f03f4a22.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

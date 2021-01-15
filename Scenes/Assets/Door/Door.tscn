@@ -5,7 +5,7 @@
 [ext_resource path="res://Images/Level_2/door.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 142.347, 149.926 )
+extents = Vector2( 246.162, 149.926 )
 
 [node name="Door" type="Node2D"]
 script = ExtResource( 2 )

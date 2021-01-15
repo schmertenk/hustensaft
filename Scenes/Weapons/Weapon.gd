@@ -22,6 +22,7 @@ var release_needed = false
 var last_shot = 0
 var direction
 var player
+var rigid_dummy
 
 func pull_trigger():
 	if OS.get_ticks_msec() > last_shot + fire_rate and not release_needed:
@@ -35,9 +36,10 @@ func release_trigger():
 	emit_signal("trigger_released")
 
 func get_dummy():
-	var d = load(rigid_dummy_path).instance()
-	d.containing_weapon = self
-	return d
+	if !rigid_dummy:
+		rigid_dummy = load(rigid_dummy_path).instance()
+		rigid_dummy.containing_weapon = self
+	return rigid_dummy
 
 # returns wether the shot was successful or not
 func shoot():

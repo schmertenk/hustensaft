@@ -108,6 +108,13 @@ func _process(_delta):
 			p.velocity = Vector2.ZERO
 			p.global_position = $Spawns.get_node("Player_Spawn_" + str(p.p_number)).global_position
 			p.damage(20, 1, 1, true)
+
+	for w in $Weapons.get_children():
+		if w.global_position.length() > level_boundury_radius:
+			w.linear_velocity = Vector2.ZERO
+			w.global_position = w.initial_position
+			w.global_rotation = w.initial_rotation
+
 func map_joypad_to_player():
 	for i in range(players.size()):
 		var p = players[i] 

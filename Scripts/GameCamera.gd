@@ -17,7 +17,9 @@ var _previous_y = 0.0
 var _last_offset = Vector2(0, 0)
 
 func _ready():
+	max_zoom *= (1024 / get_viewport().size.x)
 	smoothing_speed = 5
+	zoom = Vector2.ONE * max_zoom
 
 func CalculateBox(InScreenSize):
 	#infinity for the min max formulas to work
