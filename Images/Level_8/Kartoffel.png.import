@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ufo.png-149d6e1faa89455457268eac02fa7cc1.stex"
+path="res://.import/Kartoffel.png-f3edb3e7e0b05a391ee98e870271d9ea.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/lvl_11/ufo.png"
-dest_files=[ "res://.import/ufo.png-149d6e1faa89455457268eac02fa7cc1.stex" ]
+source_file="res://Images/Level_8/Kartoffel.png"
+dest_files=[ "res://.import/Kartoffel.png-f3edb3e7e0b05a391ee98e870271d9ea.stex" ]
 
 [params]
 

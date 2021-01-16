@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/stones.png-4cd7f034bc81c80ee235bd3f8dd45eb3.stex"
+path="res://.import/SAAM-1979.136.153_1.jpg-00fe94ef0bafa2154b6253d9c33188e2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/lvl_11/stones.png"
-dest_files=[ "res://.import/stones.png-4cd7f034bc81c80ee235bd3f8dd45eb3.stex" ]
+source_file="res://Images/Level_8/SAAM-1979.136.153_1.jpg"
+dest_files=[ "res://.import/SAAM-1979.136.153_1.jpg-00fe94ef0bafa2154b6253d9c33188e2.stex" ]
 
 [params]
 

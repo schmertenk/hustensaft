@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ufo_front.png-ef64b1b31d7b2920f442623c3c3040aa.stex"
+path="res://.import/image-2.png-823cc5507f0809fc3a4fbdc39da9b9b2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/lvl_11/ufo_front.png"
-dest_files=[ "res://.import/ufo_front.png-ef64b1b31d7b2920f442623c3c3040aa.stex" ]
+source_file="res://Images/Level_8/image-2.png"
+dest_files=[ "res://.import/image-2.png-823cc5507f0809fc3a4fbdc39da9b9b2.stex" ]
 
 [params]
 

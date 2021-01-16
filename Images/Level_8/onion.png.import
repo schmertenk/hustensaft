@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/rocket.png-0c1265a1c66e96012584af36e782cb43.stex"
+path="res://.import/onion.png-32254a8f1b7cb444ed4abd6ad4b4f193.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/lvl_11/rocket.png"
-dest_files=[ "res://.import/rocket.png-0c1265a1c66e96012584af36e782cb43.stex" ]
+source_file="res://Images/Level_8/onion.png"
+dest_files=[ "res://.import/onion.png-32254a8f1b7cb444ed4abd6ad4b4f193.stex" ]
 
 [params]
 
