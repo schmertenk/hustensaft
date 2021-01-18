@@ -9,7 +9,7 @@ var time = 6000
 var eating = false
 var started_eating = 0
 var player_in_radius = []
-var damage_per_second = 10
+var damage_per_second = 35
 var affected_player = []
 var cat_colors = [
 	Color("#c2a034"),
@@ -51,11 +51,11 @@ func _process(delta):
 			
 func spawn():
 	spawned = true
+	var cam = get_node("/root/Game/Camera")
 	for i in range(cat_count):
 		var cat = load("res://Scenes/Secondaries/Tuna/Cat.tscn").instance()
 
 		get_node("/root/Game").call_deferred("add_child", cat)
-		var cam = get_node("/root/Game/Camera")
 		
 		randomize()
 		
@@ -63,7 +63,11 @@ func spawn():
 		var angle = rand_range(0, 2 * PI)
 		var vec = Vector2(cos(angle), sin(angle))
 		
-		cat.global_position = cam.global_position + vec * cam.get_size_covered_by_camera().length()
+		#cat.global_position = cam.global_position + vec * cam.get_size_covered_by_camera().length()
+		var arr = [-1,1]
+		var rx = arr[randi() % 2]
+		var ry = arr[randi() % 2]
+		cat.global_position = global_position + (Vector2(rand_range(0.5, 1.0) * rx, rand_range(0.5, 1.0) * ry) * 1000)
 		cat.fish = self
 		cat.get_node("Sprite").modulate = col
 		cat.connect("eat", self, "_on_cat_eating")

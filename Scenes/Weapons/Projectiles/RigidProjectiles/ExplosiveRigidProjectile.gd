@@ -125,9 +125,3 @@ func do_damage(target):
 			var vec = (global_position - body.global_position).normalized() * -kb
 			# more x than y to overcome players friction which is affecting only x
 			body.apply_impulse(position, vec * explosion_knock_back / 2)
-
-
-
-func _on_Granade_body_shape_entered(body_id, body, body_shape, local_shape):
-	var arr = get_colliding_bodies()
-	pass

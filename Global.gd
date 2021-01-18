@@ -12,7 +12,7 @@ var save_file_name = "user://settings.json"
 var options = {
 	"rounds_per_set": 2,
 	"sets": 2,
-	"fullscreen" : false,
+	"fullscreen" : true,
 	"fx_volume" : 0,
 	"bm_volume" : 0,
 }
@@ -31,7 +31,7 @@ var joypad_ids = []
 var player_infos = []
 
 var test_mode = true
-var test_level = "res://Scenes/Levels/Level_8/Level.tscn"
+var test_level = "res://Scenes/Levels/Level_5/Level.tscn"
 
 
 var secondarie_paths = [
@@ -123,6 +123,8 @@ func start_game():
 	current_menu_index = 0
 	if player_infos.size() == 1:
 		one_player_mode = true
+	else:
+		one_player_mode = false
 	
 	for info in player_infos:
 		info.win_count = 0

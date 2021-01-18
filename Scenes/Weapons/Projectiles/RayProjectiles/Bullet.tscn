@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scenes/Weapons/Projectiles/RayProjectiles/InstantRayProjectile.gd" type="Script" id=2]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+light_mode = 1
 
 [node name="Bullet" type="Node2D"]
 script = ExtResource( 2 )
@@ -8,4 +11,5 @@ explosion_path = "res://Scenes/Explosions/Very_Small_Explosion.tscn"
 show_duration = 20
 
 [node name="Line2D" type="Line2D" parent="."]
+material = SubResource( 1 )
 default_color = Color( 1, 0.941176, 0, 0.380392 )

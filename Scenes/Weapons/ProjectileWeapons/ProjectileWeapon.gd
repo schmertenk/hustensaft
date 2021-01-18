@@ -79,8 +79,15 @@ func make_projectile():
 	
 func shoot():
 	if shots_in_stack <= 0 && stack_size > 0:
-		start_reload()
-		return false
+		if can_reload:
+			if reload_time > 0:
+				start_reload()
+				return false
+			else: 
+				finish_reload()
+		else: 
+			return false
+		
 		
 	if reload_tween.is_active():
 		return false
@@ -100,6 +107,7 @@ func shoot():
 			p = projectile_pool[projectiles_per_shot - 1 - i]
 			projectile_pool.erase(p)
 			used_projectile_pool.append(p)
+			p.initialize()
 			p.state = Projectile.STATE_STOPPED
 			p.set_process(true)
 			p.visible = true

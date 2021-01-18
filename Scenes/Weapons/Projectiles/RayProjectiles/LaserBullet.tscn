@@ -8,6 +8,7 @@ texture = ExtResource( 1 )
 offset = Vector2( -45, 3 )
 script = ExtResource( 2 )
 explosion_path = "res://Scenes/Explosions/Very_Small_Laser_Explosion.tscn"
+free_when_finished = false
 
 [node name="Light2D" type="Light2D" parent="."]
 texture = ExtResource( 1 )
@@ -15,3 +16,5 @@ offset = Vector2( -45, 3 )
 texture_scale = 1.5
 energy = 1.2
 mode = 2
+
+[node name="RayCast2D" type="RayCast2D" parent="."]

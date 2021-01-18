@@ -1,10 +1,51 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Images/Secondaries/cat.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Secondaries/Tuna/Cat.gd" type="Script" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 14.0822
+
+[sub_resource type="Animation" id=2]
+resource_name = "spawn"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.277392, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0.25, 0.25 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.225313, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 1 ],
+"method": "set_state"
+} ]
+}
 
 [node name="Cat" type="RigidBody2D"]
 gravity_scale = 0.0
@@ -23,7 +64,11 @@ polygon = PoolVector2Array( 57.1066, -6.04497, 58.9418, 1.09178, 50.3777, 10.675
 [node name="Sprite" type="Sprite" parent="."]
 modulate = Color( 0.835294, 0.835294, 0.835294, 1 )
 position = Vector2( -4.28204, -14.6813 )
+rotation = 6.28319
 scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 1 )
 flip_h = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/spawn = SubResource( 2 )
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
