@@ -339,7 +339,6 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 1200, 800 )
 
 [node name="image-2" type="Sprite" parent="ground"]
-scale = Vector2( 1, 1 )
 texture = ExtResource( 6 )
 
 [node name="Assets" type="Node2D" parent="."]
