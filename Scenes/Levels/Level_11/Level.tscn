@@ -24,7 +24,6 @@
 [ext_resource path="res://Scenes/Weapons/ProjectileWeapons/Pistol/Pistol_Dummy.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Scenes/Levels/Level_11/Rocket.gd" type="Script" id=23]
 
-
 [sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( 100, 100, 0, 100, 0, 0, 100, 0 )
 

@@ -12,15 +12,16 @@ var initialized = false
 var explosion_scene
 
 func _ready():
-	initialize()
-	
-func initialize():
 	if fire_range != -1 && fire_range_random > 0:
 		var _min = fire_range * (1 - fire_range_random)
 		fire_range = rand_range(_min, fire_range)
 	initialized = true
 	if explosion_path:
 		explosion_scene = load(explosion_path)
+		
+func initialize():
+	pass
+		
 	
 func finish():
 	if free_when_finished:

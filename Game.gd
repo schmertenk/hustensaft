@@ -191,4 +191,3 @@ func set_state(value):
 		$CanvasLayer/Countdown.start()
 		
 	state = value
-

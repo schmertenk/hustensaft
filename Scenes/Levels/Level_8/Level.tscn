@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Images/Level_8/SAAM-1979.136.153_1.jpg" type="Texture" id=1]
 [ext_resource path="res://Scenes/Levels/Level_8/Level_Logic.gd" type="Script" id=2]
@@ -6,7 +6,9 @@
 [ext_resource path="res://Scripts/GameCamera.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/Weapons/ProjectileWeapons/Pistol/Pistol_Dummy.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Images/Level_8/image-2.png" type="Texture" id=6]
+[ext_resource path="res://Images/Level_8/coffee.png" type="Texture" id=7]
 [ext_resource path="res://Retrophile Regular.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://Images/floor.png" type="Texture" id=9]
 [ext_resource path="res://Scripts/Countdown.gd" type="Script" id=10]
 [ext_resource path="res://Scenes/Menues/Pause_Menu/Pause_Menu.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Images/Level_8/5011583172461.jpg" type="Texture" id=12]
@@ -14,6 +16,13 @@
 [ext_resource path="res://Images/Level_8/onion.png" type="Texture" id=14]
 [ext_resource path="res://Images/Level_8/Kartoffel.png" type="Texture" id=15]
 [ext_resource path="res://Scenes/TransitionMask.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Images/Level_8/lamp.png" type="Texture" id=17]
+[ext_resource path="res://Scenes/Levels/Level_8/Lamp.gd" type="Script" id=18]
+[ext_resource path="res://Images/Level_8/lamp_light.png" type="Texture" id=19]
+[ext_resource path="res://Images/Level_8/of.png" type="Texture" id=20]
+[ext_resource path="res://Images/Level_8/on.png" type="Texture" id=21]
+[ext_resource path="res://Images/Level_8/switchbase.png" type="Texture" id=22]
+[ext_resource path="res://Scenes/FPS.gd" type="Script" id=23]
 
 [sub_resource type="DynamicFont" id=1]
 size = 150
@@ -81,6 +90,8 @@ color_ramp = SubResource( 9 )
 [sub_resource type="CircleShape2D" id=13]
 radius = 71.1961
 
+[sub_resource type="PhysicsMaterial" id=17]
+
 [sub_resource type="RectangleShape2D" id=14]
 extents = Vector2( 150.344, 81.4837 )
 
@@ -116,6 +127,16 @@ __meta__ = {
 "_editor_description_": ""
 }
 last_string = "GO!!"
+
+[node name="FPS" type="Label" parent="CanvasLayer"]
+margin_right = 48.0
+margin_bottom = 23.0
+custom_fonts/font = SubResource( 2 )
+text = "test"
+script = ExtResource( 23 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Spawns" type="Node2D" parent="."]
 
@@ -267,16 +288,6 @@ editor_draw_limits = true
 script = ExtResource( 4 )
 max_zoom = 6.3
 
-[node name="FPS" type="Label" parent="Camera"]
-visible = false
-margin_right = 40.0
-margin_bottom = 14.0
-custom_fonts/font = SubResource( 2 )
-text = "test"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Particles" type="Node2D" parent="."]
 position = Vector2( 2163.1, 171.134 )
 scale = Vector2( 1.2, 1.2 )
@@ -311,7 +322,7 @@ __meta__ = {
 polygon = PoolVector2Array( -1232.77, -324.166, -1228.29, -278.884, -854.134, -310.848, -594.241, -316.175, -258.172, -316.175, -141.668, -305.521, -139.427, -337.485, -576.317, -342.812, -876.539, -340.148 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ground"]
-polygon = PoolVector2Array( 1738.32, 1600, 1738.32, 622.222, 1813.08, 622.222, 1813.08, 488.889, 528.527, 470.894, 519.545, 428.179, 492.56, 399.702, 503.538, 374.785, 501.542, 247.827, 484.576, 246.64, 487.57, 373.599, 470.604, 393.769, 438.146, 397.172, 292.914, 394.182, 263.017, 385.464, 253.267, 363.818, 255.384, 328.58, 264.015, 238.335, 243.057, 240.708, 237.069, 284.609, 236.071, 360.547, 255.033, 397.329, 239.065, 409.194, 215.113, 438.857, 200.143, 473.267, 20.5007, 469.707, 12.5166, 436.484, -11.4356, 397.329, -64.3302, 379.531, -92.2746, 389.023, -145.169, 380.718, -191.078, 392.583, -212.036, 378.345, -261.936, 377.158, -318.823, 402.075, -344.799, 467.69, -1523.43, 456.111, -1525.54, -646.847, -1555.15, -709.701, -1620.71, -770.041, -1732.79, -832.895, -1844.87, -860.55, -1942.14, -865.579, -1999.24, -868.093, -2003.47, 1600.3 )
+polygon = PoolVector2Array( 1738.32, 1600, 1738.32, 622.222, 1813.08, 622.222, 1813.08, 488.889, 1135.25, 479.393, 1125.23, 391.111, 1166.34, 328.761, 1156.46, 208.784, 1085.18, 209.623, 1073.18, 144.181, 1062.6, 142.503, 1053.42, 119.011, 1011.08, 116.494, 996.263, 142.503, 980.032, 141.664, 962.389, 185.292, 905.228, 184.453, 895.348, 197.877, 932.75, 237.31, 889.702, 375.745, 881.94, 456.289, 882.645, 477.264, 528.527, 470.894, 519.545, 428.179, 492.56, 399.702, 503.538, 374.785, 501.542, 247.827, 484.576, 246.64, 487.57, 373.599, 470.604, 393.769, 438.146, 397.172, 292.914, 394.182, 263.017, 385.464, 253.267, 363.818, 259.76, 238.144, 243.057, 240.708, 236.071, 360.547, 255.033, 397.329, 215.113, 438.857, 200.143, 473.267, 20.5007, 469.707, 13.4485, 431.326, -38.7725, 381.94, -263.086, 380.529, -318.867, 411.572, -344.799, 467.69, -1523.43, 456.111, -1525.54, -646.847, -1555.15, -709.701, -1620.71, -770.041, -1706.92, -823.32, -1841.19, -863.23, -1999.24, -868.093, -2003.47, 1600.3 )
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="ground"]
 polygon = PoolVector2Array( -1101.64, 110.802, -1086.21, 92.4584, -1038.74, 81.1702, -845.28, 79.7592, -819.17, 86.8143, -808.488, 106.569, -804.927, 206.751, -783.564, 336.565, -798.993, 371.841, -838.159, 381.718, -1083.84, 378.896, -1100.45, 363.375, -1107.57, 306.934, -1108.76, 124.912 )
@@ -340,6 +351,11 @@ region_rect = Rect2( 0, 0, 1200, 800 )
 
 [node name="image-2" type="Sprite" parent="ground"]
 texture = ExtResource( 6 )
+
+[node name="coffee" type="Sprite" parent="ground"]
+position = Vector2( 1029.21, 321.395 )
+scale = Vector2( 0.523365, 0.622222 )
+texture = ExtResource( 7 )
 
 [node name="Assets" type="Node2D" parent="."]
 
@@ -435,6 +451,82 @@ texture = ExtResource( 14 )
 position = Vector2( 0.733948, 25.2352 )
 shape = SubResource( 13 )
 
+[node name="Lamp" type="Node2D" parent="Assets"]
+position = Vector2( -15.4803, -1056.69 )
+script = ExtResource( 18 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="Assets/Lamp"]
+visible = false
+position = Vector2( 15.4803, 1056.69 )
+color = Color( 0.105882, 0.105882, 0.105882, 1 )
+
+[node name="Lampshade" type="StaticBody2D" parent="Assets/Lamp"]
+position = Vector2( 16.9897, 0 )
+physics_material_override = SubResource( 17 )
+
+[node name="Sprite" type="Sprite" parent="Assets/Lamp/Lampshade"]
+light_mask = -2147483648
+texture = ExtResource( 17 )
+offset = Vector2( -20, 0 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Assets/Lamp/Lampshade"]
+position = Vector2( -20, 0 )
+polygon = PoolVector2Array( 398.173, 122.546, 394.393, 164.124, 355.336, 181.763, -312.422, 181.763, -351.48, 152.784, -346.44, 113.727, -265.276, 38.6785, -187.69, -11.0054, -67.9976, -63.9221, -54.1385, -126.918, -3.74164, -171.015, 45.3953, -176.055, 81.933, -138.257, 97.0521, -72.7415, 181.467, -39.9836, 279.741, 19.2327, 350.296, 65.8498 )
+
+[node name="Sprite2" type="Sprite" parent="Assets/Lamp/Lampshade"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 3.77539, -671.095 )
+scale = Vector2( 0.1, 10 )
+texture = ExtResource( 9 )
+
+[node name="Light2D" type="Light2D" parent="Assets/Lamp/Lampshade"]
+position = Vector2( -3.9795, 1410 )
+scale = Vector2( 2, 1 )
+enabled = false
+texture = ExtResource( 19 )
+texture_scale = 30.09
+
+[node name="Switch" type="Node2D" parent="Assets/Lamp"]
+position = Vector2( 344.388, -384.434 )
+z_index = -20
+
+[node name="switchbase" type="Sprite" parent="Assets/Lamp/Switch"]
+position = Vector2( 2495.81, 1236.5 )
+texture = ExtResource( 22 )
+
+[node name="off" type="RigidBody2D" parent="Assets/Lamp/Switch"]
+position = Vector2( 2493.6, 1232.88 )
+mode = 1
+
+[node name="off" type="Sprite" parent="Assets/Lamp/Switch/off"]
+texture = ExtResource( 20 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Assets/Lamp/Switch/off"]
+polygon = PoolVector2Array( -11.123, 54.8389, -10.3738, 90.7983, 78.7754, 93.7949, 80.2739, 53.3406 )
+
+[node name="on_area" type="Area2D" parent="Assets/Lamp/Switch/off"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Assets/Lamp/Switch/off/on_area"]
+position = Vector2( 2.0022, 20.0226 )
+polygon = PoolVector2Array( 70.4414, 51.3369, 69.7856, 77.3136, -5.87891, 75.0661, -4.39844, 52.1778 )
+
+[node name="on" type="RigidBody2D" parent="Assets/Lamp/Switch"]
+visible = false
+mode = 1
+
+[node name="on" type="Sprite" parent="Assets/Lamp/Switch/on"]
+position = Vector2( 2493.6, 1234.88 )
+texture = ExtResource( 21 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Assets/Lamp/Switch/on"]
+polygon = PoolVector2Array( 2488.48, 1235.28, 2488.48, 1279.48, 2575.38, 1279.48, 2579.12, 1233.78 )
+
+[node name="off_area" type="Area2D" parent="Assets/Lamp/Switch/on"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Assets/Lamp/Switch/on/off_area"]
+position = Vector2( 4.00464, -22.6923 )
+polygon = PoolVector2Array( 2495.23, 1254.54, 2494.56, 1283.91, 2565.31, 1283.24, 2564.64, 1251.2 )
+
 [node name="Level_Logic" type="Node" parent="."]
 script = ExtResource( 2 )
 
@@ -446,6 +538,8 @@ shape = SubResource( 14 )
 
 [node name="Timer" type="Timer" parent="Level_Logic"]
 wait_time = 2.5
+[connection signal="body_entered" from="Assets/Lamp/Switch/off/on_area" to="Assets/Lamp" method="_on_on_area_body_entered"]
+[connection signal="body_entered" from="Assets/Lamp/Switch/on/off_area" to="Assets/Lamp" method="_on_off_area_body_entered"]
 [connection signal="body_entered" from="Level_Logic/pot" to="Level_Logic" method="_on_pot_body_entered"]
 [connection signal="body_exited" from="Level_Logic/pot" to="Level_Logic" method="_on_pot_body_exited"]
 [connection signal="timeout" from="Level_Logic/Timer" to="Level_Logic" method="_on_Timer_timeout"]

@@ -9,17 +9,26 @@ var direction : Vector2
 var travled_distance = 0
 
 func _ready():
-	ray = RayCast2D.new()
-	add_child(ray)
-	
+	ray = $RayCast2D
 	for b in ignore_bodies:
 		ray.add_exception(b)
-	initialized = true
+	initialize()
+	
+
+func initialize():
+	initial_direction = weapon.player.look_direction
 	rotation = initial_direction.angle()
-	initial_position = weapon.global_position
 	direction = Vector2(initial_direction.x, initial_direction.y)
+	initial_position = weapon.global_position
+	traveling = true
+	initialized = true
+	ray.enabled = true
+	hit_target = null
+	travled_distance = 0
 	
 func _process(delta):
+	if state == STATE_WAITING:
+		return
 	var velocity = direction * speed * delta * 60
 	rotation = direction.angle()
 		
@@ -43,8 +52,20 @@ func _process(delta):
 		global_position += velocity
 		travled_distance += velocity.length()
 		if fire_range != -1 and travled_distance >= fire_range:
-			queue_free()
+			if free_when_finished:
+				queue_free()
+			else:
+				visible = false
+				state = STATE_WAITING
+				set_process(false)
+				ray.enabled = false
 
 func hit_target(target):
 	.hit_target(target)
-	queue_free()
+	if free_when_finished:
+		queue_free()
+	else:
+		visible = false
+		state = STATE_WAITING
+		set_process(false)
+		ray.enabled = false

@@ -1302,42 +1302,40 @@ texture = ExtResource( 20 )
 position = Vector2( 3388.46, 294.156 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 29 )
-frame = 3
+frame = 2
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="Engines"]
 position = Vector2( 3411.08, 780.646 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 29 )
-frame = 3
+frame = 2
 playing = true
 
 [node name="AnimatedSprite3" type="AnimatedSprite" parent="Engines"]
 position = Vector2( 3139.55, 571.342 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 29 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="AnimatedSprite4" type="AnimatedSprite" parent="Engines"]
 position = Vector2( 3422.4, -1555.63 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 29 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="AnimatedSprite5" type="AnimatedSprite" parent="Engines"]
 position = Vector2( 3422.4, -2053.44 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 29 )
-frame = 1
 playing = true
 
 [node name="AnimatedSprite6" type="AnimatedSprite" parent="Engines"]
 position = Vector2( 3150.87, -1798.88 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 29 )
-frame = 1
 playing = true
 
 [editable path="Doors/Door/Door2"]

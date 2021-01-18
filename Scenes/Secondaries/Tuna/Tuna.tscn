@@ -6,6 +6,7 @@
 [node name="Tuna" type="Node2D"]
 script = ExtResource( 1 )
 reload_time = 3000
+uses_per_round = 100
 icon = ExtResource( 2 )
 _name = "Tuna"
 description = "Throw it and see what happens"

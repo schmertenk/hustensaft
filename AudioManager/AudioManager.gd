@@ -2,10 +2,17 @@ extends Node
 
 var sound_script = load("res://AudioManager/ASP.gd")
 
+export var bgm_queue_pool = [
+	"main_menu_bgm",
+	"collish_stuff",
+	"lvl_3_bgm",
+]
+
 export var sound_dictionary = {
 	"main_menu_bgm" : ["res://Sounds/Music/8bit.ogg", "BGM"],
-	"lvl_3_bgm" : ["res://Sounds/Music/backing_lvl_3.ogg", "BGM"],
 	"collish_stuff": ["res://Sounds/Music/Space_2_draft_C.ogg", "BGM"],
+	"lvl_3_bgm" : ["res://Sounds/Music/backing_lvl_3.ogg", "BGM"],
+	"lvl_8_bgm" : ["res://Sounds/Music/backing_lvl_8.ogg", "BGM"],
 	
 	"laser_shot" : ["res://Sounds/Effects/Weapons/Laser_Shoot.wav", "SE"],
 	"pistol_shot" : ["res://Sounds/Effects/Weapons/gunshot.wav", "SE"],
@@ -80,8 +87,9 @@ func get_all_bgm_names():
 	return arr
 	
 func randomaize_bgm_queue():
+	bgm_queue.clear()
 	randomize()
-	var bgms = get_all_bgm_names()
+	var bgms = bgm_queue_pool
 	bgm_queue_index = 0
 	if bgms:
 		for _i in range(100):
@@ -97,6 +105,7 @@ func play_bgm_queue(from_start = false):
 	if from_start:
 		bgm_queue_index = 0
 		stop_all_of_type("BGM")
+	print(bgm_queue_index)
 	bgm_queue_playing = true
 	play(bgm_queue[bgm_queue_index])
 	player_dictionary[bgm_queue[bgm_queue_index]].connect("sound_finished", self, "_on_queue_sound_finished")
@@ -114,6 +123,9 @@ func insert_song_to_queue(sound_name = null, relative_position = 1):
 		pos = bgm_queue.size()
 	bgm_queue.insert(pos, sound_name)
 	if relative_position == 0:
+		if bgm_queue_playing:
+			# set to false, in order to not count bgm_queue_index up when the current sound stops
+			bgm_queue_playing = false
 		stop_all_of_type("BGM")
 		play_bgm_queue()
 		

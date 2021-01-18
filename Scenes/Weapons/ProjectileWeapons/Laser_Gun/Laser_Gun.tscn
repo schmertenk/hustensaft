@@ -9,14 +9,14 @@ damage = 20.0
 armor_multiplier = 1.0
 flesh_multiplier = 1.0
 rigid_dummy_path = "res://Scenes/Weapons/ProjectileWeapons/Laser_Gun/Laser_Gun_Dummy.tscn"
-fire_rate = 400.0
+fire_rate = 300.0
 shoot_sound_name = "laser_shot"
 projectile_path = "res://Scenes/Weapons/Projectiles/RayProjectiles/LaserBullet.tscn"
 projectile_speed = 100.0
 spray = 0.06
 fire_range = 1350.0
-stack_size = 99999
-can_reload = false
+stack_size = 10
+pool_projectiles = true
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, 5 )
