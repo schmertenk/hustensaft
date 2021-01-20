@@ -16,7 +16,7 @@ export (bool) var default_selected = false
 export (float) var value = 0
 export (String) var button_text = ""
 
-var state = 0 setget set_state
+var state setget set_state
 
 func _ready():
 	if default_selected:

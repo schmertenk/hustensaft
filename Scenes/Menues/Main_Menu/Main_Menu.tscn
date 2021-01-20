@@ -43,6 +43,14 @@ margin_right = 1024.0
 margin_bottom = 163.0
 
 [node name="Start" parent="VBoxContainer/CenterContainer2" instance=ExtResource( 4 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 437.0
+margin_top = 0.0
+margin_right = 587.0
+margin_bottom = 50.0
 
 [node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
 margin_top = 193.0
@@ -50,6 +58,14 @@ margin_right = 1024.0
 margin_bottom = 243.0
 
 [node name="Options" parent="VBoxContainer/CenterContainer" instance=ExtResource( 4 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 437.0
+margin_top = 0.0
+margin_right = 587.0
+margin_bottom = 50.0
 
 [node name="Label" parent="VBoxContainer/CenterContainer/Options" index="0"]
 margin_left = 12.0
@@ -63,6 +79,14 @@ margin_right = 1024.0
 margin_bottom = 323.0
 
 [node name="How_To_Play" parent="VBoxContainer/CenterContainer4" instance=ExtResource( 4 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 437.0
+margin_top = 0.0
+margin_right = 587.0
+margin_bottom = 50.0
 
 [node name="Label" parent="VBoxContainer/CenterContainer4/How_To_Play" index="0"]
 margin_left = 12.8909
@@ -76,6 +100,14 @@ margin_right = 1024.0
 margin_bottom = 403.0
 
 [node name="Credits" parent="VBoxContainer/CenterContainer5" instance=ExtResource( 4 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 437.0
+margin_top = 0.0
+margin_right = 587.0
+margin_bottom = 50.0
 
 [node name="Label" parent="VBoxContainer/CenterContainer5/Credits" index="0"]
 margin_left = 12.8909
@@ -89,6 +121,14 @@ margin_right = 1024.0
 margin_bottom = 483.0
 
 [node name="Quit" parent="VBoxContainer/CenterContainer3" instance=ExtResource( 4 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 437.0
+margin_top = 0.0
+margin_right = 587.0
+margin_bottom = 50.0
 
 [node name="Label" parent="VBoxContainer/CenterContainer3/Quit" index="0"]
 margin_bottom = -4.0

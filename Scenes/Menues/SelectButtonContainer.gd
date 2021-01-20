@@ -5,6 +5,8 @@ class_name SelectButtonContainer
 export (NodePath) var focus_up = null
 export (NodePath) var focus_down = null
 
+signal value_changed
+
 var buttons = []
 var value = null
 
@@ -38,3 +40,4 @@ func _on_button_selected(button):
 			continue
 		b.unselect()
 	value = button.value
+	emit_signal("value_changed", value)

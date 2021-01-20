@@ -30,17 +30,13 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 50.0
-margin_top = 25.0
-margin_right = -50.0
-margin_bottom = -50.0
 custom_constants/separation = 50
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="VBoxContainer"]
-margin_right = 924.0
+margin_right = 1024.0
 margin_bottom = 50.0
 custom_fonts/font = SubResource( 1 )
 text = "Options"
@@ -49,69 +45,55 @@ valign = 1
 
 [node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
 margin_top = 100.0
-margin_right = 924.0
-margin_bottom = 450.0
+margin_right = 1024.0
+margin_bottom = 150.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/CenterContainer"]
-margin_left = 96.0
-margin_right = 828.0
-margin_bottom = 350.0
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CenterContainer"]
+margin_left = 187.0
+margin_right = 837.0
+margin_bottom = 50.0
+custom_constants/separation = 100
+script = ExtResource( 2 )
+
+[node name="Select_Button" parent="VBoxContainer/CenterContainer/HBoxContainer" instance=ExtResource( 4 )]
+default_selected = true
+button_text = "Gameplay"
+
+[node name="Select_Button2" parent="VBoxContainer/CenterContainer/HBoxContainer" instance=ExtResource( 4 )]
+margin_left = 250.0
+margin_right = 400.0
+value = 1.0
+button_text = "Audio"
+
+[node name="Select_Button3" parent="VBoxContainer/CenterContainer/HBoxContainer" instance=ExtResource( 4 )]
+margin_left = 500.0
+margin_right = 650.0
+value = 2.0
+button_text = "Video"
+
+[node name="Pages" type="CenterContainer" parent="VBoxContainer"]
+margin_top = 200.0
+margin_right = 1024.0
+margin_bottom = 325.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Gameplay" type="VBoxContainer" parent="VBoxContainer/Pages"]
+visible = false
+margin_left = 146.0
+margin_right = 878.0
+margin_bottom = 125.0
 custom_constants/separation = 25
 
-[node name="Fullscreen" type="HBoxContainer" parent="VBoxContainer/CenterContainer/VBoxContainer"]
+[node name="Rounds_Per_Set" type="HBoxContainer" parent="VBoxContainer/Pages/Gameplay"]
 margin_right = 732.0
 margin_bottom = 50.0
 
-[node name="Label" type="Label" parent="VBoxContainer/CenterContainer/VBoxContainer/Fullscreen"]
-margin_top = 8.0
-margin_right = 300.0
-margin_bottom = 41.0
-rect_min_size = Vector2( 300, 0 )
-custom_fonts/font = SubResource( 2 )
-text = "Fullscreen:"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CenterContainer/VBoxContainer/Fullscreen"]
-margin_left = 304.0
-margin_right = 608.0
-margin_bottom = 50.0
-script = ExtResource( 2 )
-focus_down = NodePath("../../Rounds_Per_Set/HBoxContainer/Select_Button2")
-
-[node name="Select_Button" parent="VBoxContainer/CenterContainer/VBoxContainer/Fullscreen/HBoxContainer" instance=ExtResource( 4 )]
-text = "on"
-default_selected = true
-value = 0.0
-button_text = ""
-
-[node name="TextureRect" parent="VBoxContainer/CenterContainer/VBoxContainer/Fullscreen/HBoxContainer/Select_Button" index="0"]
-texture = ExtResource( 7 )
-
-[node name="Label" parent="VBoxContainer/CenterContainer/VBoxContainer/Fullscreen/HBoxContainer/Select_Button" index="1"]
-text = "off"
-
-[node name="Select_Button2" parent="VBoxContainer/CenterContainer/VBoxContainer/Fullscreen/HBoxContainer" instance=ExtResource( 4 )]
-margin_left = 154.0
-margin_right = 304.0
-text = "off"
-default_selected = false
-value = 1.0
-button_text = ""
-
-[node name="Label" parent="VBoxContainer/CenterContainer/VBoxContainer/Fullscreen/HBoxContainer/Select_Button2" index="1"]
-text = "on"
-
-[node name="Rounds_Per_Set" type="HBoxContainer" parent="VBoxContainer/CenterContainer/VBoxContainer"]
-margin_top = 75.0
-margin_right = 732.0
-margin_bottom = 125.0
-
-[node name="Label" type="Label" parent="VBoxContainer/CenterContainer/VBoxContainer/Rounds_Per_Set"]
+[node name="Label" type="Label" parent="VBoxContainer/Pages/Gameplay/Rounds_Per_Set"]
 margin_top = 8.0
 margin_right = 300.0
 margin_bottom = 41.0
@@ -122,148 +104,120 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CenterContainer/VBoxContainer/Rounds_Per_Set"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Pages/Gameplay/Rounds_Per_Set"]
 margin_left = 304.0
 margin_right = 732.0
 margin_bottom = 50.0
 script = ExtResource( 2 )
-focus_up = NodePath("../../Fullscreen/HBoxContainer/Select_Button")
-focus_down = NodePath("../../Sets_Per_Game/HBoxContainer/Select_Button2")
+focus_up = NodePath("../../../../Gameplay/VBoxContainer/Fullscreen/HBoxContainer/Select_Button")
+focus_down = NodePath("../../../../Gameplay/VBoxContainer/Sets_Per_Game/HBoxContainer/Select_Button2")
 
-[node name="Select_Button2" parent="VBoxContainer/CenterContainer/VBoxContainer/Rounds_Per_Set/HBoxContainer" instance=ExtResource( 4 )]
+[node name="Select_Button2" parent="VBoxContainer/Pages/Gameplay/Rounds_Per_Set/HBoxContainer" instance=ExtResource( 4 )]
 margin_right = 50.0
 rect_min_size = Vector2( 50, 50 )
 text = "off"
-default_selected = false
 value = 1.0
-button_text = ""
+button_text = "1"
 
-[node name="TextureRect" parent="VBoxContainer/CenterContainer/VBoxContainer/Rounds_Per_Set/HBoxContainer/Select_Button2" index="0"]
-size_flags_horizontal = 2
-stretch_mode = 1
-
-[node name="Label" parent="VBoxContainer/CenterContainer/VBoxContainer/Rounds_Per_Set/HBoxContainer/Select_Button2" index="1"]
-text = "1"
-
-[node name="Select_Button3" parent="VBoxContainer/CenterContainer/VBoxContainer/Rounds_Per_Set/HBoxContainer" instance=ExtResource( 4 )]
+[node name="Select_Button3" parent="VBoxContainer/Pages/Gameplay/Rounds_Per_Set/HBoxContainer" instance=ExtResource( 4 )]
 margin_left = 54.0
 margin_right = 104.0
 rect_min_size = Vector2( 50, 50 )
 text = "off"
-default_selected = false
 value = 2.0
-button_text = ""
+button_text = "2"
 
-[node name="TextureRect" parent="VBoxContainer/CenterContainer/VBoxContainer/Rounds_Per_Set/HBoxContainer/Select_Button3" index="0"]
-size_flags_horizontal = 2
-stretch_mode = 1
-
-[node name="Label" parent="VBoxContainer/CenterContainer/VBoxContainer/Rounds_Per_Set/HBoxContainer/Select_Button3" index="1"]
-text = "2"
-
-[node name="Select_Button4" parent="VBoxContainer/CenterContainer/VBoxContainer/Rounds_Per_Set/HBoxContainer" instance=ExtResource( 4 )]
+[node name="Select_Button4" parent="VBoxContainer/Pages/Gameplay/Rounds_Per_Set/HBoxContainer" instance=ExtResource( 4 )]
 margin_left = 108.0
 margin_right = 158.0
 rect_min_size = Vector2( 50, 50 )
 text = "off"
-default_selected = false
 value = 3.0
-button_text = ""
+button_text = "3"
 
-[node name="TextureRect" parent="VBoxContainer/CenterContainer/VBoxContainer/Rounds_Per_Set/HBoxContainer/Select_Button4" index="0"]
-size_flags_horizontal = 2
-stretch_mode = 1
-
-[node name="Label" parent="VBoxContainer/CenterContainer/VBoxContainer/Rounds_Per_Set/HBoxContainer/Select_Button4" index="1"]
-text = "3"
-
-[node name="Select_Button5" parent="VBoxContainer/CenterContainer/VBoxContainer/Rounds_Per_Set/HBoxContainer" instance=ExtResource( 4 )]
+[node name="Select_Button5" parent="VBoxContainer/Pages/Gameplay/Rounds_Per_Set/HBoxContainer" instance=ExtResource( 4 )]
 margin_left = 162.0
 margin_right = 212.0
 rect_min_size = Vector2( 50, 50 )
 text = "off"
 default_selected = true
 value = 4.0
-button_text = ""
+button_text = "4"
 
-[node name="TextureRect" parent="VBoxContainer/CenterContainer/VBoxContainer/Rounds_Per_Set/HBoxContainer/Select_Button5" index="0"]
+[node name="TextureRect" parent="VBoxContainer/Pages/Gameplay/Rounds_Per_Set/HBoxContainer/Select_Button5" index="0"]
 size_flags_horizontal = 2
 texture = ExtResource( 7 )
 stretch_mode = 1
 
-[node name="Label" parent="VBoxContainer/CenterContainer/VBoxContainer/Rounds_Per_Set/HBoxContainer/Select_Button5" index="1"]
+[node name="Label" parent="VBoxContainer/Pages/Gameplay/Rounds_Per_Set/HBoxContainer/Select_Button5" index="1"]
 text = "4"
 
-[node name="Select_Button6" parent="VBoxContainer/CenterContainer/VBoxContainer/Rounds_Per_Set/HBoxContainer" instance=ExtResource( 4 )]
+[node name="Select_Button6" parent="VBoxContainer/Pages/Gameplay/Rounds_Per_Set/HBoxContainer" instance=ExtResource( 4 )]
 margin_left = 216.0
 margin_right = 266.0
 rect_min_size = Vector2( 50, 50 )
 text = "off"
-default_selected = false
 value = 5.0
-button_text = ""
+button_text = "5"
 
-[node name="TextureRect" parent="VBoxContainer/CenterContainer/VBoxContainer/Rounds_Per_Set/HBoxContainer/Select_Button6" index="0"]
+[node name="TextureRect" parent="VBoxContainer/Pages/Gameplay/Rounds_Per_Set/HBoxContainer/Select_Button6" index="0"]
 size_flags_horizontal = 2
 stretch_mode = 1
 
-[node name="Label" parent="VBoxContainer/CenterContainer/VBoxContainer/Rounds_Per_Set/HBoxContainer/Select_Button6" index="1"]
+[node name="Label" parent="VBoxContainer/Pages/Gameplay/Rounds_Per_Set/HBoxContainer/Select_Button6" index="1"]
 text = "5"
 
-[node name="Select_Button7" parent="VBoxContainer/CenterContainer/VBoxContainer/Rounds_Per_Set/HBoxContainer" instance=ExtResource( 4 )]
+[node name="Select_Button7" parent="VBoxContainer/Pages/Gameplay/Rounds_Per_Set/HBoxContainer" instance=ExtResource( 4 )]
 margin_left = 270.0
 margin_right = 320.0
 rect_min_size = Vector2( 50, 50 )
 text = "off"
-default_selected = false
 value = 6.0
-button_text = ""
+button_text = "6"
 
-[node name="TextureRect" parent="VBoxContainer/CenterContainer/VBoxContainer/Rounds_Per_Set/HBoxContainer/Select_Button7" index="0"]
+[node name="TextureRect" parent="VBoxContainer/Pages/Gameplay/Rounds_Per_Set/HBoxContainer/Select_Button7" index="0"]
 size_flags_horizontal = 2
 stretch_mode = 1
 
-[node name="Label" parent="VBoxContainer/CenterContainer/VBoxContainer/Rounds_Per_Set/HBoxContainer/Select_Button7" index="1"]
+[node name="Label" parent="VBoxContainer/Pages/Gameplay/Rounds_Per_Set/HBoxContainer/Select_Button7" index="1"]
 text = "6"
 
-[node name="Select_Button8" parent="VBoxContainer/CenterContainer/VBoxContainer/Rounds_Per_Set/HBoxContainer" instance=ExtResource( 4 )]
+[node name="Select_Button8" parent="VBoxContainer/Pages/Gameplay/Rounds_Per_Set/HBoxContainer" instance=ExtResource( 4 )]
 margin_left = 324.0
 margin_right = 374.0
 rect_min_size = Vector2( 50, 50 )
 text = "off"
-default_selected = false
 value = 7.0
-button_text = ""
+button_text = "7"
 
-[node name="TextureRect" parent="VBoxContainer/CenterContainer/VBoxContainer/Rounds_Per_Set/HBoxContainer/Select_Button8" index="0"]
+[node name="TextureRect" parent="VBoxContainer/Pages/Gameplay/Rounds_Per_Set/HBoxContainer/Select_Button8" index="0"]
 size_flags_horizontal = 2
 stretch_mode = 1
 
-[node name="Label" parent="VBoxContainer/CenterContainer/VBoxContainer/Rounds_Per_Set/HBoxContainer/Select_Button8" index="1"]
+[node name="Label" parent="VBoxContainer/Pages/Gameplay/Rounds_Per_Set/HBoxContainer/Select_Button8" index="1"]
 text = "7"
 
-[node name="Select_Button9" parent="VBoxContainer/CenterContainer/VBoxContainer/Rounds_Per_Set/HBoxContainer" instance=ExtResource( 4 )]
+[node name="Select_Button9" parent="VBoxContainer/Pages/Gameplay/Rounds_Per_Set/HBoxContainer" instance=ExtResource( 4 )]
 margin_left = 378.0
 margin_right = 428.0
 rect_min_size = Vector2( 50, 50 )
 text = "off"
-default_selected = false
 value = 8.0
-button_text = ""
+button_text = "8"
 
-[node name="TextureRect" parent="VBoxContainer/CenterContainer/VBoxContainer/Rounds_Per_Set/HBoxContainer/Select_Button9" index="0"]
+[node name="TextureRect" parent="VBoxContainer/Pages/Gameplay/Rounds_Per_Set/HBoxContainer/Select_Button9" index="0"]
 size_flags_horizontal = 2
 stretch_mode = 1
 
-[node name="Label" parent="VBoxContainer/CenterContainer/VBoxContainer/Rounds_Per_Set/HBoxContainer/Select_Button9" index="1"]
+[node name="Label" parent="VBoxContainer/Pages/Gameplay/Rounds_Per_Set/HBoxContainer/Select_Button9" index="1"]
 text = "8"
 
-[node name="Sets_Per_Game" type="HBoxContainer" parent="VBoxContainer/CenterContainer/VBoxContainer"]
-margin_top = 150.0
+[node name="Sets_Per_Game" type="HBoxContainer" parent="VBoxContainer/Pages/Gameplay"]
+margin_top = 75.0
 margin_right = 732.0
-margin_bottom = 200.0
+margin_bottom = 125.0
 
-[node name="Label" type="Label" parent="VBoxContainer/CenterContainer/VBoxContainer/Sets_Per_Game"]
+[node name="Label" type="Label" parent="VBoxContainer/Pages/Gameplay/Sets_Per_Game"]
 margin_top = 8.0
 margin_right = 300.0
 margin_bottom = 41.0
@@ -274,23 +228,22 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CenterContainer/VBoxContainer/Sets_Per_Game"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Pages/Gameplay/Sets_Per_Game"]
 margin_left = 304.0
 margin_right = 732.0
 margin_bottom = 50.0
 script = ExtResource( 2 )
-focus_up = NodePath("../../Rounds_Per_Set/HBoxContainer/Select_Button2")
-focus_down = NodePath("../../FX_Volume/HBoxContainer/Select_Button2")
+focus_up = NodePath("../../../../Gameplay/VBoxContainer/Rounds_Per_Set/HBoxContainer/Select_Button2")
+focus_down = NodePath("../../../../Gameplay/VBoxContainer/FX_Volume/HBoxContainer/Select_Button2")
 
-[node name="Select_Button2" parent="VBoxContainer/CenterContainer/VBoxContainer/Sets_Per_Game/HBoxContainer" instance=ExtResource( 4 )]
+[node name="Select_Button2" parent="VBoxContainer/Pages/Gameplay/Sets_Per_Game/HBoxContainer" instance=ExtResource( 4 )]
 margin_right = 50.0
 rect_min_size = Vector2( 50, 50 )
 text = "off"
-default_selected = false
 value = 1.0
 button_text = "1"
 
-[node name="Select_Button3" parent="VBoxContainer/CenterContainer/VBoxContainer/Sets_Per_Game/HBoxContainer" instance=ExtResource( 4 )]
+[node name="Select_Button3" parent="VBoxContainer/Pages/Gameplay/Sets_Per_Game/HBoxContainer" instance=ExtResource( 4 )]
 margin_left = 54.0
 margin_right = 104.0
 rect_min_size = Vector2( 50, 50 )
@@ -299,16 +252,15 @@ default_selected = true
 value = 2.0
 button_text = "2"
 
-[node name="Select_Button4" parent="VBoxContainer/CenterContainer/VBoxContainer/Sets_Per_Game/HBoxContainer" instance=ExtResource( 4 )]
+[node name="Select_Button4" parent="VBoxContainer/Pages/Gameplay/Sets_Per_Game/HBoxContainer" instance=ExtResource( 4 )]
 margin_left = 108.0
 margin_right = 158.0
 rect_min_size = Vector2( 50, 50 )
 text = "off"
-default_selected = false
 value = 3.0
 button_text = "3"
 
-[node name="Select_Button5" parent="VBoxContainer/CenterContainer/VBoxContainer/Sets_Per_Game/HBoxContainer" instance=ExtResource( 4 )]
+[node name="Select_Button5" parent="VBoxContainer/Pages/Gameplay/Sets_Per_Game/HBoxContainer" instance=ExtResource( 4 )]
 margin_left = 162.0
 margin_right = 212.0
 rect_min_size = Vector2( 50, 50 )
@@ -317,48 +269,125 @@ default_selected = true
 value = 4.0
 button_text = "4"
 
-[node name="Select_Button6" parent="VBoxContainer/CenterContainer/VBoxContainer/Sets_Per_Game/HBoxContainer" instance=ExtResource( 4 )]
+[node name="Select_Button6" parent="VBoxContainer/Pages/Gameplay/Sets_Per_Game/HBoxContainer" instance=ExtResource( 4 )]
 margin_left = 216.0
 margin_right = 266.0
 rect_min_size = Vector2( 50, 50 )
 text = "off"
-default_selected = false
 value = 5.0
 button_text = "5"
 
-[node name="Select_Button7" parent="VBoxContainer/CenterContainer/VBoxContainer/Sets_Per_Game/HBoxContainer" instance=ExtResource( 4 )]
+[node name="Select_Button7" parent="VBoxContainer/Pages/Gameplay/Sets_Per_Game/HBoxContainer" instance=ExtResource( 4 )]
 margin_left = 270.0
 margin_right = 320.0
 rect_min_size = Vector2( 50, 50 )
 text = "off"
-default_selected = false
 value = 6.0
 button_text = "6"
 
-[node name="Select_Button8" parent="VBoxContainer/CenterContainer/VBoxContainer/Sets_Per_Game/HBoxContainer" instance=ExtResource( 4 )]
+[node name="Select_Button8" parent="VBoxContainer/Pages/Gameplay/Sets_Per_Game/HBoxContainer" instance=ExtResource( 4 )]
 margin_left = 324.0
 margin_right = 374.0
 rect_min_size = Vector2( 50, 50 )
 text = "off"
-default_selected = false
 value = 7.0
 button_text = "7"
 
-[node name="Select_Button9" parent="VBoxContainer/CenterContainer/VBoxContainer/Sets_Per_Game/HBoxContainer" instance=ExtResource( 4 )]
+[node name="Select_Button9" parent="VBoxContainer/Pages/Gameplay/Sets_Per_Game/HBoxContainer" instance=ExtResource( 4 )]
 margin_left = 378.0
 margin_right = 428.0
 rect_min_size = Vector2( 50, 50 )
 text = "off"
-default_selected = false
 value = 8.0
 button_text = "8"
 
-[node name="FX_Volume" type="HBoxContainer" parent="VBoxContainer/CenterContainer/VBoxContainer"]
-margin_top = 225.0
-margin_right = 732.0
-margin_bottom = 275.0
+[node name="Video" type="VBoxContainer" parent="VBoxContainer/Pages"]
+margin_left = 208.0
+margin_right = 816.0
+margin_bottom = 125.0
+custom_constants/separation = 25
 
-[node name="Label" type="Label" parent="VBoxContainer/CenterContainer/VBoxContainer/FX_Volume"]
+[node name="Fullscreen" type="HBoxContainer" parent="VBoxContainer/Pages/Video"]
+margin_right = 608.0
+margin_bottom = 50.0
+
+[node name="Label" type="Label" parent="VBoxContainer/Pages/Video/Fullscreen"]
+margin_top = 8.0
+margin_right = 300.0
+margin_bottom = 41.0
+rect_min_size = Vector2( 300, 0 )
+custom_fonts/font = SubResource( 2 )
+text = "Fullscreen:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Pages/Video/Fullscreen"]
+margin_left = 304.0
+margin_right = 608.0
+margin_bottom = 50.0
+script = ExtResource( 2 )
+focus_down = NodePath("../../../../Gameplay/VBoxContainer/Rounds_Per_Set/HBoxContainer/Select_Button2")
+
+[node name="Select_Button" parent="VBoxContainer/Pages/Video/Fullscreen/HBoxContainer" instance=ExtResource( 4 )]
+text = "on"
+default_selected = true
+button_text = "off"
+
+[node name="Select_Button2" parent="VBoxContainer/Pages/Video/Fullscreen/HBoxContainer" instance=ExtResource( 4 )]
+margin_left = 154.0
+margin_right = 304.0
+text = "off"
+value = 1.0
+button_text = "on"
+
+[node name="Graphic" type="HBoxContainer" parent="VBoxContainer/Pages/Video"]
+margin_top = 75.0
+margin_right = 608.0
+margin_bottom = 125.0
+
+[node name="Label" type="Label" parent="VBoxContainer/Pages/Video/Graphic"]
+margin_top = 8.0
+margin_right = 300.0
+margin_bottom = 41.0
+rect_min_size = Vector2( 300, 0 )
+custom_fonts/font = SubResource( 2 )
+text = "Graphic mode:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Pages/Video/Graphic"]
+margin_left = 304.0
+margin_right = 608.0
+margin_bottom = 50.0
+script = ExtResource( 2 )
+focus_down = NodePath("../../../../Gameplay/VBoxContainer/Rounds_Per_Set/HBoxContainer/Select_Button2")
+
+[node name="Select_Button" parent="VBoxContainer/Pages/Video/Graphic/HBoxContainer" instance=ExtResource( 4 )]
+text = "on"
+default_selected = true
+button_text = "shitty"
+
+[node name="Select_Button2" parent="VBoxContainer/Pages/Video/Graphic/HBoxContainer" instance=ExtResource( 4 )]
+margin_left = 154.0
+margin_right = 304.0
+text = "off"
+value = 1.0
+button_text = "okay"
+
+[node name="Audio" type="VBoxContainer" parent="VBoxContainer/Pages"]
+visible = false
+margin_left = 146.0
+margin_right = 878.0
+margin_bottom = 125.0
+custom_constants/separation = 25
+
+[node name="FX_Volume" type="HBoxContainer" parent="VBoxContainer/Pages/Audio"]
+margin_right = 732.0
+margin_bottom = 50.0
+
+[node name="Label" type="Label" parent="VBoxContainer/Pages/Audio/FX_Volume"]
 margin_top = 8.0
 margin_right = 300.0
 margin_bottom = 41.0
@@ -369,91 +398,83 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CenterContainer/VBoxContainer/FX_Volume"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Pages/Audio/FX_Volume"]
 margin_left = 304.0
 margin_right = 732.0
 margin_bottom = 50.0
 script = ExtResource( 2 )
-focus_up = NodePath("../../Sets_Per_Game/HBoxContainer/Select_Button2")
-focus_down = NodePath("../../BM_Volume/HBoxContainer/Select_Button2")
+focus_up = NodePath("../../../../Gameplay/VBoxContainer/Sets_Per_Game/HBoxContainer/Select_Button2")
+focus_down = NodePath("../../../../Gameplay/VBoxContainer/BM_Volume/HBoxContainer/Select_Button2")
 
-[node name="Select_Button2" parent="VBoxContainer/CenterContainer/VBoxContainer/FX_Volume/HBoxContainer" instance=ExtResource( 4 )]
+[node name="Select_Button2" parent="VBoxContainer/Pages/Audio/FX_Volume/HBoxContainer" instance=ExtResource( 4 )]
 margin_right = 50.0
 rect_min_size = Vector2( 50, 50 )
 text = "off"
-default_selected = false
 value = -61.0
 button_text = "off"
 
-[node name="Select_Button3" parent="VBoxContainer/CenterContainer/VBoxContainer/FX_Volume/HBoxContainer" instance=ExtResource( 4 )]
+[node name="Select_Button3" parent="VBoxContainer/Pages/Audio/FX_Volume/HBoxContainer" instance=ExtResource( 4 )]
 margin_left = 54.0
 margin_right = 104.0
 rect_min_size = Vector2( 50, 50 )
 text = "off"
-default_selected = false
 value = -43.0
 button_text = "1"
 
-[node name="Select_Button4" parent="VBoxContainer/CenterContainer/VBoxContainer/FX_Volume/HBoxContainer" instance=ExtResource( 4 )]
+[node name="Select_Button4" parent="VBoxContainer/Pages/Audio/FX_Volume/HBoxContainer" instance=ExtResource( 4 )]
 margin_left = 108.0
 margin_right = 158.0
 rect_min_size = Vector2( 50, 50 )
 text = "off"
-default_selected = false
 value = -35.0
 button_text = "2"
 
-[node name="Select_Button5" parent="VBoxContainer/CenterContainer/VBoxContainer/FX_Volume/HBoxContainer" instance=ExtResource( 4 )]
+[node name="Select_Button5" parent="VBoxContainer/Pages/Audio/FX_Volume/HBoxContainer" instance=ExtResource( 4 )]
 margin_left = 162.0
 margin_right = 212.0
 rect_min_size = Vector2( 50, 50 )
 text = "off"
-default_selected = false
 value = -20.0
 button_text = "3"
 
-[node name="Select_Button6" parent="VBoxContainer/CenterContainer/VBoxContainer/FX_Volume/HBoxContainer" instance=ExtResource( 4 )]
+[node name="Select_Button6" parent="VBoxContainer/Pages/Audio/FX_Volume/HBoxContainer" instance=ExtResource( 4 )]
 margin_left = 216.0
 margin_right = 266.0
 rect_min_size = Vector2( 50, 50 )
 text = "off"
-default_selected = false
 value = -10.0
 button_text = "4"
 
-[node name="Select_Button7" parent="VBoxContainer/CenterContainer/VBoxContainer/FX_Volume/HBoxContainer" instance=ExtResource( 4 )]
+[node name="Select_Button7" parent="VBoxContainer/Pages/Audio/FX_Volume/HBoxContainer" instance=ExtResource( 4 )]
 margin_left = 270.0
 margin_right = 320.0
 rect_min_size = Vector2( 50, 50 )
 text = "off"
-default_selected = false
 value = -5.0
 button_text = "5"
 
-[node name="Select_Button8" parent="VBoxContainer/CenterContainer/VBoxContainer/FX_Volume/HBoxContainer" instance=ExtResource( 4 )]
+[node name="Select_Button8" parent="VBoxContainer/Pages/Audio/FX_Volume/HBoxContainer" instance=ExtResource( 4 )]
 margin_left = 324.0
 margin_right = 374.0
 rect_min_size = Vector2( 50, 50 )
 text = "off"
-default_selected = false
 value = -2.0
 button_text = "6"
 
-[node name="Select_Button9" parent="VBoxContainer/CenterContainer/VBoxContainer/FX_Volume/HBoxContainer" instance=ExtResource( 4 )]
+[node name="Select_Button9" parent="VBoxContainer/Pages/Audio/FX_Volume/HBoxContainer" instance=ExtResource( 4 )]
 margin_left = 378.0
 margin_right = 428.0
 rect_min_size = Vector2( 50, 50 )
 text = "off"
 default_selected = true
-value = 0.0
 button_text = "7"
 
-[node name="BM_Volume" type="HBoxContainer" parent="VBoxContainer/CenterContainer/VBoxContainer"]
-margin_top = 300.0
+[node name="BM_Volume" type="HBoxContainer" parent="VBoxContainer/Pages/Audio"]
+margin_top = 75.0
 margin_right = 732.0
-margin_bottom = 350.0
+margin_bottom = 125.0
 
-[node name="Label" type="Label" parent="VBoxContainer/CenterContainer/VBoxContainer/BM_Volume"]
+[node name="Label" type="Label" parent="VBoxContainer/Pages/Audio/BM_Volume"]
 margin_top = 8.0
 margin_right = 300.0
 margin_bottom = 41.0
@@ -464,139 +485,137 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CenterContainer/VBoxContainer/BM_Volume"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Pages/Audio/BM_Volume"]
 margin_left = 304.0
 margin_right = 732.0
 margin_bottom = 50.0
 script = ExtResource( 2 )
-focus_up = NodePath("../../FX_Volume/HBoxContainer/Select_Button2")
-focus_down = NodePath("../../../../CenterContainer2/HBoxContainer/Apply")
+focus_up = NodePath("../../../../Gameplay/VBoxContainer/FX_Volume/HBoxContainer/Select_Button2")
+focus_down = NodePath("../../../../../ButtonContainer/HBoxContainer/Apply")
 
-[node name="Select_Button2" parent="VBoxContainer/CenterContainer/VBoxContainer/BM_Volume/HBoxContainer" instance=ExtResource( 4 )]
+[node name="Select_Button2" parent="VBoxContainer/Pages/Audio/BM_Volume/HBoxContainer" instance=ExtResource( 4 )]
 margin_right = 50.0
 rect_min_size = Vector2( 50, 50 )
 text = "off"
-default_selected = false
 value = -61.0
 button_text = "off"
 
-[node name="Select_Button3" parent="VBoxContainer/CenterContainer/VBoxContainer/BM_Volume/HBoxContainer" instance=ExtResource( 4 )]
+[node name="Select_Button3" parent="VBoxContainer/Pages/Audio/BM_Volume/HBoxContainer" instance=ExtResource( 4 )]
 margin_left = 54.0
 margin_right = 104.0
 rect_min_size = Vector2( 50, 50 )
 text = "off"
-default_selected = false
 value = -43.0
 button_text = "1"
 
-[node name="Select_Button4" parent="VBoxContainer/CenterContainer/VBoxContainer/BM_Volume/HBoxContainer" instance=ExtResource( 4 )]
+[node name="Select_Button4" parent="VBoxContainer/Pages/Audio/BM_Volume/HBoxContainer" instance=ExtResource( 4 )]
 margin_left = 108.0
 margin_right = 158.0
 rect_min_size = Vector2( 50, 50 )
 text = "off"
-default_selected = false
 value = -35.0
 button_text = "2"
 
-[node name="Select_Button5" parent="VBoxContainer/CenterContainer/VBoxContainer/BM_Volume/HBoxContainer" instance=ExtResource( 4 )]
+[node name="Select_Button5" parent="VBoxContainer/Pages/Audio/BM_Volume/HBoxContainer" instance=ExtResource( 4 )]
 margin_left = 162.0
 margin_right = 212.0
 rect_min_size = Vector2( 50, 50 )
 text = "off"
-default_selected = false
 value = -20.0
 button_text = "3"
 
-[node name="Select_Button6" parent="VBoxContainer/CenterContainer/VBoxContainer/BM_Volume/HBoxContainer" instance=ExtResource( 4 )]
+[node name="Select_Button6" parent="VBoxContainer/Pages/Audio/BM_Volume/HBoxContainer" instance=ExtResource( 4 )]
 margin_left = 216.0
 margin_right = 266.0
 rect_min_size = Vector2( 50, 50 )
 text = "off"
-default_selected = false
 value = -10.0
 button_text = "4"
 
-[node name="Select_Button7" parent="VBoxContainer/CenterContainer/VBoxContainer/BM_Volume/HBoxContainer" instance=ExtResource( 4 )]
+[node name="Select_Button7" parent="VBoxContainer/Pages/Audio/BM_Volume/HBoxContainer" instance=ExtResource( 4 )]
 margin_left = 270.0
 margin_right = 320.0
 rect_min_size = Vector2( 50, 50 )
 text = "off"
-default_selected = false
 value = -5.0
 button_text = "5"
 
-[node name="Select_Button8" parent="VBoxContainer/CenterContainer/VBoxContainer/BM_Volume/HBoxContainer" instance=ExtResource( 4 )]
+[node name="Select_Button8" parent="VBoxContainer/Pages/Audio/BM_Volume/HBoxContainer" instance=ExtResource( 4 )]
 margin_left = 324.0
 margin_right = 374.0
 rect_min_size = Vector2( 50, 50 )
 text = "off"
-default_selected = false
 value = -2.0
 button_text = "6"
 
-[node name="Select_Button9" parent="VBoxContainer/CenterContainer/VBoxContainer/BM_Volume/HBoxContainer" instance=ExtResource( 4 )]
+[node name="Select_Button9" parent="VBoxContainer/Pages/Audio/BM_Volume/HBoxContainer" instance=ExtResource( 4 )]
 margin_left = 378.0
 margin_right = 428.0
 rect_min_size = Vector2( 50, 50 )
 text = "off"
 default_selected = true
-value = 0.0
 button_text = "7"
 
-[node name="CenterContainer2" type="CenterContainer" parent="VBoxContainer"]
-margin_top = 500.0
-margin_right = 924.0
-margin_bottom = 550.0
+[node name="ButtonContainer" type="CenterContainer" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -75.0
+margin_bottom = -25.0
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CenterContainer2"]
-margin_left = 262.0
-margin_right = 662.0
+[node name="HBoxContainer" type="HBoxContainer" parent="ButtonContainer"]
+margin_left = 312.0
+margin_right = 712.0
 margin_bottom = 50.0
+size_flags_vertical = 3
 custom_constants/separation = 100
 
-[node name="Dismiss" parent="VBoxContainer/CenterContainer2/HBoxContainer" instance=ExtResource( 6 )]
+[node name="Dismiss" parent="ButtonContainer/HBoxContainer" instance=ExtResource( 6 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_left = 0.0
+margin_top = 0.0
 margin_right = 150.0
-focus_neighbour_top = NodePath("../../../CenterContainer/VBoxContainer/BM_Volume/HBoxContainer/Select_Button2")
-focus_neighbour_right = NodePath("../Apply")
+margin_bottom = 50.0
 
-[node name="Label" parent="VBoxContainer/CenterContainer2/HBoxContainer/Dismiss" index="0"]
+[node name="Label" parent="ButtonContainer/HBoxContainer/Dismiss" index="0"]
 text = "Dismiss"
 
-[node name="Apply" parent="VBoxContainer/CenterContainer2/HBoxContainer" instance=ExtResource( 6 )]
+[node name="Apply" parent="ButtonContainer/HBoxContainer" instance=ExtResource( 6 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_left = 250.0
+margin_top = 0.0
 margin_right = 400.0
+margin_bottom = 50.0
 focus_neighbour_left = NodePath("../Dismiss")
-focus_neighbour_top = NodePath("../../../CenterContainer/VBoxContainer/BM_Volume/HBoxContainer/Select_Button2")
 
-[node name="Label" parent="VBoxContainer/CenterContainer2/HBoxContainer/Apply" index="0"]
+[node name="Label" parent="ButtonContainer/HBoxContainer/Apply" index="0"]
 text = "Apply"
 
 [node name="TransitionMask" parent="." instance=ExtResource( 8 )]
 visible = false
-[connection signal="pressed" from="VBoxContainer/CenterContainer2/HBoxContainer/Dismiss" to="." method="_on_Dismiss_pressed"]
-[connection signal="pressed" from="VBoxContainer/CenterContainer2/HBoxContainer/Apply" to="." method="_on_Apply_pressed"]
+[connection signal="pressed" from="ButtonContainer/HBoxContainer/Dismiss" to="." method="_on_Dismiss_pressed"]
+[connection signal="pressed" from="ButtonContainer/HBoxContainer/Apply" to="." method="_on_Apply_pressed"]
 
-[editable path="VBoxContainer/CenterContainer/VBoxContainer/Fullscreen/HBoxContainer/Select_Button"]
+[editable path="VBoxContainer/Pages/Gameplay/Rounds_Per_Set/HBoxContainer/Select_Button5"]
 
-[editable path="VBoxContainer/CenterContainer/VBoxContainer/Fullscreen/HBoxContainer/Select_Button2"]
+[editable path="VBoxContainer/Pages/Gameplay/Rounds_Per_Set/HBoxContainer/Select_Button6"]
 
-[editable path="VBoxContainer/CenterContainer/VBoxContainer/Rounds_Per_Set/HBoxContainer/Select_Button2"]
+[editable path="VBoxContainer/Pages/Gameplay/Rounds_Per_Set/HBoxContainer/Select_Button7"]
 
-[editable path="VBoxContainer/CenterContainer/VBoxContainer/Rounds_Per_Set/HBoxContainer/Select_Button3"]
+[editable path="VBoxContainer/Pages/Gameplay/Rounds_Per_Set/HBoxContainer/Select_Button8"]
 
-[editable path="VBoxContainer/CenterContainer/VBoxContainer/Rounds_Per_Set/HBoxContainer/Select_Button4"]
+[editable path="VBoxContainer/Pages/Gameplay/Rounds_Per_Set/HBoxContainer/Select_Button9"]
 
-[editable path="VBoxContainer/CenterContainer/VBoxContainer/Rounds_Per_Set/HBoxContainer/Select_Button5"]
+[editable path="ButtonContainer/HBoxContainer/Dismiss"]
 
-[editable path="VBoxContainer/CenterContainer/VBoxContainer/Rounds_Per_Set/HBoxContainer/Select_Button6"]
-
-[editable path="VBoxContainer/CenterContainer/VBoxContainer/Rounds_Per_Set/HBoxContainer/Select_Button7"]
-
-[editable path="VBoxContainer/CenterContainer/VBoxContainer/Rounds_Per_Set/HBoxContainer/Select_Button8"]
-
-[editable path="VBoxContainer/CenterContainer/VBoxContainer/Rounds_Per_Set/HBoxContainer/Select_Button9"]
-
-[editable path="VBoxContainer/CenterContainer2/HBoxContainer/Dismiss"]
-
-[editable path="VBoxContainer/CenterContainer2/HBoxContainer/Apply"]
+[editable path="ButtonContainer/HBoxContainer/Apply"]

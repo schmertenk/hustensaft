@@ -47,6 +47,5 @@ visible = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExplosionRadius"]
 shape = SubResource( 4 )
 [connection signal="body_entered" from="." to="." method="_on_Granade_body_entered"]
-[connection signal="body_shape_entered" from="." to="." method="_on_Granade_body_shape_entered"]
 [connection signal="body_entered" from="ExplosionRadius" to="." method="_on_ExplosionRadius_body_entered"]
 [connection signal="body_exited" from="ExplosionRadius" to="." method="_on_ExplosionRadius_body_exited"]

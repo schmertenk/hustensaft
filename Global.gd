@@ -3,10 +3,15 @@ extends Node
 const STATE_UNPAUSED = 0
 const STATE_PAUSED = 1
 
+const LOW_GRAPHIC_MODE = 0
+const HIGH_GRAPHIC_MODE = 1
+
 signal game_paused
 signal game_unpaused
 signal new_round_started
 signal new_set_started
+
+var low_graphic_levels = ["Level_3", "Level_8", "Level_11"]
 
 var save_file_name = "user://settings.json"
 var options = {
@@ -15,6 +20,7 @@ var options = {
 	"fullscreen" : true,
 	"fx_volume" : 0,
 	"bm_volume" : 0,
+	"graphic_mode": HIGH_GRAPHIC_MODE
 }
 var round_count = 0
 var set_count = 0
@@ -30,8 +36,9 @@ var one_player_mode = false
 var joypad_ids = []
 var player_infos = []
 
-var test_mode = true
-var test_level = "res://Scenes/Levels/Level_5/Level.tscn"
+var test_mode = false
+#var test_level = "res://Scenes/Levels/Level_3/Level.tscn"
+var test_level = "res://Scenes/Ugly_Levels/Level_3/Level.tscn"
 
 
 var secondarie_paths = [
@@ -177,9 +184,16 @@ func change_to_next_level():
 	randomize()
 	var lvls = Helper.list_files_in_directory("res://Scenes/Levels/")
 	var lvl_number = randi()%lvls.size()
+	
+	var lvl_path
 
+	if options["graphic_mode"] == LOW_GRAPHIC_MODE && low_graphic_levels.has(lvls[lvl_number]):
+		lvl_path = "res://Scenes/Low_Graphic_Levels/" + lvls[lvl_number] + "/Level.tscn"
+	else:
+		lvl_path = "res://Scenes/Levels/" + lvls[lvl_number] + "/Level.tscn"
+	
 	if !test_mode:
-		get_tree().change_scene("res://Scenes/Levels/" + lvls[lvl_number] + "/Level.tscn")
+		get_tree().change_scene(lvl_path)
 	else:
 		get_tree().change_scene(test_level)
 

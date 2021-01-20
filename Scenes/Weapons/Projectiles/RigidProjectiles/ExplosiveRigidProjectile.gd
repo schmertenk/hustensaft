@@ -62,21 +62,25 @@ func handly_stickyness(original_hit_position, hit_body):
 	linear_velocity = Vector2.ZERO
 	$CollisionShape2D.disabled = true
 	global_position = original_hit_position
-	var index = clamp(pos_i, pos_i, max(0, last_global_positions.size() -1))
-	var ray = RayCast2D.new()
-	ray.enabled = true
-	ray.cast_to = (global_position - last_global_positions[index]) * 3
-	add_child(ray)
-	global_position = last_global_positions[index]
-	rotation_degrees = 0
-	ray.add_exception(weapon.get_parent())
-	ray.force_raycast_update()
-	global_rotation = 0
-	if ray.is_colliding():
-		global_position = ray.get_collision_point()
+	
+	# if there is a last position we'll recalculate the hitting position using a ray casting from the last positoin to the current
+	if last_global_positions.size():
+		var index = clamp(pos_i, pos_i, max(0, last_global_positions.size() -1))
+		var ray = RayCast2D.new()
+		ray.enabled = true
+		ray.cast_to = (global_position - last_global_positions[index]) * 3
+		add_child(ray)
+		global_position = last_global_positions[index]
+		rotation_degrees = 0
+		ray.add_exception(weapon.get_parent())
+		ray.force_raycast_update()
+		global_rotation = 0
+		if ray.is_colliding():
+			global_position = ray.get_collision_point()
+		else:
+			global_position = original_hit_position
 	else:
 		global_position = original_hit_position
-	
 	global_transform = Transform2D(0, global_position)
 	
 		

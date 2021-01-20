@@ -1,28 +1,28 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=98 format=2]
 
-[ext_resource path="res://Images/floor.png" type="Texture" id=1]
-[ext_resource path="res://Images/Level_11/background.jpg" type="Texture" id=2]
-[ext_resource path="res://Game.gd" type="Script" id=3]
-[ext_resource path="res://Scripts/GameCamera.gd" type="Script" id=4]
-[ext_resource path="res://Images/Level_11/rocket.png" type="Texture" id=5]
-[ext_resource path="res://Scenes/Assets/Door/Door.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Images/circle.png" type="Texture" id=7]
-[ext_resource path="res://Retrophile Regular.ttf" type="DynamicFontData" id=8]
-[ext_resource path="res://Images/Level_11/ufo_front.png" type="Texture" id=9]
-[ext_resource path="res://Scripts/Countdown.gd" type="Script" id=10]
-[ext_resource path="res://Scenes/Menues/Pause_Menu/Pause_Menu.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Images/Level_11/ufo_in.png" type="Texture" id=12]
-[ext_resource path="res://Scenes/Levels/Level_11/UFO.gd" type="Script" id=13]
-[ext_resource path="res://Images/Level_11/ground.png" type="Texture" id=14]
-[ext_resource path="res://Images/Level_11/ground_for.png" type="Texture" id=15]
-[ext_resource path="res://Scenes/TransitionMask.tscn" type="PackedScene" id=16]
-[ext_resource path="res://Scenes/FPS.gd" type="Script" id=17]
-[ext_resource path="res://Images/Level_11/stones.png" type="Texture" id=18]
-[ext_resource path="res://Scenes/Weapons/ProjectileWeapons/Needler/Needler_Dummy.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Scenes/FPS.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/GameCamera.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Countdown.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Levels/Level_11/Rocket.gd" type="Script" id=4]
+[ext_resource path="res://Game.gd" type="Script" id=5]
+[ext_resource path="res://Images/Level_11/rocket.png" type="Texture" id=6]
+[ext_resource path="res://Images/Level_11/background.jpg" type="Texture" id=7]
+[ext_resource path="res://Images/floor.png" type="Texture" id=8]
+[ext_resource path="res://Scenes/Levels/Level_11/UFO.gd" type="Script" id=9]
+[ext_resource path="res://Images/Level_11/ground.png" type="Texture" id=10]
+[ext_resource path="res://Images/Level_11/stones.png" type="Texture" id=11]
+[ext_resource path="res://Images/Level_11/ground_for.png" type="Texture" id=12]
+[ext_resource path="res://Images/Level_11/ufo_in.png" type="Texture" id=13]
+[ext_resource path="res://Images/Level_11/ufo_front.png" type="Texture" id=14]
+[ext_resource path="res://Images/fire_sheet.png" type="Texture" id=15]
+[ext_resource path="res://Retrophile Regular.ttf" type="DynamicFontData" id=16]
+[ext_resource path="res://Scenes/TransitionMask.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Scenes/Weapons/ProjectileWeapons/Needler/Needler_Dummy.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Scenes/Menues/Pause_Menu/Pause_Menu.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Scenes/Weapons/ProjectileWeapons/Laser_Gun/Laser_Gun_Dummy.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Scenes/Weapons/ProjectileWeapons/Sticky_Granade_Launcher/G_L_Dummy.tscn" type="PackedScene" id=21]
-[ext_resource path="res://Scenes/Weapons/ProjectileWeapons/Pistol/Pistol_Dummy.tscn" type="PackedScene" id=22]
-[ext_resource path="res://Scenes/Levels/Level_11/Rocket.gd" type="Script" id=23]
+[ext_resource path="res://Scenes/Assets/Door/Door.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Scenes/Weapons/ProjectileWeapons/Pistol/Pistol_Dummy.tscn" type="PackedScene" id=23]
 
 [sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( 100, 100, 0, 100, 0, 0, 100, 0 )
@@ -32,7 +32,7 @@ points = PoolVector2Array( 100, 100, 0, 100, 0, 0, 100, 0 )
 
 [sub_resource type="TileSet" id=3]
 0/name = "floor.png 0"
-0/texture = ExtResource( 1 )
+0/texture = ExtResource( 8 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 0, 0, 100, 100 )
@@ -56,11 +56,11 @@ points = PoolVector2Array( 100, 100, 0, 100, 0, 0, 100, 0 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 150
-font_data = ExtResource( 8 )
+font_data = ExtResource( 16 )
 
 [sub_resource type="DynamicFont" id=5]
 size = 22
-font_data = ExtResource( 8 )
+font_data = ExtResource( 16 )
 
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 344.896, 333.612 )
@@ -184,53 +184,316 @@ tracks/1/keys = {
 "values": [ Vector2( -1787.57, -1176.63 ), Vector2( -1787.57, -1220 ), Vector2( -1787.57, -1250 ), Vector2( -1787.57, -1220 ), Vector2( -1787.57, -1176.63 ) ]
 }
 
-[sub_resource type="Gradient" id=14]
-offsets = PoolRealArray( 0, 0.387909, 0.702771, 0.828715 )
-colors = PoolColorArray( 0.940041, 0.916348, 0.172586, 1, 0.960784, 0.439216, 0.113725, 0.768627, 0.14902, 0.0509804, 0, 1, 0.192157, 0.0784314, 0.0196078, 0.662745 )
+[sub_resource type="AtlasTexture" id=14]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 0, 0, 400, 182 )
 
-[sub_resource type="GradientTexture" id=15]
-gradient = SubResource( 14 )
+[sub_resource type="AtlasTexture" id=15]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 400, 0, 400, 182 )
 
-[sub_resource type="Curve" id=16]
-min_value = -1.0
-_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+[sub_resource type="AtlasTexture" id=16]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 800, 0, 400, 182 )
 
-[sub_resource type="CurveTexture" id=17]
-curve = SubResource( 16 )
+[sub_resource type="AtlasTexture" id=17]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 1200, 0, 400, 182 )
 
-[sub_resource type="Curve" id=18]
-max_value = 2.0
-_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.12619, 1.00482 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -9.92305, 0.0, 0, 0 ]
+[sub_resource type="AtlasTexture" id=18]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 1600, 0, 400, 182 )
 
-[sub_resource type="CurveTexture" id=19]
-curve = SubResource( 18 )
+[sub_resource type="AtlasTexture" id=19]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 2000, 0, 400, 182 )
 
-[sub_resource type="ParticlesMaterial" id=20]
-emission_shape = 1
-emission_sphere_radius = 54.41
-flag_disable_z = true
-direction = Vector3( 0, -1, 0 )
-spread = 39.56
-gravity = Vector3( 0, -98, 0 )
-initial_velocity = 211.9
-orbit_velocity = -0.1
-orbit_velocity_random = 0.75
-linear_accel = 100.0
-linear_accel_random = 1.0
-scale = 2.0
-scale_curve = SubResource( 19 )
-color_ramp = SubResource( 15 )
-hue_variation_curve = SubResource( 17 )
+[sub_resource type="AtlasTexture" id=20]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 2400, 0, 400, 182 )
 
-[sub_resource type="Environment" id=21]
-background_mode = 4
-glow_enabled = true
-glow_bloom = 0.08
-glow_blend_mode = 0
-adjustment_enabled = true
+[sub_resource type="AtlasTexture" id=21]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 2800, 0, 400, 182 )
+
+[sub_resource type="AtlasTexture" id=22]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 3200, 0, 400, 182 )
+
+[sub_resource type="AtlasTexture" id=23]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 3600, 0, 400, 182 )
+
+[sub_resource type="AtlasTexture" id=24]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 4000, 0, 400, 182 )
+
+[sub_resource type="AtlasTexture" id=25]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 4400, 0, 400, 182 )
+
+[sub_resource type="AtlasTexture" id=26]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 0, 182, 400, 182 )
+
+[sub_resource type="AtlasTexture" id=27]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 400, 182, 400, 182 )
+
+[sub_resource type="AtlasTexture" id=28]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 800, 182, 400, 182 )
+
+[sub_resource type="AtlasTexture" id=29]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 1200, 182, 400, 182 )
+
+[sub_resource type="AtlasTexture" id=30]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 1600, 182, 400, 182 )
+
+[sub_resource type="AtlasTexture" id=31]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 2000, 182, 400, 182 )
+
+[sub_resource type="AtlasTexture" id=32]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 2400, 182, 400, 182 )
+
+[sub_resource type="AtlasTexture" id=33]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 2800, 182, 400, 182 )
+
+[sub_resource type="AtlasTexture" id=34]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 3200, 182, 400, 182 )
+
+[sub_resource type="AtlasTexture" id=35]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 3600, 182, 400, 182 )
+
+[sub_resource type="AtlasTexture" id=36]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 4000, 182, 400, 182 )
+
+[sub_resource type="AtlasTexture" id=37]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 4400, 182, 400, 182 )
+
+[sub_resource type="AtlasTexture" id=38]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 0, 364, 400, 182 )
+
+[sub_resource type="AtlasTexture" id=39]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 400, 364, 400, 182 )
+
+[sub_resource type="AtlasTexture" id=40]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 800, 364, 400, 182 )
+
+[sub_resource type="AtlasTexture" id=41]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 1200, 364, 400, 182 )
+
+[sub_resource type="AtlasTexture" id=42]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 1600, 364, 400, 182 )
+
+[sub_resource type="AtlasTexture" id=43]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 2000, 364, 400, 182 )
+
+[sub_resource type="AtlasTexture" id=44]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 2400, 364, 400, 182 )
+
+[sub_resource type="AtlasTexture" id=45]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 2800, 364, 400, 182 )
+
+[sub_resource type="AtlasTexture" id=46]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 3200, 364, 400, 182 )
+
+[sub_resource type="AtlasTexture" id=47]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 3600, 364, 400, 182 )
+
+[sub_resource type="AtlasTexture" id=48]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 4000, 364, 400, 182 )
+
+[sub_resource type="AtlasTexture" id=49]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 4400, 364, 400, 182 )
+
+[sub_resource type="AtlasTexture" id=50]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 0, 546, 400, 182 )
+
+[sub_resource type="AtlasTexture" id=51]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 400, 546, 400, 182 )
+
+[sub_resource type="AtlasTexture" id=52]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 800, 546, 400, 182 )
+
+[sub_resource type="AtlasTexture" id=53]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 1200, 546, 400, 182 )
+
+[sub_resource type="AtlasTexture" id=54]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 1600, 546, 400, 182 )
+
+[sub_resource type="AtlasTexture" id=55]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 2000, 546, 400, 182 )
+
+[sub_resource type="AtlasTexture" id=56]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 2400, 546, 400, 182 )
+
+[sub_resource type="AtlasTexture" id=57]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 2800, 546, 400, 182 )
+
+[sub_resource type="AtlasTexture" id=58]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 3200, 546, 400, 182 )
+
+[sub_resource type="AtlasTexture" id=59]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 3600, 546, 400, 182 )
+
+[sub_resource type="AtlasTexture" id=60]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 4000, 546, 400, 182 )
+
+[sub_resource type="AtlasTexture" id=61]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 4400, 546, 400, 182 )
+
+[sub_resource type="AtlasTexture" id=62]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 0, 728, 400, 182 )
+
+[sub_resource type="AtlasTexture" id=63]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 400, 728, 400, 182 )
+
+[sub_resource type="AtlasTexture" id=64]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 800, 728, 400, 182 )
+
+[sub_resource type="AtlasTexture" id=65]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 1200, 728, 400, 182 )
+
+[sub_resource type="AtlasTexture" id=66]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 1600, 728, 400, 182 )
+
+[sub_resource type="AtlasTexture" id=67]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 2000, 728, 400, 182 )
+
+[sub_resource type="AtlasTexture" id=68]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 2400, 728, 400, 182 )
+
+[sub_resource type="AtlasTexture" id=69]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 2800, 728, 400, 182 )
+
+[sub_resource type="AtlasTexture" id=70]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 3200, 728, 400, 182 )
+
+[sub_resource type="AtlasTexture" id=71]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 3600, 728, 400, 182 )
+
+[sub_resource type="AtlasTexture" id=72]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 4000, 728, 400, 182 )
+
+[sub_resource type="AtlasTexture" id=73]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 4400, 728, 400, 182 )
+
+[sub_resource type="SpriteFrames" id=74]
+animations = [ {
+"frames": [ SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ), SubResource( 41 ), SubResource( 42 ), SubResource( 43 ), SubResource( 44 ), SubResource( 45 ), SubResource( 46 ), SubResource( 47 ), SubResource( 48 ), SubResource( 49 ), SubResource( 50 ), SubResource( 51 ), SubResource( 52 ), SubResource( 53 ), SubResource( 54 ), SubResource( 55 ), SubResource( 56 ), SubResource( 57 ), SubResource( 58 ), SubResource( 59 ), SubResource( 60 ), SubResource( 61 ), SubResource( 62 ), SubResource( 63 ), SubResource( 64 ), SubResource( 65 ), SubResource( 66 ), SubResource( 67 ), SubResource( 68 ), SubResource( 69 ), SubResource( 70 ), SubResource( 71 ), SubResource( 72 ), SubResource( 73 ) ],
+"loop": true,
+"name": "default",
+"speed": 30.0
+} ]
 
 [node name="Game" type="Node2D"]
-script = ExtResource( 3 )
+script = ExtResource( 5 )
 
 [node name="Players" type="Node2D" parent="."]
 
@@ -244,10 +507,10 @@ format = 1
 
 [node name="Player_Stats" type="Node" parent="CanvasLayer"]
 
-[node name="Pause_Menu" parent="CanvasLayer" instance=ExtResource( 11 )]
+[node name="Pause_Menu" parent="CanvasLayer" instance=ExtResource( 19 )]
 visible = false
 
-[node name="TransitionMask" parent="CanvasLayer" instance=ExtResource( 16 )]
+[node name="TransitionMask" parent="CanvasLayer" instance=ExtResource( 17 )]
 visible = false
 
 [node name="Countdown" type="Label" parent="CanvasLayer"]
@@ -261,7 +524,7 @@ margin_bottom = 90.1435
 custom_fonts/font = SubResource( 4 )
 align = 1
 valign = 1
-script = ExtResource( 10 )
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false,
 "_editor_description_": ""
@@ -275,7 +538,7 @@ margin_right = 62.0
 margin_bottom = 21.0
 custom_fonts/font = SubResource( 5 )
 text = "test"
-script = ExtResource( 17 )
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -296,14 +559,14 @@ position = Vector2( -2101.3, -1217.92 )
 
 [node name="Weapons" type="Node2D" parent="."]
 
-[node name="Needler_Dummy" parent="Weapons" instance=ExtResource( 19 )]
+[node name="Needler_Dummy" parent="Weapons" instance=ExtResource( 18 )]
 position = Vector2( -1839.17, 1187.58 )
 
-[node name="Needler_Dummy2" parent="Weapons" instance=ExtResource( 19 )]
+[node name="Needler_Dummy2" parent="Weapons" instance=ExtResource( 18 )]
 position = Vector2( 2613.18, 858.454 )
 rotation = 4.30224
 
-[node name="Pistol_Dummy" parent="Weapons" instance=ExtResource( 22 )]
+[node name="Pistol_Dummy" parent="Weapons" instance=ExtResource( 23 )]
 position = Vector2( 2051.51, 1071.82 )
 
 [node name="Pistol_Dummy2" parent="Weapons" instance=ExtResource( 20 )]
@@ -314,6 +577,9 @@ position = Vector2( -1366.98, -1117.54 )
 
 [node name="G_L_Dummy" parent="Weapons" instance=ExtResource( 21 )]
 position = Vector2( 1171, -1222 )
+
+[node name="Needler_Dummy3" parent="Weapons" instance=ExtResource( 18 )]
+position = Vector2( 1641.74, 1358.34 )
 
 [node name="Background" type="Node2D" parent="."]
 show_behind_parent = true
@@ -332,7 +598,7 @@ motion_scale = Vector2( -0.25, 0 )
 [node name="background" type="Sprite" parent="Background/ParallaxBackground/ParallaxLayer"]
 position = Vector2( 0, 205.831 )
 scale = Vector2( 1.35, 1.35 )
-texture = ExtResource( 2 )
+texture = ExtResource( 7 )
 offset = Vector2( 0, -500 )
 __meta__ = {
 "_edit_lock_": true
@@ -344,7 +610,7 @@ motion_scale = Vector2( -0.6, 0 )
 [node name="ground_f" type="Sprite" parent="Background"]
 modulate = Color( 0.615686, 0.615686, 0.615686, 1 )
 position = Vector2( 0, -5.99316 )
-texture = ExtResource( 15 )
+texture = ExtResource( 12 )
 
 [node name="Spikes" type="Node2D" parent="."]
 visible = false
@@ -360,12 +626,12 @@ limit_bottom = 1500
 smoothing_enabled = true
 smoothing_speed = 10.0
 editor_draw_limits = true
-script = ExtResource( 4 )
+script = ExtResource( 2 )
 max_zoom = 5.85
 
 [node name="Doors" type="Node2D" parent="."]
 
-[node name="Door" parent="Doors" instance=ExtResource( 6 )]
+[node name="Door" parent="Doors" instance=ExtResource( 22 )]
 position = Vector2( 1422.29, 266.182 )
 rotation = -0.418879
 scale = Vector2( 0.9, 1.2 )
@@ -378,7 +644,7 @@ z_index = -1
 
 [node name="Rocket" type="StaticBody2D" parent="Assets"]
 position = Vector2( 1597.79, 142.983 )
-script = ExtResource( 23 )
+script = ExtResource( 4 )
 
 [node name="Area2D" type="Area2D" parent="Assets/Rocket"]
 position = Vector2( -616.597, -1473.61 )
@@ -411,7 +677,7 @@ process_material = SubResource( 11 )
 [node name="rocket" type="Sprite" parent="Assets/Rocket"]
 rotation = 2.71748
 scale = Vector2( 0.75, 0.75 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 flip_h = true
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Assets/Rocket"]
@@ -430,14 +696,14 @@ autostart = true
 [node name="UFO" type="StaticBody2D" parent="Assets"]
 position = Vector2( -1787.57, -1248.22 )
 rotation = 0.263997
-script = ExtResource( 13 )
+script = ExtResource( 9 )
 
 [node name="ufo_front" type="Sprite" parent="Assets/UFO"]
-texture = ExtResource( 9 )
+texture = ExtResource( 14 )
 
 [node name="ufo_in" type="Sprite" parent="Assets/UFO"]
 z_index = -1
-texture = ExtResource( 12 )
+texture = ExtResource( 13 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Assets/UFO"]
 polygon = PoolVector2Array( 353.577, 154.877, 382.15, 110.43, 488.296, 50.5793, 586.57, -7.37708, 626.887, -71.6331, 619.328, -123.29, 575.23, -182.506, 469.397, -244.242, 274.109, -258.101, 236.249, -325.997, 191.35, -373.14, 143.084, -393.344, 8.38892, -392.222, -99.3674, -358.548, -159.98, -324.874, -219.471, -264.261, -257.635, -198.036, -291.309, -132.933, -304.778, -92.5247, -371.003, -26.2993, -382.228, -12.8298, -390.085, 36.5586, -477.637, 157.784, -481.664, 214.645, -458.972, 244.679, -420.929, 268.706, -354.187, 290.731, -258.746, 300.075, -172.436, 311.896, -244.355, 353.1, -363.47, 350.103, -440.633, 333.622, -504.311, 297.662, -523.04, 255.71, -547.013, 255.71, -585.969, 238.479, -594.21, 201.021, -553.006, 104.935, -476.593, 24.7758, -437.637, -9.6853, -436.138, -32.9091, -412.166, -71.865, -366.467, -105.577, -318.521, -218.284, -251.847, -310.429, -166.443, -374.857, -68.304, -410.816, -21.05, -426.111, 39.2712, -437.223, 56.7327, -437.223, 77.0319, -437.786, 144.474, -436.287, 197.664, -418.307, 259.095, -389.091, 308.539, -342.643, 326.519, -308.931, 386.451, -306.684, 443.386, -298.443, 502.57, -285.707, 540.027, -271.473, 558.756, -251.246, 623.183, -234.765, 659.892, -218.284, 687.611, -195.06, 710.085, -162.846, 713.831, -125.388, 705.59, -94.6732, 686.861, -56.4663, 667.383, -44.4799, 623.932, 9.9314, 579.732, 54.8806, 509.312, 102.077, 453.875, 138.037 )
@@ -462,82 +728,74 @@ position = Vector2( 0.793701, 0.793701 )
 polygon = PoolVector2Array( -1069.88, 657.558, -1064.84, 685.277, -1082.48, 715.515, -1127.84, 758.352, -2320.69, 753.312, -2373.61, 770.951, -2373.61, 844.027, -2429.05, 869.225, -2471.88, 949.86, -2413.93, 1116.17, -2497.08, 1191.76, -2494.56, 1292.56, -2431.57, 1354.29, -2330.77, 1384.53, -2235.02, 1349.25, -2103.99, 1349.25, -2030.91, 1387.05, -1897.36, 1301.37, -1758.77, 1286.25, -1572.3, 1351.77, -1285.9, 1350.65, -1272.41, 1209.81, -1230.46, 1118.41, -1188.51, 1115.42, -1173.52, 1089.94, -1055.16, 1064.47, -1025.19, 1083.95, -978.743, 1049.49, -893.339, 1086.95, -887.346, 1142.39, -843.895, 1205.31, -837.902, 1350.65, -801.227, 1344.21, -559.323, 1344.21, -256.947, 1361.85, -78.0381, 1296.33, 143.708, 1296.33, 529.244, 1334.13, 839.185, 1407.21, 1159.2, 1397.13, 1484.26, 1392.09, 1632.37, 1422.33, 1823.88, 1419.81, 2063.27, 1331.61, 2194.3, 1203.1, 2058.84, 1134, 2090.66, 1095.82, 2165.61, 1049.15, 2240.17, 769.178, 2551.3, 876.658, 2989.71, 947.369, 7032.1, 914.616, 6994.34, 1548.9, 2993.72, 1550.5, 1860.5, 1540.76, -3001.92, 1493.49, -3225.74, 1459.46, -5524.42, 1554.95, -5706.16, 745.858, -3167.37, 741.089, -2723.96, 588.334, -2269.41, 524.521, -2244.95, 425.361, -2181.96, 364.885, -2103.84, 322.048, -2055.96, 228.814, -2005.57, 193.536, -1881.07, 163.159, -1857.01, 184.54, -1810.06, 146.823, -1729.3, 177.525, -1714.91, 240.376, -1672.05, 299.904, -1669.67, 343.558, -1579.98, 358.638, -1562.46, 381.077, -1508.66, 383.908, -1415.22, 484.903, -1423.41, 580.874 )
 
 [node name="ground" type="Sprite" parent="Assets/ground"]
-texture = ExtResource( 14 )
+texture = ExtResource( 10 )
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Assets/ground"]
 polygon = PoolVector2Array( 1572.16, 710.703, 1646.16, 866.703, 1554.16, 876.703, 1486.16, 848.703, 1362.16, 926.703, 1282.16, 946.703, 1120.16, 940.703, 870.086, 930.075, 854.529, 939.975, 715.936, 942.803, 561.787, 937.146, 25.6125, 947.046, -163.892, 927.247, -366.125, 911.69, -523.102, 901.791, -650.382, 866.436, -701.293, 807.039, -698.465, 761.784, -681.494, 736.328, -664.524, 736.328, -605.127, 751.884, 43.9973, 856.536, 400.379, 855.122, 787.874, 773.097, 1194.23, 730.671, 1161.9, 627.457, 1207.28, 531.348, 1386.15, 467.276, 1485.05, 436.275, 1543.66, 483.294 )
 
 [node name="stones" type="Sprite" parent="Assets"]
 position = Vector2( 1365.44, 624.039 )
-texture = ExtResource( 18 )
+texture = ExtResource( 11 )
 
 [node name="stones2" type="Sprite" parent="Assets"]
 position = Vector2( -2057.27, 463.832 )
-texture = ExtResource( 18 )
+texture = ExtResource( 11 )
 
 [node name="stones3" type="Sprite" parent="Assets"]
 position = Vector2( -1903.56, 320.201 )
-texture = ExtResource( 18 )
+texture = ExtResource( 11 )
 
 [node name="stones4" type="Sprite" parent="Assets"]
 position = Vector2( -1753.63, 481.471 )
 scale = Vector2( 1.62996, 1 )
-texture = ExtResource( 18 )
+texture = ExtResource( 11 )
 flip_h = true
 
 [node name="stones5" type="Sprite" parent="Assets"]
 modulate = Color( 1, 0, 0.866667, 1 )
 position = Vector2( -1075.03, 1219.06 )
-texture = ExtResource( 18 )
+texture = ExtResource( 11 )
 
-[node name="Particles" type="Node2D" parent="."]
-scale = Vector2( 1.2, 1.2 )
+[node name="Flames" type="Node" parent="Assets"]
 
-[node name="Particles2D11" type="Particles2D" parent="Particles"]
-position = Vector2( 1022, -528.74 )
-z_index = -2
-amount = 55
-lifetime = 3.0
-visibility_rect = Rect2( -1000, -1000, 2000, 2000 )
-draw_order = 1
-process_material = SubResource( 20 )
-texture = ExtResource( 7 )
+[node name="AnimatedSprite4" type="AnimatedSprite" parent="Assets/Flames"]
+position = Vector2( 2355.91, 588.978 )
+rotation = 1.5708
+scale = Vector2( 3, 4 )
+z_index = -10
+frames = SubResource( 74 )
+frame = 37
+speed_scale = 0.9
+playing = true
 
-[node name="Particles2D13" type="Particles2D" parent="Particles"]
-position = Vector2( 1913.55, 704.026 )
-z_index = -2
-amount = 45
-lifetime = 3.0
-visibility_rect = Rect2( -1000, -1000, 2000, 2000 )
-draw_order = 1
-process_material = SubResource( 20 )
-texture = ExtResource( 7 )
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Assets/Flames"]
+position = Vector2( 2182.24, 181.224 )
+rotation = 1.5708
+scale = Vector2( 3, 4 )
+z_index = -10
+frames = SubResource( 74 )
+frame = 2
+playing = true
 
-[node name="Particles2D15" type="Particles2D" parent="Particles"]
-position = Vector2( 1782.88, 530.98 )
-z_index = -2
-amount = 45
-lifetime = 3.0
-visibility_rect = Rect2( -1000, -1000, 2000, 2000 )
-draw_order = 1
-process_material = SubResource( 20 )
-texture = ExtResource( 7 )
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="Assets/Flames"]
+position = Vector2( 2023.67, -52.8569 )
+rotation = 1.5708
+scale = Vector2( 3, 4 )
+z_index = -10
+frames = SubResource( 74 )
+frame = 58
+speed_scale = 0.95
+playing = true
 
-[node name="Particles2D8" type="Particles2D" parent="Particles"]
-position = Vector2( 1647.79, 246.457 )
-z_index = -2
-amount = 45
-lifetime = 3.0
-visibility_rect = Rect2( -1000, -1000, 2000, 2000 )
-draw_order = 1
-process_material = SubResource( 20 )
-texture = ExtResource( 7 )
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 21 )
-
-[node name="Needler_Dummy" parent="." instance=ExtResource( 19 )]
-position = Vector2( 1641.74, 1358.34 )
+[node name="AnimatedSprite3" type="AnimatedSprite" parent="Assets/Flames"]
+position = Vector2( 1895.3, -339.795 )
+rotation = 1.5708
+scale = Vector2( 3, 4 )
+z_index = -10
+frames = SubResource( 74 )
+frame = 34
+speed_scale = 1.1
+playing = true
 [connection signal="body_entered" from="Assets/Rocket/Area2D" to="Assets/Rocket" method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Assets/Rocket/Area2D" to="Assets/Rocket" method="_on_Area2D_body_exited"]
 [connection signal="timeout" from="Assets/Rocket/Timer" to="Assets/Rocket" method="_on_Timer_timeout"]
