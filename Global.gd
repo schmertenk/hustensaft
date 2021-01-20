@@ -13,7 +13,7 @@ signal new_set_started
 
 var low_graphic_levels = ["Level_3", "Level_8", "Level_11"]
 
-var save_file_name = "user://settings.json"
+var save_file_name = "user://options.json"
 var options = {
 	"rounds_per_set": 2,
 	"sets": 2,
