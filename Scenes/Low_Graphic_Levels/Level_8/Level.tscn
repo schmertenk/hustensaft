@@ -425,14 +425,14 @@ process_material = SubResource( 7 )
 position = Vector2( -1438.49, -369.67 )
 scale = Vector2( 1, 2 )
 frames = SubResource( 35 )
-frame = 21
+frame = 4
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="Particles"]
 position = Vector2( -1401.4, -364.466 )
 scale = Vector2( 1, 2 )
 frames = SubResource( 35 )
-frame = 14
+frame = 15
 speed_scale = 1.5
 playing = true
 
@@ -440,6 +440,7 @@ playing = true
 position = Vector2( -1348.49, -364.466 )
 scale = Vector2( 1, 2 )
 frames = SubResource( 35 )
+frame = 9
 speed_scale = 1.7
 playing = true
 

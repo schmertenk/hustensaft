@@ -38,7 +38,7 @@ var player_infos = []
 
 var test_mode = true
 #var test_level = "res://Scenes/Levels/Level_3/Level.tscn"
-var test_level = "res://Scenes/Low_Graphic_Levels/Level_3/Level.tscn"
+var test_level = "res://Scenes/Levels/Level_8/Level.tscn"
 
 
 var secondarie_paths = [

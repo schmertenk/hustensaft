@@ -1,7 +1,7 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://Scenes/FPS.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Levels/Level_3/Level_Logic.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Low_Graphic_Levels/Level_3/Level_Logic.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/GameCamera.gd" type="Script" id=3]
 [ext_resource path="res://Scripts/Countdown.gd" type="Script" id=4]
 [ext_resource path="res://Game.gd" type="Script" id=5]
@@ -60,25 +60,10 @@ font_data = ExtResource( 9 )
 size = 100
 font_data = ExtResource( 9 )
 
-[sub_resource type="Animation" id=6]
-resource_name = "spin"
-length = 2.0
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:rotation_degrees")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 0.0, 360.0 ]
-}
+[sub_resource type="CanvasItemMaterial" id=6]
+blend_mode = 1
 
 [sub_resource type="Animation" id=7]
-resource_name = "spin"
 length = 2.0
 loop = true
 tracks/0/type = "value"
@@ -196,41 +181,7 @@ tracks/0/keys = {
 "values": [ 0.0, 360.0 ]
 }
 
-[sub_resource type="Animation" id=14]
-resource_name = "spin"
-length = 2.0
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:rotation_degrees")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 0.0, 360.0 ]
-}
-
-[sub_resource type="Animation" id=16]
-resource_name = "spin"
-length = 2.0
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:rotation_degrees")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 0.0, 360.0 ]
-}
-
-[sub_resource type="Environment" id=18]
+[sub_resource type="Environment" id=14]
 background_mode = 4
 glow_enabled = true
 glow_levels/1 = true
@@ -242,7 +193,7 @@ adjustment_enabled = true
 adjustment_contrast = 1.3
 adjustment_saturation = 1.75
 
-[sub_resource type="Animation" id=19]
+[sub_resource type="Animation" id=15]
 resource_name = "spin"
 length = 24.0
 loop = true
@@ -259,7 +210,7 @@ tracks/0/keys = {
 "values": [ 0.0, 360.0 ]
 }
 
-[sub_resource type="Animation" id=21]
+[sub_resource type="Animation" id=16]
 resource_name = "move_r"
 length = 6.0
 loop = true
@@ -287,7 +238,7 @@ z_index = -100
 tile_set = SubResource( 3 )
 cell_size = Vector2( 100, 100 )
 format = 1
-tile_data = PoolIntArray( -917509, 0, 0, -917508, 0, 0, -917507, 0, 0, -917506, 0, 0, -917505, 0, 0, -983040, 0, 0, -983039, 0, 0, -983038, 0, 0, -983037, 0, 0, -983036, 0, 0, -983033, 0, 0, -983032, 0, 0, -983031, 0, 0, -983030, 0, 0, -983029, 0, 0, -983028, 0, 0, -983027, 0, 0, -983026, 0, 0, -983025, 0, 0, -983024, 0, 0, -786443, 0, 0, -786442, 0, 0, -786441, 0, 0, -851948, 0, 0, -851947, 0, 0, -851946, 0, 0, -655365, 0, 0, -655364, 0, 0, -655363, 0, 0, -655362, 0, 0, -655361, 0, 0, -720896, 0, 0, -720895, 0, 0, -720894, 0, 0, -720893, 0, 0, -720892, 0, 0, -720889, 0, 0, -720888, 0, 0, -720887, 0, 0, -720886, 0, 0, -720885, 0, 0, -720884, 0, 0, -720883, 0, 0, -720882, 0, 0, -720881, 0, 0, -720880, 0, 0, -589829, 0, 0, -655344, 0, 0, -524303, 0, 0, -524302, 0, 0, -524301, 0, 0, -524300, 0, 0, -524296, 0, 0, -524295, 0, 0, -524294, 0, 0, -524293, 0, 0, -589808, 0, 0, -589807, 0, 0, -589806, 0, 0, -589805, 0, 0, -589801, 0, 0, -589800, 0, 0, -589799, 0, 0, -589798, 0, 0, -458767, 0, 0, -524262, 0, 0, -393231, 0, 0, -458751, 0, 0, -458750, 0, 0, -458749, 0, 0, -458748, 0, 0, -458745, 0, 0, -458744, 0, 0, -458743, 0, 0, -458742, 0, 0, -458726, 0, 0, -327695, 0, 0, -327686, 0, 0, -393215, 0, 0, -393206, 0, 0, -393199, 0, 0, -393190, 0, 0, -262159, 0, 0, -262150, 0, 0, -327679, 0, 0, -327670, 0, 0, -327663, 0, 0, -327654, 0, 0, -196623, 0, 0, -196614, 0, 0, -196613, 0, 0, -196612, 0, 0, -262143, 0, 0, -262139, 0, 0, -262138, 0, 0, -262134, 0, 0, -262130, 0, 0, -262129, 0, 0, -262128, 0, 0, -262127, 0, 0, -262118, 0, 0, -131089, 0, 0, -131088, 0, 0, -131087, 0, 0, -131086, 0, 0, -131085, 0, 0, -131081, 0, 0, -131080, 0, 0, -131079, 0, 0, -131078, 0, 0, -131077, 0, 0, -131076, 0, 0, -196593, 0, 0, -196592, 0, 0, -196591, 0, 0, -196590, 0, 0, -196589, 0, 0, -196588, 0, 0, -196584, 0, 0, -196583, 0, 0, -196582, 0, 0, -196581, 0, 0, -196580, 0, 0, -65551, 0, 0, -131046, 0, 0, -15, 0, 0, -65536, 0, 0, -65535, 0, 0, -65531, 0, 0, -65530, 0, 0, -65526, 0, 0, -65525, 0, 0, -65510, 0, 0, 65521, 0, 0, 0, 0, 0, 1, 0, 0, 10, 0, 0, 11, 0, 0, 26, 0, 0, 131055, 0, 0, 131056, 0, 0, 131057, 0, 0, 131058, 0, 0, 131059, 0, 0, 131063, 0, 0, 131064, 0, 0, 131065, 0, 0, 131066, 0, 0, 131067, 0, 0, 131068, 0, 0, 131069, 0, 0, 65536, 0, 0, 65537, 0, 0, 65546, 0, 0, 65547, 0, 0, 65550, 0, 0, 65551, 0, 0, 65552, 0, 0, 65553, 0, 0, 65554, 0, 0, 65555, 0, 0, 65556, 0, 0, 65560, 0, 0, 65561, 0, 0, 65562, 0, 0, 65563, 0, 0, 65564, 0, 0, 196593, 0, 0, 196602, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 131082, 0, 0, 131089, 0, 0, 131098, 0, 0, 262129, 0, 0, 262138, 0, 0, 196625, 0, 0, 196634, 0, 0, 327665, 0, 0, 327674, 0, 0, 327675, 0, 0, 327676, 0, 0, 327677, 0, 0, 262158, 0, 0, 262159, 0, 0, 262160, 0, 0, 262161, 0, 0, 262170, 0, 0, 393201, 0, 0, 327684, 0, 0, 327687, 0, 0, 327706, 0, 0, 458737, 0, 0, 393220, 0, 0, 393223, 0, 0, 393242, 0, 0, 524273, 0, 0, 524274, 0, 0, 524275, 0, 0, 524276, 0, 0, 524280, 0, 0, 524281, 0, 0, 524282, 0, 0, 524283, 0, 0, 524284, 0, 0, 524285, 0, 0, 524286, 0, 0, 524287, 0, 0, 458752, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458763, 0, 0, 458764, 0, 0, 458765, 0, 0, 458766, 0, 0, 458767, 0, 0, 458768, 0, 0, 458769, 0, 0, 458770, 0, 0, 458771, 0, 0, 458775, 0, 0, 458776, 0, 0, 458777, 0, 0, 458778, 0, 0, 786417, 0, 0, 786418, 0, 0, 786419, 0, 0, 786420, 0, 0, 786421, 0, 0, 786422, 0, 0, 786423, 0, 0, 786424, 0, 0, 786425, 0, 0, 786426, 0, 0, 786427, 0, 0, 786428, 0, 0, 720900, 0, 0, 720901, 0, 0, 720902, 0, 0, 720903, 0, 0, 720911, 0, 0, 720912, 0, 0, 720913, 0, 0, 720914, 0, 0, 720915, 0, 0, 720916, 0, 0, 720917, 0, 0, 720918, 0, 0, 720919, 0, 0, 720920, 0, 0, 720921, 0, 0, 720922, 0, 0 )
+tile_data = PoolIntArray( -917509, 0, 0, -917508, 0, 0, -917507, 0, 0, -917506, 0, 0, -917505, 0, 0, -983040, 0, 0, -983039, 0, 0, -983038, 0, 0, -983037, 0, 0, -983036, 0, 0, -983033, 0, 0, -983032, 0, 0, -983031, 0, 0, -983030, 0, 0, -983029, 0, 0, -983028, 0, 0, -983027, 0, 0, -983026, 0, 0, -983025, 0, 0, -983024, 0, 0, -786443, 0, 0, -786442, 0, 0, -786441, 0, 0, -851948, 0, 0, -851947, 0, 0, -851946, 0, 0, -655365, 0, 0, -655364, 0, 0, -655363, 0, 0, -655362, 0, 0, -655361, 0, 0, -720896, 0, 0, -720895, 0, 0, -720894, 0, 0, -720893, 0, 0, -720892, 0, 0, -720889, 0, 0, -720888, 0, 0, -720887, 0, 0, -720886, 0, 0, -720885, 0, 0, -720884, 0, 0, -720883, 0, 0, -720882, 0, 0, -720881, 0, 0, -720880, 0, 0, -589829, 0, 0, -655344, 0, 0, -524303, 0, 0, -524302, 0, 0, -524301, 0, 0, -524300, 0, 0, -524296, 0, 0, -524295, 0, 0, -524294, 0, 0, -524293, 0, 0, -589808, 0, 0, -589807, 0, 0, -589806, 0, 0, -589805, 0, 0, -589801, 0, 0, -589800, 0, 0, -589799, 0, 0, -589798, 0, 0, -458767, 0, 0, -524262, 0, 0, -393231, 0, 0, -458751, 0, 0, -458750, 0, 0, -458749, 0, 0, -458748, 0, 0, -458745, 0, 0, -458744, 0, 0, -458743, 0, 0, -458742, 0, 0, -458726, 0, 0, -327695, 0, 0, -327686, 0, 0, -393215, 0, 0, -393206, 0, 0, -393199, 0, 0, -393190, 0, 0, -262159, 0, 0, -262150, 0, 0, -327679, 0, 0, -327670, 0, 0, -327663, 0, 0, -327654, 0, 0, -196623, 0, 0, -196614, 0, 0, -196613, 0, 0, -196612, 0, 0, -196611, 0, 0, -262143, 0, 0, -262139, 0, 0, -262138, 0, 0, -262134, 0, 0, -262130, 0, 0, -262129, 0, 0, -262128, 0, 0, -262127, 0, 0, -262118, 0, 0, -131089, 0, 0, -131088, 0, 0, -131087, 0, 0, -131086, 0, 0, -131085, 0, 0, -131081, 0, 0, -131080, 0, 0, -131079, 0, 0, -131078, 0, 0, -131077, 0, 0, -131076, 0, 0, -196593, 0, 0, -196592, 0, 0, -196591, 0, 0, -196590, 0, 0, -196589, 0, 0, -196588, 0, 0, -196584, 0, 0, -196583, 0, 0, -196582, 0, 0, -196581, 0, 0, -196580, 0, 0, -65551, 0, 0, -131046, 0, 0, -15, 0, 0, -65536, 0, 0, -65535, 0, 0, -65531, 0, 0, -65530, 0, 0, -65526, 0, 0, -65525, 0, 0, -65510, 0, 0, 65521, 0, 0, 0, 0, 0, 1, 0, 0, 10, 0, 0, 11, 0, 0, 26, 0, 0, 131055, 0, 0, 131056, 0, 0, 131057, 0, 0, 131058, 0, 0, 131059, 0, 0, 131063, 0, 0, 131064, 0, 0, 131065, 0, 0, 131066, 0, 0, 131067, 0, 0, 131068, 0, 0, 131069, 0, 0, 65536, 0, 0, 65537, 0, 0, 65546, 0, 0, 65547, 0, 0, 65550, 0, 0, 65551, 0, 0, 65552, 0, 0, 65553, 0, 0, 65554, 0, 0, 65555, 0, 0, 65556, 0, 0, 65560, 0, 0, 65561, 0, 0, 65562, 0, 0, 65563, 0, 0, 65564, 0, 0, 196593, 0, 0, 196602, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 131082, 0, 0, 131089, 0, 0, 131098, 0, 0, 262129, 0, 0, 262138, 0, 0, 196625, 0, 0, 196634, 0, 0, 327665, 0, 0, 327674, 0, 0, 327675, 0, 0, 327676, 0, 0, 327677, 0, 0, 262158, 0, 0, 262159, 0, 0, 262160, 0, 0, 262161, 0, 0, 262170, 0, 0, 393201, 0, 0, 327684, 0, 0, 327687, 0, 0, 327706, 0, 0, 458737, 0, 0, 393220, 0, 0, 393223, 0, 0, 393242, 0, 0, 524273, 0, 0, 524274, 0, 0, 524275, 0, 0, 524276, 0, 0, 524280, 0, 0, 524281, 0, 0, 524282, 0, 0, 524283, 0, 0, 524284, 0, 0, 524285, 0, 0, 524286, 0, 0, 524287, 0, 0, 458752, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458763, 0, 0, 458764, 0, 0, 458765, 0, 0, 458766, 0, 0, 458767, 0, 0, 458768, 0, 0, 458769, 0, 0, 458770, 0, 0, 458771, 0, 0, 458775, 0, 0, 458776, 0, 0, 458777, 0, 0, 458778, 0, 0, 786417, 0, 0, 786418, 0, 0, 786419, 0, 0, 786420, 0, 0, 786421, 0, 0, 786422, 0, 0, 786423, 0, 0, 786424, 0, 0, 786425, 0, 0, 786426, 0, 0, 786427, 0, 0, 786428, 0, 0, 720900, 0, 0, 720901, 0, 0, 720902, 0, 0, 720903, 0, 0, 720911, 0, 0, 720912, 0, 0, 720913, 0, 0, 720914, 0, 0, 720915, 0, 0, 720916, 0, 0, 720917, 0, 0, 720918, 0, 0, 720919, 0, 0, 720920, 0, 0, 720921, 0, 0, 720922, 0, 0 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -409,173 +360,82 @@ script = ExtResource( 3 )
 
 [node name="Lights" type="Node2D" parent="."]
 
-[node name="Light" type="Light2D" parent="Lights"]
-position = Vector2( 596.947, -1233.6 )
-scale = Vector2( -1, 1 )
+[node name="Light" type="Sprite" parent="Lights"]
+modulate = Color( 1, 1, 1, 0.52549 )
+material = SubResource( 6 )
+position = Vector2( 2496.4, -643.208 )
+scale = Vector2( -30, 30 )
 texture = ExtResource( 20 )
-offset = Vector2( 848, 0 )
-texture_scale = 34.0
-energy = 1.1
-mode = 2
-shadow_enabled = true
-shadow_gradient_length = 3.0
-shadow_filter = 3
-shadow_filter_smooth = 10.0
+offset = Vector2( 20, 0 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Lights/Light"]
-anims/spin = SubResource( 6 )
-
-[node name="Light2" type="Light2D" parent="Lights"]
-position = Vector2( -1351.15, -653.18 )
-rotation = 3.29716
-scale = Vector2( -1, 1 )
-texture = ExtResource( 20 )
-offset = Vector2( 848, 0 )
-texture_scale = 34.0
-energy = 1.2
-mode = 2
-shadow_enabled = true
-shadow_gradient_length = 3.0
-shadow_filter = 3
-shadow_filter_smooth = 10.0
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Lights/Light2"]
 anims/spin = SubResource( 7 )
 
-[node name="Light3" type="Light2D" parent="Lights"]
-position = Vector2( -1291.1, -72.755 )
-rotation = 3.29716
-scale = Vector2( -1, 1 )
+[node name="Light2" type="Sprite" parent="Lights"]
+modulate = Color( 1, 1, 1, 0.52549 )
+material = SubResource( 6 )
+position = Vector2( 2496.4, 596.248 )
+scale = Vector2( -30, 30 )
 texture = ExtResource( 20 )
-offset = Vector2( 848, 0 )
-texture_scale = 34.0
-energy = 1.2
-mode = 2
-shadow_enabled = true
-shadow_gradient_length = 3.0
-shadow_filter = 3
-shadow_filter_smooth = 10.0
+offset = Vector2( 20, 0 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Lights/Light3"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Lights/Light2"]
 anims/spin = SubResource( 8 )
 
-[node name="Light4" type="Light2D" parent="Lights"]
-position = Vector2( -744.035, 287.509 )
-rotation = 3.29716
-scale = Vector2( -1, 1 )
+[node name="Light3" type="Sprite" parent="Lights"]
+modulate = Color( 1, 1, 1, 0.52549 )
+material = SubResource( 6 )
+position = Vector2( -1200, 628.997 )
+scale = Vector2( -30, 30 )
 texture = ExtResource( 20 )
-offset = Vector2( 848, 0 )
-texture_scale = 34.0
-energy = 1.2
-mode = 2
-shadow_enabled = true
-shadow_gradient_length = 3.0
-shadow_filter = 3
-shadow_filter_smooth = 10.0
+offset = Vector2( 20, 0 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Lights/Light4"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Lights/Light3"]
 anims/spin = SubResource( 9 )
 
-[node name="Light5" type="Light2D" parent="Lights"]
-position = Vector2( 1897.9, 300.852 )
-rotation = 6.28319
-scale = Vector2( -1, 1 )
+[node name="Light4" type="Sprite" parent="Lights"]
+modulate = Color( 1, 1, 1, 0.52549 )
+material = SubResource( 6 )
+position = Vector2( -1276.56, -625.271 )
+scale = Vector2( -30, 30 )
 texture = ExtResource( 20 )
-offset = Vector2( 848, 0 )
-texture_scale = 34.0
-energy = 1.2
-mode = 2
-shadow_enabled = true
-shadow_gradient_length = 3.0
-shadow_filter = 3
-shadow_filter_smooth = 10.0
+offset = Vector2( 20, 0 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Lights/Light5"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Lights/Light4"]
 anims/spin = SubResource( 10 )
 
-[node name="Light6" type="Light2D" parent="Lights"]
-position = Vector2( 2478.32, -66.0834 )
-rotation = 3.29716
-scale = Vector2( -1, 1 )
+[node name="Light5" type="Sprite" parent="Lights"]
+modulate = Color( 1, 1, 1, 0.52549 )
+material = SubResource( 6 )
+position = Vector2( 556.015, -1244.17 )
+scale = Vector2( -30, 30 )
 texture = ExtResource( 20 )
-offset = Vector2( 848, 0 )
-texture_scale = 34.0
-energy = 1.2
-mode = 2
-shadow_enabled = true
-shadow_gradient_length = 3.0
-shadow_filter = 3
-shadow_filter_smooth = 10.0
+offset = Vector2( 20, 0 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Lights/Light6"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Lights/Light5"]
 anims/spin = SubResource( 11 )
 
-[node name="Light7" type="Light2D" parent="Lights"]
-position = Vector2( 2511.68, -613.151 )
-rotation = 3.29716
-scale = Vector2( -1, 1 )
+[node name="Light6" type="Sprite" parent="Lights"]
+modulate = Color( 1, 1, 1, 0.52549 )
+material = SubResource( 6 )
+position = Vector2( 587, 998.046 )
+scale = Vector2( -30, 30 )
 texture = ExtResource( 20 )
-offset = Vector2( 848, 0 )
-texture_scale = 34.0
-energy = 1.2
-mode = 2
-shadow_enabled = true
-shadow_gradient_length = 3.0
-shadow_filter = 3
-shadow_filter_smooth = 10.0
+offset = Vector2( 20, 0 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Lights/Light7"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Lights/Light6"]
 anims/spin = SubResource( 12 )
 
-[node name="Light8" type="Light2D" parent="Lights"]
-position = Vector2( 236.683, 607.743 )
-rotation = 3.29716
-scale = Vector2( -1, 1 )
+[node name="Light7" type="Sprite" parent="Lights"]
+modulate = Color( 1, 1, 1, 0.52549 )
+material = SubResource( 6 )
+position = Vector2( 600.466, -186 )
+scale = Vector2( -30, 30 )
 texture = ExtResource( 20 )
-offset = Vector2( 848, 0 )
-texture_scale = 34.0
-energy = 1.2
-mode = 2
-shadow_enabled = true
-shadow_gradient_length = 3.0
-shadow_filter = 3
-shadow_filter_smooth = 10.0
+offset = Vector2( 20, 0 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Lights/Light8"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Lights/Light7"]
 anims/spin = SubResource( 13 )
-
-[node name="Light9" type="Light2D" parent="Lights"]
-position = Vector2( 943.868, 594.4 )
-rotation = 3.29716
-scale = Vector2( -1, 1 )
-texture = ExtResource( 20 )
-offset = Vector2( 848, 0 )
-texture_scale = 34.0
-energy = 1.2
-mode = 2
-shadow_enabled = true
-shadow_gradient_length = 3.0
-shadow_filter = 3
-shadow_filter_smooth = 10.0
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Lights/Light9"]
-anims/spin = SubResource( 14 )
-
-[node name="Light11" type="Light2D" parent="Lights"]
-position = Vector2( 327.922, -186 )
-scale = Vector2( -1, 1 )
-texture = ExtResource( 20 )
-offset = Vector2( 848, 0 )
-texture_scale = 34.0
-energy = 1.2
-mode = 2
-shadow_enabled = true
-shadow_gradient_length = 3.0
-shadow_filter = 3
-shadow_filter_smooth = 10.0
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Lights/Light11"]
-anims/spin = SubResource( 16 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0.235294, 0.235294, 0.235294, 1 )
@@ -587,7 +447,7 @@ script = ExtResource( 2 )
 position = Vector2( 556.015, 998.046 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 18 )
+environment = SubResource( 14 )
 
 [node name="DiscoLight" type="Light2D" parent="."]
 position = Vector2( 810.067, -186 )
@@ -597,7 +457,7 @@ energy = 1.1
 mode = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="DiscoLight"]
-anims/spin = SubResource( 19 )
+anims/spin = SubResource( 15 )
 
 [node name="MovingPlatforms" type="Node2D" parent="."]
 
@@ -611,7 +471,7 @@ position = Vector2( 0, 400 )
 position = Vector2( 2250, -250 )
 
 [node name="AnimationPlayer" parent="MovingPlatforms/MovingPlatform2" index="2"]
-anims/move_r = SubResource( 21 )
+anims/move_r = SubResource( 16 )
 
 [node name="to_position" parent="MovingPlatforms/MovingPlatform2" index="3"]
 position = Vector2( 0, 400 )
