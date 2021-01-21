@@ -109,8 +109,6 @@ margin_left = 304.0
 margin_right = 732.0
 margin_bottom = 50.0
 script = ExtResource( 2 )
-focus_up = NodePath("../../../../Gameplay/VBoxContainer/Fullscreen/HBoxContainer/Select_Button")
-focus_down = NodePath("../../../../Gameplay/VBoxContainer/Sets_Per_Game/HBoxContainer/Select_Button2")
 
 [node name="Select_Button2" parent="VBoxContainer/Pages/Gameplay/Rounds_Per_Set/HBoxContainer" instance=ExtResource( 4 )]
 margin_right = 50.0
@@ -233,8 +231,6 @@ margin_left = 304.0
 margin_right = 732.0
 margin_bottom = 50.0
 script = ExtResource( 2 )
-focus_up = NodePath("../../../../Gameplay/VBoxContainer/Rounds_Per_Set/HBoxContainer/Select_Button2")
-focus_down = NodePath("../../../../Gameplay/VBoxContainer/FX_Volume/HBoxContainer/Select_Button2")
 
 [node name="Select_Button2" parent="VBoxContainer/Pages/Gameplay/Sets_Per_Game/HBoxContainer" instance=ExtResource( 4 )]
 margin_right = 50.0
@@ -327,7 +323,6 @@ margin_left = 304.0
 margin_right = 608.0
 margin_bottom = 50.0
 script = ExtResource( 2 )
-focus_down = NodePath("../../../../Gameplay/VBoxContainer/Rounds_Per_Set/HBoxContainer/Select_Button2")
 
 [node name="Select_Button" parent="VBoxContainer/Pages/Video/Fullscreen/HBoxContainer" instance=ExtResource( 4 )]
 text = "on"
@@ -362,7 +357,6 @@ margin_left = 304.0
 margin_right = 608.0
 margin_bottom = 50.0
 script = ExtResource( 2 )
-focus_down = NodePath("../../../../Gameplay/VBoxContainer/Rounds_Per_Set/HBoxContainer/Select_Button2")
 
 [node name="Select_Button" parent="VBoxContainer/Pages/Video/Graphic/HBoxContainer" instance=ExtResource( 4 )]
 text = "on"
@@ -403,8 +397,6 @@ margin_left = 304.0
 margin_right = 732.0
 margin_bottom = 50.0
 script = ExtResource( 2 )
-focus_up = NodePath("../../../../Gameplay/VBoxContainer/Sets_Per_Game/HBoxContainer/Select_Button2")
-focus_down = NodePath("../../../../Gameplay/VBoxContainer/BM_Volume/HBoxContainer/Select_Button2")
 
 [node name="Select_Button2" parent="VBoxContainer/Pages/Audio/FX_Volume/HBoxContainer" instance=ExtResource( 4 )]
 margin_right = 50.0
@@ -490,8 +482,6 @@ margin_left = 304.0
 margin_right = 732.0
 margin_bottom = 50.0
 script = ExtResource( 2 )
-focus_up = NodePath("../../../../Gameplay/VBoxContainer/FX_Volume/HBoxContainer/Select_Button2")
-focus_down = NodePath("../../../../../ButtonContainer/HBoxContainer/Apply")
 
 [node name="Select_Button2" parent="VBoxContainer/Pages/Audio/BM_Volume/HBoxContainer" instance=ExtResource( 4 )]
 margin_right = 50.0

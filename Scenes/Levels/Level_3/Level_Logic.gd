@@ -17,4 +17,5 @@ func _ready():
 		l.color = Color(rand_range(0.5, 1), rand_range(0.5, 1), rand_range(0.5, 1), 1)
 	
 	game.get_node("DiscoLight/AnimationPlayer").play("spin")
+	game.get_node("DiscoLight2/AnimationPlayer").play("spin")
 	

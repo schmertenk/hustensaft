@@ -3,6 +3,8 @@ extends Control
 func _ready():
 	get_node("VBoxContainer/1st_place").rect_pivot_offset = get_node("VBoxContainer/1st_place").rect_size / 2
 	
+	get_node("VBoxContainer/1st_place/CenterContainer").visible = false
+	get_node("VBoxContainer/1st_place/wins").visible = false
 	$AnimationPlayer.play("wiggle")
 	
 	$TransitionMask.slide_out()
@@ -16,9 +18,14 @@ func _ready():
 	for i in range(player.size()):
 		if i == 0:
 			continue
-		get_node("VBoxContainer/CenterContainer/ranks/" + str(i) + "/icon").texture = player[i].icon
-		get_node("VBoxContainer/CenterContainer/ranks/" + str(i) + "/wins").text = str(player[i].win_count) + " Wins"
-		get_node("VBoxContainer/CenterContainer/ranks/" + str(i)).visible = true
+		var box = get_node("VBoxContainer/CenterContainer/ranks/" + str(i))
+		box.get_node("icon").texture = player[i].icon
+		box.get_node("wins").text = str(player[i].win_count) + " Wins"
+	
+	if player.size() > 1:
+		get_node("VBoxContainer/CenterContainer/ranks/" + str(player.size() -1) + "/AnimationPlayer").play("show")
+	else:
+		$AnimationPlayer.play("show_winner")
 	$VBoxContainer/HBoxContainer/CenterContainer2/Play_Again.focus_neighbour_left = $VBoxContainer/HBoxContainer/CenterContainer/Main_Menu.get_path()
 	$VBoxContainer/HBoxContainer/CenterContainer/Main_Menu.focus_neighbour_right = $VBoxContainer/HBoxContainer/CenterContainer2/Play_Again.get_path()
 	$VBoxContainer/HBoxContainer/CenterContainer2/Play_Again.grab_focus()
