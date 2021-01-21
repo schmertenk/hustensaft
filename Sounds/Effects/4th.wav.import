@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/4th.wav-34b79f9de80c4bb1b6b7fd1c1f6ae0c1.sample"
+
+[deps]
+
+source_file="res://Sounds/Effects/4th.wav"
+dest_files=[ "res://.import/4th.wav-34b79f9de80c4bb1b6b7fd1c1f6ae0c1.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

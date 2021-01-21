@@ -15,6 +15,7 @@ var initial_direction
 var state = STATE_STOPPED
 var weapon
 
+
 func _physics_process(_delta):
 	if state == STATE_STOPPED:
 		apply_central_impulse(initial_direction * speed)

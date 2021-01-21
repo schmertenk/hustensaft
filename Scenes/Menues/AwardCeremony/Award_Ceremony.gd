@@ -23,6 +23,14 @@ func _ready():
 	$VBoxContainer/HBoxContainer/CenterContainer/Main_Menu.focus_neighbour_right = $VBoxContainer/HBoxContainer/CenterContainer2/Play_Again.get_path()
 	$VBoxContainer/HBoxContainer/CenterContainer2/Play_Again.grab_focus()
 
+
+func _process(delta):
+	get_node("VBoxContainer/1st_place").rect_pivot_offset = get_node("VBoxContainer/1st_place").rect_size / 2
+	set_process(false)
+	
+func play_sound_for_rank(sound_name):
+	AudioManager.play(sound_name)
+	
 func sort_for_wins(a, b):
 	return a.win_count > b.win_count
 

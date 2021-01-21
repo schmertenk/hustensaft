@@ -46,14 +46,14 @@ func _on_Granade_body_entered(body):
 		body_hit_time = OS.get_ticks_msec()
 		
 	if sticky && !body.get("sticky"):
-		call_deferred("handly_stickyness", global_position, body)
+		call_deferred("handle_stickyness", global_position, body)
 		
 func _on_trigger_released():
 	if explosion_state == EXPLOSION_STATE_WAITING_FOR_RELEASE:
 		explosion_state = EXPLOSION_STATE_TARGET_HIT
 		body_hit_time = OS.get_ticks_msec()
 		
-func handly_stickyness(original_hit_position, hit_body):
+func handle_stickyness(original_hit_position, hit_body):
 	get_parent().remove_child(self)
 
 	hit_body.add_child(self)

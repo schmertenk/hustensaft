@@ -47,6 +47,10 @@ export var sound_dictionary = {
 	"door_open": ["res://Sounds/Effects/door_open.wav", "SE"],
 	"door_close": ["res://Sounds/Effects/door_close.wav", "SE"],
 	
+	"4th": ["res://Sounds/Effects/4th.wav", "SE"],
+	"3rd": ["res://Sounds/Effects/3rd.wav", "SE"],
+	"2nd": ["res://Sounds/Effects/2nd.wav", "SE"],
+	"1st": ["res://Sounds/Effects/1st.wav", "SE"],
 	# Level content
 	"rocket_engine" : ["res://Sounds/Effects/Levels/Level_11/rocket_engine.wav", "SE"]
 }
