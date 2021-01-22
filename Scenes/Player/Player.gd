@@ -173,6 +173,20 @@ func _physics_process(delta):
 func _process(_delta):
 	if weapon:
 		weapon.direction = look_direction
+		if weapon.has_node("Spawn_Position"):
+			$Crosshair.global_position = weapon.get_node("Spawn_Position").global_position
+		else:
+			$Crosshair.position = Vector2.ZERO
+	else:
+		$Crosshair.position = Vector2.ZERO
+	
+	if g > 0:
+		$Crosshair.rotation = look_direction.angle()
+	else:
+		$Crosshair.rotation = - look_direction.angle()
+		
+	$Crosshair/Sprite.scale = get_node("/root/Game/Camera").zoom / 2
+		
 			
 
 	if look_direction.x < 0:

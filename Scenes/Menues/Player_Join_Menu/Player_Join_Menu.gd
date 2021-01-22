@@ -5,7 +5,8 @@ var p_count = 0
 var slots = []
 
 func _ready():
-	Global.player_infos = []
+	for info in Global.player_infos:
+		player_added(info)
 	$AnimationPlayer.play("wiggle")
 	$TransitionMask.slide_out()
 
@@ -50,9 +51,12 @@ func player_added(info):
 	var c = $Dummy.duplicate()
 	c.add_child(slot)
 	$VBoxContainer/HBoxContainer.add_child(c)
+	slot.connect("back", self, "_on_back")
 	c.visible = true
-
 
 
 func _on_Next_Button_pressed():
 	$TransitionMask.slide_in(Global, "next_step")
+	
+func _on_back():
+	$Back.back()

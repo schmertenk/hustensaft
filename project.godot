@@ -282,7 +282,4 @@ keyboard_ui_cancel={
 
 [rendering]
 
-quality/intended_usage/framebuffer_allocation=0
-batching/lights/scissor_area_threshold=0.1
-
 environment/default_environment="res://default_env.tres"

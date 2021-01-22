@@ -13,4 +13,7 @@ var icon
 
 func set_color_char(value):
 	color_char = value
-	icon = load("res://Images/Characters/" + color_char + "/icon.png")
+	if value:
+		icon = load("res://Images/Characters/" + color_char + "/icon.png")
+	else:
+		icon = null

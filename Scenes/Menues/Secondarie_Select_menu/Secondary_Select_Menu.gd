@@ -16,6 +16,8 @@ func _ready():
 		var c = $Dummy.duplicate()
 		c.add_child(slot)
 		$VBoxContainer/HBoxContainer.add_child(c)
+		if has_node("Back"):
+			slot.connect("back", $Back, "back")
 		c.visible = true
 		
 		

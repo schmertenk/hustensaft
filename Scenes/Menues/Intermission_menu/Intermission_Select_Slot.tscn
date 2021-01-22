@@ -69,6 +69,8 @@ margin_left = 75.0
 margin_right = 155.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 80, 80 )
+expand = true
+stretch_mode = 5
 
 [node name="Up_Container" type="CenterContainer" parent="VBoxContainer"]
 margin_top = 84.0
@@ -98,9 +100,9 @@ __meta__ = {
 }
 
 [node name="Current" type="TextureRect" parent="VBoxContainer/Current_Container"]
-margin_left = 14.0
+margin_left = 15.0
 margin_top = 33.0
-margin_right = 214.0
+margin_right = 215.0
 margin_bottom = 183.0
 rect_min_size = Vector2( 200, 150 )
 rect_pivot_offset = Vector2( 100, 100 )

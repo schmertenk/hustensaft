@@ -2,6 +2,8 @@ extends Control
 
 class_name SecondarySelectSlot
 
+signal back
+
 var player_info
 var secondaries
 var current_index = 0
@@ -21,26 +23,37 @@ func get_seondaries():
 	
 	
 func _input(event):
-	if ready:
-		return
 	var dir = 0
 	if event.device == player_info.joypad_id:
-		if event.is_action_pressed("pad_ui_up") or event.is_action_pressed("pad_ui_down"):
-			if event.is_action_pressed("pad_ui_up"):
-				dir = 1
+		if !ready:
+			if event.is_action_pressed("pad_ui_up") or event.is_action_pressed("pad_ui_down"):
+				if event.is_action_pressed("pad_ui_up"):
+					dir = 1
+				else:
+					dir = -1
+			if event.is_action_pressed("pad_ui_accept"):
+				self.ready = true
+		if event.is_action_pressed("pad_ui_cancel"):
+			if !ready:
+				emit_signal("back")
 			else:
-				dir = -1
-		if event.is_action_pressed("pad_ui_accept"):
-			self.ready = true
+				self.ready = false
 	elif player_info.joypad_id == -1:
-		if event.is_action_pressed("key_ui_up") or event.is_action_pressed("key_ui_down"):
-			if event.is_action_pressed("key_ui_up"):
-				dir = 1
-			else:
-				dir = -1
+		if !ready:
+			if event.is_action_pressed("key_ui_up") or event.is_action_pressed("key_ui_down"):
+				if event.is_action_pressed("key_ui_up"):
+					dir = 1
+				else:
+					dir = -1
+			
+			if event.is_action_pressed("keyboard_ui_accept"):
+				self.ready = true
 		
-		if event.is_action_pressed("keyboard_ui_accept"):
-			self.ready = true
+		if event.is_action_pressed("keyboard_ui_cancel"):
+			if !ready:
+				emit_signal("back")
+			else:
+				self.ready = false
 	
 	current_index += dir
 
@@ -61,4 +74,8 @@ func set_ready(value):
 		AudioManager.play("button_press")
 		$TextureRect.modulate = Color(0.3,1,0.3)
 		player_info.secondary = secondaries[current_index].duplicate()
+	else:
+		AudioManager.play("button_press")
+		$TextureRect.modulate = Color("#5a6d7d")
+		player_info.secondary = null
 		
