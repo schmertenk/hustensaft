@@ -5,8 +5,6 @@
 
 [node name="Medipack" type="Node2D"]
 script = ExtResource( 2 )
-reload_time = 1000
-uses_per_set = 4
 icon = ExtResource( 1 )
 _name = "Shield recharger"
 description = "gives you back a good amount of your shield"
