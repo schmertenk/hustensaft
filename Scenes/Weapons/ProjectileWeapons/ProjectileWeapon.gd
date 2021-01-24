@@ -12,6 +12,7 @@ export (int) var stack_size = 0
 export (float) var reload_time = 0 # time the reloading process takes in seconds
 export (bool) var can_reload = true
 export (bool) var pool_projectiles = false
+export (float) var knock_back_force = 0
 
 var projectile_scene
 var shots_in_stack
@@ -93,6 +94,9 @@ func shoot():
 		return false
 		
 	shots_in_stack -= 1
+	if knock_back_force:
+		var force = -direction * knock_back_force
+		player.knock_back(force)
 	
 	var spawn_position = global_position
 	if has_node("Spawn_Position"):

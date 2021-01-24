@@ -3,9 +3,10 @@ extends Secondary
 var show_duration = 3000
 var shown_at = 0
 var hunted_player = null
-var g
+var game
+	
 func use():
-	g = get_node("/root/Game")
+	game = get_node("/root/Game")
 	randomize()
 	var players = get_node("/root/Game").players
 	var best_player = players[randi() % players.size() - 1]
@@ -46,9 +47,9 @@ func _on_tween_finished():
 
 func _on_best_player_killed(murder):
 	if murder != hunted_player:
-		g.end_round([murder])
+		game.end_round([murder])
 	else:
-		g.end_round([])
+		game.end_round([])
 		
 func _on_new_round_started():
 	._on_new_round_started()

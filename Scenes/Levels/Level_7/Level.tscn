@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://Images/floor.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Weapons/ProjectileWeapons/Granade_Launcher/G_L_Dummy.tscn" type="PackedScene" id=2]
@@ -18,6 +18,11 @@
 [ext_resource path="res://Scenes/TransitionMask.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Images/Level_2/Background/star_back.jpg" type="Texture" id=17]
 [ext_resource path="res://Scenes/Weapons/ProjectileWeapons/Machine_Gun/M_G_Dummy.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Images/Level_7/astroid1.png" type="Texture" id=20]
+[ext_resource path="res://Scenes/Levels/Level_7/Engine_Ship_2.gd" type="Script" id=21]
+[ext_resource path="res://Scenes/Levels/Level_7/Level_Logic.gd" type="Script" id=22]
+[ext_resource path="res://Images/Level_2/flash/sheet.png" type="Texture" id=23]
+[ext_resource path="res://Images/circle.png" type="Texture" id=24]
 
 [sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( 100, 100, 0, 100, 0, 0, 100, 0 )
@@ -56,6 +61,96 @@ font_data = ExtResource( 8 )
 [sub_resource type="DynamicFont" id=5]
 size = 22
 font_data = ExtResource( 8 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 23 )
+region = Rect2( 0, 0, 544, 297 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 23 )
+region = Rect2( 544, 0, 544, 297 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 23 )
+region = Rect2( 1088, 0, 544, 297 )
+
+[sub_resource type="AtlasTexture" id=9]
+flags = 4
+atlas = ExtResource( 23 )
+region = Rect2( 1632, 0, 544, 297 )
+
+[sub_resource type="AtlasTexture" id=10]
+flags = 4
+atlas = ExtResource( 23 )
+region = Rect2( 2176, 0, 544, 297 )
+
+[sub_resource type="SpriteFrames" id=11]
+animations = [ {
+"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
+"loop": true,
+"name": "default",
+"speed": 12.0
+} ]
+
+[sub_resource type="SpriteFrames" id=15]
+animations = [ {
+"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
+"loop": true,
+"name": "default",
+"speed": 15.0
+} ]
+
+[sub_resource type="Curve" id=16]
+_data = [ Vector2( 0, 0.297371 ), 0.0, 0.0, 0, 0, Vector2( 0.511765, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.28828 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=17]
+curve = SubResource( 16 )
+
+[sub_resource type="ParticlesMaterial" id=14]
+trail_divisor = 16
+trail_size_modifier = SubResource( 17 )
+flag_disable_z = true
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 600.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale_random = 1.0
+hue_variation = 1.0
+hue_variation_random = 1.0
+
+[sub_resource type="Gradient" id=18]
+offsets = PoolRealArray( 0, 0.598639, 1 )
+colors = PoolColorArray( 0, 0.473643, 1, 1, 0.170068, 0.51051, 0.829932, 1, 1, 0.690419, 0, 1 )
+
+[sub_resource type="GradientTexture" id=19]
+gradient = SubResource( 18 )
+
+[sub_resource type="Curve" id=20]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.258824, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -4.01187, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=21]
+curve = SubResource( 20 )
+
+[sub_resource type="ParticlesMaterial" id=22]
+emission_shape = 2
+emission_box_extents = Vector3( 9, 100, 1 )
+flag_disable_z = true
+spread = 10.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 1000.0
+initial_velocity_random = 0.52
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle = 526.5
+angle_random = 1.0
+scale = 50.0
+scale_random = 0.73
+scale_curve = SubResource( 21 )
+color_ramp = SubResource( 19 )
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 3 )
@@ -116,7 +211,7 @@ position = Vector2( -2072, 480 )
 position = Vector2( -2616, 464 )
 
 [node name="Shot_Gunl_Dummy" parent="Weapons" instance=ExtResource( 9 )]
-position = Vector2( 0, 744 )
+position = Vector2( 629.961, 1004.8 )
 
 [node name="Pistol_Dummy" parent="Weapons" instance=ExtResource( 5 )]
 position = Vector2( 2040, -1056 )
@@ -131,7 +226,7 @@ position = Vector2( 1248, -640 )
 position = Vector2( -1000, -632 )
 
 [node name="Pistol_Dummy4" parent="Weapons" instance=ExtResource( 5 )]
-position = Vector2( 152, 648 )
+position = Vector2( 932.946, 691.984 )
 
 [node name="Pistol_Dummy5" parent="Weapons" instance=ExtResource( 5 )]
 position = Vector2( -1256, -744 )
@@ -143,6 +238,14 @@ z_index = -1000
 
 [node name="star_back" type="Sprite" parent="Background"]
 position = Vector2( 300.776, -240.462 )
+texture = ExtResource( 17 )
+
+[node name="star_back2" type="Sprite" parent="Background"]
+position = Vector2( -7503.59, -249.361 )
+texture = ExtResource( 17 )
+
+[node name="star_back3" type="Sprite" parent="Background"]
+position = Vector2( -15280, -263.487 )
 texture = ExtResource( 17 )
 
 [node name="Spikes" type="Node2D" parent="."]
@@ -171,16 +274,72 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Particles" type="Node2D" parent="."]
+scale = Vector2( 1.2, 1.2 )
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="Particles"]
+position = Vector2( -3553.23, -62.2649 )
+z_index = -10
+amount = 1
+lifetime = 15.0
+speed_scale = 0.5
+texture = ExtResource( 20 )
+emission_shape = 2
+emission_rect_extents = Vector2( 1, 1800 )
+spread = 0.01
+gravity = Vector2( 0, 0 )
+initial_velocity = 500.0
+angular_velocity = 10.0
+angular_velocity_random = 1.0
+angle = 720.0
+angle_random = 1.0
+scale_amount = 4.0
+scale_amount_random = 0.7
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Particles"]
+position = Vector2( -3553.23, -62.2649 )
+z_index = -10
+lifetime = 10.0
+texture = ExtResource( 20 )
+emission_shape = 2
+emission_rect_extents = Vector2( 1, 1800 )
+spread = 0.01
+gravity = Vector2( 0, 0 )
+initial_velocity = 1000.0
+angular_velocity = 75.0
+angular_velocity_random = 1.0
+linear_accel = 100.0
+angle = 720.0
+angle_random = 1.0
+scale_amount = 0.5
+scale_amount_random = 0.7
+
+[node name="CPUParticles2D3" type="CPUParticles2D" parent="Particles"]
+position = Vector2( -3553.23, -62.2649 )
+z_index = 10
+amount = 2
+lifetime = 20.0
+speed_scale = 8.0
+texture = ExtResource( 20 )
+emission_shape = 2
+emission_rect_extents = Vector2( 1, 1800 )
+spread = 0.01
+gravity = Vector2( 0, 0 )
+initial_velocity = 1000.0
+angular_velocity = 75.0
+angular_velocity_random = 1.0
+linear_accel = 100.0
+angle = 720.0
+angle_random = 1.0
+scale_amount = 0.5
+scale_amount_random = 0.7
+
 [node name="Door" type="Node2D" parent="."]
 z_index = 1
 
 [node name="Door2" parent="Door" instance=ExtResource( 6 )]
 position = Vector2( -1863.55, 566.983 )
 rotation = -1.57292
-
-[node name="Door3" parent="Door" instance=ExtResource( 6 )]
-position = Vector2( -1497.14, -1138.78 )
-rotation = -0.00313807
 
 [node name="Door" parent="Door" instance=ExtResource( 6 )]
 position = Vector2( 1848, -1248 )
@@ -198,26 +357,82 @@ texture = ExtResource( 12 )
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ships/Ship1"]
 polygon = PoolVector2Array( -1400, -1300, -1402.09, -1516.1, -1205.32, -1687.64, -625.102, -1687.64, -606.602, -1426.96, -504.013, -1410.14, -443.469, -1383.23, -377.879, -1337.83, -307.243, -1267.19, -276.971, -1231.87, -310.607, -1218.42, -744.509, -1220.1, -749.555, -1062.01, -276.971, -1058.65, -288.744, -1021.65, -376.197, -930.832, -468.695, -868.606, -611.648, -848.424, -620.057, -586.764, -1201.96, -578.355, -1407.14, -758.307, -1407.14, -971.894, -1425.64, -987.15, -1607.27, -980.423, -1603.91, -750.017, -1571.95, -679.382, -1186.82, -457.941, -324.061, -469.714, -354.333, -518.486, -356.015, -616.03, -345.924, -653.029, -529.24, -753.937, -393.015, -769.073, -103.746, -1029.75, -51.6108, -1029.75, -75.1559, -1093.85, -75.1559, -1194.76, -43.2017, -1235.12, -103.746, -1248.58, -246.699, -1351.17, -389.651, -1504.21, -524.194, -1517.67, -344.243, -1621.94, -357.697, -1689.67, -352.652, -1750.21, -330.788, -1800.66, -1180.09, -1812.44, -1577, -1580.35, -1605.68, -1539.01, -1609.24, -1298.46, -1425.72, -1287.77 )
 
+[node name="Tween" type="Tween" parent="Ships/Ship1"]
+playback_process_mode = 0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Ships/Ship1"]
+position = Vector2( -124.243, -565.595 )
+frames = SubResource( 11 )
+frame = 1
+playing = true
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="Ships/Ship1"]
+position = Vector2( 158.298, -1144.13 )
+frames = SubResource( 11 )
+playing = true
+
+[node name="AnimatedSprite3" type="AnimatedSprite" parent="Ships/Ship1"]
+position = Vector2( -117.516, -1705.85 )
+frames = SubResource( 11 )
+frame = 1
+playing = true
+
+[node name="Door3" parent="Ships/Ship1" instance=ExtResource( 6 )]
+position = Vector2( -1497.14, -1138.78 )
+rotation = -0.00313807
+scale = Vector2( 1, 1 )
+
 [node name="Ship2" type="StaticBody2D" parent="Ships"]
-position = Vector2( 2412.54, 15.1019 )
+position = Vector2( 2410.42, 15.1019 )
 
 [node name="Sprite" type="Sprite" parent="Ships/Ship2"]
 position = Vector2( -881.123, -1044.29 )
 texture = ExtResource( 13 )
 
+[node name="AnimatedSprite4" type="AnimatedSprite" parent="Ships/Ship2"]
+modulate = Color( 0, 1, 0.211765, 0.752941 )
+position = Vector2( 392.411, -1024.37 )
+scale = Vector2( 2, 0.75 )
+frames = SubResource( 15 )
+frame = 3
+playing = true
+
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ships/Ship2"]
 polygon = PoolVector2Array( -1201.39, -1718.36, -1707.82, -1239.49, -1765.03, -1101.76, -1735.08, -909.561, -1646.88, -788.609, -1213.03, -388.468, -1150.17, -366.019, -1152.42, -374.998, -905.477, -639.899, -726.148, -756.78, -348.736, -799.289, -83.8345, -933.984, -38.936, -938.474, -59.1404, -974.393, -47.9158, -1041.74, -20.9768, -1120.31, -232, -1261.01, -398.124, -1310.4, -402.614, -1216.11, -297.102, -1177.95, -193.836, -1112.84, -169.142, -1034.27, -209.55, -966.925, -337.511, -892.842, -452.002, -883.862, -1188.34, -890.597, -1192.83, -843.454, -844.864, -843.454, -1026.7, -688.554, -1046.91, -592.022, -1329.77, -583.043, -1325.28, -648.145, -1563.24, -868.148, -1614.87, -1052.23, -1536.3, -1267.74, -1320.79, -1465.3, -1318.54, -1510.2, -1051.4, -1510.2, -1046.91, -1424.89, -842.619, -1249.79, -1199.56, -1254.27, -1192.83, -1202.64, -723.638, -1195.91, -719.148, -1332.85, -887.517, -1433.87, -1035.68, -1584.28, -1136.7, -1725.71 )
 
+[node name="Engine_Ship_2" type="Node2D" parent="Ships/Ship2"]
+position = Vector2( 49.3823, -1030.48 )
+script = ExtResource( 21 )
+r_speed = 6.0
+
+[node name="a" type="Particles2D" parent="Ships/Ship2/Engine_Ship_2"]
+position = Vector2( -70, 64.0689 )
+amount = 16
+preprocess = 0.1
+visibility_rect = Rect2( -20.2718, 61.353, 578.205, 76.9072 )
+local_coords = false
+process_material = SubResource( 14 )
+texture = ExtResource( 24 )
+
+[node name="b" type="Particles2D" parent="Ships/Ship2/Engine_Ship_2"]
+position = Vector2( -70, -64.0689 )
+amount = 16
+preprocess = 0.1
+visibility_rect = Rect2( -20.2718, 61.353, 578.205, 76.9072 )
+local_coords = false
+process_material = SubResource( 14 )
+texture = ExtResource( 24 )
+
 [node name="Ship3" type="StaticBody2D" parent="Ships"]
-position = Vector2( 2412.54, 15.1019 )
+position = Vector2( 3046.73, 147.656 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ships/Ship3"]
+polygon = PoolVector2Array( -2813.89, 371.907, -2620.49, 378.634, -2612.08, 289.499, -2509.49, 286.136, -2504.44, 65.8207, -2305.99, 64.1389, -2298.54, 283.898, -2216.86, 282.772, -2211.54, 381.898, -2007.54, 380.898, -1996.54, 588.898, -2209.54, 591.898, -2210.13, 683.039, -2304.31, 686.402, -2310.98, 897.479, -2502.76, 898.753, -2501.08, 683.484, -2608.71, 681.802, -2617.12, 585.94, -2817.26, 590.985, -2633.94, 886.981, -2712.98, 895.39, -2677.67, 971.07, -2521.26, 1144.3, -2413.63, 1177.93, -2289.17, 1145.98, -2147.9, 982.843, -2107.54, 900.435, -2191.63, 898.753, -1880.5, 557.349, -1878.82, 397.579, -2198.36, 77.2773, -2109.22, 72.2319, -2157.99, -28.6757, -2277.4, -171.628, -2411.94, -213.673, -2529.67, -174.992, -2655.8, -32.0392, -2714.67, 68.8683, -2635.62, 78.9591 )
 
 [node name="Sprite" type="Sprite" parent="Ships/Ship3"]
 position = Vector2( -2378.69, 484.619 )
 rotation = 1.5708
 texture = ExtResource( 14 )
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ships/Ship3"]
-polygon = PoolVector2Array( -2813.89, 371.907, -2620.49, 378.634, -2612.08, 289.499, -2509.49, 286.136, -2504.44, 65.8207, -2305.99, 64.1389, -2298.54, 283.898, -2216.86, 282.772, -2211.54, 381.898, -2007.54, 380.898, -1996.54, 588.898, -2209.54, 591.898, -2210.13, 683.039, -2304.31, 686.402, -2310.98, 897.479, -2502.76, 898.753, -2501.08, 683.484, -2608.71, 681.802, -2617.12, 585.94, -2817.26, 590.985, -2633.94, 886.981, -2712.98, 895.39, -2677.67, 971.07, -2521.26, 1144.3, -2413.63, 1177.93, -2289.17, 1145.98, -2147.9, 982.843, -2107.54, 900.435, -2191.63, 898.753, -1880.5, 557.349, -1878.82, 397.579, -2198.36, 77.2773, -2109.22, 72.2319, -2157.99, -28.6757, -2277.4, -171.628, -2411.94, -213.673, -2529.67, -174.992, -2655.8, -32.0392, -2714.67, 68.8683, -2635.62, 78.9591 )
 
 [node name="Ship4" type="StaticBody2D" parent="Ships"]
 position = Vector2( 290.94, -122.742 )
@@ -226,5 +441,29 @@ position = Vector2( 290.94, -122.742 )
 position = Vector2( -2378.69, 484.619 )
 texture = ExtResource( 15 )
 
+[node name="Particles2D" type="Particles2D" parent="Ships/Ship4"]
+position = Vector2( -1951.85, 507.068 )
+amount = 30
+lifetime = 0.5
+explosiveness = 0.72
+process_material = SubResource( 22 )
+
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ships/Ship4"]
 polygon = PoolVector2Array( -2300.25, 737.071, -2302.63, 646.691, -2905.56, 640.745, -2999.51, 581.285, -3030.43, 489.716, -2994.75, 385.065, -2916.26, 329.173, -2019.6, 335.119, -2016.03, 732.314, -1907.81, 729.935, -1880.46, 712.097, -1942.3, 544.419, -1930.41, 407.66, -1887.6, 275.658, -1885.22, 253.063, -1912.57, 236.107, -2366.85, 232.539, -2362.09, 114.808, -2290.74, 12.536, -2050.52, 14.9144, -2060.03, -17.1942, -2029.11, -77.8437, -2129.01, -88.5466, -2351.39, -39.7891, -2511.93, 77.9424, -2604.69, 221.836, -2905.56, 230.161, -3192.3, 481.474, -2905.21, 740.881, -2602.57, 747.952, -2531.86, 869.574, -2397.51, 981.637, -2227.8, 1042.45, -2036.89, 1053.76, -2053.86, 998.607, -2048.2, 956.181, -2206.59, 966.08, -2315.49, 932.139, -2372.05, 823.245, -2377.71, 729.907 )
+
+[node name="AnimatedSprite4" type="AnimatedSprite" parent="Ships/Ship4"]
+position = Vector2( -1858.99, -31.142 )
+scale = Vector2( 1, 0.5 )
+frames = SubResource( 11 )
+frame = 2
+playing = true
+
+[node name="AnimatedSprite5" type="AnimatedSprite" parent="Ships/Ship4"]
+position = Vector2( -1908.82, 1006.48 )
+scale = Vector2( 0.6, 0.5 )
+frames = SubResource( 11 )
+frame = 1
+playing = true
+
+[node name="Level_Logic" type="Node" parent="."]
+script = ExtResource( 22 )

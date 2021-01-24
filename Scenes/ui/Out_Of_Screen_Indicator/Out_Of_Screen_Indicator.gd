@@ -14,6 +14,9 @@ func _ready():
 	$AnimationPlayer.play("point")
 	
 func _process(_delta):
+	if player.dead:
+		visible = false
+		set_process(false)
 	var player_screen_position = player.get_global_transform_with_canvas().origin
 	position.x = clamp(player_screen_position.x, 10, get_viewport().size.x - 10)
 	position.y = clamp(player_screen_position.y, 10, get_viewport().size.y - 10)
@@ -24,7 +27,10 @@ func _on_player_screen_entered():
 	
 
 func _on_player_screen_exited():
-	visible = true
+	if !player.dead:
+		visible = true
+	else:
+		visible = false
 
 
 func set_player(value):

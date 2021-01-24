@@ -80,6 +80,7 @@ func _ready():
 	
 	$Armor_Indicator.visible = false
 	$Sprite.texture = load("res://Images/Characters/" + color_char + "/idle.png")
+	$Beam/Timer.connect("timeout", self, "hide_beam")
 	
 func initialize_animation(a_name, image_name):
 	var new_name = a_name + "_" + color_char
@@ -195,6 +196,7 @@ func _process(_delta):
 		$Arm.rotation = (look_direction.angle()) * g
 	handle_animations()
 	
+	$Beam.global_scale = Vector2(1,1)
 	
 	if in_jump && is_on_floor():
 		in_jump = false
@@ -270,11 +272,27 @@ func damage(damage, armor_multiplier = 1, flesh_multiplier = 1, ignore_armor = f
 		var i = randi() % 4 + 1
 		AudioManager.play("hurt" + str(i), false, false)
 	
+func teleport(to_position):
+	var last_position = global_position
+	
+	global_position = to_position
+
+	$Beam/Line2D.clear_points()
+	
+	$Beam/Line2D.add_point(Vector2.ZERO, 0)
+	$Beam/Line2D.add_point(last_position - global_position, 1)
+	$Beam.visible = true
+	print($Beam/Line2D.points)
+	$Beam/Timer.start()
+	
+func hide_beam():
+	$Beam.visible = false
 
 func die(cause):
 	if dead:
 		return
 	dead = true
+	$Crosshair.visible = false
 	AudioManager.play("die")
 	if look_direction.x < 0:
 		$Movement_Animation_Player.play("die_l_" + color_char)

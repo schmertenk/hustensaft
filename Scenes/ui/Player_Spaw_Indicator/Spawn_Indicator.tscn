@@ -168,28 +168,36 @@ tracks/4/keys = {
 
 [node name="Spawn_Indicator" type="Node2D"]
 pause_mode = 2
-rotation = 1.5708
+rotation = 1.2036
 scale = Vector2( 0.4, 0.4 )
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
+self_modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 0, -200 )
 texture = ExtResource( 1 )
-offset = Vector2( 0, -200 )
+offset = Vector2( 0, -176.624 )
 
 [node name="Sprite2" type="Sprite" parent="."]
+self_modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 200, 0 )
 rotation = 1.5708
 texture = ExtResource( 1 )
-offset = Vector2( 0, -200 )
+offset = Vector2( 0, -176.624 )
 
 [node name="Sprite3" type="Sprite" parent="."]
+self_modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 0, 200 )
 rotation = 3.14159
 texture = ExtResource( 1 )
-offset = Vector2( 0, -200 )
+offset = Vector2( 0, -176.624 )
 
 [node name="Sprite4" type="Sprite" parent="."]
+self_modulate = Color( 1, 1, 1, 0 )
+position = Vector2( -200, 0 )
 rotation = 4.71239
 texture = ExtResource( 1 )
-offset = Vector2( 0, -200 )
+offset = Vector2( 0, -176.624 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/hide = SubResource( 1 )

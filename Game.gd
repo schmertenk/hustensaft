@@ -23,7 +23,7 @@ func _ready():
 	
 	for i in range(Global.player_infos.size()):
 		var p = load("res://Scenes/Player/Player.tscn").instance()
-		p.global_position = $Spawns.get_node("Player_Spawn_" + str(spawn_arr[i+1])).global_position
+		p.global_position = $Spawns.get_node("Player_Spawn_" + str(spawn_arr[i])).global_position
 		p.p_number = Global.player_infos[i].id
 		p.joypad_id = Global.player_infos[i].joypad_id
 		p.game = self
@@ -106,8 +106,9 @@ func _process(_delta):
 	for p in living_players:
 		if p.global_position.length() > level_boundury_radius:
 			p.velocity = Vector2.ZERO
-			p.global_position = $Spawns.get_node("Player_Spawn_" + str(p.p_number)).global_position
+			p.teleport($Spawns.get_node("Player_Spawn_" + str(p.p_number)).global_position)
 			p.damage(20, 1, 1, true)
+			
 
 	for w in $Weapons.get_children():
 		if w.global_position.length() > level_boundury_radius:
