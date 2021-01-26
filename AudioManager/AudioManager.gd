@@ -9,50 +9,91 @@ export var bgm_queue_pool = [
 ]
 
 export var sound_dictionary = {
-	"main_menu_bgm" : ["res://Sounds/Music/8bit.ogg", "BGM"],
-	"collish_stuff": ["res://Sounds/Music/Space_2_draft_C.ogg", "BGM"],
-	"lvl_3_bgm" : ["res://Sounds/Music/backing_lvl_3.ogg", "BGM"],
-	"lvl_8_bgm" : ["res://Sounds/Music/backing_lvl_8.ogg", "BGM"],
+	# MUSIC
+	"main_menu_bgm" : ["res://Sounds/Music/8bit.ogg", "BGM", 1],
+	"collish_stuff": ["res://Sounds/Music/Space_2_draft_C.ogg", "BGM", 1],
+	"lvl_3_bgm" : ["res://Sounds/Music/backing_lvl_3.ogg", "BGM", 1],
+	"lvl_8_bgm" : ["res://Sounds/Music/backing_lvl_8.ogg", "BGM", 1],
 	
-	"laser_shot" : ["res://Sounds/Effects/Weapons/Laser_Shoot.wav", "SE"],
-	"pistol_shot" : ["res://Sounds/Effects/Weapons/gunshot.wav", "SE"],
-	"shotgun_shot" : ["res://Sounds/Effects/Weapons/Shotgun.wav", "SE"],
-	"grenade_launcher_shot" : ["res://Sounds/Effects/Weapons/grenade_launcher_1.wav", "SE"],
-	"sticky_grenade_launcher_shot" : ["res://Sounds/Effects/Weapons/grenade_launcher_2.wav", "SE"],
-	"flame_thrower_shot" : ["res://Sounds/Effects/Weapons/flame_sound.wav", "SE"],
+	#WEAPONS
+	"laser_shot" : ["res://Sounds/Effects/Weapons/Laser_Shoot.wav", "SE", 1],
+	"pistol_shot" : ["res://Sounds/Effects/Weapons/gunshot.wav", "SE", 1	],
+	"shotgun_shot" : ["res://Sounds/Effects/Weapons/Shotgun.wav", "SE", 1],
+	"grenade_launcher_shot" : ["res://Sounds/Effects/Weapons/grenade_launcher_1.wav", "SE", 1],
+	"sticky_grenade_launcher_shot" : ["res://Sounds/Effects/Weapons/grenade_launcher_2.wav", "SE", 1],
+	"flame_thrower_shot" : ["res://Sounds/Effects/Weapons/flame_sound.wav", "SE", 1],
 	
-	"medium_explosion" : ["res://Sounds/Effects/Explosions/explosion_grenade_1.wav", "SE"],
-		
-	"button_press" : ["res://Sounds/Effects/Press_Button.wav", "SE"],
-	"button_select" : ["res://Sounds/Effects/Select_Button.wav", "SE"],
+	"weapon_reload": ["res://Sounds/Effects/Weapons/reload.wav","SE", 2],
 	
-	"countdown_number": ["res://Sounds/Effects/3-2-1.wav","SE"],
-	"countdown_go": ["res://Sounds/Effects/go.wav","SE"],
+	"medium_explosion" : ["res://Sounds/Effects/Explosions/explosion_grenade_1.wav", "SE", 1],
 	
-	"weapon_reload": ["res://Sounds/Effects/Weapons/reload.wav","SE"],
+	#MENUES	
+	"button_press" : ["res://Sounds/Effects/Menue/menu_button_select.wav", "SE", 1],
+	"button_select" : ["res://Sounds/Effects/Menue/menu_button_hover.wav", "SE", 1],
 	
-	"hurt1":["res://Sounds/Effects/Player/hit_1.wav", "SE"],
-	"hurt2":["res://Sounds/Effects/Player/hit_2.wav", "SE"],
-	"hurt3":["res://Sounds/Effects/Player/hurt1.wav", "SE"],
-	"hurt4":["res://Sounds/Effects/Player/hurt2.wav", "SE"],
-	"die":["res://Sounds/Effects/Player/die.wav", "SE"],
+	#General LEVEL SOUNDS
+	"countdown_number": ["res://Sounds/Effects/general_game/countdown_321.wav","SE", 1],
+	"countdown_go": ["res://Sounds/Effects/general_game/countdown_go.wav","SE", 1],
 	
-	"cat1": ["res://Sounds/Effects/cats/cat1.wav", "SE"],
-	"cat2": ["res://Sounds/Effects/cats/cat2.wav", "SE"],
-	"cat3": ["res://Sounds/Effects/cats/cat3.wav", "SE"],
-	"cat4": ["res://Sounds/Effects/cats/cat4.wav", "SE"],
-	"cat5": ["res://Sounds/Effects/cats/cat5.wav", "SE"],
-	"fish": ["res://Sounds/Effects/cats/fish.wav", "SE"],
+	"door_open": ["res://Sounds/Effects/general_game/door_open.wav", "SE", 2],
+	"door_close": ["res://Sounds/Effects/general_game/door_close.wav", "SE", 2],
 	
-	"door_open": ["res://Sounds/Effects/door_open.wav", "SE"],
-	"door_close": ["res://Sounds/Effects/door_close.wav", "SE"],
 	
-	"4th": ["res://Sounds/Effects/4th.wav", "SE"],
-	"3rd": ["res://Sounds/Effects/3rd.wav", "SE"],
-	"2nd": ["res://Sounds/Effects/2nd.wav", "SE"],
-	"1st": ["res://Sounds/Effects/1st.wav", "SE"],
+	
+	#PLAYER SOUNDS
+	"hurt1":["res://Sounds/Effects/Player/hurt/player_hurt_1.wav", "SE", 1],
+	"hurt2":["res://Sounds/Effects/Player/hurt/player_hurt_2.wav", "SE", 1],
+	"hurt3":["res://Sounds/Effects/Player/hurt/player_hurt_3.wav", "SE", 1],
+	"hurt4":["res://Sounds/Effects/Player/hurt/player_hurt_4.wav", "SE", 1],
+	"hurt5":["res://Sounds/Effects/Player/hurt/player_hurt_5.wav", "SE", 1],
+	
+	"die1":["res://Sounds/Effects/Player/die/player_death_1.wav", "SE", 1],
+	"die2":["res://Sounds/Effects/Player/die/player_death_2.wav", "SE", 1],
+	"die3":["res://Sounds/Effects/Player/die/player_death_3.wav", "SE", 1],
+	"die4":["res://Sounds/Effects/Player/die/player_death_4.wav", "SE", 1],
+	"die5":["res://Sounds/Effects/Player/die/player_death_5.wav", "SE", 1],
+	
+	"jump":["res://Sounds/Effects/Player/jump/player_jump_3.wav", "SE", 2],
+	"gravity_flip":["res://Sounds/Effects/Player/gravity_flip/gravity_flip.wav", "SE", 1],
+	
+	
+	# SECONDARIES
+	"cat1": ["res://Sounds/Effects/secondaries/tuna/cats/cat_1.wav", "SE", 2],
+	"cat2": ["res://Sounds/Effects/secondaries/tuna/cats/cat_2.wav", "SE", 2],
+	"cat3": ["res://Sounds/Effects/secondaries/tuna/cats/cat_3.wav", "SE", 2],
+	"cat4": ["res://Sounds/Effects/secondaries/tuna/cats/cat_4.wav", "SE", 2],
+	"cat5": ["res://Sounds/Effects/secondaries/tuna/cats/cat_5.wav", "SE", 2],
+	"cat6": ["res://Sounds/Effects/secondaries/tuna/cats/cat_6.wav", "SE", 2],
+	"cat7": ["res://Sounds/Effects/secondaries/tuna/cats/cat_7.wav", "SE", 2],
+	"cat8": ["res://Sounds/Effects/secondaries/tuna/cats/cat_8.wav", "SE", 2],
+	"cat9": ["res://Sounds/Effects/secondaries/tuna/cats/cat_9.wav", "SE", 2],
+	"cat10": ["res://Sounds/Effects/secondaries/tuna/cats/cat_10.wav", "SE", 2],
+	"cat11": ["res://Sounds/Effects/secondaries/tuna/cats/cat_11.wav", "SE", 2],
+
+	"fish1": ["res://Sounds/Effects/secondaries/tuna/fish/fish_1.wav", "SE", 2],
+	"fish2": ["res://Sounds/Effects/secondaries/tuna/fish/fish_2.wav", "SE", 2],
+	"fish3": ["res://Sounds/Effects/secondaries/tuna/fish/fish_3.wav", "SE", 2],
+	
+	
+	"wanted_poster": ["res://Sounds/Effects/secondaries/bounty/wanted_poster_smack.wav", "SE", 1],
+	
+	
+	
+	# AWARD CEREMONY
+	"4th": ["res://Sounds/Effects/award_ceremony/boo.wav", "SE", 1],
+	"3rd": ["res://Sounds/Effects/award_ceremony/crickets.wav", "SE", 1],
+	"2nd": ["res://Sounds/Effects/award_ceremony/slow_clap.wav", "SE", 1],
+	"1st": ["res://Sounds/Effects/award_ceremony/applause.wav", "SE", 1],
+	
 	# Level content
-	"rocket_engine" : ["res://Sounds/Effects/Levels/Level_11/rocket_engine.wav", "SE"]
+	
+	#LEVEL 8
+	"ping": ["res://Sounds/Effects/Levels/Level_8/egg_timer_ding.wav", "SE", 1],
+	"boiling_water": ["res://Sounds/Effects/Levels/Level_8/boiling_water.wav", "SE", 3],
+	
+	#LEVEL 11
+	"rocket_engine" : ["res://Sounds/Effects/Levels/Level_11/rocket_engine.wav", "SE", 2],
+	"running_rocket_engine": ["res://Sounds/Effects/general_game/engine/engine_running.wav", "SE", 3],
 }
 	
 var player_dictionary = {
@@ -65,6 +106,8 @@ var playing_se = []
 var bgm_queue = []
 var bgm_queue_index = 0
 var bgm_queue_playing = false
+
+var looping_effects = []
 
 var sound_options = {
 	"BGM" : {
@@ -153,6 +196,7 @@ func load_audio_players():
 			player.set_script(sound_script)
 			player.sound_name = sound
 			player.sound_type = sound_dictionary[sound][1]
+			player.volume_mod = sound_dictionary[sound][2]
 			player.set_stream(load(sound_dictionary[sound][0]))
 			player_dictionary[sound] = player
 			player.connect("sound_finished", self, "_on_sound_finished")
@@ -161,7 +205,6 @@ func load_audio_players():
 
 	
 func play(sound_name, multiple = false, interrupt = true, volume = null, pitch = null):
-	
 	if !interrupt && is_playing(sound_name):
 		return
 	
@@ -173,7 +216,14 @@ func play(sound_name, multiple = false, interrupt = true, volume = null, pitch =
 		pitch = sound_options[player.sound_type]["pitch"]
 	if volume == null:
 		volume = sound_options[player.sound_type]["volume"]
-		
+
+	var current_p = pow(10, volume / 100)
+	match player.volume_mod:
+		2: volume = 100 * (log(current_p - 0.1) / 2.302585)
+		3: volume = 100 * (log(current_p - 0.2) / 2.302585)
+	
+	if is_nan(volume):
+		volume = -80
 	
 	player.volume_db = volume
 	player.pitch_scale = pitch
@@ -193,6 +243,25 @@ func play(sound_name, multiple = false, interrupt = true, volume = null, pitch =
 	else:
 		player.play()
 		
+func loop(name):
+	if looping_effects.has(name):
+		return
+	looping_effects.append(name)
+	player_dictionary[name].connect("sound_finished", self, "looping_effect_stopped")
+	play(name)
+
+	
+func looping_effect_stopped(player):
+	play(player.sound_name)
+	
+func stop_loop(name):
+	player_dictionary[name].disconnect("sound_finished", self, "looping_effect_stopped")
+	stop(name)
+	looping_effects.erase(name)
+	
+func stop_all_looping():
+	for effect_name in looping_effects:
+		stop_loop(effect_name)
 
 func stop(sound_name):
 	var player = player_dictionary[sound_name]
@@ -219,7 +288,7 @@ func get_all_souns_of_type(type):
 	return arr
 			
 func set_type_volume_db(type, value):
-	if !value:
+	if value == null:
 		return
 	if type != "BGM" && type != "SE":
 		return

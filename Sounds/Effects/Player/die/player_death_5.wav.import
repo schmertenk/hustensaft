@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/player_death_5.wav-ac8aacf810c1d578dbb45477f71d7d51.sample"
+
+[deps]
+
+source_file="res://Sounds/Effects/Player/die/player_death_5.wav"
+dest_files=[ "res://.import/player_death_5.wav-ac8aacf810c1d578dbb45477f71d7d51.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

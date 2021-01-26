@@ -79,6 +79,7 @@ func end_round(winners = null):
 	if state == STATE_ENDED:
 		return
 	state = STATE_ENDED
+	AudioManager.stop_all_looping()
 		
 	#removing players secondaiy, so it wont be freed
 	for p in players:

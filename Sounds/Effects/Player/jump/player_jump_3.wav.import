@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/player_jump_3.wav-f3716f1a1bbaebcefe77b660f79b693c.sample"
+
+[deps]
+
+source_file="res://Sounds/Effects/Player/jump/player_jump_3.wav"
+dest_files=[ "res://.import/player_jump_3.wav-f3716f1a1bbaebcefe77b660f79b693c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

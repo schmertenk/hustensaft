@@ -8,8 +8,10 @@ var pot_damage_per_second = 40
 var pot_weapon_dummies = []
 
 
-func _ready():	
+func _ready():
+	Global.connect("round_ended", self, "_on_round_end")
 	AudioManager.insert_song_to_queue("lvl_8_bgm", 0)
+	AudioManager.loop("boiling_water")
 	pot_weapon_dummies.append(load("res://Scenes/Weapons/ProjectileWeapons/Flame_Thrower/F_T_Dummy.tscn").instance())
 	pot_weapon_dummies.append(load("res://Scenes/Weapons/ProjectileWeapons/Granade_Launcher/G_L_Dummy.tscn").instance())
 	pot_weapon_dummies.append(load("res://Scenes/Weapons/ProjectileWeapons/Machine_Gun/M_G_Dummy.tscn").instance())
@@ -32,6 +34,7 @@ func _on_pot_body_entered(body):
 			$Timer.start()
 		
 func spawn_weapons():
+	AudioManager.play("ping")
 	for w in pot_weapon_dummies:
 		w.position = Vector2(494.661, 276)
 		get_node("/root/Game/Weapons").add_child(w)
@@ -48,4 +51,7 @@ func _on_Timer_timeout():
 func _on_pot_body_exited(body):
 	if body is Player:
 		players_in_pot.erase(body)
+		
+func _on_round_end():
+	AudioManager.stop_loop("boiling_water")
 	

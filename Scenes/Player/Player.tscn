@@ -866,6 +866,18 @@ tracks/5/keys = {
 "update": 0,
 "values": [ Vector2( 30, -2 ), Vector2( 30, -18.774 ), Vector2( 30, -2 ), Vector2( 30, -18 ) ]
 }
+tracks/6/type = "value"
+tracks/6/path = NodePath("Arm:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.8, 0.8 ) ]
+}
 
 [sub_resource type="RectangleShape2D" id=12]
 extents = Vector2( 43.4509, 75.4172 )
@@ -876,10 +888,10 @@ light_mode = 1
 [sub_resource type="CanvasItemMaterial" id=14]
 blend_mode = 1
 
-[sub_resource type="CanvasItemMaterial" id=16]
+[sub_resource type="CanvasItemMaterial" id=15]
 blend_mode = 1
 
-[sub_resource type="AnimatedTexture" id=15]
+[sub_resource type="AnimatedTexture" id=16]
 flags = 4
 frames = 5
 fps = 15.0
@@ -916,10 +928,10 @@ offset = Vector2( 26, 7 )
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -38.113 )
 scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 5 )
-offset = Vector2( -8, 8 )
-vframes = 2
+texture = ExtResource( 1 )
+vframes = 4
 hframes = 15
+frame = 59
 
 [node name="PickupBox" type="Area2D" parent="."]
 position = Vector2( 0, 53.207 )
@@ -979,11 +991,11 @@ visible = false
 material = SubResource( 14 )
 
 [node name="Line2D" type="Line2D" parent="Beam"]
-material = SubResource( 16 )
+material = SubResource( 15 )
 points = PoolVector2Array( 0, 0, 0, 0 )
 width = 150.0
 default_color = Color( 1, 1, 1, 1 )
-texture = SubResource( 15 )
+texture = SubResource( 16 )
 texture_mode = 2
 
 [node name="Timer" type="Timer" parent="Beam"]

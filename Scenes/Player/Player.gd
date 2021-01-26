@@ -37,6 +37,9 @@ var impuls = Vector2.ZERO
 var player_info # player infos get saved in Global context
 var dead = false
 
+var hurt_sound_delay = 300
+var last_hurt_sound_time = 0
+
 # variables reguarding the animation
 var walk_button_pressed = false
 var in_jump = false
@@ -117,27 +120,12 @@ func get_input(delta):
 	if Input.is_action_just_pressed("p" + str(p_number) + "_jump"):
 		if is_on_floor():
 			in_jump = true
+			AudioManager.play("jump", true)
 			apply_force(Vector2(0, g * jump_speed))
 	if Input.is_action_just_pressed("p" + str(p_number) + "_reload"):
 		if weapon && weapon is ProjectileWeapon:
 			weapon.start_reload()
 	
-	
-	var last_look_direction = look_direction
-	if !mouse_mode:
-		var x = Input.get_joy_axis(joypad_id, JOY_AXIS_2)
-		var y = Input.get_joy_axis(joypad_id, JOY_AXIS_3)
-		if Vector2(x, y).length() < 0.1:
-			x = 0
-			y = 0
-		look_direction = Vector2(x,y).normalized()
-		if look_direction.length() <= 0.2:
-			if velocity.x == 0:
-				look_direction = Vector2(last_look_direction.x, 0)
-			else:
-				look_direction = Vector2(last_move_direction, 0)
-	else:
-		look_direction = (get_viewport().get_mouse_position()-get_global_transform_with_canvas().get_origin()).normalized()
 
 func _physics_process(delta):
 	if !player_stats.visible:	
@@ -181,19 +169,36 @@ func _process(_delta):
 	else:
 		$Crosshair.position = Vector2.ZERO
 	
+	$Crosshair/Sprite.scale = get_node("/root/Game/Camera").zoom / 2
+	
+	var last_look_direction = look_direction
+	if !mouse_mode:
+		var x = Input.get_joy_axis(joypad_id, JOY_AXIS_2)
+		var y = Input.get_joy_axis(joypad_id, JOY_AXIS_3)
+		if Vector2(x, y).length() < 0.1:
+			x = 0
+			y = 0
+		look_direction = Vector2(x,y).normalized()
+		if look_direction.length() <= 0.2:
+			if velocity.x == 0:
+				look_direction = Vector2(last_look_direction.x, 0)
+			else:
+				look_direction = Vector2(last_move_direction, 0)
+	else:
+		look_direction = (get_viewport().get_mouse_position() - get_global_transform_with_canvas().get_origin()).normalized()
+		
 	if g > 0:
 		$Crosshair.rotation = look_direction.angle()
 	else:
 		$Crosshair.rotation = - look_direction.angle()
 		
-	$Crosshair/Sprite.scale = get_node("/root/Game/Camera").zoom / 2
-		
-			
-
 	if look_direction.x < 0:
 		$Arm.rotation = (look_direction.angle() + PI) * g
+		$Arm.scale = Vector2(-0.8, 0.8)
 	else:
 		$Arm.rotation = (look_direction.angle()) * g
+		$Arm.scale = Vector2(0.8, 0.8)
+		
 	handle_animations()
 	
 	$Beam.global_scale = Vector2(1,1)
@@ -203,7 +208,7 @@ func _process(_delta):
 	
 	
 func handle_animations():
-	var look_r = look_direction.x > 0
+	var look_r = look_direction.x >= 0
 	if walk_button_pressed && is_on_floor():
 		var walk_r = velocity.x > 0
 		if look_r && walk_r:
@@ -269,8 +274,10 @@ func damage(damage, armor_multiplier = 1, flesh_multiplier = 1, ignore_armor = f
 	if health <= 0:
 		die(cause)
 	else:
-		var i = randi() % 4 + 1
-		AudioManager.play("hurt" + str(i), false, false)
+		if OS.get_ticks_msec() > hurt_sound_delay + last_hurt_sound_time:
+			last_hurt_sound_time = OS.get_ticks_msec()
+			var i = randi() % 5 + 1
+			AudioManager.play("hurt" + str(i), true)
 	
 func teleport(to_position):
 	var last_position = global_position
@@ -292,7 +299,8 @@ func die(cause):
 		return
 	dead = true
 	$Crosshair.visible = false
-	AudioManager.play("die")
+	var i = randi()%5 + 1
+	AudioManager.play("die" + str(i))
 	if look_direction.x < 0:
 		$Movement_Animation_Player.play("die_l_" + color_char)
 	else: 
@@ -378,6 +386,7 @@ func set_g(value, ignore_lock = false):
 	if !ignore_lock && OS.get_ticks_msec() <= g_locked_time + g_locked_duration:
 		return false
 	
+	AudioManager.play("gravity_flip", true)
 	if g != value:
 		scale.y *= -1
 		g = value

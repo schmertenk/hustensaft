@@ -26,9 +26,7 @@ func _ready():
 		get_node("VBoxContainer/CenterContainer/ranks/" + str(player.size() -1) + "/AnimationPlayer").play("show")
 	else:
 		$AnimationPlayer.play("show_winner")
-	$VBoxContainer/HBoxContainer/CenterContainer2/Play_Again.focus_neighbour_left = $VBoxContainer/HBoxContainer/CenterContainer/Main_Menu.get_path()
-	$VBoxContainer/HBoxContainer/CenterContainer/Main_Menu.focus_neighbour_right = $VBoxContainer/HBoxContainer/CenterContainer2/Play_Again.get_path()
-	$VBoxContainer/HBoxContainer/CenterContainer2/Play_Again.grab_focus()
+	$VBoxContainer/HBoxContainer/CenterContainer/Main_Menu.grab_focus()
 
 
 func _process(delta):

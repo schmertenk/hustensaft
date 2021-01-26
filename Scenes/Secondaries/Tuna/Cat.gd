@@ -50,8 +50,8 @@ func _physics_process(delta):
 func _on_Area2D_body_entered(body):
 	if body == fish:
 		emit_signal("eat")
-		var r = randi() %5 + 1
-		AudioManager.play("cat" + str(r), true)
+		var r = randi() %11 + 1
+		AudioManager.play("cat" + str(r), false, false)
 		
 func _on_fish_eaten():
 	fish = null

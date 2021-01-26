@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/countdown_go.wav-558bed41903a4a15a20de381e01a6556.sample"
+
+[deps]
+
+source_file="res://Sounds/Effects/general_game/countdown_go.wav"
+dest_files=[ "res://.import/countdown_go.wav-558bed41903a4a15a20de381e01a6556.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

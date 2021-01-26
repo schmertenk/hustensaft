@@ -31,6 +31,7 @@ func play_indicator(player):
 	get_tree().paused = true
 	$CanvasLayer/Sprite.position = get_viewport().size / 2
 	$CanvasLayer/Sprite/Sprite.texture = player.icon
+	AudioManager.play("wanted_poster")
 	$AnimationPlayer.play("show")
 		
 func slide_to_corner():

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/fish_1.wav-8887542fe4a96ba0c8a8731d17bd544e.sample"
+
+[deps]
+
+source_file="res://Sounds/Effects/secondaries/tuna/fish/fish_1.wav"
+dest_files=[ "res://.import/fish_1.wav-8887542fe4a96ba0c8a8731d17bd544e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

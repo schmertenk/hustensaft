@@ -6,6 +6,7 @@ signal sound_finished
 
 var sound_name = ""
 var sound_type = ""
+var volume_mod = 1
 
 
 func _ready():

@@ -22,7 +22,7 @@ func _on_Fish_body_entered(body):
 	if body != exception && !ok && !spawned:
 		ok = true
 	if !spawned:
-		AudioManager.play("fish", false, false)
+		AudioManager.play("fish" + str(randi() % 3 + 1), false, false)
 
 
 func _process(delta):

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/slow_clap.wav-4e5a71756307ae1747174c4ed6ee1d43.sample"
+
+[deps]
+
+source_file="res://Sounds/Effects/award_ceremony/slow_clap.wav"
+dest_files=[ "res://.import/slow_clap.wav-4e5a71756307ae1747174c4ed6ee1d43.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

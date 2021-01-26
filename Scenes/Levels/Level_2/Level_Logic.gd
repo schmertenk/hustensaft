@@ -5,6 +5,7 @@ onready var planets = get_node("/root/Game/Background/Planets").get_children()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	AudioManager.loop("running_rocket_engine")
 	pass
 
 

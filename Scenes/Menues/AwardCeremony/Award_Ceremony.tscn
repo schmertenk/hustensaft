@@ -21,7 +21,6 @@ size = 32
 font_data = ExtResource( 1 )
 
 [sub_resource type="Animation" id=4]
-
 resource_name = "show"
 length = 2.0
 tracks/0/type = "value"
@@ -332,7 +331,6 @@ tracks/6/keys = {
 }
 
 [sub_resource type="Animation" id=9]
-
 resource_name = "wiggle"
 loop = true
 step = 0.05
@@ -348,7 +346,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [ 0.0, -5.0, 0.0, 5.0 ]
 }
-
 
 [sub_resource type="Animation" id=10]
 resource_name = "show_winner"
@@ -475,10 +472,8 @@ valign = 1
 [node name="1st_place" type="VBoxContainer" parent="VBoxContainer"]
 margin_top = 110.0
 margin_right = 1024.0
-
 margin_bottom = 297.0
 rect_min_size = Vector2( 0, 187 )
-
 rect_pivot_offset = Vector2( 512, 58 )
 size_flags_horizontal = 3
 
@@ -512,13 +507,11 @@ margin_right = 1024.0
 margin_bottom = 460.0
 
 [node name="ranks" type="HBoxContainer" parent="VBoxContainer/CenterContainer"]
-
 show_behind_parent = true
 margin_left = 374.0
 margin_right = 650.0
 margin_bottom = 133.0
 rect_min_size = Vector2( 0, 133 )
-
 custom_constants/separation = 100
 
 [node name="1" type="VBoxContainer" parent="VBoxContainer/CenterContainer/ranks"]
@@ -550,11 +543,9 @@ anims/show = SubResource( 4 )
 anims/wiggle = SubResource( 5 )
 
 [node name="2" type="VBoxContainer" parent="VBoxContainer/CenterContainer/ranks"]
-
 modulate = Color( 1, 1, 1, 0 )
 margin_left = 188.0
 margin_right = 276.0
-
 margin_bottom = 133.0
 rect_pivot_offset = Vector2( 33, 66 )
 size_flags_horizontal = 3
@@ -615,7 +606,7 @@ margin_bottom = 600.0
 size_flags_vertical = 3
 
 [node name="CenterContainer" type="Control" parent="VBoxContainer/HBoxContainer"]
-margin_right = 510.0
+margin_right = 1024.0
 margin_bottom = 110.0
 size_flags_horizontal = 3
 
@@ -624,19 +615,6 @@ size_flags_horizontal = 3
 [node name="Label" parent="VBoxContainer/HBoxContainer/CenterContainer/Main_Menu" index="0"]
 text = "Main Menu"
 
-[node name="CenterContainer2" type="Control" parent="VBoxContainer/HBoxContainer"]
-margin_left = 514.0
-margin_right = 1024.0
-margin_bottom = 110.0
-size_flags_horizontal = 3
-
-[node name="Play_Again" parent="VBoxContainer/HBoxContainer/CenterContainer2" instance=ExtResource( 4 )]
-margin_left = -78.7037
-margin_right = 78.7037
-
-[node name="Label" parent="VBoxContainer/HBoxContainer/CenterContainer2/Play_Again" index="0"]
-text = "Play Again"
-
 [node name="TransitionMask" parent="." instance=ExtResource( 5 )]
 visible = false
 
@@ -644,8 +622,5 @@ visible = false
 anims/show_winner = SubResource( 10 )
 anims/wiggle = SubResource( 11 )
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/CenterContainer/Main_Menu" to="." method="_on_Main_Menu_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/CenterContainer2/Play_Again" to="." method="_on_Play_Again_pressed"]
 
 [editable path="VBoxContainer/HBoxContainer/CenterContainer/Main_Menu"]
-
-[editable path="VBoxContainer/HBoxContainer/CenterContainer2/Play_Again"]

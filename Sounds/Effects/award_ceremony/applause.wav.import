@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/applause.wav-7473159ebac40a974d0c02def49e3f1a.sample"
+
+[deps]
+
+source_file="res://Sounds/Effects/award_ceremony/applause.wav"
+dest_files=[ "res://.import/applause.wav-7473159ebac40a974d0c02def49e3f1a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

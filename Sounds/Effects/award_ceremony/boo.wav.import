@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/boo.wav-30ea85f554c9e7a0604bf092dfaae866.sample"
+
+[deps]
+
+source_file="res://Sounds/Effects/award_ceremony/boo.wav"
+dest_files=[ "res://.import/boo.wav-30ea85f554c9e7a0604bf092dfaae866.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -27,7 +27,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2 ),
+"times": PoolRealArray( 0, 0.25 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
@@ -39,7 +39,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.15, 0.2 ),
+"times": PoolRealArray( 0, 0.2, 0.25 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 4, 4 ), Vector2( 0.95, 0.95 ), Vector2( 1, 1 ) ]
@@ -51,7 +51,7 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.2 ),
+"times": PoolRealArray( 0, 0.25 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 22.0, 0.0 ]
@@ -91,7 +91,9 @@ pause_mode = 2
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Sprite" type="Sprite" parent="CanvasLayer"]
-visible = false
+modulate = Color( 1, 1, 1, 0 )
+rotation = 0.383972
+scale = Vector2( 4, 4 )
 texture = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="CanvasLayer/Sprite"]

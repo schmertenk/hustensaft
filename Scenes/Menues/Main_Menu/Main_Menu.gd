@@ -15,6 +15,9 @@ func init():
 	initialized = true
 	$VBoxContainer/CenterContainer2/Start.grab_focus()
 	
+	# if any sonds are loopting, end them all
+	AudioManager.stop_all_looping()
+	
 	if !AudioManager.bgm_queue_playing:
 		AudioManager.play_bgm_queue()
 

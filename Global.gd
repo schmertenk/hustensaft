@@ -8,6 +8,7 @@ const HIGH_GRAPHIC_MODE = 1
 
 signal game_paused
 signal game_unpaused
+signal round_ended
 signal new_round_started
 signal new_set_started
 
@@ -37,11 +38,8 @@ var joypad_ids = []
 var player_infos = []
 
 var test_mode = true
-
 #var test_level = "res://Scenes/Levels/Level_3/Level.tscn"
-var test_level = "res://Scenes/Levels/Level_4/Level.tscn"
-
-
+var test_level = "res://Scenes/Levels/Level_2/Level.tscn"
 
 var secondarie_paths = [
 	"res://Scenes/Secondaries/Armor_Recharger/Armor_Recharger.tscn",
@@ -79,7 +77,7 @@ func load_and_apply_options():
 	for key in loaded_options.keys():
 		if options.keys().has(key):
 			options[key] = loaded_options[key]
-	print(options)
+
 	AudioManager.set_type_volume_db("BGM", options["bm_volume"])
 	AudioManager.set_type_volume_db("SE", options["fx_volume"])
 	OS.window_fullscreen = options["fullscreen"]
@@ -133,6 +131,7 @@ func previous_step(ui_cancel_pressed = true):
 		go_to_menu(current_menu_index)
 		
 func go_to_menu(index):
+	emit_signal("round_ended")
 	current_menu_index = index
 	get_tree().change_scene(menu_order[max(index, 0)])
 
@@ -155,6 +154,7 @@ func end_game():
 	
 # winner is of type Player
 func end_round(winners):
+	emit_signal("round_ended")
 	for winner in winners:
 		if winner:
 			winner.player_info.win_count += 1
