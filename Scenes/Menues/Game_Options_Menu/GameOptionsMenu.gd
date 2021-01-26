@@ -31,6 +31,7 @@ func set_select_box(box, option_name):
 		if c.value == Global.options[option_name]:
 			c.select(false)
 			break;
+
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):
 		$TransitionMask.slide_in(Global, "go_to_menu", 0)

@@ -11,11 +11,11 @@ export (int) var gravity = 5000
 export (int) var p_number = 0 # the players id
 export (float) var armor = 50 setget set_armor
 export (float) var health = 100 setget set_health
-export (Color) var color
 export (float) var friction = 0.04
 export (float) var mass = 3
 export (float) var max_fall_speed = 2400
 
+var color setget set_color
 var icon = null
 var last_move_direction = 0 # 1 for right, -1 for left
 var invincible_against_player = [] # array of other players wich cannot hurt this player
@@ -42,7 +42,7 @@ var walk_button_pressed = false
 var in_jump = false
 
 # the char that cooresponse to the path the right texture for the color lies
-var color_char = null
+var color_char = null setget set_color_char
 
 var original_mods = { 
 	"friction_speed_multiplier" : 1,
@@ -282,7 +282,6 @@ func teleport(to_position):
 	$Beam/Line2D.add_point(Vector2.ZERO, 0)
 	$Beam/Line2D.add_point(last_position - global_position, 1)
 	$Beam.visible = true
-	print($Beam/Line2D.points)
 	$Beam/Timer.start()
 	
 func hide_beam():
@@ -397,6 +396,17 @@ func set_armor(value):
 	armor = value
 	update_labels()
 
+func set_color_char(value):
+	color_char = value
+	match color_char:
+		"w" : self.color = Color("#dedede")
+		"o" : self.color = Color("#ea8a4a")
+		"b" : self.color = Color("#36abf1")
+		"p" : self.color = Color("#ea4ae8")
+		
+func set_color(value):
+	color = value
+	$Crosshair.modulate = color
 
 func _on_PickupBox_body_entered(body):
 	if !pickupables_in_reach.has(body) && body.get("pickupable"):

@@ -1,18 +1,29 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://Images/floor.png" type="Texture" id=1]
-[ext_resource path="res://Scenes/Weapons/ProjectileWeapons/Granade_Launcher/G_L_Dummy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Images/Level_11/background.jpg" type="Texture" id=2]
 [ext_resource path="res://Game.gd" type="Script" id=3]
 [ext_resource path="res://Scripts/GameCamera.gd" type="Script" id=4]
-[ext_resource path="res://Scenes/Weapons/ProjectileWeapons/Pistol/Pistol_Dummy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Images/Level_11/rocket.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/Assets/Door/Door.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/Weapons/ProjectileWeapons/Flame_Thrower/F_T_Dummy.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Images/circle.png" type="Texture" id=7]
 [ext_resource path="res://Retrophile Regular.ttf" type="DynamicFontData" id=8]
-[ext_resource path="res://Scenes/Weapons/ProjectileWeapons/Shot_Gun/Shot_Gun_Dummy.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Images/Level_11/ufo_front.png" type="Texture" id=9]
 [ext_resource path="res://Scripts/Countdown.gd" type="Script" id=10]
 [ext_resource path="res://Scenes/Menues/Pause_Menu/Pause_Menu.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Images/Level_11/ufo_in.png" type="Texture" id=12]
+[ext_resource path="res://Scenes/Levels/Level_10/UFO.gd" type="Script" id=13]
+[ext_resource path="res://Images/Level_11/ground.png" type="Texture" id=14]
+[ext_resource path="res://Images/Level_11/ground_for.png" type="Texture" id=15]
 [ext_resource path="res://Scenes/TransitionMask.tscn" type="PackedScene" id=16]
-[ext_resource path="res://Scenes/Weapons/ProjectileWeapons/Machine_Gun/M_G_Dummy.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Scenes/FPS.gd" type="Script" id=17]
+[ext_resource path="res://Images/Level_11/stones.png" type="Texture" id=18]
+[ext_resource path="res://Scenes/Weapons/ProjectileWeapons/Needler/Needler_Dummy.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Scenes/Weapons/ProjectileWeapons/Laser_Gun/Laser_Gun_Dummy.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Scenes/Weapons/ProjectileWeapons/Sticky_Granade_Launcher/G_L_Dummy.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Scenes/Weapons/ProjectileWeapons/Pistol/Pistol_Dummy.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Scenes/Levels/Level_10/Rocket.gd" type="Script" id=23]
+
 
 [sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( 100, 100, 0, 100, 0, 0, 100, 0 )
@@ -52,6 +63,173 @@ font_data = ExtResource( 8 )
 size = 22
 font_data = ExtResource( 8 )
 
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 344.896, 333.612 )
+
+[sub_resource type="Curve" id=7]
+max_value = 2.0
+_data = [ Vector2( 0, 1 ), 0.0, 3.3361, 0, 0, Vector2( 1, 0 ), -1.81451, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=8]
+curve = SubResource( 7 )
+
+[sub_resource type="ParticlesMaterial" id=9]
+emission_shape = 1
+emission_sphere_radius = 63.24
+flag_disable_z = true
+direction = Vector3( -0.4, -1, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 1000.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle = 720.0
+angle_random = 1.0
+scale = 184.12
+scale_curve = SubResource( 8 )
+color = Color( 0, 0.694118, 1, 1 )
+
+[sub_resource type="ParticlesMaterial" id=10]
+emission_shape = 1
+emission_sphere_radius = 63.24
+flag_disable_z = true
+direction = Vector3( -0.4, -1, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 1000.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle = 720.0
+angle_random = 1.0
+scale = 50.79
+scale_curve = SubResource( 8 )
+
+[sub_resource type="ParticlesMaterial" id=11]
+trail_divisor = 10
+emission_shape = 1
+emission_sphere_radius = 116.95
+flag_disable_z = true
+direction = Vector3( -0.4, -1, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 1000.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 11.58
+color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="Animation" id=12]
+resource_name = "Fire"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Particles2D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Particles2D3:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Particles2D2:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=13]
+length = 5.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.7, 1.3, 1.8, 2.4, 2.9, 3.5, 4.2, 4.7 ),
+"transitions": PoolRealArray( 2.82843, 0.267943, 2.73208, 0.267943, 2.21914, 0.267943, 2.73208, 0.267943, 0.258816 ),
+"update": 0,
+"values": [ 14.0, 17.8, 20.0, 17.8, 14.0, 17.8, 20.0, 17.8, 14.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 2.5, 3.5, 5 ),
+"transitions": PoolRealArray( 2.46229, 0.366022, 2.63902, 0.378929, 1 ),
+"update": 0,
+"values": [ Vector2( -1787.57, -1176.63 ), Vector2( -1787.57, -1220 ), Vector2( -1787.57, -1250 ), Vector2( -1787.57, -1220 ), Vector2( -1787.57, -1176.63 ) ]
+}
+
+[sub_resource type="Gradient" id=14]
+offsets = PoolRealArray( 0, 0.387909, 0.702771, 0.828715 )
+colors = PoolColorArray( 0.940041, 0.916348, 0.172586, 1, 0.960784, 0.439216, 0.113725, 0.768627, 0.14902, 0.0509804, 0, 1, 0.192157, 0.0784314, 0.0196078, 0.662745 )
+
+[sub_resource type="GradientTexture" id=15]
+gradient = SubResource( 14 )
+
+[sub_resource type="Curve" id=16]
+min_value = -1.0
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=17]
+curve = SubResource( 16 )
+
+[sub_resource type="Curve" id=18]
+max_value = 2.0
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.12619, 1.00482 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -9.92305, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=19]
+curve = SubResource( 18 )
+
+[sub_resource type="ParticlesMaterial" id=20]
+emission_shape = 1
+emission_sphere_radius = 54.41
+flag_disable_z = true
+direction = Vector3( 0, -1, 0 )
+spread = 39.56
+gravity = Vector3( 0, -98, 0 )
+initial_velocity = 211.9
+orbit_velocity = -0.1
+orbit_velocity_random = 0.75
+linear_accel = 100.0
+linear_accel_random = 1.0
+scale = 2.0
+scale_curve = SubResource( 19 )
+color_ramp = SubResource( 15 )
+hue_variation_curve = SubResource( 17 )
+
+[sub_resource type="Environment" id=21]
+background_mode = 4
+glow_enabled = true
+glow_bloom = 0.08
+glow_blend_mode = 0
+adjustment_enabled = true
+
 [node name="Game" type="Node2D"]
 script = ExtResource( 3 )
 
@@ -62,7 +240,6 @@ z_index = -100
 tile_set = SubResource( 3 )
 cell_size = Vector2( 100, 100 )
 format = 1
-tile_data = PoolIntArray( -983042, 0, 0, -983041, 0, 0, -1048576, 0, 0, -1048575, 0, 0, -917509, 0, 0, -917508, 0, 0, -917507, 0, 0, -983038, 0, 0, -983037, 0, 0, -983036, 0, 0, -851975, 0, 0, -851974, 0, 0, -917499, 0, 0, -917498, 0, 0, -786441, 0, 0, -786440, 0, 0, -851961, 0, 0, -851960, 0, 0, -720906, 0, 0, -786423, 0, 0, -655369, 0, 0, -655368, 0, 0, -720889, 0, 0, -720888, 0, 0, -589831, 0, 0, -589830, 0, 0, -655355, 0, 0, -655354, 0, 0, -524293, 0, 0, -524292, 0, 0, -524291, 0, 0, -589822, 0, 0, -589821, 0, 0, -589820, 0, 0, -458754, 0, 0, -524287, 0, 0, -393203, 0, 0, -393202, 0, 0, -393191, 0, 0, -393190, 0, 0, -327667, 0, 0, -327666, 0, 0, -327661, 0, 0, -327660, 0, 0, -327655, 0, 0, -327654, 0, 0, -262131, 0, 0, -262130, 0, 0, -262126, 0, 0, -262125, 0, 0, -262124, 0, 0, -262123, 0, 0, -262119, 0, 0, -262118, 0, 0, -196595, 0, 0, -196594, 0, 0, -196593, 0, 0, -196591, 0, 0, -196590, 0, 0, -196587, 0, 0, -196586, 0, 0, -196584, 0, 0, -196583, 0, 0, -196582, 0, 0, -65551, 0, 0, -65550, 0, 0, -65549, 0, 0, -65548, 0, 0, -131058, 0, 0, -131057, 0, 0, -131056, 0, 0, -131055, 0, 0, -131050, 0, 0, -131049, 0, 0, -131048, 0, 0, -131047, 0, 0, -21, 0, 0, -20, 0, 0, -19, 0, 0, -18, 0, 0, -17, 0, 0, -16, 0, 0, -15, 0, 0, -14, 0, 0, -13, 0, 0, -12, 0, 0, -11, 0, 0, -65521, 0, 0, -65520, 0, 0, -65519, 0, 0, -65514, 0, 0, -65513, 0, 0, -65512, 0, 0, 65514, 0, 0, 65515, 0, 0, 65516, 0, 0, 65517, 0, 0, 65518, 0, 0, 65519, 0, 0, 65520, 0, 0, 65521, 0, 0, 65522, 0, 0, 65523, 0, 0, 65524, 0, 0, 65525, 0, 0, 65526, 0, 0, 17, 0, 0, 22, 0, 0, 131049, 0, 0, 131050, 0, 0, 131051, 0, 0, 131052, 0, 0, 131053, 0, 0, 131054, 0, 0, 131055, 0, 0, 131056, 0, 0, 131057, 0, 0, 131058, 0, 0, 131059, 0, 0, 131060, 0, 0, 131061, 0, 0, 131062, 0, 0, 65553, 0, 0, 65558, 0, 0, 196585, 0, 0, 196586, 0, 0, 196587, 0, 0, 196588, 0, 0, 196589, 0, 0, 196590, 0, 0, 196591, 0, 0, 196592, 0, 0, 196593, 0, 0, 196594, 0, 0, 196595, 0, 0, 196596, 0, 0, 196597, 0, 0, 196598, 0, 0, 196599, 0, 0, 131089, 0, 0, 262121, 0, 0, 262122, 0, 0, 262123, 0, 0, 262124, 0, 0, 262125, 0, 0, 262126, 0, 0, 262127, 0, 0, 262128, 0, 0, 262129, 0, 0, 262130, 0, 0, 262131, 0, 0, 262132, 0, 0, 262133, 0, 0, 262134, 0, 0, 262135, 0, 0, 262136, 0, 0, 262143, 0, 0, 196608, 0, 0, 196625, 0, 0, 196635, 0, 0, 327657, 0, 0, 327658, 0, 0, 327659, 0, 0, 327660, 0, 0, 327661, 0, 0, 327662, 0, 0, 327663, 0, 0, 327664, 0, 0, 327665, 0, 0, 327666, 0, 0, 327667, 0, 0, 327668, 0, 0, 327669, 0, 0, 327670, 0, 0, 327671, 0, 0, 327672, 0, 0, 327673, 0, 0, 262161, 0, 0, 262170, 0, 0, 262171, 0, 0, 393193, 0, 0, 393194, 0, 0, 393195, 0, 0, 393196, 0, 0, 393197, 0, 0, 393198, 0, 0, 393199, 0, 0, 393200, 0, 0, 393201, 0, 0, 393202, 0, 0, 393203, 0, 0, 393204, 0, 0, 393205, 0, 0, 393206, 0, 0, 393207, 0, 0, 393208, 0, 0, 393209, 0, 0, 327692, 0, 0, 327693, 0, 0, 327694, 0, 0, 327695, 0, 0, 327696, 0, 0, 327697, 0, 0, 327702, 0, 0, 327703, 0, 0, 327704, 0, 0, 327705, 0, 0, 327706, 0, 0, 327707, 0, 0, 327708, 0, 0, 458729, 0, 0, 458730, 0, 0, 458731, 0, 0, 458732, 0, 0, 458733, 0, 0, 458734, 0, 0, 458735, 0, 0, 458736, 0, 0, 458737, 0, 0, 458738, 0, 0, 458739, 0, 0, 458740, 0, 0, 458741, 0, 0, 458742, 0, 0, 458743, 0, 0, 458744, 0, 0, 458745, 0, 0, 393228, 0, 0, 393233, 0, 0, 393238, 0, 0, 393239, 0, 0, 393240, 0, 0, 393241, 0, 0, 393242, 0, 0, 393243, 0, 0, 393244, 0, 0, 524264, 0, 0, 524265, 0, 0, 524266, 0, 0, 524267, 0, 0, 524268, 0, 0, 524269, 0, 0, 524270, 0, 0, 524271, 0, 0, 524272, 0, 0, 524273, 0, 0, 524274, 0, 0, 524275, 0, 0, 524276, 0, 0, 524277, 0, 0, 524278, 0, 0, 524279, 0, 0, 524280, 0, 0, 458763, 0, 0, 458769, 0, 0, 458774, 0, 0, 458775, 0, 0, 458776, 0, 0, 458777, 0, 0, 458779, 0, 0, 458780, 0, 0, 589811, 0, 0, 589812, 0, 0, 589813, 0, 0, 589814, 0, 0, 589815, 0, 0, 524299, 0, 0, 524305, 0, 0, 524306, 0, 0, 524307, 0, 0, 524310, 0, 0, 524311, 0, 0, 524312, 0, 0, 524316, 0, 0, 655347, 0, 0, 655348, 0, 0, 655349, 0, 0, 655350, 0, 0, 655351, 0, 0, 589835, 0, 0, 589844, 0, 0, 589845, 0, 0, 589846, 0, 0, 589852, 0, 0, 720881, 0, 0, 720882, 0, 0, 720883, 0, 0, 720886, 0, 0, 720887, 0, 0, 655371, 0, 0, 655388, 0, 0, 720906, 0, 0, 720907, 0, 0, 720924, 0, 0, 786442, 0, 0, 786459, 0, 0, 786460, 0, 0, 851979, 0, 0, 851995, 0, 0, 851996, 0, 0, 917516, 0, 0, 917517, 0, 0, 917530, 0, 0, 917531, 0, 0, 983053, 0, 0 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -92,78 +269,280 @@ __meta__ = {
 }
 last_string = "GO!!"
 
-[node name="Spawns" type="Node2D" parent="."]
-
-[node name="Player_Spawn_1" type="Node2D" parent="Spawns"]
-position = Vector2( -8, -1632 )
-
-[node name="Player_Spawn_2" type="Node2D" parent="Spawns"]
-position = Vector2( -2248, 56 )
-
-[node name="Player_Spawn_3" type="Node2D" parent="Spawns"]
-position = Vector2( 1912, 752 )
-
-[node name="Player_Spawn_4" type="Node2D" parent="Spawns"]
-position = Vector2( -552, -1056 )
-
-[node name="Weapons" type="Node2D" parent="."]
-
-[node name="G_L_Dummy" parent="Weapons" instance=ExtResource( 7 )]
-position = Vector2( 1624, 472 )
-
-[node name="Shot_Gunl_Dummy" parent="Weapons" instance=ExtResource( 9 )]
-position = Vector2( 384, -928 )
-
-[node name="Pistol_Dummy" parent="Weapons" instance=ExtResource( 5 )]
-position = Vector2( 72, -1632 )
-
-[node name="Pistol_Dummy2" parent="Weapons" instance=ExtResource( 5 )]
-position = Vector2( -624, -1048 )
-
-[node name="Pistol_Dummy3" parent="Weapons" instance=ExtResource( 18 )]
-position = Vector2( -1376, 960 )
-
-[node name="G_L_Dummy2" parent="Weapons" instance=ExtResource( 2 )]
-position = Vector2( -1616, -128 )
-
-[node name="Pistol_Dummy4" parent="Weapons" instance=ExtResource( 5 )]
-position = Vector2( -2144, -48 )
-
-[node name="Pistol_Dummy5" parent="Weapons" instance=ExtResource( 5 )]
-position = Vector2( 1880, 752 )
-
-[node name="Background" type="Node2D" parent="."]
-show_behind_parent = true
-scale = Vector2( 1.2, 1.2 )
-z_index = -1000
-
-[node name="Spikes" type="Node2D" parent="."]
-
-[node name="Camera" type="Camera2D" parent="."]
-position = Vector2( 14, -2 )
-current = true
-zoom = Vector2( 5.9, 5.9 )
-limit_left = -3000
-limit_top = -2300
-limit_right = 3000
-limit_bottom = 1600
-smoothing_enabled = true
-smoothing_speed = 10.0
-editor_draw_limits = true
-script = ExtResource( 4 )
-max_zoom = 5.9
-
-[node name="FPS" type="Label" parent="Camera"]
-visible = false
-margin_right = 40.0
-margin_bottom = 14.0
+[node name="FPS" type="Label" parent="CanvasLayer"]
+margin_left = 14.0
+margin_top = -2.0
+margin_right = 62.0
+margin_bottom = 21.0
 custom_fonts/font = SubResource( 5 )
 text = "test"
+script = ExtResource( 17 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Door" type="Node2D" parent="."]
+[node name="Spawns" type="Node2D" parent="."]
 
-[node name="Door" parent="Door" instance=ExtResource( 6 )]
-position = Vector2( 2248, 352 )
+[node name="Player_Spawn_1" type="Node2D" parent="Spawns"]
+position = Vector2( -2103.37, 1107.85 )
+
+[node name="Player_Spawn_2" type="Node2D" parent="Spawns"]
+position = Vector2( 2784.06, 662.387 )
+
+[node name="Player_Spawn_3" type="Node2D" parent="Spawns"]
+position = Vector2( 1335.35, -550.804 )
+
+[node name="Player_Spawn_4" type="Node2D" parent="Spawns"]
+position = Vector2( -2101.3, -1217.92 )
+
+[node name="Weapons" type="Node2D" parent="."]
+
+[node name="Needler_Dummy" parent="Weapons" instance=ExtResource( 19 )]
+position = Vector2( -1839.17, 1187.58 )
+
+[node name="Needler_Dummy2" parent="Weapons" instance=ExtResource( 19 )]
+position = Vector2( 2613.18, 858.454 )
+rotation = 4.30224
+
+[node name="Pistol_Dummy" parent="Weapons" instance=ExtResource( 22 )]
+position = Vector2( 2051.51, 1071.82 )
+
+[node name="Pistol_Dummy2" parent="Weapons" instance=ExtResource( 20 )]
+position = Vector2( 1028.75, 680.785 )
+
+[node name="Pistol_Dummy3" parent="Weapons" instance=ExtResource( 20 )]
+position = Vector2( -1366.98, -1117.54 )
+
+[node name="G_L_Dummy" parent="Weapons" instance=ExtResource( 21 )]
+position = Vector2( 1171, -1222 )
+
+[node name="Background" type="Node2D" parent="."]
+show_behind_parent = true
+z_index = -1000
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Background"]
+follow_viewport_enable = true
+scroll_ignore_camera_zoom = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Background/ParallaxBackground"]
+motion_scale = Vector2( -0.25, 0 )
+
+[node name="background" type="Sprite" parent="Background/ParallaxBackground/ParallaxLayer"]
+position = Vector2( 0, 205.831 )
+scale = Vector2( 1.35, 1.35 )
+texture = ExtResource( 2 )
+offset = Vector2( 0, -500 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="Background/ParallaxBackground"]
+motion_scale = Vector2( -0.6, 0 )
+
+[node name="ground_f" type="Sprite" parent="Background"]
+modulate = Color( 0.615686, 0.615686, 0.615686, 1 )
+position = Vector2( 0, -5.99316 )
+texture = ExtResource( 15 )
+
+[node name="Spikes" type="Node2D" parent="."]
+visible = false
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2( 14, -2 )
+current = true
+zoom = Vector2( 5.85, 5.85 )
+limit_left = -3000
+limit_top = -2000
+limit_right = 3000
+limit_bottom = 1500
+smoothing_enabled = true
+smoothing_speed = 10.0
+editor_draw_limits = true
+script = ExtResource( 4 )
+max_zoom = 5.85
+
+[node name="Doors" type="Node2D" parent="."]
+
+[node name="Door" parent="Doors" instance=ExtResource( 6 )]
+position = Vector2( 1422.29, 266.182 )
+rotation = -0.418879
+scale = Vector2( 0.9, 1.2 )
+
+[node name="CollisionShape2D" parent="Doors/Door/Trigger_Area" index="0"]
+shape = SubResource( 6 )
+
+[node name="Assets" type="Node2D" parent="."]
+z_index = -1
+
+[node name="Rocket" type="StaticBody2D" parent="Assets"]
+position = Vector2( 1597.79, 142.983 )
+script = ExtResource( 23 )
+
+[node name="Area2D" type="Area2D" parent="Assets/Rocket"]
+position = Vector2( -616.597, -1473.61 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Assets/Rocket/Area2D"]
+polygon = PoolVector2Array( -78.1576, 233.692, 187.16, 137.078, 226.218, 85.4209, 216.139, 33.7642, -46.4096, -344.121, -130.542, -356.821, -189.276, -286.975, -166.878, 174.875, -135.379, 217.713 )
+
+[node name="Particles2D" type="Particles2D" parent="Assets/Rocket"]
+position = Vector2( -538.36, -1270.03 )
+emitting = false
+amount = 40
+lifetime = 0.6
+process_material = SubResource( 9 )
+
+[node name="Particles2D3" type="Particles2D" parent="Assets/Rocket"]
+position = Vector2( -538.36, -1270.03 )
+emitting = false
+amount = 40
+lifetime = 0.35
+process_material = SubResource( 10 )
+
+[node name="Particles2D2" type="Particles2D" parent="Assets/Rocket"]
+position = Vector2( -538.36, -1270.03 )
+emitting = false
+amount = 80
+lifetime = 0.4
+speed_scale = 2.0
+process_material = SubResource( 11 )
+
+[node name="rocket" type="Sprite" parent="Assets/Rocket"]
+rotation = 2.71748
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 5 )
+flip_h = true
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Assets/Rocket"]
+polygon = PoolVector2Array( -62.98, 271.506, 151.02, 739.506, 201.02, 825.506, 163.02, 851.506, 149.02, 903.506, 85.02, 831.506, -152.98, 307.506 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Assets/Rocket"]
+polygon = PoolVector2Array( -674.361, -849.927, -694.52, -1240.5, -427.416, -1341.3, -135.115, -1089.31, 250.421, -1104.43, 169.786, -424.073, 608.239, 550.32, 643.517, 676.312, 668.715, 889.444, 638.477, 1068.35, 547.763, 1196.86, 389.013, 1113.71, 283.179, 1033.07, 348.695, 1020.48, 386.493, 990.238, 391.532, 965.039, 462.088, 1000.32, 487.286, 959.999, 517.524, 939.841, 528.965, 848.731, 509.365, 729.351, 494.846, 597.142, -213.23, -954.155, -543.329, -800.445, -208.19, -59.6111, -293.865, -21.8134, -394.658, -215.841, -1004.46, -603.897 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Assets/Rocket"]
+anims/Fire = SubResource( 12 )
+
+[node name="Timer" type="Timer" parent="Assets/Rocket"]
+wait_time = 3.0
+autostart = true
+
+[node name="UFO" type="StaticBody2D" parent="Assets"]
+position = Vector2( -1787.57, -1248.22 )
+rotation = 0.263997
+script = ExtResource( 13 )
+
+[node name="ufo_front" type="Sprite" parent="Assets/UFO"]
+texture = ExtResource( 9 )
+
+[node name="ufo_in" type="Sprite" parent="Assets/UFO"]
+z_index = -1
+texture = ExtResource( 12 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Assets/UFO"]
+polygon = PoolVector2Array( 353.577, 154.877, 382.15, 110.43, 488.296, 50.5793, 586.57, -7.37708, 626.887, -71.6331, 619.328, -123.29, 575.23, -182.506, 469.397, -244.242, 274.109, -258.101, 236.249, -325.997, 191.35, -373.14, 143.084, -393.344, 8.38892, -392.222, -99.3674, -358.548, -159.98, -324.874, -219.471, -264.261, -257.635, -198.036, -291.309, -132.933, -304.778, -92.5247, -371.003, -26.2993, -382.228, -12.8298, -390.085, 36.5586, -477.637, 157.784, -481.664, 214.645, -458.972, 244.679, -420.929, 268.706, -354.187, 290.731, -258.746, 300.075, -172.436, 311.896, -244.355, 353.1, -363.47, 350.103, -440.633, 333.622, -504.311, 297.662, -523.04, 255.71, -547.013, 255.71, -585.969, 238.479, -594.21, 201.021, -553.006, 104.935, -476.593, 24.7758, -437.637, -9.6853, -436.138, -32.9091, -412.166, -71.865, -366.467, -105.577, -318.521, -218.284, -251.847, -310.429, -166.443, -374.857, -68.304, -410.816, -21.05, -426.111, 39.2712, -437.223, 56.7327, -437.223, 77.0319, -437.786, 144.474, -436.287, 197.664, -418.307, 259.095, -389.091, 308.539, -342.643, 326.519, -308.931, 386.451, -306.684, 443.386, -298.443, 502.57, -285.707, 540.027, -271.473, 558.756, -251.246, 623.183, -234.765, 659.892, -218.284, 687.611, -195.06, 710.085, -162.846, 713.831, -125.388, 705.59, -94.6732, 686.861, -56.4663, 667.383, -44.4799, 623.932, 9.9314, 579.732, 54.8806, 509.312, 102.077, 453.875, 138.037 )
+
+[node name="Area2D" type="Area2D" parent="Assets/UFO"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Assets/UFO/Area2D"]
+polygon = PoolVector2Array( 352.736, 151.439, 196.912, 263.812, 36.5935, 316.253, -165.678, 313.256, -372.444, 281.792, -436.872, 259.317, -481.821, 211.371, -471.333, 143.947, -381.434, 31.5742, -376.939, -17.8699, -305.021, -86.7921, -170.173, -314.535, 68.058, -390.948, 216.39, -344.501, 273.326, -256.101, 472.601, -245.613, 610.445, -127.246, 611.943, -56.8259, 547.516, 15.0928, 376.709, 107.988 )
+
+[node name="Tween" type="Tween" parent="Assets/UFO"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Assets/UFO"]
+playback_process_mode = 0
+anims/wiggle = SubResource( 13 )
+
+[node name="ground" type="StaticBody2D" parent="Assets"]
+z_index = 10
+z_as_relative = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Assets/ground"]
+position = Vector2( 0.793701, 0.793701 )
+polygon = PoolVector2Array( -1069.88, 657.558, -1064.84, 685.277, -1082.48, 715.515, -1127.84, 758.352, -2320.69, 753.312, -2373.61, 770.951, -2373.61, 844.027, -2429.05, 869.225, -2471.88, 949.86, -2413.93, 1116.17, -2497.08, 1191.76, -2494.56, 1292.56, -2431.57, 1354.29, -2330.77, 1384.53, -2235.02, 1349.25, -2103.99, 1349.25, -2030.91, 1387.05, -1897.36, 1301.37, -1758.77, 1286.25, -1572.3, 1351.77, -1285.9, 1350.65, -1272.41, 1209.81, -1230.46, 1118.41, -1188.51, 1115.42, -1173.52, 1089.94, -1055.16, 1064.47, -1025.19, 1083.95, -978.743, 1049.49, -893.339, 1086.95, -887.346, 1142.39, -843.895, 1205.31, -837.902, 1350.65, -801.227, 1344.21, -559.323, 1344.21, -256.947, 1361.85, -78.0381, 1296.33, 143.708, 1296.33, 529.244, 1334.13, 839.185, 1407.21, 1159.2, 1397.13, 1484.26, 1392.09, 1632.37, 1422.33, 1823.88, 1419.81, 2063.27, 1331.61, 2194.3, 1203.1, 2058.84, 1134, 2090.66, 1095.82, 2165.61, 1049.15, 2240.17, 769.178, 2551.3, 876.658, 2989.71, 947.369, 7032.1, 914.616, 6994.34, 1548.9, 2993.72, 1550.5, 1860.5, 1540.76, -3001.92, 1493.49, -3225.74, 1459.46, -5524.42, 1554.95, -5706.16, 745.858, -3167.37, 741.089, -2723.96, 588.334, -2269.41, 524.521, -2244.95, 425.361, -2181.96, 364.885, -2103.84, 322.048, -2055.96, 228.814, -2005.57, 193.536, -1881.07, 163.159, -1857.01, 184.54, -1810.06, 146.823, -1729.3, 177.525, -1714.91, 240.376, -1672.05, 299.904, -1669.67, 343.558, -1579.98, 358.638, -1562.46, 381.077, -1508.66, 383.908, -1415.22, 484.903, -1423.41, 580.874 )
+
+[node name="ground" type="Sprite" parent="Assets/ground"]
+texture = ExtResource( 14 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Assets/ground"]
+polygon = PoolVector2Array( 1572.16, 710.703, 1646.16, 866.703, 1554.16, 876.703, 1486.16, 848.703, 1362.16, 926.703, 1282.16, 946.703, 1120.16, 940.703, 870.086, 930.075, 854.529, 939.975, 715.936, 942.803, 561.787, 937.146, 25.6125, 947.046, -163.892, 927.247, -366.125, 911.69, -523.102, 901.791, -650.382, 866.436, -701.293, 807.039, -698.465, 761.784, -681.494, 736.328, -664.524, 736.328, -605.127, 751.884, 43.9973, 856.536, 400.379, 855.122, 787.874, 773.097, 1194.23, 730.671, 1161.9, 627.457, 1207.28, 531.348, 1386.15, 467.276, 1485.05, 436.275, 1543.66, 483.294 )
+
+[node name="stones" type="Sprite" parent="Assets"]
+position = Vector2( 1365.44, 624.039 )
+texture = ExtResource( 18 )
+
+[node name="stones2" type="Sprite" parent="Assets"]
+position = Vector2( -2057.27, 463.832 )
+texture = ExtResource( 18 )
+
+[node name="stones3" type="Sprite" parent="Assets"]
+position = Vector2( -1903.56, 320.201 )
+texture = ExtResource( 18 )
+
+[node name="stones4" type="Sprite" parent="Assets"]
+position = Vector2( -1753.63, 481.471 )
+scale = Vector2( 1.62996, 1 )
+texture = ExtResource( 18 )
+flip_h = true
+
+[node name="stones5" type="Sprite" parent="Assets"]
+modulate = Color( 1, 0, 0.866667, 1 )
+position = Vector2( -1075.03, 1219.06 )
+texture = ExtResource( 18 )
+
+[node name="Particles" type="Node2D" parent="."]
+scale = Vector2( 1.2, 1.2 )
+
+[node name="Particles2D11" type="Particles2D" parent="Particles"]
+position = Vector2( 1022, -528.74 )
+z_index = -2
+amount = 55
+lifetime = 3.0
+visibility_rect = Rect2( -1000, -1000, 2000, 2000 )
+draw_order = 1
+process_material = SubResource( 20 )
+texture = ExtResource( 7 )
+
+[node name="Particles2D13" type="Particles2D" parent="Particles"]
+position = Vector2( 1913.55, 704.026 )
+z_index = -2
+amount = 45
+lifetime = 3.0
+visibility_rect = Rect2( -1000, -1000, 2000, 2000 )
+draw_order = 1
+process_material = SubResource( 20 )
+texture = ExtResource( 7 )
+
+[node name="Particles2D15" type="Particles2D" parent="Particles"]
+position = Vector2( 1782.88, 530.98 )
+z_index = -2
+amount = 45
+lifetime = 3.0
+visibility_rect = Rect2( -1000, -1000, 2000, 2000 )
+draw_order = 1
+process_material = SubResource( 20 )
+texture = ExtResource( 7 )
+
+[node name="Particles2D8" type="Particles2D" parent="Particles"]
+position = Vector2( 1647.79, 246.457 )
+z_index = -2
+amount = 45
+lifetime = 3.0
+visibility_rect = Rect2( -1000, -1000, 2000, 2000 )
+draw_order = 1
+process_material = SubResource( 20 )
+texture = ExtResource( 7 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 21 )
+
+[node name="Needler_Dummy" parent="." instance=ExtResource( 19 )]
+position = Vector2( 1641.74, 1358.34 )
+[connection signal="body_entered" from="Assets/Rocket/Area2D" to="Assets/Rocket" method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Assets/Rocket/Area2D" to="Assets/Rocket" method="_on_Area2D_body_exited"]
+[connection signal="timeout" from="Assets/Rocket/Timer" to="Assets/Rocket" method="_on_Timer_timeout"]
+[connection signal="body_entered" from="Assets/UFO/Area2D" to="Assets/UFO" method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Assets/UFO/Area2D" to="Assets/UFO" method="_on_Area2D_body_exited"]
+
+[editable path="Doors/Door"]

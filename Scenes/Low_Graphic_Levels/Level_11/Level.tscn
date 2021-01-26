@@ -3,12 +3,12 @@
 [ext_resource path="res://Scenes/FPS.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/GameCamera.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/Countdown.gd" type="Script" id=3]
-[ext_resource path="res://Scenes/Levels/Level_11/Rocket.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/Levels/Level_10/Rocket.gd" type="Script" id=4]
 [ext_resource path="res://Game.gd" type="Script" id=5]
 [ext_resource path="res://Images/Level_11/rocket.png" type="Texture" id=6]
 [ext_resource path="res://Images/Level_11/background.jpg" type="Texture" id=7]
 [ext_resource path="res://Images/floor.png" type="Texture" id=8]
-[ext_resource path="res://Scenes/Levels/Level_11/UFO.gd" type="Script" id=9]
+[ext_resource path="res://Scenes/Levels/Level_10/UFO.gd" type="Script" id=9]
 [ext_resource path="res://Images/Level_11/ground.png" type="Texture" id=10]
 [ext_resource path="res://Images/Level_11/stones.png" type="Texture" id=11]
 [ext_resource path="res://Images/Level_11/ground_for.png" type="Texture" id=12]
@@ -23,6 +23,7 @@
 [ext_resource path="res://Scenes/Weapons/ProjectileWeapons/Sticky_Granade_Launcher/G_L_Dummy.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Scenes/Assets/Door/Door.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Scenes/Weapons/ProjectileWeapons/Pistol/Pistol_Dummy.tscn" type="PackedScene" id=23]
+
 
 [sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( 100, 100, 0, 100, 0, 0, 100, 0 )

@@ -197,10 +197,12 @@ scale = Vector2( 1, 1.5 )
 [node name="Door3" parent="Doors" instance=ExtResource( 6 )]
 position = Vector2( 1615.05, -1277.72 )
 rotation = -1.56538
+scale = Vector2( 1, 1.1 )
 
 [node name="Door4" parent="Doors" instance=ExtResource( 6 )]
-position = Vector2( 831, 570 )
-rotation = -1.56538
+position = Vector2( 780.203, 446.183 )
+rotation = -2.4616
+scale = Vector2( 0.7, 1.25 )
 
 [node name="Weapons" type="Node2D" parent="."]
 

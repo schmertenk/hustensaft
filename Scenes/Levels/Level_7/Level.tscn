@@ -95,7 +95,7 @@ animations = [ {
 "speed": 12.0
 } ]
 
-[sub_resource type="SpriteFrames" id=15]
+[sub_resource type="SpriteFrames" id=12]
 animations = [ {
 "frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
 "loop": true,
@@ -103,15 +103,15 @@ animations = [ {
 "speed": 15.0
 } ]
 
-[sub_resource type="Curve" id=16]
+[sub_resource type="Curve" id=13]
 _data = [ Vector2( 0, 0.297371 ), 0.0, 0.0, 0, 0, Vector2( 0.511765, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.28828 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=17]
-curve = SubResource( 16 )
+[sub_resource type="CurveTexture" id=14]
+curve = SubResource( 13 )
 
-[sub_resource type="ParticlesMaterial" id=14]
+[sub_resource type="ParticlesMaterial" id=15]
 trail_divisor = 16
-trail_size_modifier = SubResource( 17 )
+trail_size_modifier = SubResource( 14 )
 flag_disable_z = true
 spread = 0.0
 gravity = Vector3( 0, 0, 0 )
@@ -122,20 +122,20 @@ scale_random = 1.0
 hue_variation = 1.0
 hue_variation_random = 1.0
 
-[sub_resource type="Gradient" id=18]
+[sub_resource type="Gradient" id=16]
 offsets = PoolRealArray( 0, 0.598639, 1 )
 colors = PoolColorArray( 0, 0.473643, 1, 1, 0.170068, 0.51051, 0.829932, 1, 1, 0.690419, 0, 1 )
 
-[sub_resource type="GradientTexture" id=19]
-gradient = SubResource( 18 )
+[sub_resource type="GradientTexture" id=17]
+gradient = SubResource( 16 )
 
-[sub_resource type="Curve" id=20]
+[sub_resource type="Curve" id=18]
 _data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.258824, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -4.01187, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=21]
-curve = SubResource( 20 )
+[sub_resource type="CurveTexture" id=19]
+curve = SubResource( 18 )
 
-[sub_resource type="ParticlesMaterial" id=22]
+[sub_resource type="ParticlesMaterial" id=20]
 emission_shape = 2
 emission_box_extents = Vector3( 9, 100, 1 )
 flag_disable_z = true
@@ -149,8 +149,8 @@ angle = 526.5
 angle_random = 1.0
 scale = 50.0
 scale_random = 0.73
-scale_curve = SubResource( 21 )
-color_ramp = SubResource( 19 )
+scale_curve = SubResource( 19 )
+color_ramp = SubResource( 17 )
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 3 )
@@ -340,10 +340,12 @@ z_index = 1
 [node name="Door2" parent="Door" instance=ExtResource( 6 )]
 position = Vector2( -1863.55, 566.983 )
 rotation = -1.57292
+scale = Vector2( 0.5, 0.9 )
 
 [node name="Door" parent="Door" instance=ExtResource( 6 )]
-position = Vector2( 1848, -1248 )
+position = Vector2( 1848, -1256.75 )
 rotation = -1.57292
+scale = Vector2( 0.5, 1 )
 
 [node name="Ships" type="Node2D" parent="."]
 z_index = -1
@@ -380,7 +382,6 @@ playing = true
 [node name="Door3" parent="Ships/Ship1" instance=ExtResource( 6 )]
 position = Vector2( -1497.14, -1138.78 )
 rotation = -0.00313807
-scale = Vector2( 1, 1 )
 
 [node name="Ship2" type="StaticBody2D" parent="Ships"]
 position = Vector2( 2410.42, 15.1019 )
@@ -393,8 +394,7 @@ texture = ExtResource( 13 )
 modulate = Color( 0, 1, 0.211765, 0.752941 )
 position = Vector2( 392.411, -1024.37 )
 scale = Vector2( 2, 0.75 )
-frames = SubResource( 15 )
-frame = 3
+frames = SubResource( 12 )
 playing = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ships/Ship2"]
@@ -406,21 +406,21 @@ script = ExtResource( 21 )
 r_speed = 6.0
 
 [node name="a" type="Particles2D" parent="Ships/Ship2/Engine_Ship_2"]
-position = Vector2( -70, 64.0689 )
+position = Vector2( -70, -71.0166 )
 amount = 16
 preprocess = 0.1
 visibility_rect = Rect2( -20.2718, 61.353, 578.205, 76.9072 )
 local_coords = false
-process_material = SubResource( 14 )
+process_material = SubResource( 15 )
 texture = ExtResource( 24 )
 
 [node name="b" type="Particles2D" parent="Ships/Ship2/Engine_Ship_2"]
-position = Vector2( -70, -64.0689 )
+position = Vector2( -70, 71.0166 )
 amount = 16
 preprocess = 0.1
 visibility_rect = Rect2( -20.2718, 61.353, 578.205, 76.9072 )
 local_coords = false
-process_material = SubResource( 14 )
+process_material = SubResource( 15 )
 texture = ExtResource( 24 )
 
 [node name="Ship3" type="StaticBody2D" parent="Ships"]
@@ -446,7 +446,7 @@ position = Vector2( -1951.85, 507.068 )
 amount = 30
 lifetime = 0.5
 explosiveness = 0.72
-process_material = SubResource( 22 )
+process_material = SubResource( 20 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ships/Ship4"]
 polygon = PoolVector2Array( -2300.25, 737.071, -2302.63, 646.691, -2905.56, 640.745, -2999.51, 581.285, -3030.43, 489.716, -2994.75, 385.065, -2916.26, 329.173, -2019.6, 335.119, -2016.03, 732.314, -1907.81, 729.935, -1880.46, 712.097, -1942.3, 544.419, -1930.41, 407.66, -1887.6, 275.658, -1885.22, 253.063, -1912.57, 236.107, -2366.85, 232.539, -2362.09, 114.808, -2290.74, 12.536, -2050.52, 14.9144, -2060.03, -17.1942, -2029.11, -77.8437, -2129.01, -88.5466, -2351.39, -39.7891, -2511.93, 77.9424, -2604.69, 221.836, -2905.56, 230.161, -3192.3, 481.474, -2905.21, 740.881, -2602.57, 747.952, -2531.86, 869.574, -2397.51, 981.637, -2227.8, 1042.45, -2036.89, 1053.76, -2053.86, 998.607, -2048.2, 956.181, -2206.59, 966.08, -2315.49, 932.139, -2372.05, 823.245, -2377.71, 729.907 )

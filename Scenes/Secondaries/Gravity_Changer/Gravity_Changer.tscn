@@ -5,7 +5,7 @@
 
 [node name="Gravity_Changer" type="Node2D"]
 script = ExtResource( 1 )
-reload_time = 1000
+reload_time = 10000
 uses_per_round = 2
 icon = ExtResource( 2 )
 _name = "gravity flipper"

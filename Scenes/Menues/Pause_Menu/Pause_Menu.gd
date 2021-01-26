@@ -2,10 +2,6 @@ extends CenterContainer
 
 onready var continue_button = get_node("Control/VBoxContainer/CenterContainer/Continue")
 onready var exit_button = get_node("Control/VBoxContainer/CenterContainer2/Back_To_Menu")
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	continue_button.focus_neighbour_bottom = exit_button.get_path()
-	exit_button.focus_neighbour_top = continue_button.get_path()
 
 
 func _on_Continue_pressed():
@@ -21,3 +17,34 @@ func show():
 	
 func hide():
 	visible = false
+
+
+func _on_Options_pressed():
+	set_select_box($Options/VBoxContainer/CenterContainer/Music/SelectButtonContainer, "bm_volume")
+	set_select_box($Options/VBoxContainer/CenterContainer2/FX/SelectButtonContainer, "fx_volume")
+	set_select_box($Options/VBoxContainer/CenterContainer4/Fullscreen/SelectButtonContainer, "fullscreen")
+	
+	
+	$AnimationPlayer.play("show_options")
+	
+func set_select_box(box, option_name):
+	for c in box.get_children():
+		if c.value == Global.options[option_name]:
+			c.select(false)
+			break;
+
+func _on_Apply_pressed():
+	var settings = {
+		"bm_volume" : $Options/VBoxContainer/CenterContainer/Music/SelectButtonContainer.value,
+		"fx_volume" : $Options/VBoxContainer/CenterContainer2/FX/SelectButtonContainer.value,
+		"fullscreen": $Options/VBoxContainer/CenterContainer4/Fullscreen/SelectButtonContainer.value,
+	}
+	
+	Global.save_options(settings)
+	Global.load_and_apply_options()
+
+	$AnimationPlayer.play("hide_options")
+
+
+func _on_Dismiss_pressed():
+	$AnimationPlayer.play("hide_options")

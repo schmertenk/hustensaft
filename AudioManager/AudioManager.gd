@@ -109,7 +109,6 @@ func play_bgm_queue(from_start = false):
 	if from_start:
 		bgm_queue_index = 0
 		stop_all_of_type("BGM")
-	print(bgm_queue_index)
 	bgm_queue_playing = true
 	play(bgm_queue[bgm_queue_index])
 	player_dictionary[bgm_queue[bgm_queue_index]].connect("sound_finished", self, "_on_queue_sound_finished")
@@ -220,6 +219,11 @@ func get_all_souns_of_type(type):
 	return arr
 			
 func set_type_volume_db(type, value):
+	if !value:
+		return
+	if type != "BGM" && type != "SE":
+		return
+		
 	sound_options[type]["volume"] = value
 	for player in get_all_souns_of_type(type):
 		player.volume_db = value

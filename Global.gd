@@ -36,10 +36,10 @@ var one_player_mode = false
 var joypad_ids = []
 var player_infos = []
 
-var test_mode = false
+var test_mode = true
 
 #var test_level = "res://Scenes/Levels/Level_3/Level.tscn"
-var test_level = "res://Scenes/Levels/Level_7/Level.tscn"
+var test_level = "res://Scenes/Levels/Level_4/Level.tscn"
 
 
 
@@ -71,23 +71,31 @@ func get_options_from_file():
 
 
 func load_and_apply_options():
-	var settings = get_options_from_file()
-	if !settings:
+	var loaded_options = get_options_from_file()
+	if !loaded_options:
 		return
-	options = settings
 		
+			
+	for key in loaded_options.keys():
+		if options.keys().has(key):
+			options[key] = loaded_options[key]
+	print(options)
 	AudioManager.set_type_volume_db("BGM", options["bm_volume"])
 	AudioManager.set_type_volume_db("SE", options["fx_volume"])
 	OS.window_fullscreen = options["fullscreen"]
 	
 
-func save_options(settings):
+func save_options(new_options):
 	var file = File.new()
 	if file.open(save_file_name, File.WRITE) != 0:
 		print("Error opening file")
 		return
+		
+	for key in new_options.keys():
+		if options.keys().has(key):
+			options[key] = new_options[key]
 
-	file.store_line(to_json(settings))
+	file.store_line(to_json(options))
 	file.close()
 		
 
