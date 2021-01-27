@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://Images/Level_8/SAAM-1979.136.153_1.jpg" type="Texture" id=1]
 [ext_resource path="res://Scenes/Levels/Level_8/Level_Logic.gd" type="Script" id=2]
@@ -90,6 +90,19 @@ color_ramp = SubResource( 9 )
 
 [sub_resource type="CircleShape2D" id=13]
 radius = 71.1961
+
+[sub_resource type="PhysicsMaterial" id=17]
+friction = 0.5
+
+[sub_resource type="CapsuleShape2D" id=18]
+radius = 42.2374
+height = 62.0793
+
+[sub_resource type="PhysicsMaterial" id=19]
+friction = 0.5
+
+[sub_resource type="PhysicsMaterial" id=20]
+friction = 0.5
 
 [sub_resource type="PhysicsMaterial" id=14]
 
@@ -382,7 +395,7 @@ texture = ExtResource( 7 )
 "bodies",
 ]]
 position = Vector2( 972.531, -400.719 )
-mass = 2.5
+mass = 1.75
 gravity_scale = 30.0
 
 [node name="onion" type="Sprite" parent="Assets/Food/Onion"]
@@ -393,56 +406,63 @@ texture = ExtResource( 14 )
 position = Vector2( 0.733948, 25.2352 )
 shape = SubResource( 13 )
 
-[node name="Potatop" type="RigidBody2D" parent="Assets/Food" groups=[
+[node name="Potato" type="RigidBody2D" parent="Assets/Food" groups=[
 "bodies",
 ]]
 position = Vector2( 2214.11, -921.619 )
-mass = 2.5
+mass = 2.2
+physics_material_override = SubResource( 17 )
 gravity_scale = 30.0
 
-[node name="potato" type="Sprite" parent="Assets/Food/Potatop"]
+[node name="potato" type="Sprite" parent="Assets/Food/Potato"]
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 15 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Assets/Food/Potatop"]
-polygon = PoolVector2Array( -31.9939, -11.5645, -7.66772, -21.2081, 23.7009, -37.2261, 47.0608, -38.561, 75.7598, -27.2148, 83.9189, 1.03467, 73.2095, 33.1627, 48.011, 48.2817, -13.095, 69.0704, -39.5535, 64.0308, -56.5623, 53.3214, -62.2319, 28.7529, -48.3728, 1.03467 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Assets/Food/Potato"]
+position = Vector2( 11.2974, 15.4597 )
+rotation = 1.13432
+shape = SubResource( 18 )
 
-[node name="Potatop2" type="RigidBody2D" parent="Assets/Food" groups=[
+[node name="Potato2" type="RigidBody2D" parent="Assets/Food" groups=[
 "bodies",
 ]]
-position = Vector2( 2110.48, -938.506 )
-rotation = 2.48884
-mass = 2.5
+position = Vector2( 1821.67, -953.133 )
+mass = 2.2
+physics_material_override = SubResource( 19 )
 gravity_scale = 30.0
 
-[node name="potato" type="Sprite" parent="Assets/Food/Potatop2"]
+[node name="potato" type="Sprite" parent="Assets/Food/Potato2"]
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 15 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Assets/Food/Potatop2"]
-polygon = PoolVector2Array( -31.9939, -11.5645, -7.66772, -21.2081, 23.7009, -37.2261, 47.0608, -38.561, 75.7598, -27.2148, 83.9189, 1.03467, 73.2095, 33.1627, 48.011, 48.2817, -13.095, 69.0704, -39.5535, 64.0308, -56.5623, 53.3214, -62.2319, 28.7529, -48.3728, 1.03467 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Assets/Food/Potato2"]
+position = Vector2( 11.2974, 15.4597 )
+rotation = 1.13432
+shape = SubResource( 18 )
 
-[node name="Potatop3" type="RigidBody2D" parent="Assets/Food" groups=[
+[node name="Potato3" type="RigidBody2D" parent="Assets/Food" groups=[
 "bodies",
 ]]
-position = Vector2( 1937.04, -948.957 )
-rotation = 0.591667
-mass = 2.5
+position = Vector2( 2094.59, -966.809 )
+mass = 2.2
+physics_material_override = SubResource( 20 )
 gravity_scale = 30.0
 
-[node name="potato" type="Sprite" parent="Assets/Food/Potatop3"]
+[node name="potato" type="Sprite" parent="Assets/Food/Potato3"]
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 15 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Assets/Food/Potatop3"]
-polygon = PoolVector2Array( -31.9939, -11.5645, -7.66772, -21.2081, 23.7009, -37.2261, 47.0608, -38.561, 75.7598, -27.2148, 83.9189, 1.03467, 73.2095, 33.1627, 48.011, 48.2817, -13.095, 69.0704, -39.5535, 64.0308, -56.5623, 53.3214, -62.2319, 28.7529, -48.3728, 1.03467 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Assets/Food/Potato3"]
+position = Vector2( 11.2974, 15.4597 )
+rotation = 1.13432
+shape = SubResource( 18 )
 
 [node name="Onion2" type="RigidBody2D" parent="Assets/Food" groups=[
 "bodies",
 ]]
 position = Vector2( 1401.13, -362.622 )
 rotation = -1.8675
-mass = 2.5
+mass = 1.75
 gravity_scale = 30.0
 
 [node name="onion" type="Sprite" parent="Assets/Food/Onion2"]
@@ -457,7 +477,7 @@ shape = SubResource( 13 )
 "bodies",
 ]]
 position = Vector2( 1178.76, -385.185 )
-mass = 2.5
+mass = 1.75
 gravity_scale = 30.0
 
 [node name="onion" type="Sprite" parent="Assets/Food/Onion3"]

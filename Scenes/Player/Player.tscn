@@ -920,18 +920,19 @@ texture_scale = 2.5
 mode = 2
 
 [node name="Arm" type="Sprite" parent="."]
-position = Vector2( 30, -2 )
-scale = Vector2( 0.8, 0.8 )
+position = Vector2( -28.7735, -4.79238 )
+scale = Vector2( -0.8, 0.8 )
 texture = ExtResource( 7 )
 offset = Vector2( 26, 7 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -38.113 )
 scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 1 )
-vframes = 4
+texture = ExtResource( 5 )
+offset = Vector2( 8, 8 )
+flip_h = true
+vframes = 2
 hframes = 15
-frame = 59
 
 [node name="PickupBox" type="Area2D" parent="."]
 position = Vector2( 0, 53.207 )

@@ -14,8 +14,8 @@
 [ext_resource path="res://Images/Level_9/station room.png" type="Texture" id=12]
 [ext_resource path="res://Images/Level_9/station base.png" type="Texture" id=13]
 [ext_resource path="res://Images/Level_2/Background/star_back.jpg" type="Texture" id=14]
+[ext_resource path="res://Images/Level_9/eartch_low.png" type="Texture" id=15]
 [ext_resource path="res://Scenes/TransitionMask.tscn" type="PackedScene" id=16]
-[ext_resource path="res://Images/Level_9/eartch.png" type="Texture" id=17]
 [ext_resource path="res://Scenes/Weapons/ProjectileWeapons/Machine_Gun/M_G_Dummy.tscn" type="PackedScene" id=18]
 
 [sub_resource type="OccluderPolygon2D" id=1]
@@ -117,26 +117,28 @@ show_behind_parent = true
 position = Vector2( 203.877, 113.265 )
 z_index = -1000
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="Background"]
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="Background/ParallaxBackground"]
-position = Vector2( -5886.68, -3412.32 )
-motion_scale = Vector2( 0, 0 )
-motion_mirroring = Vector2( 8000, 4000 )
-
-[node name="star_back" type="Sprite" parent="Background/ParallaxBackground/ParallaxLayer"]
-position = Vector2( 2424.23, 1346.42 )
+[node name="star_back" type="Sprite" parent="Background"]
+position = Vector2( -5025.22, -2084.98 )
 texture = ExtResource( 14 )
 
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="Background/ParallaxBackground"]
-motion_scale = Vector2( 0.2, 0.2 )
+[node name="star_back2" type="Sprite" parent="Background"]
+position = Vector2( 2657.21, 1736.05 )
+texture = ExtResource( 14 )
 
-[node name="eartch" type="Sprite" parent="Background/ParallaxBackground/ParallaxLayer2"]
+[node name="star_back3" type="Sprite" parent="Background"]
+position = Vector2( -4836.85, 1776.41 )
+texture = ExtResource( 14 )
+
+[node name="star_back4" type="Sprite" parent="Background"]
+position = Vector2( 2603.4, -2145.53 )
+texture = ExtResource( 14 )
+
+[node name="eartch" type="Sprite" parent="Background"]
 light_mask = 2
-position = Vector2( 2276.27, -42.5862 )
+position = Vector2( 2214.89, -97.1427 )
 rotation = -1.5708
-scale = Vector2( 1, 1.2 )
-texture = ExtResource( 17 )
+scale = Vector2( 1.7, 1.7 )
+texture = ExtResource( 15 )
 
 [node name="Weapons" type="Node2D" parent="."]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=2]
+[gd_scene load_steps=63 format=2]
 
 [ext_resource path="res://Scenes/FPS.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/GameCamera.gd" type="Script" id=2]
@@ -207,6 +207,9 @@ animations = [ {
 
 [sub_resource type="CircleShape2D" id=36]
 radius = 71.1961
+
+[sub_resource type="PhysicsMaterial" id=39]
+friction = 0.5
 
 [sub_resource type="PhysicsMaterial" id=37]
 
@@ -425,14 +428,14 @@ process_material = SubResource( 7 )
 position = Vector2( -1438.49, -369.67 )
 scale = Vector2( 1, 2 )
 frames = SubResource( 35 )
-frame = 18
+frame = 13
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="Particles"]
 position = Vector2( -1401.4, -364.466 )
 scale = Vector2( 1, 2 )
 frames = SubResource( 35 )
-frame = 22
+frame = 1
 speed_scale = 1.5
 playing = true
 
@@ -440,7 +443,7 @@ playing = true
 position = Vector2( -1348.49, -364.466 )
 scale = Vector2( 1, 2 )
 frames = SubResource( 35 )
-frame = 3
+frame = 19
 speed_scale = 1.7
 playing = true
 
@@ -499,7 +502,7 @@ texture = ExtResource( 10 )
 "bodies",
 ]]
 position = Vector2( 972.531, -400.719 )
-mass = 3.0
+mass = 1.75
 gravity_scale = 30.0
 
 [node name="onion" type="Sprite" parent="Assets/Food/Onion"]
@@ -514,7 +517,8 @@ shape = SubResource( 36 )
 "bodies",
 ]]
 position = Vector2( 2214.11, -921.619 )
-mass = 3.0
+mass = 1.75
+physics_material_override = SubResource( 39 )
 gravity_scale = 30.0
 
 [node name="potato" type="Sprite" parent="Assets/Food/Potatop"]
@@ -529,7 +533,8 @@ polygon = PoolVector2Array( -31.9939, -11.5645, -7.66772, -21.2081, 23.7009, -37
 ]]
 position = Vector2( 2110.48, -938.506 )
 rotation = 2.48884
-mass = 3.0
+mass = 1.75
+physics_material_override = SubResource( 39 )
 gravity_scale = 30.0
 
 [node name="potato" type="Sprite" parent="Assets/Food/Potatop2"]
@@ -544,7 +549,8 @@ polygon = PoolVector2Array( -31.9939, -11.5645, -7.66772, -21.2081, 23.7009, -37
 ]]
 position = Vector2( 1937.04, -948.957 )
 rotation = 0.591667
-mass = 3.0
+mass = 1.75
+physics_material_override = SubResource( 39 )
 gravity_scale = 30.0
 
 [node name="potato" type="Sprite" parent="Assets/Food/Potatop3"]
@@ -559,7 +565,7 @@ polygon = PoolVector2Array( -31.9939, -11.5645, -7.66772, -21.2081, 23.7009, -37
 ]]
 position = Vector2( 1401.13, -362.622 )
 rotation = -1.8675
-mass = 3.0
+mass = 1.75
 gravity_scale = 30.0
 
 [node name="onion" type="Sprite" parent="Assets/Food/Onion2"]
@@ -574,7 +580,7 @@ shape = SubResource( 36 )
 "bodies",
 ]]
 position = Vector2( 1178.76, -385.185 )
-mass = 3.0
+mass = 1.75
 gravity_scale = 30.0
 
 [node name="onion" type="Sprite" parent="Assets/Food/Onion3"]
