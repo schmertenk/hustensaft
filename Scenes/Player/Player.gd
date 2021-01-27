@@ -135,7 +135,7 @@ func _physics_process(delta):
 		get_input(delta)
 	
 	# only apply gravity when in air or on steil slopes
-	if !is_on_floor() || in_jump || get_slide_count() > 0 and abs(rad2deg(abs(get_slide_collision(0).normal.angle())) - 90) > 45:
+	if !is_on_floor() || in_jump || get_slide_count() > 0 and abs(rad2deg(abs(get_slide_collision(0).normal.angle())) - 90) > 55:
 		apply_force(Vector2(0, gravity * g * mods["g_multiplier"]))
 	apply_force(Vector2(- (velocity.x * friction * mass * mods["friction_speed_multiplier"]), 0))
 
@@ -150,7 +150,7 @@ func _physics_process(delta):
 	if in_jump:
 		snap = Vector2(0, 0)
 	velocity = move_and_slide_with_snap(velocity, snap, Vector2(0, -g),
-					true, 4, PI/4, false)
+					true, 4, 0.959931, false)
 	
 	acceleration = Vector2.ZERO
 	

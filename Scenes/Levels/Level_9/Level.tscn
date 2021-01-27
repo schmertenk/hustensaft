@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Images/floor.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Weapons/ProjectileWeapons/Granade_Launcher/G_L_Dummy.tscn" type="PackedScene" id=2]
@@ -11,7 +11,12 @@
 [ext_resource path="res://Scenes/Weapons/ProjectileWeapons/Shot_Gun/Shot_Gun_Dummy.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scripts/Countdown.gd" type="Script" id=10]
 [ext_resource path="res://Scenes/Menues/Pause_Menu/Pause_Menu.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Images/Level_9/station room.png" type="Texture" id=12]
+[ext_resource path="res://Images/Level_9/station base.png" type="Texture" id=13]
+[ext_resource path="res://Images/Level_2/Background/star_back.jpg" type="Texture" id=14]
+[ext_resource path="res://Scripts/Paralax_Sprite.gd" type="Script" id=15]
 [ext_resource path="res://Scenes/TransitionMask.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Images/Level_9/eartch.png" type="Texture" id=17]
 [ext_resource path="res://Scenes/Weapons/ProjectileWeapons/Machine_Gun/M_G_Dummy.tscn" type="PackedScene" id=18]
 
 [sub_resource type="OccluderPolygon2D" id=1]
@@ -62,7 +67,6 @@ z_index = -100
 tile_set = SubResource( 3 )
 cell_size = Vector2( 100, 100 )
 format = 1
-tile_data = PoolIntArray( -1441789, 0, 0, -1376254, 0, 0, -1376252, 0, 0, -1310715, 0, 0, -1245178, 0, 0, -1114113, 0, 0, -1179641, 0, 0, -1048578, 0, 0, -1114104, 0, 0, -983041, 0, 0, -1048567, 0, 0, -983040, 0, 0, -983032, 0, 0, -851969, 0, 0, -917497, 0, 0, -786445, 0, 0, -786444, 0, 0, -786434, 0, 0, -851966, 0, 0, -851962, 0, 0, -720909, 0, 0, -720908, 0, 0, -720907, 0, 0, -720906, 0, 0, -720905, 0, 0, -720904, 0, 0, -720903, 0, 0, -720899, 0, 0, -786431, 0, 0, -786429, 0, 0, -786427, 0, 0, -655372, 0, 0, -655371, 0, 0, -655370, 0, 0, -655369, 0, 0, -655367, 0, 0, -655366, 0, 0, -655364, 0, 0, -720896, 0, 0, -720892, 0, 0, -589836, 0, 0, -589835, 0, 0, -589834, 0, 0, -589830, 0, 0, -589829, 0, 0, -589825, 0, 0, -655345, 0, 0, -524300, 0, 0, -524299, 0, 0, -524290, 0, 0, -589810, 0, 0, -589808, 0, 0, -458764, 0, 0, -458755, 0, 0, -524271, 0, 0, -393228, 0, 0, -393227, 0, 0, -393219, 0, 0, -393218, 0, 0, -458734, 0, 0, -327691, 0, 0, -327690, 0, 0, -327682, 0, 0, -327681, 0, 0, -393205, 0, 0, -393197, 0, 0, -262154, 0, 0, -262145, 0, 0, -327680, 0, 0, -327670, 0, 0, -327660, 0, 0, -196619, 0, 0, -262144, 0, 0, -262143, 0, 0, -262133, 0, 0, -262123, 0, 0, -131084, 0, 0, -131080, 0, 0, -131079, 0, 0, -196607, 0, 0, -196606, 0, 0, -196596, 0, 0, -196588, 0, 0, -65553, 0, 0, -65549, 0, 0, -65545, 0, 0, -65544, 0, 0, -65543, 0, 0, -65542, 0, 0, -131070, 0, 0, -131069, 0, 0, -131061, 0, 0, -131053, 0, 0, -18, 0, 0, -16, 0, 0, -14, 0, 0, -10, 0, 0, -6, 0, 0, -5, 0, 0, -65533, 0, 0, -65532, 0, 0, -65526, 0, 0, -65522, 0, 0, -65518, 0, 0, 65517, 0, 0, 65521, 0, 0, 65525, 0, 0, 65531, 0, 0, 65532, 0, 0, 4, 0, 0, 5, 0, 0, 9, 0, 0, 13, 0, 0, 15, 0, 0, 17, 0, 0, 131052, 0, 0, 131060, 0, 0, 131068, 0, 0, 131069, 0, 0, 65541, 0, 0, 65542, 0, 0, 65544, 0, 0, 65548, 0, 0, 65552, 0, 0, 196587, 0, 0, 196595, 0, 0, 196605, 0, 0, 196606, 0, 0, 131078, 0, 0, 131079, 0, 0, 131083, 0, 0, 262122, 0, 0, 262132, 0, 0, 262142, 0, 0, 262143, 0, 0, 196618, 0, 0, 327659, 0, 0, 327669, 0, 0, 327679, 0, 0, 262144, 0, 0, 262153, 0, 0, 393196, 0, 0, 393204, 0, 0, 327680, 0, 0, 327681, 0, 0, 327689, 0, 0, 327690, 0, 0, 458733, 0, 0, 393217, 0, 0, 393218, 0, 0, 393226, 0, 0, 524270, 0, 0, 458754, 0, 0, 458763, 0, 0, 589807, 0, 0, 589809, 0, 0, 524289, 0, 0, 524298, 0, 0, 655344, 0, 0, 589824, 0, 0, 589828, 0, 0, 589829, 0, 0, 589833, 0, 0, 589834, 0, 0, 720891, 0, 0, 720895, 0, 0, 655363, 0, 0, 655365, 0, 0, 655366, 0, 0, 655368, 0, 0, 655369, 0, 0, 655370, 0, 0, 655371, 0, 0, 786426, 0, 0, 786428, 0, 0, 786430, 0, 0, 720898, 0, 0, 720903, 0, 0, 720906, 0, 0, 720907, 0, 0, 720908, 0, 0, 851961, 0, 0, 851965, 0, 0, 786433, 0, 0, 786443, 0, 0, 786444, 0, 0, 786445, 0, 0, 917496, 0, 0, 851968, 0, 0, 851980, 0, 0, 851981, 0, 0, 983031, 0, 0, 983039, 0, 0, 917518, 0, 0, 1048566, 0, 0, 983040, 0, 0, 1114103, 0, 0, 1048577, 0, 0, 1179640, 0, 0, 1114112, 0, 0, 1245177, 0, 0, 1310714, 0, 0, 1376251, 0, 0, 1376253, 0, 0, 1441788, 0, 0 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -95,16 +99,16 @@ last_string = "GO!!"
 [node name="Spawns" type="Node2D" parent="."]
 
 [node name="Player_Spawn_1" type="Node2D" parent="Spawns"]
-position = Vector2( 1856, -160 )
+position = Vector2( 1504, -568 )
 
 [node name="Player_Spawn_2" type="Node2D" parent="Spawns"]
-position = Vector2( -552, 1848 )
+position = Vector2( -1516, 168 )
 
 [node name="Player_Spawn_3" type="Node2D" parent="Spawns"]
-position = Vector2( 656, -1376 )
+position = Vector2( 528, -1780 )
 
 [node name="Player_Spawn_4" type="Node2D" parent="Spawns"]
-position = Vector2( -1840, 560 )
+position = Vector2( -260, 1484 )
 
 [node name="Weapons" type="Node2D" parent="."]
 
@@ -134,24 +138,57 @@ position = Vector2( 640, -1344 )
 
 [node name="Background" type="Node2D" parent="."]
 show_behind_parent = true
-scale = Vector2( 1.2, 1.2 )
+position = Vector2( 203.877, 113.265 )
 z_index = -1000
+
+[node name="star_back" type="Sprite" parent="Background"]
+position = Vector2( 2220.35, 1233.15 )
+texture = ExtResource( 14 )
+script = ExtResource( 15 )
+camera_path = NodePath("../../Camera")
+
+[node name="star_back3" type="Sprite" parent="Background"]
+position = Vector2( -5006.56, 1313.79 )
+texture = ExtResource( 14 )
+script = ExtResource( 15 )
+camera_path = NodePath("../../Camera")
+
+[node name="star_back4" type="Sprite" parent="Background"]
+position = Vector2( -5075.21, -1921.42 )
+texture = ExtResource( 14 )
+script = ExtResource( 15 )
+camera_path = NodePath("../../Camera")
+
+[node name="star_back2" type="Sprite" parent="Background"]
+position = Vector2( 2212.89, -1978.37 )
+texture = ExtResource( 14 )
+script = ExtResource( 15 )
+camera_path = NodePath("../../Camera")
+
+[node name="eartch" type="Sprite" parent="Background"]
+light_mask = 2
+position = Vector2( 1823.49, -142.397 )
+rotation = -1.5708
+texture = ExtResource( 17 )
+script = ExtResource( 15 )
+motion_scale = Vector2( 0.8, 0.8 )
+camera_path = NodePath("../../Camera")
 
 [node name="Spikes" type="Node2D" parent="."]
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2( 14, -2 )
 current = true
-zoom = Vector2( 5.9, 5.9 )
+zoom = Vector2( 7.5, 7.5 )
 limit_left = -3000
 limit_top = -2300
 limit_right = 3000
-limit_bottom = 1600
+limit_bottom = 2300
 smoothing_enabled = true
 smoothing_speed = 10.0
 editor_draw_limits = true
 script = ExtResource( 4 )
-max_zoom = 5.9
+max_zoom = 7.5
 
 [node name="FPS" type="Label" parent="Camera"]
 visible = false
@@ -163,20 +200,104 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Door" type="Node2D" parent="."]
+[node name="Ship" type="Node2D" parent="."]
+z_index = -1
 
-[node name="Door2" parent="Door" instance=ExtResource( 6 )]
-position = Vector2( -360, -832 )
-rotation = -0.843878
+[node name="Base" type="StaticBody2D" parent="Ship"]
 
-[node name="Door3" parent="Door" instance=ExtResource( 6 )]
-position = Vector2( 840, 360 )
-rotation = 2.3009
+[node name="Sprite" type="Sprite" parent="Ship/Base"]
+position = Vector2( 103.712, 108.893 )
+scale = Vector2( -1.06914, 1.0726 )
+texture = ExtResource( 13 )
 
-[node name="Door4" parent="Door" instance=ExtResource( 6 )]
-position = Vector2( -808, -376 )
-rotation = 5.44255
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ship/Base"]
+polygon = PoolVector2Array( 465.331, 980.42, 942.203, 978.042, 1001.66, 911.446, 989.771, 489.278, 976.69, 464.964, 1097.99, 359.124, 1151.5, 394.801, 1183.61, 866.82, 1288.26, 1032.12, 1015.93, 1243.8, 892.256, 1174.82, 800.687, 1158.18, 397.546, 1151.04, 370.194, 1080.88 )
 
-[node name="Door" parent="Door" instance=ExtResource( 6 )]
-position = Vector2( 328, 864 )
-rotation = -0.855725
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Ship/Base"]
+polygon = PoolVector2Array( 275.644, 776.973, 287.344, 720.222, 273.074, 670.275, -345.314, 29.3473, -164.555, 31.7257, -162.176, -59.8433, -435.694, -58.6541, -683.94, -314.031, -733.965, -321.582, -773.608, -305.536, -806.837, -284.581, 207.068, 734.797 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Ship/Base"]
+polygon = PoolVector2Array( -990.981, -499.052, -980.969, -547.107, -1072.41, -796.722, -1078.41, -849.448, -1043.71, -899.504, -857.497, -1097.26, -843.481, -1102.6, -582.52, -993.139, -529.739, -978.455, -490.361, -987.799, -461.662, -1002.48, -501.04, -1042.53, -548.427, -1045.86, -838.31, -1163.33, -1188.71, -1248.76, -1284.81, -1154.65, -1196.71, -971.114, -1166.68, -847.641, -1056.56, -547.126, -1009.84, -503.077 )
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Ship/Base"]
+polygon = PoolVector2Array( -279.522, -793.705, -273.695, -710.537, -208.008, -643.261, 364.891, -76.8925, 358.541, -67.3681, 172.815, -66.5744, 175.196, 39.7815, 286.315, 41.3689, 478.879, 39.7815, 675.717, 262.57, 709.052, 284.794, 750.324, 283.207, 790.01, 253.046, 748.737, 207.011, 724.132, 195.106, -252.887, -782.889 )
+
+[node name="Room1" type="StaticBody2D" parent="Ship"]
+position = Vector2( 1500, -200 )
+
+[node name="Sprite" type="Sprite" parent="Ship/Room1"]
+position = Vector2( -7.50244, -30.7275 )
+rotation = -1.5708
+texture = ExtResource( 12 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ship/Room1"]
+polygon = PoolVector2Array( -527.702, 663.229, -222.577, 378.233, -74.2522, 207.659, 324.884, 208.719, 544.193, 5.60358, 535.717, -381.1, 338.657, -572.863, -38.5122, -577.101, -249.345, -383.219, -266.297, 20.436, -712.281, 452.008, -751.83, 412.983, -351.353, 10.798, -370.423, -369.425, -62.1191, -677.729, 337.116, -676.812, 628.747, -386.376, 648, 7, 344.811, 330.44, 178.495, 308.115, -64.1655, 315.142, -474.154, 708.669 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Ship/Room1"]
+polygon = PoolVector2Array( 91.4736, -379.033, 93.5948, -231.955, -54.1904, -228.419, -53.4834, -142.152, 100.666, -142.859, 95.7162, 18.3612, 191.176, 19.7754, 194.711, -140.738, 334.718, -142.859, 332.597, -227.712, 201.075, -226.298, 193.297, -380.447 )
+
+[node name="Room2" type="StaticBody2D" parent="Ship"]
+position = Vector2( 248.954, -1455.8 )
+
+[node name="Sprite" type="Sprite" parent="Ship/Room2"]
+position = Vector2( -7.50244, -30.7275 )
+rotation = -1.5708
+texture = ExtResource( 12 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ship/Room2"]
+polygon = PoolVector2Array( -527.702, 663.229, -222.577, 378.233, -74.2522, 207.659, 324.884, 208.719, 544.193, 5.60358, 535.717, -381.1, 338.657, -572.863, -38.5122, -577.101, -249.345, -383.219, -266.297, 20.436, -712.281, 452.008, -751.83, 412.983, -351.353, 10.798, -370.423, -369.425, -62.1191, -677.729, 337.116, -676.812, 628.747, -386.376, 648, 7, 344.811, 330.44, 178.495, 308.115, -64.1655, 315.142, -474.154, 708.669 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Ship/Room2"]
+polygon = PoolVector2Array( 91.4736, -379.033, 93.5948, -231.955, -54.1904, -228.419, -53.4834, -142.152, 100.666, -142.859, 95.7162, 18.3612, 191.176, 19.7754, 194.711, -140.738, 334.718, -142.859, 332.597, -227.712, 201.075, -226.298, 193.297, -380.447 )
+
+[node name="Room3" type="StaticBody2D" parent="Ship"]
+position = Vector2( -1518.1, 166.06 )
+rotation = 3.14159
+
+[node name="Sprite" type="Sprite" parent="Ship/Room3"]
+position = Vector2( -7.50244, -30.7275 )
+rotation = -1.5708
+texture = ExtResource( 12 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ship/Room3"]
+polygon = PoolVector2Array( -527.702, 663.229, -222.577, 378.233, -74.2522, 207.659, 324.884, 208.719, 544.193, 5.60358, 535.717, -381.1, 338.657, -572.863, -38.5122, -577.101, -249.345, -383.219, -266.297, 20.436, -712.281, 452.008, -751.83, 412.983, -351.353, 10.798, -370.423, -369.425, -62.1191, -677.729, 337.116, -676.812, 628.747, -386.376, 648, 7, 344.811, 330.44, 178.495, 308.115, -64.1655, 315.142, -474.154, 708.669 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Ship/Room3"]
+polygon = PoolVector2Array( 91.4736, -379.033, 93.5948, -231.955, -54.1904, -228.419, -53.4834, -142.152, 100.666, -142.859, 95.7162, 18.3612, 191.176, 19.7754, 194.711, -140.738, 334.718, -142.859, 332.597, -227.712, 201.075, -226.298, 193.297, -380.447 )
+
+[node name="Room4" type="StaticBody2D" parent="Ship"]
+position = Vector2( -250.789, 1440.3 )
+rotation = 3.14159
+
+[node name="Sprite" type="Sprite" parent="Ship/Room4"]
+position = Vector2( -7.50244, -30.7275 )
+rotation = -1.5708
+texture = ExtResource( 12 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ship/Room4"]
+polygon = PoolVector2Array( -527.702, 663.229, -222.577, 378.233, -74.2522, 207.659, 324.884, 208.719, 544.193, 5.60358, 535.717, -381.1, 338.657, -572.863, -38.5122, -577.101, -249.345, -383.219, -266.297, 20.436, -712.281, 452.008, -751.83, 412.983, -351.353, 10.798, -370.423, -369.425, -62.1191, -677.729, 337.116, -676.812, 628.747, -386.376, 648, 7, 344.811, 330.44, 178.495, 308.115, -64.1655, 315.142, -474.154, 708.669 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Ship/Room4"]
+polygon = PoolVector2Array( 91.4736, -379.033, 93.5948, -231.955, -54.1904, -228.419, -53.4834, -142.152, 100.666, -142.859, 95.7162, 18.3612, 191.176, 19.7754, 194.711, -140.738, 334.718, -142.859, 332.597, -227.712, 201.075, -226.298, 193.297, -380.447 )
+
+[node name="Doors" type="Node2D" parent="Ship"]
+
+[node name="Door" parent="Ship/Doors" instance=ExtResource( 6 )]
+position = Vector2( 385.146, 849.713 )
+rotation = -0.768354
+scale = Vector2( 0.7, 1.3 )
+
+[node name="Door2" parent="Ship/Doors" instance=ExtResource( 6 )]
+position = Vector2( 870.891, 397.304 )
+rotation = -0.768354
+scale = Vector2( 0.7, 1.3 )
+
+[node name="Door3" parent="Ship/Doors" instance=ExtResource( 6 )]
+position = Vector2( -371.626, -869.76 )
+rotation = 2.37365
+scale = Vector2( 0.7, 1.3 )
+
+[node name="Door4" parent="Ship/Doors" instance=ExtResource( 6 )]
+position = Vector2( -876.135, -417.775 )
+rotation = 2.37365
+scale = Vector2( 0.7, 1.3 )
