@@ -12,7 +12,7 @@ signal round_ended
 signal new_round_started
 signal new_set_started
 
-var low_graphic_levels = ["Level_3", "Level_8", "Level_9", "Level_11"]
+var low_graphic_levels = ["Level_3", "Level_8", "Level_9", "Level_10"]
 
 var save_file_name = "user://options.json"
 var options = {
@@ -37,7 +37,7 @@ var one_player_mode = false
 var joypad_ids = []
 var player_infos = []
 
-var test_mode = true
+var test_mode = false
 #var test_level = "res://Scenes/Levels/Level_3/Level.tscn"
 var test_level = "res://Scenes/Levels/Level_9/Level.tscn"
 
