@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/reload_shotgun.wav-370ac8933682d9ee1eb1b236026e7914.sample"
+
+[deps]
+
+source_file="res://Sounds/Effects/Weapons/reload_shotgun.wav"
+dest_files=[ "res://.import/reload_shotgun.wav-370ac8933682d9ee1eb1b236026e7914.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

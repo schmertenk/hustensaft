@@ -142,29 +142,29 @@ texture = ExtResource( 15 )
 
 [node name="Weapons" type="Node2D" parent="."]
 
+[node name="Pistol_Dummy" parent="Weapons" instance=ExtResource( 18 )]
+position = Vector2( 633.355, 920.63 )
+
+[node name="G_L_Dummy" parent="Weapons" instance=ExtResource( 2 )]
+position = Vector2( 817.303, 902.99 )
+
+[node name="Pistol_Dummy2" parent="Weapons" instance=ExtResource( 5 )]
+position = Vector2( -523.252, 1928.92 )
+
+[node name="Pistol_Dummy3" parent="Weapons" instance=ExtResource( 5 )]
+position = Vector2( 1744.38, -57.3329 )
+
+[node name="Pistol_Dummy4" parent="Weapons" instance=ExtResource( 5 )]
+position = Vector2( 507.145, -1311.25 )
+
+[node name="Pistol_Dummy5" parent="Weapons" instance=ExtResource( 5 )]
+position = Vector2( -1761.68, 671.562 )
+
 [node name="Needler_Dummy" parent="Weapons" instance=ExtResource( 7 )]
 position = Vector2( 205.629, -126.759 )
 
 [node name="Shot_Gunl_Dummy" parent="Weapons" instance=ExtResource( 9 )]
 position = Vector2( -307.987, -126.5 )
-
-[node name="Pistol_Dummy" parent="Weapons/Shot_Gunl_Dummy" instance=ExtResource( 18 )]
-position = Vector2( 941.342, 1047.13 )
-
-[node name="G_L_Dummy" parent="Weapons/Shot_Gunl_Dummy" instance=ExtResource( 2 )]
-position = Vector2( 1125.29, 1029.49 )
-
-[node name="Pistol_Dummy2" parent="Weapons/Shot_Gunl_Dummy" instance=ExtResource( 5 )]
-position = Vector2( -215.265, 2055.42 )
-
-[node name="Pistol_Dummy3" parent="Weapons/Shot_Gunl_Dummy" instance=ExtResource( 5 )]
-position = Vector2( 2052.37, 69.1671 )
-
-[node name="Pistol_Dummy4" parent="Weapons/Shot_Gunl_Dummy" instance=ExtResource( 5 )]
-position = Vector2( 815.132, -1184.75 )
-
-[node name="Pistol_Dummy5" parent="Weapons/Shot_Gunl_Dummy" instance=ExtResource( 5 )]
-position = Vector2( -1453.69, 798.062 )
 
 [node name="Spikes" type="Node2D" parent="."]
 

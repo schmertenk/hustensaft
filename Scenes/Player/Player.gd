@@ -212,19 +212,25 @@ func handle_animations():
 	if walk_button_pressed && is_on_floor():
 		var walk_r = velocity.x > 0
 		if look_r && walk_r:
+			$Particles2D.emitting = false
 			$Movement_Animation_Player.play("walk_r_" + color_char)
 		elif !look_r && !walk_r:
+			$Particles2D.emitting = false
 			$Movement_Animation_Player.play("walk_l_" + color_char)
 		elif look_r && !walk_r:
+			$Particles2D.emitting = false
 			$Movement_Animation_Player.play("walk_r_back_" + color_char)
 		elif !look_r && walk_r:
+			$Particles2D.emitting = false
 			$Movement_Animation_Player.play("walk_l_back_" + color_char)
 	elif in_jump:
+		$Particles2D.emitting = true
 		if look_r:
 			$Movement_Animation_Player.play("jump_r_" + color_char)
 		else:
 			$Movement_Animation_Player.play("jump_l_" + color_char)
 	elif !walk_button_pressed:
+		$Particles2D.emitting = false
 		if look_r:
 			$Movement_Animation_Player.play("idle_r_" + color_char)
 		else:

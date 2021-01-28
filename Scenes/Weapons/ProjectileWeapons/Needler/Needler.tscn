@@ -11,6 +11,7 @@ flesh_multiplier = 1.0
 continues = true
 rigid_dummy_path = "res://Scenes/Weapons/ProjectileWeapons/Needler/Needler_Dummy.tscn"
 fire_rate = 50.0
+shoot_sound_name = "needler_shot"
 projectile_path = "res://Scenes/Weapons/Projectiles/RayProjectiles/Needle.tscn"
 projectile_speed = 25.0
 spray = 0.25

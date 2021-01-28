@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/needler_whistle.wav-4a767ff43841466a80f1df21537da1f4.sample"
+
+[deps]
+
+source_file="res://Sounds/Effects/Weapons/needler_whistle.wav"
+dest_files=[ "res://.import/needler_whistle.wav-4a767ff43841466a80f1df21537da1f4.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

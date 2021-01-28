@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Images/floor.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Weapons/ProjectileWeapons/Sticky_Granade_Launcher/G_L_Dummy.tscn" type="PackedScene" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Images/Level_9/station room.png" type="Texture" id=12]
 [ext_resource path="res://Images/Level_9/station base.png" type="Texture" id=13]
 [ext_resource path="res://Images/Level_2/Background/star_back.jpg" type="Texture" id=14]
+[ext_resource path="res://Images/Level_9/gal.png" type="Texture" id=15]
 [ext_resource path="res://Scenes/TransitionMask.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Images/Level_9/eartch.png" type="Texture" id=17]
 [ext_resource path="res://Scenes/Weapons/ProjectileWeapons/Machine_Gun/M_G_Dummy.tscn" type="PackedScene" id=18]
@@ -119,14 +120,25 @@ z_index = -1000
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="Background"]
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="Background/ParallaxBackground"]
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="Background/ParallaxBackground"]
 position = Vector2( -5886.68, -3412.32 )
 motion_scale = Vector2( 0, 0 )
 motion_mirroring = Vector2( 8000, 4000 )
 
-[node name="star_back" type="Sprite" parent="Background/ParallaxBackground/ParallaxLayer"]
+[node name="star_back" type="Sprite" parent="Background/ParallaxBackground/ParallaxLayer3"]
 position = Vector2( 2424.23, 1346.42 )
 texture = ExtResource( 14 )
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Background/ParallaxBackground"]
+position = Vector2( -5886.68, -3412.32 )
+motion_scale = Vector2( 0, 0 )
+
+[node name="gal" type="Sprite" parent="Background/ParallaxBackground/ParallaxLayer"]
+modulate = Color( 1, 1, 1, 0.952941 )
+position = Vector2( 4058.91, 3008.11 )
+rotation = -0.369063
+scale = Vector2( 1.14656, 0.898599 )
+texture = ExtResource( 15 )
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="Background/ParallaxBackground"]
 motion_scale = Vector2( 0.2, 0.2 )
@@ -140,29 +152,29 @@ texture = ExtResource( 17 )
 
 [node name="Weapons" type="Node2D" parent="."]
 
+[node name="Pistol_Dummy" parent="Weapons" instance=ExtResource( 18 )]
+position = Vector2( 633.355, 920.63 )
+
+[node name="G_L_Dummy" parent="Weapons" instance=ExtResource( 2 )]
+position = Vector2( 817.303, 902.99 )
+
+[node name="Pistol_Dummy2" parent="Weapons" instance=ExtResource( 5 )]
+position = Vector2( -523.252, 1928.92 )
+
+[node name="Pistol_Dummy3" parent="Weapons" instance=ExtResource( 5 )]
+position = Vector2( 1744.38, -57.3329 )
+
+[node name="Pistol_Dummy4" parent="Weapons" instance=ExtResource( 5 )]
+position = Vector2( 507.145, -1311.25 )
+
+[node name="Pistol_Dummy5" parent="Weapons" instance=ExtResource( 5 )]
+position = Vector2( -1761.68, 671.562 )
+
 [node name="Needler_Dummy" parent="Weapons" instance=ExtResource( 7 )]
 position = Vector2( 205.629, -126.759 )
 
 [node name="Shot_Gunl_Dummy" parent="Weapons" instance=ExtResource( 9 )]
 position = Vector2( -307.987, -126.5 )
-
-[node name="Pistol_Dummy" parent="Weapons/Shot_Gunl_Dummy" instance=ExtResource( 18 )]
-position = Vector2( 941.342, 1047.13 )
-
-[node name="G_L_Dummy" parent="Weapons/Shot_Gunl_Dummy" instance=ExtResource( 2 )]
-position = Vector2( 1125.29, 1029.49 )
-
-[node name="Pistol_Dummy2" parent="Weapons/Shot_Gunl_Dummy" instance=ExtResource( 5 )]
-position = Vector2( -215.265, 2055.42 )
-
-[node name="Pistol_Dummy3" parent="Weapons/Shot_Gunl_Dummy" instance=ExtResource( 5 )]
-position = Vector2( 2052.37, 69.1671 )
-
-[node name="Pistol_Dummy4" parent="Weapons/Shot_Gunl_Dummy" instance=ExtResource( 5 )]
-position = Vector2( 815.132, -1184.75 )
-
-[node name="Pistol_Dummy5" parent="Weapons/Shot_Gunl_Dummy" instance=ExtResource( 5 )]
-position = Vector2( -1453.69, 798.062 )
 
 [node name="Spikes" type="Node2D" parent="."]
 

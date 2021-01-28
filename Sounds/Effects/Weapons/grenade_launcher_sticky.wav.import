@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/grenade_launcher_sticky.wav-2ea8e876995e7db3cac9617678d58d89.sample"
+
+[deps]
+
+source_file="res://Sounds/Effects/Weapons/grenade_launcher_sticky.wav"
+dest_files=[ "res://.import/grenade_launcher_sticky.wav-2ea8e876995e7db3cac9617678d58d89.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

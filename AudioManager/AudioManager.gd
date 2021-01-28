@@ -16,16 +16,18 @@ export var sound_dictionary = {
 	"lvl_8_bgm" : ["res://Sounds/Music/backing_lvl_8.ogg", "BGM", 1],
 	
 	#WEAPONS
-	"laser_shot" : ["res://Sounds/Effects/Weapons/Laser_Shoot.wav", "SE", 1],
-	"pistol_shot" : ["res://Sounds/Effects/Weapons/gunshot.wav", "SE", 1	],
-	"shotgun_shot" : ["res://Sounds/Effects/Weapons/Shotgun.wav", "SE", 1],
-	"grenade_launcher_shot" : ["res://Sounds/Effects/Weapons/grenade_launcher_1.wav", "SE", 1],
-	"sticky_grenade_launcher_shot" : ["res://Sounds/Effects/Weapons/grenade_launcher_2.wav", "SE", 1],
-	"flame_thrower_shot" : ["res://Sounds/Effects/Weapons/flame_sound.wav", "SE", 1],
+	"laser_shot" : ["res://Sounds/Effects/Weapons/laser_gun.wav", "SE", 1],
+	"pistol_shot" : ["res://Sounds/Effects/Weapons/pistol.wav", "SE", 1	],
+	"mp_shot" : ["res://Sounds/Effects/Weapons/machine_gun.wav", "SE", 1	],
+	"shotgun_shot" : ["res://Sounds/Effects/Weapons/shotgun.wav", "SE", 1],
+	"grenade_launcher_shot" : ["res://Sounds/Effects/Weapons/grenade_launcher.wav", "SE", 1],
+	"sticky_grenade_launcher_shot" : ["res://Sounds/Effects/Weapons/grenade_launcher_sticky.wav", "SE", 1],
+	"flame_thrower_shot" : ["res://Sounds/Effects/Weapons/flamethrower.wav", "SE", 1],
+	"needler_shot" : ["res://Sounds/Effects/Weapons/needler_whistle.wav", "SE", 1],
 	
-	"weapon_reload": ["res://Sounds/Effects/Weapons/reload.wav","SE", 2],
+	"weapon_reload": ["res://Sounds/Effects/Weapons/reload_generic.wav","SE", 2],
 	
-	"medium_explosion" : ["res://Sounds/Effects/Explosions/explosion_grenade_1.wav", "SE", 1],
+	"medium_explosion" : ["res://Sounds/Effects/Explosions/explosion.wav", "SE", 1],
 	
 	#MENUES	
 	"button_press" : ["res://Sounds/Effects/Menue/menu_button_select.wav", "SE", 1],

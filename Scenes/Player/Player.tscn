@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://Images/Characters/w/walk.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Player/Player.gd" type="Script" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://Images/beam/beam_1.png" type="Texture" id=13]
 [ext_resource path="res://Images/beam/beam_2.png" type="Texture" id=14]
 [ext_resource path="res://Images/beam/beam_4.png" type="Texture" id=15]
+[ext_resource path="res://Images/smoke_particle.png" type="Texture" id=16]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 94.3937, 77.4897 )
@@ -430,6 +431,30 @@ tracks/7/keys = {
 "update": 0,
 "values": [ Vector2( -32.0341, -9.04061 ) ]
 }
+tracks/8/type = "value"
+tracks/8/path = NodePath("Particles2D:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 40.9813, 34.2996 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Particles2D:emitting")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=7]
 tracks/0/type = "value"
@@ -527,6 +552,30 @@ tracks/7/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( 0.8, 0.8 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Particles2D:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -42.7631, 32.5178 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Particles2D:emitting")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=8]
@@ -905,6 +954,39 @@ frame_3/delay_sec = 0.0
 frame_4/texture = ExtResource( 11 )
 frame_4/delay_sec = 0.0
 
+[sub_resource type="Curve" id=24]
+min_value = -360.0
+max_value = 360.0
+_data = [ Vector2( 0, -314.458 ), 0.0, 1245.21, 0, 0, Vector2( 1, 360 ), -255.584, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=25]
+curve = SubResource( 24 )
+
+[sub_resource type="Gradient" id=19]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0.552941 )
+
+[sub_resource type="GradientTexture" id=20]
+gradient = SubResource( 19 )
+
+[sub_resource type="Curve" id=21]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.615854, 0.969496 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.0331327 ), -2.60909, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=22]
+curve = SubResource( 21 )
+
+[sub_resource type="ParticlesMaterial" id=23]
+flag_disable_z = true
+gravity = Vector3( 0, 98, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle = -360.0
+angle_random = 1.0
+angle_curve = SubResource( 25 )
+scale = 0.7
+scale_random = 0.3
+scale_curve = SubResource( 22 )
+color_ramp = SubResource( 20 )
+
 [node name="Player" type="KinematicBody2D"]
 light_mask = 524289
 script = ExtResource( 2 )
@@ -920,7 +1002,7 @@ texture_scale = 2.5
 mode = 2
 
 [node name="Arm" type="Sprite" parent="."]
-position = Vector2( -28.7735, -4.79238 )
+position = Vector2( -32.0341, -9.04061 )
 scale = Vector2( -0.8, 0.8 )
 texture = ExtResource( 7 )
 offset = Vector2( 26, 7 )
@@ -928,11 +1010,12 @@ offset = Vector2( 26, 7 )
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -38.113 )
 scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 5 )
-offset = Vector2( 8, 8 )
+texture = ExtResource( 6 )
+offset = Vector2( 24, 8 )
 flip_h = true
 vframes = 2
 hframes = 15
+frame = 14
 
 [node name="PickupBox" type="Area2D" parent="."]
 position = Vector2( 0, 53.207 )
@@ -943,8 +1026,9 @@ shape = SubResource( 1 )
 
 [node name="Armor_Indicator" type="Sprite" parent="."]
 visible = false
+self_modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 6.03767, -20.3771 )
-scale = Vector2( 1.2, 1.3 )
+scale = Vector2( 1.25, 1.35 )
 texture = ExtResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -1001,5 +1085,14 @@ texture_mode = 2
 
 [node name="Timer" type="Timer" parent="Beam"]
 wait_time = 0.3
+
+[node name="Particles2D" type="Particles2D" parent="."]
+position = Vector2( 47.6631, 17.3725 )
+amount = 10
+visibility_rect = Rect2( -1000, -1000, 2000, 2000 )
+local_coords = false
+draw_order = 1
+process_material = SubResource( 23 )
+texture = ExtResource( 16 )
 [connection signal="body_entered" from="PickupBox" to="." method="_on_PickupBox_body_entered"]
 [connection signal="body_exited" from="PickupBox" to="." method="_on_PickupBox_body_exited"]

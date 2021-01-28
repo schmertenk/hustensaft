@@ -60,17 +60,20 @@ script = ExtResource( 2 )
 
 [node name="Select_Button" parent="VBoxContainer/CenterContainer/HBoxContainer" instance=ExtResource( 4 )]
 default_selected = true
+value = 0.0
 button_text = "Gameplay"
 
 [node name="Select_Button2" parent="VBoxContainer/CenterContainer/HBoxContainer" instance=ExtResource( 4 )]
 margin_left = 250.0
 margin_right = 400.0
+default_selected = false
 value = 1.0
 button_text = "Audio"
 
 [node name="Select_Button3" parent="VBoxContainer/CenterContainer/HBoxContainer" instance=ExtResource( 4 )]
 margin_left = 500.0
 margin_right = 650.0
+default_selected = false
 value = 2.0
 button_text = "Video"
 
@@ -114,6 +117,7 @@ script = ExtResource( 2 )
 margin_right = 50.0
 rect_min_size = Vector2( 50, 50 )
 text = "off"
+default_selected = false
 value = 1.0
 button_text = "1"
 
@@ -122,6 +126,7 @@ margin_left = 54.0
 margin_right = 104.0
 rect_min_size = Vector2( 50, 50 )
 text = "off"
+default_selected = false
 value = 2.0
 button_text = "2"
 
@@ -130,6 +135,7 @@ margin_left = 108.0
 margin_right = 158.0
 rect_min_size = Vector2( 50, 50 )
 text = "off"
+default_selected = false
 value = 3.0
 button_text = "3"
 
@@ -155,6 +161,7 @@ margin_left = 216.0
 margin_right = 266.0
 rect_min_size = Vector2( 50, 50 )
 text = "off"
+default_selected = false
 value = 5.0
 button_text = "5"
 
@@ -170,6 +177,7 @@ margin_left = 270.0
 margin_right = 320.0
 rect_min_size = Vector2( 50, 50 )
 text = "off"
+default_selected = false
 value = 6.0
 button_text = "6"
 
@@ -185,6 +193,7 @@ margin_left = 324.0
 margin_right = 374.0
 rect_min_size = Vector2( 50, 50 )
 text = "off"
+default_selected = false
 value = 7.0
 button_text = "7"
 
@@ -200,6 +209,7 @@ margin_left = 378.0
 margin_right = 428.0
 rect_min_size = Vector2( 50, 50 )
 text = "off"
+default_selected = false
 value = 8.0
 button_text = "8"
 
@@ -236,6 +246,7 @@ script = ExtResource( 2 )
 margin_right = 50.0
 rect_min_size = Vector2( 50, 50 )
 text = "off"
+default_selected = false
 value = 1.0
 button_text = "1"
 
@@ -253,6 +264,7 @@ margin_left = 108.0
 margin_right = 158.0
 rect_min_size = Vector2( 50, 50 )
 text = "off"
+default_selected = false
 value = 3.0
 button_text = "3"
 
@@ -270,6 +282,7 @@ margin_left = 216.0
 margin_right = 266.0
 rect_min_size = Vector2( 50, 50 )
 text = "off"
+default_selected = false
 value = 5.0
 button_text = "5"
 
@@ -278,6 +291,7 @@ margin_left = 270.0
 margin_right = 320.0
 rect_min_size = Vector2( 50, 50 )
 text = "off"
+default_selected = false
 value = 6.0
 button_text = "6"
 
@@ -286,6 +300,7 @@ margin_left = 324.0
 margin_right = 374.0
 rect_min_size = Vector2( 50, 50 )
 text = "off"
+default_selected = false
 value = 7.0
 button_text = "7"
 
@@ -294,6 +309,7 @@ margin_left = 378.0
 margin_right = 428.0
 rect_min_size = Vector2( 50, 50 )
 text = "off"
+default_selected = false
 value = 8.0
 button_text = "8"
 
@@ -327,12 +343,14 @@ script = ExtResource( 2 )
 [node name="Select_Button" parent="VBoxContainer/Pages/Video/Fullscreen/HBoxContainer" instance=ExtResource( 4 )]
 text = "on"
 default_selected = true
+value = 0.0
 button_text = "off"
 
 [node name="Select_Button2" parent="VBoxContainer/Pages/Video/Fullscreen/HBoxContainer" instance=ExtResource( 4 )]
 margin_left = 154.0
 margin_right = 304.0
 text = "off"
+default_selected = false
 value = 1.0
 button_text = "on"
 
@@ -361,12 +379,14 @@ script = ExtResource( 2 )
 [node name="Select_Button" parent="VBoxContainer/Pages/Video/Graphic/HBoxContainer" instance=ExtResource( 4 )]
 text = "on"
 default_selected = true
+value = 0.0
 button_text = "shitty"
 
 [node name="Select_Button2" parent="VBoxContainer/Pages/Video/Graphic/HBoxContainer" instance=ExtResource( 4 )]
 margin_left = 154.0
 margin_right = 304.0
 text = "off"
+default_selected = false
 value = 1.0
 button_text = "okay"
 
@@ -402,7 +422,8 @@ script = ExtResource( 2 )
 margin_right = 50.0
 rect_min_size = Vector2( 50, 50 )
 text = "off"
-value = -61.0
+default_selected = false
+value = -80.0
 button_text = "off"
 
 [node name="Select_Button3" parent="VBoxContainer/Pages/Audio/FX_Volume/HBoxContainer" instance=ExtResource( 4 )]
@@ -410,6 +431,7 @@ margin_left = 54.0
 margin_right = 104.0
 rect_min_size = Vector2( 50, 50 )
 text = "off"
+default_selected = false
 value = -43.0
 button_text = "1"
 
@@ -418,6 +440,7 @@ margin_left = 108.0
 margin_right = 158.0
 rect_min_size = Vector2( 50, 50 )
 text = "off"
+default_selected = false
 value = -35.0
 button_text = "2"
 
@@ -426,6 +449,7 @@ margin_left = 162.0
 margin_right = 212.0
 rect_min_size = Vector2( 50, 50 )
 text = "off"
+default_selected = false
 value = -20.0
 button_text = "3"
 
@@ -434,6 +458,7 @@ margin_left = 216.0
 margin_right = 266.0
 rect_min_size = Vector2( 50, 50 )
 text = "off"
+default_selected = false
 value = -10.0
 button_text = "4"
 
@@ -442,6 +467,7 @@ margin_left = 270.0
 margin_right = 320.0
 rect_min_size = Vector2( 50, 50 )
 text = "off"
+default_selected = false
 value = -5.0
 button_text = "5"
 
@@ -450,6 +476,7 @@ margin_left = 324.0
 margin_right = 374.0
 rect_min_size = Vector2( 50, 50 )
 text = "off"
+default_selected = false
 value = -2.0
 button_text = "6"
 
@@ -459,6 +486,7 @@ margin_right = 428.0
 rect_min_size = Vector2( 50, 50 )
 text = "off"
 default_selected = true
+value = 0.0
 button_text = "7"
 
 [node name="BM_Volume" type="HBoxContainer" parent="VBoxContainer/Pages/Audio"]
@@ -487,7 +515,8 @@ script = ExtResource( 2 )
 margin_right = 50.0
 rect_min_size = Vector2( 50, 50 )
 text = "off"
-value = -61.0
+default_selected = false
+value = -80.0
 button_text = "off"
 
 [node name="Select_Button3" parent="VBoxContainer/Pages/Audio/BM_Volume/HBoxContainer" instance=ExtResource( 4 )]
@@ -495,6 +524,7 @@ margin_left = 54.0
 margin_right = 104.0
 rect_min_size = Vector2( 50, 50 )
 text = "off"
+default_selected = false
 value = -43.0
 button_text = "1"
 
@@ -503,6 +533,7 @@ margin_left = 108.0
 margin_right = 158.0
 rect_min_size = Vector2( 50, 50 )
 text = "off"
+default_selected = false
 value = -35.0
 button_text = "2"
 
@@ -511,6 +542,7 @@ margin_left = 162.0
 margin_right = 212.0
 rect_min_size = Vector2( 50, 50 )
 text = "off"
+default_selected = false
 value = -20.0
 button_text = "3"
 
@@ -519,6 +551,7 @@ margin_left = 216.0
 margin_right = 266.0
 rect_min_size = Vector2( 50, 50 )
 text = "off"
+default_selected = false
 value = -10.0
 button_text = "4"
 
@@ -527,6 +560,7 @@ margin_left = 270.0
 margin_right = 320.0
 rect_min_size = Vector2( 50, 50 )
 text = "off"
+default_selected = false
 value = -5.0
 button_text = "5"
 
@@ -535,6 +569,7 @@ margin_left = 324.0
 margin_right = 374.0
 rect_min_size = Vector2( 50, 50 )
 text = "off"
+default_selected = false
 value = -2.0
 button_text = "6"
 
@@ -544,6 +579,7 @@ margin_right = 428.0
 rect_min_size = Vector2( 50, 50 )
 text = "off"
 default_selected = true
+value = 0.0
 button_text = "7"
 
 [node name="ButtonContainer" type="CenterContainer" parent="."]
