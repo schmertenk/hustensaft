@@ -39,6 +39,10 @@ var dead = false
 
 var hurt_sound_delay = 300
 var last_hurt_sound_time = 0
+var current_smoke_sprite
+
+# variable to controll the smoke partocle effect
+var can_smoke = true
 
 # variables reguarding the animation
 var walk_button_pressed = false
@@ -59,9 +63,9 @@ var mods = {} # is a duplication of original_mods for writing.
 func _ready():
 	for key in original_mods.keys():
 		mods[key] = original_mods[key]
-		
-	if color:
-		pass
+	
+	$Smoke_Sprite.connect("animation_finished", self, "_on_smoke_sheet_finished")
+	$Smoke_Timer.connect("timeout", self, "_on_smoke_timer_timeout")
 		
 	icon = load("res://Images/Characters/" + color_char + "/icon.png")
 	var indicator = load("res://Scenes/ui/Out_Of_Screen_Indicator/Out_Of_Screen_Indicator.tscn").instance()
@@ -204,6 +208,7 @@ func _process(_delta):
 	$Beam.global_scale = Vector2(1,1)
 	
 	if in_jump && is_on_floor():
+		can_smoke = true
 		in_jump = false
 	
 	
@@ -212,31 +217,52 @@ func handle_animations():
 	if walk_button_pressed && is_on_floor():
 		var walk_r = velocity.x > 0
 		if look_r && walk_r:
-			$Particles2D.emitting = false
+			$Smoke.emitting = false
 			$Movement_Animation_Player.play("walk_r_" + color_char)
 		elif !look_r && !walk_r:
-			$Particles2D.emitting = false
+			$Smoke.emitting = false
 			$Movement_Animation_Player.play("walk_l_" + color_char)
 		elif look_r && !walk_r:
-			$Particles2D.emitting = false
+			$Smoke.emitting = false
 			$Movement_Animation_Player.play("walk_r_back_" + color_char)
 		elif !look_r && walk_r:
-			$Particles2D.emitting = false
+			$Smoke.emitting = false
 			$Movement_Animation_Player.play("walk_l_back_" + color_char)
 	elif in_jump:
-		$Particles2D.emitting = true
+		if can_smoke:
+			start_smoke_sprite()
+			can_smoke = false
+			$Smoke.emitting = true
+			$Smoke_Timer.start()
 		if look_r:
 			$Movement_Animation_Player.play("jump_r_" + color_char)
 		else:
 			$Movement_Animation_Player.play("jump_l_" + color_char)
 	elif !walk_button_pressed:
-		$Particles2D.emitting = false
+		$Smoke.emitting = false
 		if look_r:
 			$Movement_Animation_Player.play("idle_r_" + color_char)
 		else:
 			$Movement_Animation_Player.play("idle_l_" + color_char)
 			
-
+func _on_smoke_timer_timeout():
+	$Smoke.emitting = false
+	$Smoke_Timer.stop()
+	
+func _on_smoke_sheet_finished():
+	$Smoke_Sprite.stop()
+	$Smoke_Sprite.visible = false
+	game.remove_child(current_smoke_sprite)
+	
+func start_smoke_sprite():
+	current_smoke_sprite = $Smoke_Sprite.duplicate()
+	game.add_child(current_smoke_sprite)
+	current_smoke_sprite.frame = 0
+	current_smoke_sprite.visible = true
+	current_smoke_sprite.play()
+	current_smoke_sprite.connect("animation_finished", self, "_on_smoke_sheet_finished")
+	current_smoke_sprite.global_position = global_position + $Smoke_Sprite.position
+	current_smoke_sprite.scale.y = g
 func apply_force(force):
 	acceleration += force;
 	velocity += acceleration
