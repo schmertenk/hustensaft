@@ -1,13 +1,15 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/Menues/Main_Menu/Main_Menu.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Menues/Menu_Background.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Menues/Background_float.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Retrophile Regular.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://Scenes/Menues/Buttons/Button.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/TransitionMask.tscn" type="PackedScene" id=5]
 
 [sub_resource type="DynamicFont" id=1]
-size = 40
+size = 75
+extra_spacing_top = 50
+extra_spacing_bottom = 30
 font_data = ExtResource( 3 )
 
 [node name="Menu" type="Control"]
@@ -18,7 +20,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" parent="." instance=ExtResource( 2 )]
+[node name="Background" parent="." instance=ExtResource( 2 )]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_right = 1.0
@@ -30,17 +32,16 @@ __meta__ = {
 
 [node name="Game_Title" type="Label" parent="VBoxContainer"]
 margin_right = 1024.0
-margin_bottom = 83.0
+margin_bottom = 155.0
 custom_fonts/font = SubResource( 1 )
-text = "HustenSaft
-(Workingtitle)"
+text = "Astrobash"
 align = 1
 valign = 1
 
 [node name="CenterContainer2" type="CenterContainer" parent="VBoxContainer"]
-margin_top = 113.0
+margin_top = 185.0
 margin_right = 1024.0
-margin_bottom = 163.0
+margin_bottom = 235.0
 
 [node name="Start" parent="VBoxContainer/CenterContainer2" instance=ExtResource( 4 )]
 anchor_left = 0.0
@@ -53,9 +54,9 @@ margin_right = 587.0
 margin_bottom = 50.0
 
 [node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
-margin_top = 193.0
+margin_top = 265.0
 margin_right = 1024.0
-margin_bottom = 243.0
+margin_bottom = 315.0
 
 [node name="Options" parent="VBoxContainer/CenterContainer" instance=ExtResource( 4 )]
 anchor_left = 0.0
@@ -74,9 +75,9 @@ rect_scale = Vector2( 0.8, 1 )
 text = "Game Options"
 
 [node name="CenterContainer4" type="CenterContainer" parent="VBoxContainer"]
-margin_top = 273.0
+margin_top = 345.0
 margin_right = 1024.0
-margin_bottom = 323.0
+margin_bottom = 395.0
 
 [node name="How_To_Play" parent="VBoxContainer/CenterContainer4" instance=ExtResource( 4 )]
 anchor_left = 0.0
@@ -95,9 +96,9 @@ rect_scale = Vector2( 0.8, 1 )
 text = "How To Play"
 
 [node name="CenterContainer5" type="CenterContainer" parent="VBoxContainer"]
-margin_top = 353.0
+margin_top = 425.0
 margin_right = 1024.0
-margin_bottom = 403.0
+margin_bottom = 475.0
 
 [node name="Credits" parent="VBoxContainer/CenterContainer5" instance=ExtResource( 4 )]
 anchor_left = 0.0
@@ -116,9 +117,9 @@ rect_scale = Vector2( 0.8, 1 )
 text = "Credits"
 
 [node name="CenterContainer3" type="CenterContainer" parent="VBoxContainer"]
-margin_top = 433.0
+margin_top = 505.0
 margin_right = 1024.0
-margin_bottom = 483.0
+margin_bottom = 555.0
 
 [node name="Quit" parent="VBoxContainer/CenterContainer3" instance=ExtResource( 4 )]
 anchor_left = 0.0

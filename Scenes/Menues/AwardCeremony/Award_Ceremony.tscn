@@ -22,7 +22,7 @@ font_data = ExtResource( 1 )
 
 [sub_resource type="Animation" id=4]
 resource_name = "show"
-length = 2.0
+length = 4.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
@@ -42,7 +42,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.6, 1.2, 2 ),
+"times": PoolRealArray( 0, 0.6, 1.2, 3.1 ),
 "transitions": PoolRealArray( 0.11, 1, 0.126357, 1 ),
 "update": 0,
 "values": [ Vector2( 10, 10 ), Vector2( 4, 4 ), Vector2( 4, 4 ), Vector2( 1, 1 ) ]
@@ -78,7 +78,7 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 2 ),
+"times": PoolRealArray( 4 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [ "show_winner", -1, 1.0, false ],
@@ -131,7 +131,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=6]
 resource_name = "show"
-length = 2.0
+length = 4.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
@@ -151,7 +151,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.6, 1.2, 2 ),
+"times": PoolRealArray( 0, 0.6, 1.5, 3.3 ),
 "transitions": PoolRealArray( 0.11, 1, 0.126357, 1 ),
 "update": 0,
 "values": [ Vector2( 10, 10 ), Vector2( 4, 4 ), Vector2( 4, 4 ), Vector2( 1, 1 ) ]
@@ -187,7 +187,7 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 2 ),
+"times": PoolRealArray( 4 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [ "show", -1, 1.0, false ],
@@ -240,7 +240,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=8]
 resource_name = "show"
-length = 2.0
+length = 4.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
@@ -260,7 +260,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.6, 1.2, 2 ),
+"times": PoolRealArray( 0, 0.6, 1.8, 2.9 ),
 "transitions": PoolRealArray( 0.11, 1, 0.126357, 1 ),
 "update": 0,
 "values": [ Vector2( 10, 10 ), Vector2( 4, 4 ), Vector2( 4, 4 ), Vector2( 1, 1 ) ]
@@ -296,7 +296,7 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 2 ),
+"times": PoolRealArray( 4 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [ "show", -1, 1.0, false ],
@@ -476,12 +476,14 @@ margin_bottom = 297.0
 rect_min_size = Vector2( 0, 187 )
 rect_pivot_offset = Vector2( 512, 58 )
 size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/1st_place"]
 margin_right = 1024.0
 margin_bottom = 150.0
 rect_min_size = Vector2( 0, 150 )
 size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="icon" type="TextureRect" parent="VBoxContainer/1st_place/CenterContainer"]
 margin_left = 437.0
@@ -508,14 +510,14 @@ margin_bottom = 460.0
 
 [node name="ranks" type="HBoxContainer" parent="VBoxContainer/CenterContainer"]
 show_behind_parent = true
-margin_left = 374.0
-margin_right = 650.0
+margin_left = 512.0
+margin_right = 512.0
 margin_bottom = 133.0
 rect_min_size = Vector2( 0, 133 )
 custom_constants/separation = 100
 
 [node name="1" type="VBoxContainer" parent="VBoxContainer/CenterContainer/ranks"]
-modulate = Color( 1, 1, 1, 0 )
+visible = false
 margin_right = 88.0
 margin_bottom = 133.0
 rect_min_size = Vector2( 0, 133 )
@@ -543,7 +545,7 @@ anims/show = SubResource( 4 )
 anims/wiggle = SubResource( 5 )
 
 [node name="2" type="VBoxContainer" parent="VBoxContainer/CenterContainer/ranks"]
-modulate = Color( 1, 1, 1, 0 )
+visible = false
 margin_left = 188.0
 margin_right = 276.0
 margin_bottom = 133.0
@@ -572,7 +574,6 @@ anims/wiggle = SubResource( 7 )
 
 [node name="3" type="VBoxContainer" parent="VBoxContainer/CenterContainer/ranks"]
 visible = false
-modulate = Color( 1, 1, 1, 0 )
 margin_left = 376.0
 margin_right = 464.0
 margin_bottom = 133.0

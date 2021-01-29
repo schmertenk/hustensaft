@@ -171,7 +171,7 @@ _global_script_class_icons={
 [application]
 
 config/name="hustensaft"
-run/main_scene="res://Scenes/Menues/Main_Menu/Main_Menu.tscn"
+run/main_scene="res://Scenes/Menues/Kitchen_Games/Kitchen_Games.tscn"
 config/icon="res://icon.png"
 
 [autoload]

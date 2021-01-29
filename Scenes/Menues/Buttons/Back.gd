@@ -10,6 +10,7 @@ func _input(event):
 			return
 			
 func back():
+	AudioManager.play("button_cancel")
 	if transition_mask:
 		get_node(transition_mask).slide_in(Global, "previous_step")
 	else:

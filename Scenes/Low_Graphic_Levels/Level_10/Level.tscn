@@ -5,15 +5,15 @@
 [ext_resource path="res://Scripts/Countdown.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/Levels/Level_10/Rocket.gd" type="Script" id=4]
 [ext_resource path="res://Game.gd" type="Script" id=5]
-[ext_resource path="res://Images/Level_11/low/stones.png" type="Texture" id=6]
-[ext_resource path="res://Images/Level_11/low/background.jpg" type="Texture" id=7]
+[ext_resource path="res://Images/Level_10/low/stones.png" type="Texture" id=6]
+[ext_resource path="res://Images/Level_10/low/background.jpg" type="Texture" id=7]
 [ext_resource path="res://Images/floor.png" type="Texture" id=8]
 [ext_resource path="res://Scenes/Levels/Level_10/UFO.gd" type="Script" id=9]
-[ext_resource path="res://Images/Level_11/low/ufo_in.png" type="Texture" id=10]
-[ext_resource path="res://Images/Level_11/low/rocket.png" type="Texture" id=11]
-[ext_resource path="res://Images/Level_11/low/ufo_front.png" type="Texture" id=12]
-[ext_resource path="res://Images/Level_11/low/ground_for.png" type="Texture" id=13]
-[ext_resource path="res://Images/Level_11/low/ground.png" type="Texture" id=14]
+[ext_resource path="res://Images/Level_10/low/ufo_in.png" type="Texture" id=10]
+[ext_resource path="res://Images/Level_10/low/rocket.png" type="Texture" id=11]
+[ext_resource path="res://Images/Level_10/low/ufo_front.png" type="Texture" id=12]
+[ext_resource path="res://Images/Level_10/low/ground_for.png" type="Texture" id=13]
+[ext_resource path="res://Images/Level_10/low/ground.png" type="Texture" id=14]
 [ext_resource path="res://Images/fire_sheet.png" type="Texture" id=15]
 [ext_resource path="res://Retrophile Regular.ttf" type="DynamicFontData" id=16]
 [ext_resource path="res://Scenes/TransitionMask.tscn" type="PackedScene" id=17]
@@ -120,7 +120,7 @@ color = Color( 0, 0, 0, 1 )
 [sub_resource type="Animation" id=12]
 resource_name = "Fire"
 tracks/0/type = "value"
-tracks/0/path = NodePath("Particles2D:emitting")
+tracks/0/path = NodePath("Particles2D2:emitting")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -128,7 +128,7 @@ tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
-"update": 1,
+"update": 0,
 "values": [ true, false ]
 }
 tracks/1/type = "value"
@@ -140,11 +140,11 @@ tracks/1/enabled = true
 tracks/1/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
-"update": 1,
+"update": 0,
 "values": [ true, false ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Particles2D2:emitting")
+tracks/2/path = NodePath("Particles2D:emitting")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -152,7 +152,7 @@ tracks/2/enabled = true
 tracks/2/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
-"update": 1,
+"update": 0,
 "values": [ true, false ]
 }
 
@@ -688,6 +688,7 @@ script = ExtResource( 9 )
 
 [node name="ufo_front" type="Sprite" parent="Assets/UFO"]
 scale = Vector2( 3, 3 )
+z_index = 1
 texture = ExtResource( 12 )
 
 [node name="ufo_in" type="Sprite" parent="Assets/UFO"]
@@ -759,7 +760,7 @@ rotation = 1.5708
 scale = Vector2( 3, 4 )
 z_index = -10
 frames = SubResource( 74 )
-frame = 57
+frame = 42
 speed_scale = 0.9
 playing = true
 
@@ -769,7 +770,7 @@ rotation = 1.5708
 scale = Vector2( 3, 4 )
 z_index = -10
 frames = SubResource( 74 )
-frame = 37
+frame = 27
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="Assets/Flames"]
@@ -778,7 +779,7 @@ rotation = 1.5708
 scale = Vector2( 3, 4 )
 z_index = -10
 frames = SubResource( 74 )
-frame = 26
+frame = 13
 speed_scale = 0.95
 playing = true
 
@@ -788,7 +789,7 @@ rotation = 1.5708
 scale = Vector2( 3, 4 )
 z_index = -10
 frames = SubResource( 74 )
-frame = 25
+frame = 21
 speed_scale = 1.1
 playing = true
 [connection signal="body_entered" from="Assets/Rocket/Area2D" to="Assets/Rocket" method="_on_Area2D_body_entered"]

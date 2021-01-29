@@ -33,12 +33,10 @@ func init():
 		add_collision_exception_with(w)
 	containing_weapon.rigid_dummy = self
 
-		
 	initialized = true
+	set_process(false)
 
 	
 func _process(_delta):
 	if !initialized:
 		init()
-
-		

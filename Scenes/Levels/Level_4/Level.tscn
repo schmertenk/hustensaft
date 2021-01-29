@@ -124,16 +124,13 @@ font_data = ExtResource( 8 )
 size = 150
 font_data = ExtResource( 8 )
 
-[sub_resource type="CanvasItemMaterial" id=10]
-light_mode = 1
-
-[sub_resource type="Curve" id=11]
+[sub_resource type="Curve" id=10]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.153559 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=12]
-curve = SubResource( 11 )
+[sub_resource type="CurveTexture" id=11]
+curve = SubResource( 10 )
 
-[sub_resource type="ParticlesMaterial" id=13]
+[sub_resource type="ParticlesMaterial" id=12]
 emission_shape = 1
 emission_sphere_radius = 78.64
 flag_disable_z = true
@@ -143,49 +140,52 @@ initial_velocity = 762.3
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 scale = 9.2
-scale_curve = SubResource( 12 )
+scale_curve = SubResource( 11 )
 
-[sub_resource type="CanvasItemMaterial" id=14]
+[sub_resource type="CanvasItemMaterial" id=13]
 blend_mode = 1
 light_mode = 2
 
-[sub_resource type="AtlasTexture" id=15]
+[sub_resource type="AtlasTexture" id=14]
 flags = 4
 atlas = ExtResource( 21 )
 region = Rect2( 0, 0, 544, 297 )
 
-[sub_resource type="AtlasTexture" id=16]
+[sub_resource type="AtlasTexture" id=15]
 flags = 4
 atlas = ExtResource( 21 )
 region = Rect2( 544, 0, 544, 297 )
 
-[sub_resource type="AtlasTexture" id=17]
+[sub_resource type="AtlasTexture" id=16]
 flags = 4
 atlas = ExtResource( 21 )
 region = Rect2( 1088, 0, 544, 297 )
 
-[sub_resource type="AtlasTexture" id=18]
+[sub_resource type="AtlasTexture" id=17]
 flags = 4
 atlas = ExtResource( 21 )
 region = Rect2( 1632, 0, 544, 297 )
 
-[sub_resource type="AtlasTexture" id=19]
+[sub_resource type="AtlasTexture" id=18]
 flags = 4
 atlas = ExtResource( 21 )
 region = Rect2( 2176, 0, 544, 297 )
 
-[sub_resource type="SpriteFrames" id=20]
+[sub_resource type="SpriteFrames" id=19]
 animations = [ {
-"frames": [ SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ) ],
+"frames": [ SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ) ],
 "loop": true,
 "name": "default",
 "speed": 15.0
 } ]
 
-[sub_resource type="CanvasItemMaterial" id=21]
+[sub_resource type="CanvasItemMaterial" id=20]
 light_mode = 1
 
+[sub_resource type="CanvasItemMaterial" id=21]
+
 [sub_resource type="CanvasItemMaterial" id=22]
+light_mode = 1
 
 [sub_resource type="RectangleShape2D" id=23]
 extents = Vector2( 246.162, 149.926 )
@@ -490,53 +490,6 @@ position = Vector2( -50, 2600 )
 [node name="Background" type="Node2D" parent="."]
 z_index = -1000
 
-[node name="Sprite" type="Sprite" parent="Background"]
-light_mask = 0
-material = SubResource( 10 )
-position = Vector2( 250, -2400 )
-scale = Vector2( 1, 1.3 )
-texture = ExtResource( 11 )
-
-[node name="Sprite2" type="Sprite" parent="Background"]
-light_mask = 0
-material = SubResource( 10 )
-position = Vector2( 200, 2262.5 )
-scale = Vector2( 1, 1.06875 )
-texture = ExtResource( 11 )
-
-[node name="Sprite3" type="Sprite" parent="Background"]
-light_mask = 0
-material = SubResource( 10 )
-position = Vector2( 8150, 2075 )
-scale = Vector2( 1, 1.1875 )
-texture = ExtResource( 11 )
-
-[node name="Sprite4" type="Sprite" parent="Background"]
-light_mask = 0
-material = SubResource( 10 )
-position = Vector2( 8100, -2850 )
-scale = Vector2( 1, 1.325 )
-texture = ExtResource( 11 )
-
-[node name="Sprite5" type="Sprite" parent="Background"]
-light_mask = 0
-material = SubResource( 10 )
-position = Vector2( -7150, -2825 )
-scale = Vector2( 1, 1.3125 )
-texture = ExtResource( 11 )
-
-[node name="Sprite6" type="Sprite" parent="Background"]
-light_mask = 0
-material = SubResource( 10 )
-position = Vector2( -7500, 1600 )
-texture = ExtResource( 11 )
-
-[node name="Sprite7" type="Sprite" parent="Background"]
-light_mask = 0
-material = SubResource( 10 )
-position = Vector2( -7450, 2300 )
-texture = ExtResource( 11 )
-
 [node name="Engines" type="Node2D" parent="Background"]
 position = Vector2( -1800, 150 )
 rotation = 1.5708
@@ -546,7 +499,7 @@ position = Vector2( 2992.48, -1804.54 )
 scale = Vector2( 5, 5 )
 amount = 100
 lifetime = 0.5
-process_material = SubResource( 13 )
+process_material = SubResource( 12 )
 
 [node name="engine2" type="Sprite" parent="Background/Engines"]
 position = Vector2( 2660.07, -1775.68 )
@@ -554,56 +507,57 @@ scale = Vector2( 2, 2 )
 texture = ExtResource( 20 )
 
 [node name="AnimatedSprite4" type="AnimatedSprite" parent="Background/Engines"]
-material = SubResource( 14 )
+material = SubResource( 13 )
 position = Vector2( 3422.4, -1555.63 )
 scale = Vector2( 2, 2 )
-frames = SubResource( 20 )
+frames = SubResource( 19 )
+frame = 3
 playing = true
 
 [node name="AnimatedSprite5" type="AnimatedSprite" parent="Background/Engines"]
-material = SubResource( 14 )
+material = SubResource( 13 )
 position = Vector2( 3422.4, -2053.44 )
 scale = Vector2( 2, 2 )
-frames = SubResource( 20 )
-frame = 4
+frames = SubResource( 19 )
+frame = 2
 playing = true
 
 [node name="AnimatedSprite6" type="AnimatedSprite" parent="Background/Engines"]
-material = SubResource( 14 )
+material = SubResource( 13 )
 position = Vector2( 3150.87, -1798.88 )
 scale = Vector2( 2, 2 )
-frames = SubResource( 20 )
-frame = 4
+frames = SubResource( 19 )
+frame = 2
 playing = true
 
 [node name="Planets" type="Node2D" parent="Background"]
 
 [node name="saturn" type="Sprite" parent="Background/Planets"]
-material = SubResource( 21 )
+material = SubResource( 20 )
 position = Vector2( 1600, -1250 )
 scale = Vector2( 3.25, 3.35 )
 texture = ExtResource( 18 )
 
 [node name="earth" type="Sprite" parent="Background/Planets"]
-material = SubResource( 21 )
+material = SubResource( 20 )
 position = Vector2( 500, -7950 )
 scale = Vector2( 1.6, 1.55 )
 texture = ExtResource( 12 )
 
 [node name="moon" type="Sprite" parent="Background/Planets/earth"]
-material = SubResource( 21 )
+material = SubResource( 20 )
 position = Vector2( -625, 548.388 )
 scale = Vector2( 0.1875, 0.177419 )
 texture = ExtResource( 17 )
 
 [node name="blue" type="Sprite" parent="Background/Planets"]
-material = SubResource( 21 )
+material = SubResource( 20 )
 position = Vector2( -1350, -2150 )
 scale = Vector2( 0.45, 0.4 )
 texture = ExtResource( 16 )
 
 [node name="Plates" type="Node2D" parent="Background"]
-material = SubResource( 22 )
+material = SubResource( 21 )
 
 [node name="metal_plate_light" type="Sprite" parent="Background/Plates"]
 position = Vector2( -950, 400 )
@@ -1831,7 +1785,57 @@ texture = ExtResource( 5 )
 position = Vector2( -500, -250 )
 texture = ExtResource( 5 )
 
-[node name="Assets" type="Node2D" parent="Background"]
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Background"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Background/ParallaxBackground"]
+motion_scale = Vector2( 0.05, 0.05 )
+
+[node name="Sprite" type="Sprite" parent="Background/ParallaxBackground/ParallaxLayer"]
+light_mask = 0
+material = SubResource( 22 )
+position = Vector2( 250, -2400 )
+scale = Vector2( 1, 1.3 )
+texture = ExtResource( 11 )
+
+[node name="Sprite2" type="Sprite" parent="Background/ParallaxBackground/ParallaxLayer"]
+light_mask = 0
+material = SubResource( 22 )
+position = Vector2( 200, 2262.5 )
+scale = Vector2( 1, 1.06875 )
+texture = ExtResource( 11 )
+
+[node name="Sprite3" type="Sprite" parent="Background/ParallaxBackground/ParallaxLayer"]
+light_mask = 0
+material = SubResource( 22 )
+position = Vector2( 8150, 2075 )
+scale = Vector2( 1, 1.1875 )
+texture = ExtResource( 11 )
+
+[node name="Sprite4" type="Sprite" parent="Background/ParallaxBackground/ParallaxLayer"]
+light_mask = 0
+material = SubResource( 22 )
+position = Vector2( 8100, -2850 )
+scale = Vector2( 1, 1.325 )
+texture = ExtResource( 11 )
+
+[node name="Sprite5" type="Sprite" parent="Background/ParallaxBackground/ParallaxLayer"]
+light_mask = 0
+material = SubResource( 22 )
+position = Vector2( -7150, -2825 )
+scale = Vector2( 1, 1.3125 )
+texture = ExtResource( 11 )
+
+[node name="Sprite6" type="Sprite" parent="Background/ParallaxBackground/ParallaxLayer"]
+light_mask = 0
+material = SubResource( 22 )
+position = Vector2( -7500, 1600 )
+texture = ExtResource( 11 )
+
+[node name="Sprite7" type="Sprite" parent="Background/ParallaxBackground/ParallaxLayer"]
+light_mask = 0
+material = SubResource( 22 )
+position = Vector2( -7450, 2300 )
+texture = ExtResource( 11 )
 
 [node name="Level_Logic" type="Node" parent="."]
 script = ExtResource( 19 )

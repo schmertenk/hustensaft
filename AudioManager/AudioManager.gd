@@ -32,7 +32,7 @@ export var sound_dictionary = {
 	#MENUES	
 	"button_press" : ["res://Sounds/Effects/Menue/menu_button_select.wav", "SE", 1],
 	"button_select" : ["res://Sounds/Effects/Menue/menu_button_hover.wav", "SE", 1],
-	
+	"button_cancel" : ["res://Sounds/Effects/Menue/menu_button_back.wav", "SE", 1],
 	#General LEVEL SOUNDS
 	"countdown_number": ["res://Sounds/Effects/general_game/countdown_321.wav","SE", 1],
 	"countdown_go": ["res://Sounds/Effects/general_game/countdown_go.wav","SE", 1],

@@ -164,7 +164,12 @@ show_behind_parent = true
 scale = Vector2( 1.2, 1.2 )
 z_index = -1000
 
-[node name="star_back" type="Sprite" parent="Background"]
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Background"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Background/ParallaxBackground"]
+motion_scale = Vector2( 0.05, 0.05 )
+
+[node name="star_back" type="Sprite" parent="Background/ParallaxBackground/ParallaxLayer"]
 light_mask = 0
 position = Vector2( -66.8618, -303.649 )
 texture = ExtResource( 23 )

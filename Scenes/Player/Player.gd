@@ -47,6 +47,7 @@ var can_smoke = true
 # variables reguarding the animation
 var walk_button_pressed = false
 var in_jump = false
+var in_knock_back = false
 
 # the char that cooresponse to the path the right texture for the color lies
 var color_char = null setget set_color_char
@@ -85,7 +86,6 @@ func _ready():
 	
 	update_labels()
 	
-	$Armor_Indicator.visible = false
 	$Sprite.texture = load("res://Images/Characters/" + color_char + "/idle.png")
 	$Beam/Timer.connect("timeout", self, "hide_beam")
 	
@@ -151,7 +151,7 @@ func _physics_process(delta):
 		else:
 			velocity.y = max_fall_speed
 	var snap = Vector2(0, 100 * g)
-	if in_jump:
+	if in_jump || in_knock_back:
 		snap = Vector2(0, 0)
 	velocity = move_and_slide_with_snap(velocity, snap, Vector2(0, -g),
 					true, 4, 0.959931, false)
@@ -211,6 +211,8 @@ func _process(_delta):
 		can_smoke = true
 		in_jump = false
 	
+	if in_knock_back && is_on_floor():
+		in_knock_back = false
 	
 func handle_animations():
 	var look_r = look_direction.x >= 0
@@ -270,7 +272,7 @@ func apply_force(force):
 func knock_back(i):
 	impuls = Vector2(i.x / friction, i.y)
 	apply_force(Vector2(0, i.y))
-	in_jump = true
+	in_knock_back = true
 
 
 func pause():
@@ -296,12 +298,13 @@ func damage(damage, armor_multiplier = 1, flesh_multiplier = 1, ignore_armor = f
 		var armor_damage = damage * armor_multiplier
 		if armor >= armor_damage:
 			self.armor -= armor_damage
+			$AnimationPlayer.play("armor_damaged")
 			damage = 0
 		else:
 			var rest_armor_damage = armor_damage - armor
+			$AnimationPlayer.play("health_damaged")
 			armor = 0
 			damage = rest_armor_damage / armor_multiplier
-	$AnimationPlayer.play("armor_damaged")
 	self.health -= damage * flesh_multiplier
 	if health <= 0:
 		die(cause)
@@ -351,12 +354,6 @@ func update_labels():
 	if player_stats:
 		player_stats.update()
 	var r = armor / 100 
-	if armor <= 0:
-		$Armor_Indicator.visible = false
-	else:
-		$Armor_Indicator.visible = true
-		
-	$Armor_Indicator.modulate = Color(1, r, r)
 	
 func drop_weapon():
 	if !weapon:

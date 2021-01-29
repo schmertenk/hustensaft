@@ -39,7 +39,7 @@ var player_infos = []
 
 var test_mode = true
 #var test_level = "res://Scenes/Levels/Level_3/Level.tscn"
-var test_level = "res://Scenes/Low_Graphic_Levels/Level_10/Level.tscn"
+var test_level = "res://Scenes/Levels/Level_1/Level.tscn"
 
 var secondarie_paths = [
 	"res://Scenes/Secondaries/Armor_Recharger/Armor_Recharger.tscn",

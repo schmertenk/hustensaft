@@ -116,9 +116,14 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="star_back" type="Sprite" parent="Background"]
-position = Vector2( 142.343, -420.039 )
-scale = Vector2( 1.2, 1.2 )
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Background"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Background/ParallaxBackground"]
+motion_scale = Vector2( 0.05, 0.05 )
+
+[node name="star_back" type="Sprite" parent="Background/ParallaxBackground/ParallaxLayer"]
+position = Vector2( 170.812, -504.047 )
+scale = Vector2( 1.44, 1.44 )
 texture = ExtResource( 13 )
 __meta__ = {
 "_edit_lock_": true

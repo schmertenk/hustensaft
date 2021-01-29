@@ -18,7 +18,9 @@ func is_keyboard_in():
 		return false
 	else:
 		return true
-func _input(event):		
+func _input(event):
+	if event.is_action_pressed("ui_cancel") and slots.size() == 0:
+		$Back.back()
 	if event.is_action_pressed("pad_join_game") || event.is_action_pressed("keyboard_join_game"):
 		var new = false
 		if event.is_action_pressed("keyboard_join_game"):
@@ -30,6 +32,7 @@ func _input(event):
 			for pi in Global.player_infos:
 				new = new && pi.joypad_id != event.device
 		if new:
+			AudioManager.play("button_press")
 			var info
 			if event.is_action_pressed("keyboard_join_game"):
 				info = Global.add_player_info(Global.player_infos.size() + 1, -1)
