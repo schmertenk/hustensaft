@@ -24,6 +24,7 @@ func _on_on_area_body_entered(body):
 	$Switch/off/CollisionPolygon2D.set_deferred("disabled", true)
 	$Switch/on.visible = true
 	$Switch/on/CollisionPolygon2D.set_deferred("disabled", false)
+	AudioManager.play("light_switch")
 
 
 func _on_off_area_body_entered(body):
@@ -34,3 +35,4 @@ func _on_off_area_body_entered(body):
 	$Switch/off/CollisionPolygon2D.set_deferred("disabled", false)
 	$Switch/on.visible = false
 	$Switch/on/CollisionPolygon2D.set_deferred("disabled", true)
+	AudioManager.play("light_switch")

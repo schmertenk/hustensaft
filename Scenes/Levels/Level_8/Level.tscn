@@ -91,25 +91,25 @@ color_ramp = SubResource( 9 )
 [sub_resource type="CircleShape2D" id=13]
 radius = 71.1961
 
-[sub_resource type="PhysicsMaterial" id=17]
+[sub_resource type="PhysicsMaterial" id=14]
 friction = 0.5
 
-[sub_resource type="CapsuleShape2D" id=18]
+[sub_resource type="CapsuleShape2D" id=15]
 radius = 42.2374
 height = 62.0793
 
-[sub_resource type="PhysicsMaterial" id=19]
+[sub_resource type="PhysicsMaterial" id=16]
 friction = 0.5
 
-[sub_resource type="PhysicsMaterial" id=20]
+[sub_resource type="PhysicsMaterial" id=17]
 friction = 0.5
 
-[sub_resource type="PhysicsMaterial" id=14]
+[sub_resource type="PhysicsMaterial" id=18]
 
-[sub_resource type="RectangleShape2D" id=15]
+[sub_resource type="RectangleShape2D" id=19]
 extents = Vector2( 150.344, 81.4837 )
 
-[sub_resource type="Environment" id=16]
+[sub_resource type="Environment" id=20]
 background_mode = 4
 auto_exposure_speed = 23.88
 dof_blur_near_amount = 0.18
@@ -199,15 +199,51 @@ position = Vector2( -1423.87, -1284.83 )
 show_behind_parent = true
 scale = Vector2( 1.2, 1.2 )
 z_index = -1000
-__meta__ = {
-"_edit_group_": true,
-"_edit_lock_": true
-}
 
 [node name="Wallpaper" type="Node2D" parent="Background"]
 
 [node name="5011583172463" type="Sprite" parent="Background/Wallpaper"]
 position = Vector2( -1791.67, 125 )
+texture = ExtResource( 12 )
+
+[node name="5011583172485" type="Sprite" parent="Background/Wallpaper"]
+position = Vector2( 3562.6, 1758.27 )
+texture = ExtResource( 12 )
+
+[node name="5011583172486" type="Sprite" parent="Background/Wallpaper"]
+position = Vector2( 3557, 874.532 )
+texture = ExtResource( 12 )
+
+[node name="5011583172488" type="Sprite" parent="Background/Wallpaper"]
+position = Vector2( 3558, 144.637 )
+texture = ExtResource( 12 )
+
+[node name="5011583172489" type="Sprite" parent="Background/Wallpaper"]
+position = Vector2( 3551.71, -718.161 )
+texture = ExtResource( 12 )
+
+[node name="5011583172490" type="Sprite" parent="Background/Wallpaper"]
+position = Vector2( 3551.71, -1610.99 )
+texture = ExtResource( 12 )
+
+[node name="5011583172491" type="Sprite" parent="Background/Wallpaper"]
+position = Vector2( 4445.94, 143.465 )
+texture = ExtResource( 12 )
+
+[node name="5011583172492" type="Sprite" parent="Background/Wallpaper"]
+position = Vector2( 4445.94, -723.452 )
+texture = ExtResource( 12 )
+
+[node name="5011583172493" type="Sprite" parent="Background/Wallpaper"]
+position = Vector2( 4445.94, -1616.28 )
+texture = ExtResource( 12 )
+
+[node name="5011583172494" type="Sprite" parent="Background/Wallpaper"]
+position = Vector2( 4445.94, 1770.45 )
+texture = ExtResource( 12 )
+
+[node name="5011583172495" type="Sprite" parent="Background/Wallpaper"]
+position = Vector2( 4445.94, 869.896 )
 texture = ExtResource( 12 )
 
 [node name="5011583172461" type="Sprite" parent="Background/Wallpaper"]
@@ -283,7 +319,7 @@ position = Vector2( 2698.13, 147.612 )
 texture = ExtResource( 12 )
 
 [node name="5011583172481" type="Sprite" parent="Background/Wallpaper"]
-position = Vector2( 2696.46, 1028.98 )
+position = Vector2( 2702.41, 1030.96 )
 texture = ExtResource( 12 )
 
 [node name="5011583172482" type="Sprite" parent="Background/Wallpaper"]
@@ -411,7 +447,7 @@ shape = SubResource( 13 )
 ]]
 position = Vector2( 2214.11, -921.619 )
 mass = 2.2
-physics_material_override = SubResource( 17 )
+physics_material_override = SubResource( 14 )
 gravity_scale = 30.0
 
 [node name="potato" type="Sprite" parent="Assets/Food/Potato"]
@@ -421,14 +457,14 @@ texture = ExtResource( 15 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Assets/Food/Potato"]
 position = Vector2( 11.2974, 15.4597 )
 rotation = 1.13432
-shape = SubResource( 18 )
+shape = SubResource( 15 )
 
 [node name="Potato2" type="RigidBody2D" parent="Assets/Food" groups=[
 "bodies",
 ]]
 position = Vector2( 1821.67, -953.133 )
 mass = 2.2
-physics_material_override = SubResource( 19 )
+physics_material_override = SubResource( 16 )
 gravity_scale = 30.0
 
 [node name="potato" type="Sprite" parent="Assets/Food/Potato2"]
@@ -438,14 +474,14 @@ texture = ExtResource( 15 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Assets/Food/Potato2"]
 position = Vector2( 11.2974, 15.4597 )
 rotation = 1.13432
-shape = SubResource( 18 )
+shape = SubResource( 15 )
 
 [node name="Potato3" type="RigidBody2D" parent="Assets/Food" groups=[
 "bodies",
 ]]
 position = Vector2( 2094.59, -966.809 )
 mass = 2.2
-physics_material_override = SubResource( 20 )
+physics_material_override = SubResource( 17 )
 gravity_scale = 30.0
 
 [node name="potato" type="Sprite" parent="Assets/Food/Potato3"]
@@ -455,7 +491,7 @@ texture = ExtResource( 15 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Assets/Food/Potato3"]
 position = Vector2( 11.2974, 15.4597 )
 rotation = 1.13432
-shape = SubResource( 18 )
+shape = SubResource( 15 )
 
 [node name="Onion2" type="RigidBody2D" parent="Assets/Food" groups=[
 "bodies",
@@ -499,7 +535,7 @@ color = Color( 0.105882, 0.105882, 0.105882, 1 )
 
 [node name="Lampshade" type="StaticBody2D" parent="Assets/Lamp"]
 position = Vector2( 16.9897, 0 )
-physics_material_override = SubResource( 14 )
+physics_material_override = SubResource( 18 )
 
 [node name="Sprite" type="Sprite" parent="Assets/Lamp/Lampshade"]
 light_mask = -2147483648
@@ -532,7 +568,6 @@ z_index = -20
 texture = ExtResource( 22 )
 
 [node name="off" type="RigidBody2D" parent="Assets/Lamp/Switch"]
-visible = false
 position = Vector2( 80, 112 )
 rotation = 3.14159
 mode = 1
@@ -550,6 +585,7 @@ position = Vector2( 2.0022, 20.0226 )
 polygon = PoolVector2Array( 70.4414, 51.3369, 69.7856, 77.3136, -5.87891, 75.0661, -4.39844, 52.1778 )
 
 [node name="on" type="RigidBody2D" parent="Assets/Lamp/Switch"]
+visible = false
 position = Vector2( 80, 112 )
 rotation = 3.14159
 mode = 1
@@ -572,13 +608,13 @@ script = ExtResource( 2 )
 position = Vector2( 494.661, 358.425 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level_Logic/pot"]
-shape = SubResource( 15 )
+shape = SubResource( 19 )
 
 [node name="Timer" type="Timer" parent="Level_Logic"]
 wait_time = 2.5
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 16 )
+environment = SubResource( 20 )
 [connection signal="body_entered" from="Assets/Lamp/Switch/off/on_area" to="Assets/Lamp" method="_on_on_area_body_entered"]
 [connection signal="body_entered" from="Assets/Lamp/Switch/on/off_area" to="Assets/Lamp" method="_on_off_area_body_entered"]
 [connection signal="body_entered" from="Level_Logic/pot" to="Level_Logic" method="_on_pot_body_entered"]

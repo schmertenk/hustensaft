@@ -8,13 +8,10 @@ var containing_weapon = null
 var initialized = false
 
 var pickupable = true
-var tween : Tween
 var initial_position = null
 var initial_rotation = null
 
 func _ready():
-	tween = Tween.new()
-	add_child(tween)
 	if initial_weapon_path && containing_weapon == null:
 		containing_weapon = load(initial_weapon_path).instance()
 

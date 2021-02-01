@@ -37,7 +37,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 0.984314, 0, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=32]
+[sub_resource type="Animation" id=3]
 resource_name = "health_damaged"
 length = 0.2
 step = 0.05
@@ -54,8 +54,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "die_l"
+[sub_resource type="Animation" id=4]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:texture")
 tracks/0/interp = 1
@@ -129,7 +128,7 @@ tracks/5/keys = {
 "values": [ Vector2( -28.7735, -4.79238 ), Vector2( -10.2027, -21.0418 ), Vector2( 26.9389, -3.24482 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:texture")
@@ -240,7 +239,7 @@ tracks/8/keys = {
 "values": [ Vector2( -0.8, 0.8 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:texture")
@@ -339,7 +338,7 @@ tracks/7/keys = {
 "values": [ Vector2( 0.8, 0.8 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=7]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:texture")
 tracks/0/interp = 1
@@ -449,7 +448,7 @@ tracks/8/keys = {
 "values": [ Vector2( 40.9813, 34.2996 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=8]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:texture")
 tracks/0/interp = 1
@@ -559,7 +558,7 @@ tracks/8/keys = {
 "values": [ Vector2( -42.7631, 32.5178 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=9]
 loop = true
 step = 0.05
 tracks/0/type = "value"
@@ -647,7 +646,7 @@ tracks/6/keys = {
 "values": [ Vector2( -28.939, -5 ), Vector2( -28.939, -20 ), Vector2( -28.939, -5 ), Vector2( -28.939, -20 ) ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=10]
 loop = true
 step = 0.05
 tracks/0/type = "value"
@@ -735,7 +734,7 @@ tracks/6/keys = {
 "values": [ Vector2( -28.939, -5 ), Vector2( -28.939, -20 ), Vector2( -28.939, -5 ), Vector2( -28.939, -20 ) ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=11]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:texture")
@@ -822,7 +821,7 @@ tracks/6/keys = {
 "values": [ Vector2( 0.8, 0.8 ) ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=12]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:texture")
@@ -909,19 +908,19 @@ tracks/6/keys = {
 "values": [ Vector2( 0.8, 0.8 ) ]
 }
 
-[sub_resource type="RectangleShape2D" id=12]
+[sub_resource type="RectangleShape2D" id=13]
 extents = Vector2( 43.4509, 75.4172 )
 
-[sub_resource type="CanvasItemMaterial" id=13]
-light_mode = 1
-
 [sub_resource type="CanvasItemMaterial" id=14]
-blend_mode = 1
+light_mode = 1
 
 [sub_resource type="CanvasItemMaterial" id=15]
 blend_mode = 1
 
-[sub_resource type="AnimatedTexture" id=16]
+[sub_resource type="CanvasItemMaterial" id=16]
+blend_mode = 1
+
+[sub_resource type="AnimatedTexture" id=17]
 flags = 4
 frames = 5
 fps = 15.0
@@ -935,67 +934,67 @@ frame_3/delay_sec = 0.0
 frame_4/texture = ExtResource( 11 )
 frame_4/delay_sec = 0.0
 
-[sub_resource type="Curve" id=24]
+[sub_resource type="Curve" id=18]
 min_value = -360.0
 max_value = 360.0
 _data = [ Vector2( 0, -314.458 ), 0.0, 1245.21, 0, 0, Vector2( 1, 360 ), -255.584, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=25]
-curve = SubResource( 24 )
+[sub_resource type="CurveTexture" id=19]
+curve = SubResource( 18 )
 
-[sub_resource type="Gradient" id=19]
+[sub_resource type="Gradient" id=20]
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0.552941 )
 
-[sub_resource type="GradientTexture" id=20]
-gradient = SubResource( 19 )
+[sub_resource type="GradientTexture" id=21]
+gradient = SubResource( 20 )
 
-[sub_resource type="Curve" id=21]
+[sub_resource type="Curve" id=22]
 _data = [ Vector2( 0, 1 ), 0.0, -1.49091, 0, 0, Vector2( 1, 0.0363636 ), -0.984563, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=22]
-curve = SubResource( 21 )
+[sub_resource type="CurveTexture" id=23]
+curve = SubResource( 22 )
 
-[sub_resource type="ParticlesMaterial" id=23]
+[sub_resource type="ParticlesMaterial" id=24]
 flag_disable_z = true
 gravity = Vector3( 0, 98, 0 )
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 angle = -360.0
 angle_random = 1.0
-angle_curve = SubResource( 25 )
+angle_curve = SubResource( 19 )
 scale = 0.7
 scale_random = 0.3
-scale_curve = SubResource( 22 )
-color_ramp = SubResource( 20 )
+scale_curve = SubResource( 23 )
+color_ramp = SubResource( 21 )
 
-[sub_resource type="AtlasTexture" id=26]
+[sub_resource type="AtlasTexture" id=25]
 flags = 4
 atlas = ExtResource( 17 )
 region = Rect2( 0, 0, 160, 80 )
 
-[sub_resource type="AtlasTexture" id=27]
+[sub_resource type="AtlasTexture" id=26]
 flags = 4
 atlas = ExtResource( 17 )
 region = Rect2( 160, 0, 160, 80 )
 
-[sub_resource type="AtlasTexture" id=28]
+[sub_resource type="AtlasTexture" id=27]
 flags = 4
 atlas = ExtResource( 17 )
 region = Rect2( 320, 0, 160, 80 )
 
-[sub_resource type="AtlasTexture" id=29]
+[sub_resource type="AtlasTexture" id=28]
 flags = 4
 atlas = ExtResource( 17 )
 region = Rect2( 480, 0, 160, 80 )
 
-[sub_resource type="AtlasTexture" id=30]
+[sub_resource type="AtlasTexture" id=29]
 flags = 4
 atlas = ExtResource( 17 )
 region = Rect2( 640, 0, 160, 80 )
 
-[sub_resource type="SpriteFrames" id=31]
+[sub_resource type="SpriteFrames" id=30]
 animations = [ {
-"frames": [ SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ) ],
+"frames": [ SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ) ],
 "loop": true,
 "name": "default",
 "speed": 20.0
@@ -1038,24 +1037,24 @@ shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/armor_damaged = SubResource( 2 )
-anims/health_damaged = SubResource( 32 )
+anims/health_damaged = SubResource( 3 )
 
 [node name="Movement_Animation_Player" type="AnimationPlayer" parent="."]
 playback_speed = 2.0
-anims/die_l = SubResource( 3 )
-anims/idle_l = SubResource( 4 )
-anims/idle_r = SubResource( 5 )
-anims/jump_l = SubResource( 6 )
-anims/jump_r = SubResource( 7 )
-anims/walk_l = SubResource( 8 )
-anims/walk_l_back = SubResource( 9 )
-anims/walk_r = SubResource( 10 )
-anims/walk_r_back = SubResource( 11 )
+anims/die_l = SubResource( 4 )
+anims/idle_l = SubResource( 5 )
+anims/idle_r = SubResource( 6 )
+anims/jump_l = SubResource( 7 )
+anims/jump_r = SubResource( 8 )
+anims/walk_l = SubResource( 9 )
+anims/walk_l_back = SubResource( 10 )
+anims/walk_r = SubResource( 11 )
+anims/walk_r_back = SubResource( 12 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2( 0, -12 )
-shape = SubResource( 12 )
+shape = SubResource( 13 )
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 
@@ -1069,7 +1068,7 @@ z_as_relative = false
 script = ExtResource( 10 )
 
 [node name="Sprite" type="Sprite" parent="Crosshair"]
-material = SubResource( 13 )
+material = SubResource( 14 )
 position = Vector2( 250, 0 )
 texture = ExtResource( 3 )
 
@@ -1079,14 +1078,14 @@ cast_to = Vector2( 250, 0 )
 
 [node name="Beam" type="Node2D" parent="."]
 visible = false
-material = SubResource( 14 )
+material = SubResource( 15 )
 
 [node name="Line2D" type="Line2D" parent="Beam"]
-material = SubResource( 15 )
+material = SubResource( 16 )
 points = PoolVector2Array( 0, 0, 0, 0 )
 width = 150.0
 default_color = Color( 1, 1, 1, 1 )
-texture = SubResource( 16 )
+texture = SubResource( 17 )
 texture_mode = 2
 
 [node name="Timer" type="Timer" parent="Beam"]
@@ -1099,7 +1098,7 @@ amount = 30
 visibility_rect = Rect2( -1000, -1000, 2000, 2000 )
 local_coords = false
 draw_order = 1
-process_material = SubResource( 23 )
+process_material = SubResource( 24 )
 texture = ExtResource( 16 )
 
 [node name="Smoke_Timer" type="Timer" parent="."]
@@ -1107,7 +1106,7 @@ wait_time = 0.2
 
 [node name="Smoke_Sprite" type="AnimatedSprite" parent="."]
 visible = false
-position = Vector2( 0.44545, 25.8361 )
-frames = SubResource( 31 )
+position = Vector2( 4.454, 53.008 )
+frames = SubResource( 30 )
 [connection signal="body_entered" from="PickupBox" to="." method="_on_PickupBox_body_entered"]
 [connection signal="body_exited" from="PickupBox" to="." method="_on_PickupBox_body_exited"]

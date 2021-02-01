@@ -17,6 +17,7 @@ spray = 0.06
 fire_range = 1350.0
 stack_size = 10
 pool_projectiles = true
+hit_knock_back_force = 150.0
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, 5 )

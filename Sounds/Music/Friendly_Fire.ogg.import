@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Friendly_Fire.ogg-a6fde994ba50db87a07b61b40c069352.oggstr"
+
+[deps]
+
+source_file="res://Sounds/Music/Friendly_Fire.ogg"
+dest_files=[ "res://.import/Friendly_Fire.ogg-a6fde994ba50db87a07b61b40c069352.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

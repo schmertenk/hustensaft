@@ -377,19 +377,17 @@ playback_process_mode = 0
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Ships/Ship1"]
 position = Vector2( -124.243, -565.595 )
 frames = SubResource( 11 )
-frame = 3
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="Ships/Ship1"]
 position = Vector2( 158.298, -1144.13 )
 frames = SubResource( 11 )
-frame = 2
+frame = 4
 playing = true
 
 [node name="AnimatedSprite3" type="AnimatedSprite" parent="Ships/Ship1"]
 position = Vector2( -117.516, -1705.85 )
 frames = SubResource( 11 )
-frame = 3
 playing = true
 
 [node name="Door3" parent="Ships/Ship1" instance=ExtResource( 6 )]
@@ -408,7 +406,7 @@ modulate = Color( 0, 1, 0.211765, 0.752941 )
 position = Vector2( 392.411, -1024.37 )
 scale = Vector2( 2, 0.75 )
 frames = SubResource( 12 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ships/Ship2"]
@@ -420,7 +418,7 @@ script = ExtResource( 21 )
 r_speed = 6.0
 
 [node name="a" type="Particles2D" parent="Ships/Ship2/Engine_Ship_2"]
-position = Vector2( -70, 96.5605 )
+position = Vector2( -70, -91.6447 )
 amount = 16
 preprocess = 0.1
 visibility_rect = Rect2( -20.2718, 61.353, 578.205, 76.9072 )
@@ -429,7 +427,7 @@ process_material = SubResource( 15 )
 texture = ExtResource( 24 )
 
 [node name="b" type="Particles2D" parent="Ships/Ship2/Engine_Ship_2"]
-position = Vector2( -70, -96.5605 )
+position = Vector2( -70, 91.6447 )
 amount = 16
 preprocess = 0.1
 visibility_rect = Rect2( -20.2718, 61.353, 578.205, 76.9072 )
@@ -469,14 +467,13 @@ polygon = PoolVector2Array( -2300.25, 737.071, -2302.63, 646.691, -2905.56, 640.
 position = Vector2( -1858.99, -31.142 )
 scale = Vector2( 1, 0.5 )
 frames = SubResource( 11 )
-frame = 4
+frame = 1
 playing = true
 
 [node name="AnimatedSprite5" type="AnimatedSprite" parent="Ships/Ship4"]
 position = Vector2( -1908.82, 1006.48 )
 scale = Vector2( 0.6, 0.5 )
 frames = SubResource( 11 )
-frame = 3
 playing = true
 
 [node name="Level_Logic" type="Node" parent="."]

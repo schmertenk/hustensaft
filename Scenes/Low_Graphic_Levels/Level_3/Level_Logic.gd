@@ -3,7 +3,7 @@ extends Node
 var game
 
 func _ready():
-	AudioManager.insert_song_to_queue("lvl_3_bgm", 0)
+	AudioManager.insert_song_to_queue("Music Machine Mondays Theme Song", 0)
 	
 	game = get_node("/root/Game")
 	for l in game.get_node("Lights").get_children():

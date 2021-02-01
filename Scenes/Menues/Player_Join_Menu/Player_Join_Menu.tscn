@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scenes/Menues/Player_Join_Menu/Player_Join_Menu.gd" type="Script" id=1]
 [ext_resource path="res://Retrophile Regular.ttf" type="DynamicFontData" id=2]
@@ -38,6 +38,9 @@ tracks/0/keys = {
 "update": 0,
 "values": [ 0.0, 5.0, 0.0, -5.0, 0.0 ]
 }
+
+[sub_resource type="DynamicFont" id=5]
+font_data = ExtResource( 2 )
 
 [node name="Player_Join_Menu" type="Control"]
 anchor_right = 1.0
@@ -140,5 +143,22 @@ margin_bottom = 0.0
 action_names = [  ]
 transition_mask = NodePath("../TransitionMask")
 
+[node name="single_player_disclamer" type="Label" parent="."]
+visible = false
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -300.0
+margin_top = -57.0
+custom_fonts/font = SubResource( 5 )
+text = "Playing alone is not much fun!
+But you can do it if you want"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
 [node name="TransitionMask" parent="." instance=ExtResource( 8 )]
+visible = false
 [connection signal="pressed" from="VBoxContainer/CenterContainer/Next_Button" to="." method="_on_Next_Button_pressed"]

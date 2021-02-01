@@ -3,17 +3,19 @@ extends Node
 var sound_script = load("res://AudioManager/ASP.gd")
 
 export var bgm_queue_pool = [
-	"main_menu_bgm",
-	"collish_stuff",
-	"lvl_3_bgm",
+	"Sock 'Em",
+	"Friendly Fire",
+	"SPARTACRUSH",
+	"Music Machine Mondays Theme Song"
 ]
 
 export var sound_dictionary = {
 	# MUSIC
-	"main_menu_bgm" : ["res://Sounds/Music/8bit.ogg", "BGM", 1],
-	"collish_stuff": ["res://Sounds/Music/Space_2_draft_C.ogg", "BGM", 1],
-	"lvl_3_bgm" : ["res://Sounds/Music/backing_lvl_3.ogg", "BGM", 1],
-	"lvl_8_bgm" : ["res://Sounds/Music/backing_lvl_8.ogg", "BGM", 1],
+	"Sock 'Em": ["res://Sounds/Music/Sock_Em.ogg", "BGM", 1],
+	"Friendly Fire": ["res://Sounds/Music/Friendly_Fire.ogg", "BGM", 1],
+	"SPARTACRUSH": ["res://Sounds/Music/SPARTACRUSH.ogg", "BGM", 1],
+	"Music Machine Mondays Theme Song" : ["res://Sounds/Music/backing_lvl_3.ogg", "BGM", 1],
+	"Boswell Beatdown" : ["res://Sounds/Music/backing_lvl_8.ogg", "BGM", 1],
 	
 	#WEAPONS
 	"laser_shot" : ["res://Sounds/Effects/Weapons/laser_gun.wav", "SE", 1],
@@ -92,7 +94,7 @@ export var sound_dictionary = {
 	#LEVEL 8
 	"ping": ["res://Sounds/Effects/Levels/Level_8/egg_timer_ding.wav", "SE", 1],
 	"boiling_water": ["res://Sounds/Effects/Levels/Level_8/boiling_water.wav", "SE", 3],
-	
+	"light_switch": ["res://Sounds/Effects/Levels/Level_8/switch.wav", "SE", 3],
 	#LEVEL 11
 	"rocket_engine" : ["res://Sounds/Effects/Levels/Level_11/rocket_engine.wav", "SE", 2],
 	"running_rocket_engine": ["res://Sounds/Effects/general_game/engine/engine_running.wav", "SE", 3],
@@ -108,6 +110,7 @@ var playing_se = []
 var bgm_queue = []
 var bgm_queue_index = 0
 var bgm_queue_playing = false
+var current_title = ""
 
 var looping_effects = []
 
@@ -156,6 +159,8 @@ func play_bgm_queue(from_start = false):
 		stop_all_of_type("BGM")
 	bgm_queue_playing = true
 	play(bgm_queue[bgm_queue_index])
+	
+	current_title = bgm_queue[bgm_queue_index]
 	player_dictionary[bgm_queue[bgm_queue_index]].connect("sound_finished", self, "_on_queue_sound_finished")
 
 func play_next_in_queue():
@@ -277,6 +282,7 @@ func is_playing(sound_name):
 func _on_sound_finished(player):
 	if !player_dictionary[player.sound_name].playing:
 		playing_sounds.erase(player.sound_name)
+	
 		
 func stop_all_of_type(type):
 	for player in get_all_souns_of_type(type):

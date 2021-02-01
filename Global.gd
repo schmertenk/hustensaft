@@ -14,17 +14,19 @@ signal new_set_started
 
 var low_graphic_levels = ["Level_3", "Level_8", "Level_9", "Level_10"]
 
-var save_file_name = "user://options.json"
+var save_file_name = "user://optionsdddd.json"
 var options = {
-	"rounds_per_set": 2,
-	"sets": 2,
-	"fullscreen" : true,
-	"fx_volume" : 0,
-	"bm_volume" : 0,
+	"rounds_per_set": 4,
+	"sets": 3,
+	"fullscreen" : 1,
+	"fx_volume" : 5,
+	"bm_volume" : 4,
 	"graphic_mode": HIGH_GRAPHIC_MODE
 }
 var round_count = 0
 var set_count = 0
+
+# helper variable to prevent rushing back when pressed ui cancel
 var wait_for_ui_cancle_release = false
 var current_menu_index = 0
 var menu_order = [
@@ -37,10 +39,10 @@ var one_player_mode = false
 var joypad_ids = []
 var player_infos = []
 
-var test_mode = true
+var test_mode = false
 #var test_level = "res://Scenes/Levels/Level_3/Level.tscn"
-var test_level = "res://Scenes/Levels/Level_1/Level.tscn"
-
+var test_level = "res://Scenes/Levels/Level_10/Level.tscn"
+var browser_mode = false
 var secondarie_paths = [
 	"res://Scenes/Secondaries/Armor_Recharger/Armor_Recharger.tscn",
 	"res://Scenes/Secondaries/Gravity_Changer/Gravity_Changer.tscn",
@@ -60,7 +62,7 @@ func get_options_from_file():
 	var file  = File.new()
 	if file.open(save_file_name, File.READ) != 0:
 		print("Error opening file")
-		return
+		return {}
 
 	var json = JSON.parse(file.get_as_text())
 	file.close()
@@ -69,10 +71,7 @@ func get_options_from_file():
 
 
 func load_and_apply_options():
-	var loaded_options = get_options_from_file()
-	if !loaded_options:
-		return
-		
+	var loaded_options = get_options_from_file()		
 			
 	for key in loaded_options.keys():
 		if options.keys().has(key):

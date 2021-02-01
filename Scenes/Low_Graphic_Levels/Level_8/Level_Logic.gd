@@ -10,7 +10,7 @@ var pot_weapon_dummies = []
 
 func _ready():
 	Global.connect("round_ended", self, "_on_round_end")
-	AudioManager.insert_song_to_queue("lvl_8_bgm", 0)
+	AudioManager.insert_song_to_queue("Boswell Beatdown", 0)
 	AudioManager.loop("boiling_water")
 	pot_weapon_dummies.append(load("res://Scenes/Weapons/ProjectileWeapons/Flame_Thrower/F_T_Dummy.tscn").instance())
 	pot_weapon_dummies.append(load("res://Scenes/Weapons/ProjectileWeapons/Granade_Launcher/G_L_Dummy.tscn").instance())

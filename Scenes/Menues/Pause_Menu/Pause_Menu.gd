@@ -14,10 +14,20 @@ func _on_Back_To_Menu_pressed():
 func show():
 	continue_button.grab_focus()
 	visible = true
+	set_process(true)
 	
 func hide():
 	visible = false
+	set_process(false)
 
+func _process(delta):
+	var title = AudioManager.current_title
+	if title == "Music Machine Mondays Theme Song":
+		$Music/HBoxContainer/VBoxContainer/Artist.text = "Wintergatan"
+	else:	
+		$Music/HBoxContainer/VBoxContainer/Artist.text = "CarlaD"
+		
+	$Music/HBoxContainer/VBoxContainer/Title.text = title
 
 func _on_Options_pressed():
 	set_select_box($Options/VBoxContainer/CenterContainer/Music/SelectButtonContainer, "bm_volume")

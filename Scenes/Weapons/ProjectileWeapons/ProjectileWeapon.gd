@@ -13,6 +13,7 @@ export (float) var reload_time = 0 # time the reloading process takes in seconds
 export (bool) var can_reload = true
 export (bool) var pool_projectiles = false
 export (float) var knock_back_force = 0
+export (float) var hit_knock_back_force = 0
 
 var projectile_scene
 var shots_in_stack
@@ -131,7 +132,8 @@ func shoot():
 	
 	
 func on_projectile_hit(_target, _projectile):
-	pass
+	if _target.has_method("knock_back"):
+		_target.knock_back(direction * hit_knock_back_force)
 		
 func get_shoot_direction():
 	pass

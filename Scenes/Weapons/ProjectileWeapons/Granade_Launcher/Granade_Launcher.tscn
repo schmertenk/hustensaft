@@ -15,6 +15,7 @@ projectile_path = "res://Scenes/Weapons/Projectiles/RigidProjectiles/Granade.tsc
 projectile_speed = 750.0
 stack_size = 3
 reload_time = 0.6
+knock_back_force = 175.0
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 0.35, 0.35 )

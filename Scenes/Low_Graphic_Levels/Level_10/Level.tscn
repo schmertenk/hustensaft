@@ -532,6 +532,7 @@ __meta__ = {
 last_string = "GO!!"
 
 [node name="FPS" type="Label" parent="CanvasLayer"]
+visible = false
 margin_left = 14.0
 margin_top = -2.0
 margin_right = 62.0
@@ -760,7 +761,7 @@ rotation = 1.5708
 scale = Vector2( 3, 4 )
 z_index = -10
 frames = SubResource( 74 )
-frame = 42
+frame = 10
 speed_scale = 0.9
 playing = true
 
@@ -770,7 +771,7 @@ rotation = 1.5708
 scale = Vector2( 3, 4 )
 z_index = -10
 frames = SubResource( 74 )
-frame = 27
+frame = 32
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="Assets/Flames"]
@@ -779,7 +780,6 @@ rotation = 1.5708
 scale = Vector2( 3, 4 )
 z_index = -10
 frames = SubResource( 74 )
-frame = 13
 speed_scale = 0.95
 playing = true
 
@@ -789,7 +789,7 @@ rotation = 1.5708
 scale = Vector2( 3, 4 )
 z_index = -10
 frames = SubResource( 74 )
-frame = 21
+frame = 2
 speed_scale = 1.1
 playing = true
 [connection signal="body_entered" from="Assets/Rocket/Area2D" to="Assets/Rocket" method="_on_Area2D_body_entered"]

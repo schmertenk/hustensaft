@@ -16,6 +16,7 @@ fire_range_random = 0.15
 stack_size = 5
 reload_time = 0.3
 pool_projectiles = true
+hit_knock_back_force = 170.0
 
 [node name="Sprite" type="Sprite" parent="."]
 self_modulate = Color( 0.815686, 0.815686, 0.815686, 1 )

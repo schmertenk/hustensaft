@@ -253,10 +253,13 @@ func _on_smoke_timer_timeout():
 	
 func _on_smoke_sheet_finished():
 	$Smoke_Sprite.stop()
-	$Smoke_Sprite.visible = false
 	game.remove_child(current_smoke_sprite)
+	current_smoke_sprite.queue_free()
+	current_smoke_sprite = null
 	
 func start_smoke_sprite():
+	if current_smoke_sprite:
+		return
 	current_smoke_sprite = $Smoke_Sprite.duplicate()
 	game.add_child(current_smoke_sprite)
 	current_smoke_sprite.frame = 0
@@ -264,7 +267,9 @@ func start_smoke_sprite():
 	current_smoke_sprite.play()
 	current_smoke_sprite.connect("animation_finished", self, "_on_smoke_sheet_finished")
 	current_smoke_sprite.global_position = global_position + $Smoke_Sprite.position
-	current_smoke_sprite.scale.y = g
+	if g < 0:
+		current_smoke_sprite.global_position = global_position - $Smoke_Sprite.position
+		current_smoke_sprite.rotation_degrees = 180 
 func apply_force(force):
 	acceleration += force;
 	velocity += acceleration
@@ -358,7 +363,7 @@ func update_labels():
 func drop_weapon():
 	if !weapon:
 		return
-	weapon.lay_down(global_position + Vector2(look_direction.x, 0).normalized() * 100, velocity)
+	weapon.lay_down(global_position, velocity + look_direction * 1000)
 	$Arm.remove_child(weapon)
 	emit_signal("weapon_droped", weapon)
 	weapon.player = null

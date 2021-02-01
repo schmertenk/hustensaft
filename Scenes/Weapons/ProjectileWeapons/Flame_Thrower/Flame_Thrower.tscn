@@ -30,21 +30,20 @@ color_ramp = SubResource( 2 )
 
 [node name="Flame_Thrower" type="Node2D"]
 script = ExtResource( 2 )
-damage = 4.0
+damage = 15.0
 armor_multiplier = 0.8
 flesh_multiplier = 1.2
 continues = true
 rigid_dummy_path = "res://Scenes/Weapons/ProjectileWeapons/Flame_Thrower/F_T_Dummy.tscn"
 fire_rate = 20.0
 shoot_sound_name = "flame_thrower_shot"
-is_power_weapon = true
 projectiles_per_shot = 2
 projectile_path = "res://Scenes/Weapons/Projectiles/OtherProjectiles/Flame.tscn"
 projectile_speed = 35.0
 spray = 0.5
 fire_range_random = 0.5
-stack_size = 100
-can_reload = false
+stack_size = 85
+reload_time = 1.5
 
 [node name="Sprite" type="Sprite" parent="."]
 modulate = Color( 1, 0.72549, 0, 1 )

@@ -269,6 +269,7 @@ __meta__ = {
 last_string = "GO!!"
 
 [node name="FPS" type="Label" parent="CanvasLayer"]
+visible = false
 margin_left = 600.466
 margin_top = -316.1
 margin_right = 814.466

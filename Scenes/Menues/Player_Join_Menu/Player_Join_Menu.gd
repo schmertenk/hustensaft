@@ -53,6 +53,12 @@ func _process(_delta):
 		$VBoxContainer/CenterContainer/Next_Button.grab_focus()
 	else:
 		$VBoxContainer/CenterContainer/Next_Button.visible = false
+		
+	if slots.size() == 1:
+		$single_player_disclamer.visible = true
+	else:
+		$single_player_disclamer.visible = false
+		
 
 func player_added(info):
 	p_count += 1

@@ -66,3 +66,4 @@ action_names = [  ]
 transition_mask = NodePath("../TransitionMask")
 
 [node name="TransitionMask" parent="." instance=ExtResource( 5 )]
+visible = false

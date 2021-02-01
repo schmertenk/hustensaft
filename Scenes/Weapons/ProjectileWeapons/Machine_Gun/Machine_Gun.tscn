@@ -19,6 +19,7 @@ stack_size = 20
 reload_time = 0.6
 pool_projectiles = true
 knock_back_force = 50.0
+hit_knock_back_force = 110.0
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, 30 )

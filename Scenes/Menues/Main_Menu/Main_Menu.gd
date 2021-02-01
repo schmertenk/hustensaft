@@ -4,6 +4,10 @@ var initialized = false
 
 func _ready():
 	initialized = false
+	if Global.browser_mode:
+		$VBoxContainer/browser.visible = true
+	else:
+		$VBoxContainer/browser.visible = false
 
 
 func _on_Start_pressed():
