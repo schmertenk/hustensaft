@@ -14,7 +14,9 @@ func explode():
 	state = STATE_EXPLODING
 	$Tween.interpolate_property($Light2D, "energy", 1, 0, duration / 6)
 	$Tween.interpolate_callback(self, duration, "queue_free")
-	$Particles2D.emitting = true
+	$Particles2D.emitting = !Global.browser_mode
+	if has_node("browser_particle"):
+		$browser_particle.emitting = Global.browser_mode
 	$Tween.start()
 	AudioManager.play(sound_name, true)
 	if screenshake_amp:

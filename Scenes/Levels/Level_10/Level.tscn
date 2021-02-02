@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://Images/floor.png" type="Texture" id=1]
 [ext_resource path="res://Images/Level_10/background.jpg" type="Texture" id=2]
@@ -23,6 +23,7 @@
 [ext_resource path="res://Scenes/Weapons/ProjectileWeapons/Sticky_Granade_Launcher/G_L_Dummy.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Scenes/Weapons/ProjectileWeapons/Pistol/Pistol_Dummy.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Scenes/Levels/Level_10/Rocket.gd" type="Script" id=23]
+[ext_resource path="res://Scenes/Levels/Level_10/Level_Logic.gd" type="Script" id=24]
 
 [sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( 100, 100, 0, 100, 0, 0, 100, 0 )
@@ -151,6 +152,42 @@ tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
 "times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Particles2D4:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Particles2D5:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Particles2D6:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.9 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
@@ -392,25 +429,70 @@ polygon = PoolVector2Array( -78.1576, 233.692, 187.16, 137.078, 226.218, 85.4209
 
 [node name="Particles2D" type="Particles2D" parent="Assets/Rocket"]
 position = Vector2( -538.36, -1270.03 )
-emitting = false
 amount = 40
 lifetime = 0.6
 process_material = SubResource( 9 )
 
 [node name="Particles2D3" type="Particles2D" parent="Assets/Rocket"]
 position = Vector2( -538.36, -1270.03 )
-emitting = false
 amount = 40
 lifetime = 0.35
 process_material = SubResource( 10 )
 
 [node name="Particles2D2" type="Particles2D" parent="Assets/Rocket"]
 position = Vector2( -538.36, -1270.03 )
-emitting = false
 amount = 80
 lifetime = 0.4
 speed_scale = 2.0
 process_material = SubResource( 11 )
+
+[node name="Particles2D4" type="CPUParticles2D" parent="Assets/Rocket"]
+position = Vector2( -538.36, -1270.03 )
+emitting = false
+amount = 40
+lifetime = 0.6
+emission_shape = 1
+emission_sphere_radius = 63.24
+direction = Vector2( -0.4, -1 )
+spread = 0.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 1000.0
+angle = 720.0
+angle_random = 1.0
+scale_amount = 184.12
+scale_amount_curve = SubResource( 7 )
+color = Color( 0, 0.694118, 1, 1 )
+
+[node name="Particles2D5" type="CPUParticles2D" parent="Assets/Rocket"]
+position = Vector2( -538.36, -1270.03 )
+emitting = false
+amount = 40
+lifetime = 0.35
+emission_shape = 1
+emission_sphere_radius = 63.24
+direction = Vector2( -0.4, -1 )
+spread = 0.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 1000.0
+angle = 720.0
+angle_random = 1.0
+scale_amount = 50.79
+scale_amount_curve = SubResource( 7 )
+
+[node name="Particles2D6" type="CPUParticles2D" parent="Assets/Rocket"]
+position = Vector2( -538.36, -1270.03 )
+emitting = false
+amount = 80
+lifetime = 0.4
+speed_scale = 2.0
+emission_shape = 1
+emission_sphere_radius = 116.95
+direction = Vector2( -0.4, -1 )
+spread = 0.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 1000.0
+scale_amount = 11.58
+color = Color( 0, 0, 0, 1 )
 
 [node name="rocket" type="Sprite" parent="Assets/Rocket"]
 rotation = 2.71748
@@ -538,11 +620,102 @@ draw_order = 1
 process_material = SubResource( 20 )
 texture = ExtResource( 7 )
 
+[node name="Particles2D12" type="CPUParticles2D" parent="Particles"]
+position = Vector2( 1022, -528.74 )
+z_index = -2
+amount = 55
+lifetime = 3.0
+draw_order = 1
+texture = ExtResource( 7 )
+emission_shape = 1
+emission_sphere_radius = 54.41
+direction = Vector2( 0, -1 )
+spread = 39.56
+gravity = Vector2( 0, -98 )
+initial_velocity = 211.9
+orbit_velocity = -0.1
+orbit_velocity_random = 0.75
+linear_accel = 100.0
+linear_accel_random = 1.0
+scale_amount = 2.0
+scale_amount_curve = SubResource( 18 )
+color_ramp = SubResource( 14 )
+hue_variation_curve = SubResource( 16 )
+
+[node name="Particles2D14" type="CPUParticles2D" parent="Particles"]
+position = Vector2( 1913.55, 704.026 )
+z_index = -2
+amount = 45
+lifetime = 3.0
+draw_order = 1
+texture = ExtResource( 7 )
+emission_shape = 1
+emission_sphere_radius = 54.41
+direction = Vector2( 0, -1 )
+spread = 39.56
+gravity = Vector2( 0, -98 )
+initial_velocity = 211.9
+orbit_velocity = -0.1
+orbit_velocity_random = 0.75
+linear_accel = 100.0
+linear_accel_random = 1.0
+scale_amount = 2.0
+scale_amount_curve = SubResource( 18 )
+color_ramp = SubResource( 14 )
+hue_variation_curve = SubResource( 16 )
+
+[node name="Particles2D16" type="CPUParticles2D" parent="Particles"]
+position = Vector2( 1782.88, 530.98 )
+z_index = -2
+amount = 45
+lifetime = 3.0
+draw_order = 1
+texture = ExtResource( 7 )
+emission_shape = 1
+emission_sphere_radius = 54.41
+direction = Vector2( 0, -1 )
+spread = 39.56
+gravity = Vector2( 0, -98 )
+initial_velocity = 211.9
+orbit_velocity = -0.1
+orbit_velocity_random = 0.75
+linear_accel = 100.0
+linear_accel_random = 1.0
+scale_amount = 2.0
+scale_amount_curve = SubResource( 18 )
+color_ramp = SubResource( 14 )
+hue_variation_curve = SubResource( 16 )
+
+[node name="Particles2D9" type="CPUParticles2D" parent="Particles"]
+position = Vector2( 1647.79, 246.457 )
+z_index = -2
+amount = 45
+lifetime = 3.0
+draw_order = 1
+texture = ExtResource( 7 )
+emission_shape = 1
+emission_sphere_radius = 54.41
+direction = Vector2( 0, -1 )
+spread = 39.56
+gravity = Vector2( 0, -98 )
+initial_velocity = 211.9
+orbit_velocity = -0.1
+orbit_velocity_random = 0.75
+linear_accel = 100.0
+linear_accel_random = 1.0
+scale_amount = 2.0
+scale_amount_curve = SubResource( 18 )
+color_ramp = SubResource( 14 )
+hue_variation_curve = SubResource( 16 )
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 21 )
 
 [node name="Needler_Dummy" parent="." instance=ExtResource( 19 )]
 position = Vector2( 1641.74, 1358.34 )
+
+[node name="Level_Logic" type="Node" parent="."]
+script = ExtResource( 24 )
 [connection signal="body_entered" from="Assets/Rocket/Area2D" to="Assets/Rocket" method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Assets/Rocket/Area2D" to="Assets/Rocket" method="_on_Area2D_body_exited"]
 [connection signal="timeout" from="Assets/Rocket/Timer" to="Assets/Rocket" method="_on_Timer_timeout"]

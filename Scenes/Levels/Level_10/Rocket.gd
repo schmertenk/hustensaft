@@ -10,6 +10,9 @@ var state = STATE_OFF
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$AnimationPlayer.connect("animation_finished", self, "_on_animation_end")
+	$Particles2D4.visible = Global.browser_mode
+	$Particles2D5.visible = Global.browser_mode
+	$Particles2D6.visible = Global.browser_mode
 
 
 func _process(delta):

@@ -20,6 +20,10 @@ func _ready():
 	lifetime = rand_range(_min, lifetime)
 	lifetime += $Particles2D.lifetime
 	original_lifetime = lifetime
+	
+	$brwoser_particles.visible = Global.browser_mode
+	$Particles2D.visible = !Global.browser_mode
+
 func _process(delta):
 	for p in flameable_objects:
 		if original_lifetime - lifetime < player_invincibility_time && p == weapon.player:
