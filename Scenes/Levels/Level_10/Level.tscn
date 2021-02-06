@@ -392,21 +392,18 @@ polygon = PoolVector2Array( -78.1576, 233.692, 187.16, 137.078, 226.218, 85.4209
 
 [node name="Particles2D" type="Particles2D" parent="Assets/Rocket"]
 position = Vector2( -538.36, -1270.03 )
-emitting = false
 amount = 40
 lifetime = 0.6
 process_material = SubResource( 9 )
 
 [node name="Particles2D3" type="Particles2D" parent="Assets/Rocket"]
 position = Vector2( -538.36, -1270.03 )
-emitting = false
 amount = 40
 lifetime = 0.35
 process_material = SubResource( 10 )
 
 [node name="Particles2D2" type="Particles2D" parent="Assets/Rocket"]
 position = Vector2( -538.36, -1270.03 )
-emitting = false
 amount = 80
 lifetime = 0.4
 speed_scale = 2.0

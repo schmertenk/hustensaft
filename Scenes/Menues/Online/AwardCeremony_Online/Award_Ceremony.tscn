@@ -1,0 +1,637 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://Retrophile Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Scenes/Menues/Online/AwardCeremony_Online/Award_Ceremony.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Menues/Menu_Background.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Menues/Buttons/Button.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/TransitionMask.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Images/Characters/b/icon.png" type="Texture" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 60
+extra_spacing_top = 20
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "show"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 0.11 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.6, 1.2, 3.1 ),
+"transitions": PoolRealArray( 0.11, 1, 0.126357, 1 ),
+"update": 0,
+"values": [ Vector2( 10, 10 ), Vector2( 4, 4 ), Vector2( 4, 4 ), Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:rect_pivot_offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 33, 66 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:rect_rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 0.11, 1 ),
+"update": 0,
+"values": [ 45.0, 0.0 ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath("../../../../AnimationPlayer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "show_winner", -1, 1.0, false ],
+"method": "play"
+} ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath(".:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/6/type = "method"
+tracks/6/path = NodePath("../../../..")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "2nd" ],
+"method": "play_sound_for_rank"
+} ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "wiggle"
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("VBoxContainer/1st_place:rect_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
+"transitions": PoolRealArray( 0.535887, 2.07053, 0.420448, 2.54912 ),
+"update": 0,
+"values": [ 0.0, -5.0, 0.0, 5.0 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "show"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 0.11 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.6, 1.5, 3.3 ),
+"transitions": PoolRealArray( 0.11, 1, 0.126357, 1 ),
+"update": 0,
+"values": [ Vector2( 10, 10 ), Vector2( 4, 4 ), Vector2( 4, 4 ), Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:rect_pivot_offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 33, 66 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:rect_rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 0.11, 1 ),
+"update": 0,
+"values": [ 45.0, 0.0 ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath("../1/AnimationPlayer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "show", -1, 1.0, false ],
+"method": "play"
+} ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath(".:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/6/type = "method"
+tracks/6/path = NodePath("../../../..")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "3rd" ],
+"method": "play_sound_for_rank"
+} ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "wiggle"
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("VBoxContainer/1st_place:rect_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
+"transitions": PoolRealArray( 0.535887, 2.07053, 0.420448, 2.54912 ),
+"update": 0,
+"values": [ 0.0, -5.0, 0.0, 5.0 ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "show"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 0.11 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.6, 1.8, 2.9 ),
+"transitions": PoolRealArray( 0.11, 1, 0.126357, 1 ),
+"update": 0,
+"values": [ Vector2( 10, 10 ), Vector2( 4, 4 ), Vector2( 4, 4 ), Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:rect_pivot_offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 33, 66 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:rect_rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 0.11, 1 ),
+"update": 0,
+"values": [ 45.0, 0.0 ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath("../2/AnimationPlayer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "show", -1, 1.0, false ],
+"method": "play"
+} ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath(".:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/6/type = "method"
+tracks/6/path = NodePath("../../../..")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "4th" ],
+"method": "play_sound_for_rank"
+} ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "wiggle"
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("VBoxContainer/1st_place:rect_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
+"transitions": PoolRealArray( 0.535887, 2.07053, 0.420448, 2.54912 ),
+"update": 0,
+"values": [ 0.0, -5.0, 0.0, 5.0 ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "show_winner"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("VBoxContainer/1st_place:rect_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1.51572, 1 ),
+"update": 0,
+"values": [ 0.0, 1800.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("VBoxContainer/1st_place:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.1, 1.5, 2.6, 3.5 ),
+"transitions": PoolRealArray( 2, 1, 1, 0.170755, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 4, 4 ), Vector2( 3, 3 ), Vector2( 3, 3 ), Vector2( 1, 1 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("AnimationPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 3.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "wiggle", -1, 1.0, false ],
+"method": "play"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("VBoxContainer/1st_place/CenterContainer:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("VBoxContainer/1st_place/wins:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 3.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/5/type = "method"
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "1st" ],
+"method": "play_sound_for_rank"
+} ]
+}
+
+[sub_resource type="Animation" id=11]
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("VBoxContainer/1st_place:rect_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
+"transitions": PoolRealArray( 0.535887, 2.07053, 0.420448, 2.54912 ),
+"update": 0,
+"values": [ 0.0, -5.0, 0.0, 5.0 ]
+}
+
+[node name="Award_Ceremony" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" parent="." instance=ExtResource( 3 )]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 30
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="headline" type="Label" parent="VBoxContainer"]
+margin_right = 1024.0
+margin_bottom = 80.0
+custom_fonts/font = SubResource( 1 )
+text = "And the winner is..."
+align = 1
+valign = 1
+
+[node name="1st_place" type="VBoxContainer" parent="VBoxContainer"]
+margin_top = 110.0
+margin_right = 1024.0
+margin_bottom = 297.0
+rect_min_size = Vector2( 0, 187 )
+rect_pivot_offset = Vector2( 512, 58 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/1st_place"]
+margin_right = 1024.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 0, 150 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="icon" type="TextureRect" parent="VBoxContainer/1st_place/CenterContainer"]
+margin_left = 437.0
+margin_right = 587.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 150, 150 )
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 6
+
+[node name="wins" type="Label" parent="VBoxContainer/1st_place"]
+margin_top = 154.0
+margin_right = 1024.0
+margin_bottom = 187.0
+custom_fonts/font = SubResource( 2 )
+text = "4 Wins"
+align = 1
+valign = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
+margin_top = 327.0
+margin_right = 1024.0
+margin_bottom = 460.0
+
+[node name="ranks" type="HBoxContainer" parent="VBoxContainer/CenterContainer"]
+show_behind_parent = true
+margin_left = 512.0
+margin_right = 512.0
+margin_bottom = 133.0
+rect_min_size = Vector2( 0, 133 )
+custom_constants/separation = 100
+
+[node name="1" type="VBoxContainer" parent="VBoxContainer/CenterContainer/ranks"]
+visible = false
+margin_right = 88.0
+margin_bottom = 133.0
+rect_min_size = Vector2( 0, 133 )
+rect_pivot_offset = Vector2( 33, 66 )
+size_flags_horizontal = 3
+custom_constants/separation = 20
+
+[node name="icon" type="TextureRect" parent="VBoxContainer/CenterContainer/ranks/1"]
+margin_right = 88.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 6
+
+[node name="wins" type="Label" parent="VBoxContainer/CenterContainer/ranks/1"]
+margin_top = 100.0
+margin_right = 88.0
+margin_bottom = 133.0
+custom_fonts/font = SubResource( 3 )
+text = "3 Wins"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="VBoxContainer/CenterContainer/ranks/1"]
+anims/show = SubResource( 4 )
+anims/wiggle = SubResource( 5 )
+
+[node name="2" type="VBoxContainer" parent="VBoxContainer/CenterContainer/ranks"]
+visible = false
+margin_left = 188.0
+margin_right = 276.0
+margin_bottom = 133.0
+rect_pivot_offset = Vector2( 33, 66 )
+size_flags_horizontal = 3
+custom_constants/separation = 20
+
+[node name="icon" type="TextureRect" parent="VBoxContainer/CenterContainer/ranks/2"]
+margin_right = 88.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 6
+
+[node name="wins" type="Label" parent="VBoxContainer/CenterContainer/ranks/2"]
+margin_top = 100.0
+margin_right = 88.0
+margin_bottom = 133.0
+custom_fonts/font = SubResource( 3 )
+text = "3 Wins"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="VBoxContainer/CenterContainer/ranks/2"]
+anims/show = SubResource( 6 )
+anims/wiggle = SubResource( 7 )
+
+[node name="3" type="VBoxContainer" parent="VBoxContainer/CenterContainer/ranks"]
+visible = false
+margin_left = 376.0
+margin_right = 464.0
+margin_bottom = 133.0
+rect_pivot_offset = Vector2( 33, 66 )
+size_flags_horizontal = 3
+custom_constants/separation = 20
+
+[node name="icon" type="TextureRect" parent="VBoxContainer/CenterContainer/ranks/3"]
+margin_right = 88.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 6
+
+[node name="wins" type="Label" parent="VBoxContainer/CenterContainer/ranks/3"]
+margin_top = 100.0
+margin_right = 88.0
+margin_bottom = 133.0
+custom_fonts/font = SubResource( 3 )
+text = "3 Wins"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="VBoxContainer/CenterContainer/ranks/3"]
+anims/show = SubResource( 8 )
+anims/wiggle = SubResource( 9 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 490.0
+margin_right = 1024.0
+margin_bottom = 600.0
+size_flags_vertical = 3
+
+[node name="CenterContainer" type="Control" parent="VBoxContainer/HBoxContainer"]
+margin_right = 510.0
+margin_bottom = 110.0
+size_flags_horizontal = 3
+
+[node name="Main_Menu" parent="VBoxContainer/HBoxContainer/CenterContainer" instance=ExtResource( 4 )]
+
+[node name="Label" parent="VBoxContainer/HBoxContainer/CenterContainer/Main_Menu" index="0"]
+text = "Main Menu"
+
+[node name="CenterContainer2" type="Control" parent="VBoxContainer/HBoxContainer"]
+margin_left = 514.0
+margin_right = 1024.0
+margin_bottom = 110.0
+size_flags_horizontal = 3
+
+[node name="Main_Menu" parent="VBoxContainer/HBoxContainer/CenterContainer2" instance=ExtResource( 4 )]
+button_text = "Play Again"
+
+[node name="TransitionMask" parent="." instance=ExtResource( 5 )]
+visible = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/show_winner = SubResource( 10 )
+anims/wiggle = SubResource( 11 )
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/CenterContainer/Main_Menu" to="." method="_on_Main_Menu_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/CenterContainer2/Main_Menu" to="." method="_on_Main_Menu_pressed"]
+
+[editable path="VBoxContainer/HBoxContainer/CenterContainer/Main_Menu"]

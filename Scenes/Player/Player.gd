@@ -22,10 +22,10 @@ var invincible_against_player = [] # array of other players wich cannot hurt thi
 var weapon setget set_weapon # the players weapon
 var joypad_id = null # the id if the joypad. -1 if keyboard and mouse
 var player_stats = null # the health and shield indicator on canvas layer
-var velocity = Vector2.ZERO
+remote var velocity = Vector2.ZERO
 var acceleration = Vector2.ZERO
-var look_direction = Vector2.ZERO
-var g = 1 # 1 is normal -1 is uside down
+remote var look_direction = Vector2.ZERO
+remote var g = 1 # 1 is normal -1 is uside down
 var pickupables_in_reach = [] # all objects in reach to pickup
 var last_damage_time = 0
 var secondary = null setget set_secondary # current secondary
@@ -45,9 +45,9 @@ var current_smoke_sprite
 var can_smoke = true
 
 # variables reguarding the animation
-var walk_button_pressed = false
-var in_jump = false
-var in_knock_back = false
+remote var walk_button_pressed = false
+remote var in_jump = false
+remote var in_knock_back = false
 
 # the char that cooresponse to the path the right texture for the color lies
 var color_char = null setget set_color_char
@@ -69,10 +69,13 @@ func _ready():
 	$Smoke_Timer.connect("timeout", self, "_on_smoke_timer_timeout")
 		
 	icon = load("res://Images/Characters/" + color_char + "/icon.png")
-	var indicator = load("res://Scenes/ui/Out_Of_Screen_Indicator/Out_Of_Screen_Indicator.tscn").instance()
-	indicator.player = self
-	indicator.color = Color(1,1,1,1)
-	game.get_node("CanvasLayer").add_child(indicator)
+	if Global.online_mode && !is_network_master():
+		$Crosshair.visible = false
+	else:
+		var indicator = load("res://Scenes/ui/Out_Of_Screen_Indicator/Out_Of_Screen_Indicator.tscn").instance()
+		indicator.player = self
+		indicator.color = Color(1,1,1,1)
+		game.get_node("CanvasLayer").add_child(indicator)
 
 	initialize_animation("walk_l", "walk")
 	initialize_animation("walk_r", "walk")
@@ -88,6 +91,8 @@ func _ready():
 	
 	$Sprite.texture = load("res://Images/Characters/" + color_char + "/idle.png")
 	$Beam/Timer.connect("timeout", self, "hide_beam")
+	
+
 	
 func initialize_animation(a_name, image_name):
 	var new_name = a_name + "_" + color_char
@@ -105,7 +110,9 @@ func get_input(delta):
 		last_move_direction = -1
 	else:
 		walk_button_pressed = false
-
+		
+	if Global.online_mode && is_network_master():
+		rset("walk_button_pressed", walk_button_pressed)
 
 	if Input.is_action_pressed("p" + str(p_number) + "_use_secondary"):
 		use_secondary()
@@ -150,11 +157,16 @@ func _physics_process(delta):
 			velocity.y =-max_fall_speed
 		else:
 			velocity.y = max_fall_speed
+	
 	var snap = Vector2(0, 100 * g)
 	if in_jump || in_knock_back:
 		snap = Vector2(0, 0)
+	
+	if Global.online_mode && is_network_master():
+		rpc_unreliable("move_puppet", global_position, velocity, snap)
+	
 	velocity = move_and_slide_with_snap(velocity, snap, Vector2(0, -g),
-					true, 4, 0.959931, false)
+				true, 4, 0.959931, false)
 	
 	acceleration = Vector2.ZERO
 	
@@ -162,6 +174,11 @@ func _physics_process(delta):
 		var collision = get_slide_collision(index)
 		if collision.collider.is_in_group("bodies"):
 			collision.collider.apply_central_impulse(-collision.normal * 100)
+
+puppet func move_puppet(from_position, _velocity, _snap):
+	global_position = from_position
+	velocity = move_and_slide_with_snap(_velocity, _snap, Vector2(0, -g),
+				true, 4, 0.959931, false)
 
 func _process(_delta):
 	if weapon:
@@ -176,33 +193,38 @@ func _process(_delta):
 	$Crosshair/Sprite.scale = get_node("/root/Game/Camera").zoom / 2
 	
 	var last_look_direction = look_direction
-	if !mouse_mode:
-		var x = Input.get_joy_axis(joypad_id, JOY_AXIS_2)
-		var y = Input.get_joy_axis(joypad_id, JOY_AXIS_3)
-		if Vector2(x, y).length() < 0.1:
-			x = 0
-			y = 0
-		look_direction = Vector2(x,y).normalized()
-		if look_direction.length() <= 0.2:
-			if velocity.x == 0:
-				look_direction = Vector2(last_look_direction.x, 0)
-			else:
-				look_direction = Vector2(last_move_direction, 0)
-	else:
-		look_direction = (get_viewport().get_mouse_position() - get_global_transform_with_canvas().get_origin()).normalized()
-		
-	if g > 0:
-		$Crosshair.rotation = look_direction.angle()
-	else:
-		$Crosshair.rotation = - look_direction.angle()
-		
+	if !Global.online_mode || is_network_master():
+		if !mouse_mode:
+			var x = Input.get_joy_axis(joypad_id, JOY_AXIS_2)
+			var y = Input.get_joy_axis(joypad_id, JOY_AXIS_3)
+			if Vector2(x, y).length() < 0.1:
+				x = 0
+				y = 0
+			look_direction = Vector2(x,y).normalized()
+			if look_direction.length() <= 0.2:
+				if velocity.x == 0:
+					look_direction = Vector2(last_look_direction.x, 0)
+				else:
+					look_direction = Vector2(last_move_direction, 0)
+		else:
+			look_direction = (get_viewport().get_mouse_position() - get_global_transform_with_canvas().get_origin()).normalized()
+			
+		if g > 0:
+			$Crosshair.rotation = look_direction.angle()
+		else:
+			$Crosshair.rotation = - look_direction.angle()
+	
+	if Global.online_mode && is_network_master():
+		rset("look_direction", look_direction)
+	
 	if look_direction.x < 0:
 		$Arm.rotation = (look_direction.angle() + PI) * g
 		$Arm.scale = Vector2(-0.8, 0.8)
 	else:
 		$Arm.rotation = (look_direction.angle()) * g
 		$Arm.scale = Vector2(0.8, 0.8)
-		
+	
+
 	handle_animations()
 	
 	$Beam.global_scale = Vector2(1,1)
@@ -288,13 +310,22 @@ func unpause():
 	set_process(true)
 	set_physics_process(true)
 
-func use_secondary():
+remote func use_secondary():
+	if Global.online_mode && is_network_master():
+		rpc("use_secondary")
 	if !secondary:
 		return
 	
 	secondary.activate()
 
-func damage(damage, armor_multiplier = 1, flesh_multiplier = 1, ignore_armor = false, cause = null):
+remote func damage(damage, armor_multiplier = 1, flesh_multiplier = 1, ignore_armor = false, cause = null):
+	if Global.online_mode:
+		if get_tree().get_network_unique_id() == 1:
+			rpc("damage", damage, armor_multiplier, flesh_multiplier, ignore_armor, cause)
+		else:
+			if get_tree().get_rpc_sender_id() != 1:
+				return
+
 	if cause && invincible_against_player.find(cause) != -1:
 		return
 	damage *= mods["suffered_damage_multiplier"]
@@ -370,26 +401,31 @@ func drop_weapon():
 	weapon = null
 	player_stats.update()
 
-func pull_trigger():
+remote func pull_trigger():
 	if weapon:
 		weapon.pull_trigger()
 		if player_stats.stack.visible:
 			player_stats.update()
 
-func release_trigger():
+remote func release_trigger():
 	if weapon:
 		weapon.release_trigger()
 		
 func reset_mods():
 	mods = original_mods.duplicate()
+	
 		
-func pickup_objects():
+remote func pickup_objects():
+	if Global.online_mode && is_network_master():
+		rpc("pickup_objects")
 	if weapon:
 		drop_weapon()
 	if pickupables_in_reach.size():
 		var obj = pickupables_in_reach[0]
 		if obj is RigidDummy:
 			self.weapon = obj.containing_weapon
+			if Global.online_mode:	
+				weapon.set_network_master(player_info.id)
 			player_stats.update()
 			obj.get_parent().remove_child(obj)
 
@@ -416,7 +452,9 @@ func set_secondary(value):
 	secondary.player = self
 	add_child(secondary)
 				
-func set_g(value, ignore_lock = false):
+remote func set_g(value, ignore_lock = false):
+	if Global.online_mode && is_network_master():
+		rpc("set_g", value, ignore_lock)
 	if !ignore_lock && OS.get_ticks_msec() <= g_locked_time + g_locked_duration:
 		return false
 	

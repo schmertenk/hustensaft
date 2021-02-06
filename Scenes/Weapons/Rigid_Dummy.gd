@@ -11,6 +11,9 @@ var pickupable = true
 var initial_position = null
 var initial_rotation = null
 
+remote var slave_position
+remote var slave_rotation
+
 func _ready():
 	if initial_weapon_path && containing_weapon == null:
 		containing_weapon = load(initial_weapon_path).instance()
@@ -37,3 +40,12 @@ func init():
 func _process(_delta):
 	if !initialized:
 		init()
+
+func _integrate_forces(state):
+	if Global.online_mode:
+		if is_network_master():
+			rset("slave_position", position)
+			rset("slave_rotation", rotation)
+		else:			
+			if slave_rotation && slave_position:
+				state.transform = Transform2D(slave_rotation, slave_position)		

@@ -11,7 +11,7 @@ func _ready():
 	$RayCast2D.add_exception(get_parent())
 
 
-func _process(delta):
+func _process(_delta):
 	if $RayCast2D.is_colliding():
 		$Sprite.global_position = $RayCast2D.get_collision_point()
 	else:

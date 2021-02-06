@@ -42,7 +42,9 @@ func get_dummy():
 	return rigid_dummy
 
 # returns wether the shot was successful or not
-func shoot():
+remote func shoot():
+	if Global.online_mode && player.is_network_master():
+		rpc("shoot")
 	return true
 	
 # do someting when layed down

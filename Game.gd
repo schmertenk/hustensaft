@@ -12,24 +12,49 @@ var state = 0 setget set_state
 var countdown_startet_at
 var spawn_indicators = []
 
+var game_initialized = false
+
 export (int) var level_boundury_radius = 4000
 
 func _ready():
+	get_tree().paused = true
+	
+	if !Global.online_mode:
+		init_game()
+	else:
+		$CanvasLayer/TransitionMask.visible = true
+		if get_tree().get_network_unique_id() != 1:
+			Global.rpc_id(1, "online_player_level_load_finished", get_tree().get_network_unique_id())
+		else:
+			Global.connect("online_players_level_loaded", self, "all_online_players_level_loaded")
+			Global.rpc("online_change_level", filename)
+			
+func all_online_players_level_loaded():
+	rpc("init_game")
+	init_game()
+
+remote func init_game():
+	
 	$CanvasLayer/Countdown.connect("finished", self, "_on_countdown_finished")
 	Global.connect("game_paused", self, "_on_game_paused")
 	Global.connect("game_unpaused", self, "_on_game_unpaused")
 	var spawn_arr = [1,2,3,4]
-	spawn_arr.shuffle()
+	if !Global.online_mode:
+		spawn_arr.shuffle()
 	
 	for i in range(Global.player_infos.size()):
+		var info = Global.player_infos[i]
 		var p = load("res://Scenes/Player/Player.tscn").instance()
+		
 		p.global_position = $Spawns.get_node("Player_Spawn_" + str(spawn_arr[i])).global_position
-		p.p_number = Global.player_infos[i].id
-		p.joypad_id = Global.player_infos[i].joypad_id
+		p.p_number = i + 1
+		p.joypad_id = info.joypad_id
 		p.game = self
-		p.secondary = Global.player_infos[i].secondary
-		p.player_info = Global.player_infos[i]
-		p.color_char = Global.player_infos[i].color_char
+		p.name = "player" + str(info.id)
+		p.secondary = info.secondary
+		p.player_info = info
+		p.color_char = info.color_char
+		p.set_network_master(info.id)
 		var stat = load("res://Scenes/ui/Player_Stats/Player_Stats" + str(p.p_number) + ".tscn").instance()
 		stat.player = p
 		p.player_stats = stat
@@ -54,7 +79,6 @@ func _ready():
 	$CanvasLayer/TransitionMask.slide_out()
 	Global.pause()
 	Global.unpause()
-
 # called when pause signal of Global class is recieved
 func _on_game_paused():
 	if $CanvasLayer/Countdown.state == Countdown.STATE_RUNNING:
@@ -76,6 +100,7 @@ func _on_countdown_finished():
 	get_tree().paused = false
 	
 func end_round(winners = null):
+		
 	if state == STATE_ENDED:
 		return
 	state = STATE_ENDED
@@ -91,7 +116,10 @@ func end_round(winners = null):
 		winners = get_living_players()
 	
 	# let transitionlayer slide in and then call Global.end_round() 
-	$CanvasLayer/TransitionMask.slide_in(Global, "end_round", winners)
+	if Global.online_mode && !is_network_master():
+		$CanvasLayer/TransitionMask.slide_in()
+	else:
+		$CanvasLayer/TransitionMask.slide_in(Global, "end_round", winners)
 
 func _process(_delta):
 	if spawn_indicators:

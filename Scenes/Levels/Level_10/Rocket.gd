@@ -22,6 +22,14 @@ func _process(delta):
 
 
 func _on_Timer_timeout():
+	if Global.online_mode:
+		if !is_network_master():
+			return
+		else:
+			rpc("start_rocket_engine")
+	start_rocket_engine()
+
+remote func start_rocket_engine():
 	$AnimationPlayer.play("Fire")
 	state = STATE_ON
 	get_node("/root/Game/Camera").shake(1, 50.0, 30)
@@ -30,6 +38,8 @@ func _on_Timer_timeout():
 func _on_animation_end(animation_name):
 	$Timer.start()
 	state = STATE_OFF
+	if Global.online_mode && is_network_master():
+		rset("sate", state)
 	
 
 func _on_Area2D_body_entered(body):

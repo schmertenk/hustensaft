@@ -12,6 +12,8 @@ signal round_ended
 signal new_round_started
 signal new_set_started
 
+signal online_players_level_loaded
+
 var low_graphic_levels = ["Level_3", "Level_8", "Level_9", "Level_10"]
 
 var save_file_name = "user://optionsdddd.json"
@@ -53,6 +55,9 @@ var secondarie_paths = [
 
 var skin_names = ["w", "o", "p", "b"]
 var secondaries = []
+
+var online_mode = false
+var online_player_level_loaded_count = 0
 
 func _ready():
 	pause_mode = Node.PAUSE_MODE_PROCESS
@@ -97,6 +102,7 @@ func save_options(new_options):
 		
 
 func init():
+	online_mode = false
 	set_count = 0
 	round_count = 0
 	current_menu_index = 0
@@ -136,6 +142,8 @@ func go_to_menu(index):
 
 func start_game():
 	current_menu_index = 0
+	set_count = 0
+	round_count = 0
 	if player_infos.size() == 1:
 		one_player_mode = true
 	else:
@@ -144,19 +152,56 @@ func start_game():
 	for info in player_infos:
 		info.win_count = 0
 		info.lost_count = 0
+	if online_mode:
+		rpc("pre_online_game_start")
 	start_new_set()
 	start_new_round()
 
-
-func end_game():
-	get_tree().change_scene("res://Scenes/Menues/AwardCeremony/Award_Ceremony.tscn")
+#special online fuctions
+remotesync func pre_online_game_start():
+	player_infos.sort_custom(self, "sort_ifos_by_id")
+	
+remote func online_player_level_load_finished(id):
+	online_player_level_loaded_count += 1
+	if online_player_level_loaded_count == player_infos.size() -1:
+		emit_signal("online_players_level_loaded")
+		
+remote func online_change_level(lvl_path):
+	get_tree().change_scene(lvl_path)
+	
+remote func recieve_win_counts(win_counts):
+	for id in win_counts.keys():
+		for info in player_infos:
+			if info.id == id:
+				info.win_count = win_counts[id]
+				break
+	
+func sort_ifos_by_id(a, b):
+	if typeof(a.id) != typeof(b.id):
+		return typeof(a.id) < typeof(b.id)
+	else:
+		return a.id < b.id
+	
+	
+remote func end_game():
+	if online_mode:
+		if Server.role == Server.ROLE_HOST: 
+			rpc("end_game")
+		get_tree().change_scene("res://Scenes/Menues/Online/AwardCeremony_Online/Award_Ceremony.tscn")
+	else:
+		get_tree().change_scene("res://Scenes/Menues/AwardCeremony/Award_Ceremony.tscn")
 	
 # winner is of type Player
+# in online_mode this method is only called by the host
 func end_round(winners):
 	emit_signal("round_ended")
+	var win_counts = {}
 	for winner in winners:
 		if winner:
 			winner.player_info.win_count += 1
+			win_counts[winner.player_info.id] = winner.player_info.win_count
+	if online_mode:
+		rpc("recieve_win_counts", win_counts)
 	
 	if round_count % int(options["rounds_per_set"]) == 0:
 		if set_count == options["sets"]:
@@ -164,6 +209,8 @@ func end_round(winners):
 			end_game()
 		else:
 			start_new_set()
+			if online_mode:
+				rpc("intermiss")
 			intermiss()
 	else:
 		start_new_round()
@@ -171,40 +218,50 @@ func end_round(winners):
 func start_new_round():
 	round_count += 1
 	emit_signal("new_round_started")
+	online_player_level_loaded_count = 0
 	change_to_next_level()
 
 func start_new_set():
 	emit_signal("new_set_started")
 	set_count += 1
 
-func intermiss():
-	get_tree().change_scene("res://Scenes/Menues/Intermission_menu/Intermission_Menu.tscn")
+remote func intermiss():
+	if Global.online_mode:
+		get_tree().change_scene("res://Scenes/Menues/Online/Intermission_menu_Online/Intermission_Menu.tscn")
+	else:
+		get_tree().change_scene("res://Scenes/Menues/Intermission_menu/Intermission_Menu.tscn")
 	
-	
-func add_player_info(player_id, joypad_id):
+func add_player_info(player_id, joypad_id, nick_name = ""):
 	var player_info = load("res://Scenes/Player/Player_Info.tscn").instance()
 	player_info.id = player_id
+	if nick_name == "":
+		player_info.nick_name = str(player_id)
+	else:
+		player_info.nick_name = nick_name
 	player_info.joypad_id = joypad_id
 	player_infos.append(player_info)
 
 	return player_info
+
 	
 func change_to_next_level():
 	randomize()
 	var lvls = Helper.list_files_in_directory("res://Scenes/Levels/")
 	var lvl_number = randi()%lvls.size()
 	
-	var lvl_path
+	var lvl_path : String
 
 	if options["graphic_mode"] == LOW_GRAPHIC_MODE && low_graphic_levels.has(lvls[lvl_number]):
 		lvl_path = "res://Scenes/Low_Graphic_Levels/" + lvls[lvl_number] + "/Level.tscn"
 	else:
 		lvl_path = "res://Scenes/Levels/" + lvls[lvl_number] + "/Level.tscn"
 	
+	
 	if !test_mode:
-		get_tree().change_scene(lvl_path)
-	else:
-		get_tree().change_scene(test_level)
+		lvl_path = test_level
+
+	var level = load(lvl_path)
+	get_tree().change_scene_to(level)
 
 func _input(event):
 	if event.is_action_pressed("game_pause"):

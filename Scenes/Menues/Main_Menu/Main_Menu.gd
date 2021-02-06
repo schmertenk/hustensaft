@@ -45,3 +45,7 @@ func _on_How_To_Play_pressed():
 
 func _on_Credits_pressed():
 	$TransitionMask.slide_in(get_tree(), "change_scene", "res://Scenes/Menues/Credits/Credits.tscn")
+
+
+func _on_Online_Start_pressed():
+	$TransitionMask.slide_in(get_tree(), "change_scene", "res://Scenes/Menues/Online/Host_Or_Join_Menu/Host_Or_Join_Menu.tscn")

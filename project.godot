@@ -59,6 +59,21 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scenes/ui/Out_Of_Screen_Indicator/Out_Of_Screen_Indicator.gd"
 }, {
+"base": "Control",
+"class": "Online_SecondarySelectMenu",
+"language": "GDScript",
+"path": "res://Scenes/Menues/Online/Secondarie_Select_menu_Online/Secondary_Select_Menu.gd"
+}, {
+"base": "Control",
+"class": "Online_SecondarySelectSlot",
+"language": "GDScript",
+"path": "res://Scenes/Menues/Online/Secondarie_Select_menu_Online/Secondarie_Select_Slot.gd"
+}, {
+"base": "Control",
+"class": "Online_SkinSelectSlot",
+"language": "GDScript",
+"path": "res://Scenes/Menues/Online/Player_Join_Menu_Online/Skin_Select_Slot.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
@@ -150,6 +165,9 @@ _global_script_class_icons={
 "MovingPlatform": "",
 "MyAudioStreamPlayer": "",
 "OOSI": "",
+"Online_SecondarySelectMenu": "",
+"Online_SecondarySelectSlot": "",
+"Online_SkinSelectSlot": "",
 "Player": "",
 "PlayerInfo": "",
 "Projectile": "",
@@ -182,6 +200,12 @@ config/windows_native_icon="res://Untitled.ico"
 Helper="*res://helper.gd"
 Global="*res://Global.gd"
 AudioManager="*res://AudioManager/AudioManager.gd"
+Server="*res://Server.gd"
+
+[display]
+
+window/stretch/mode="2d"
+window/stretch/aspect="keep_height"
 
 [input]
 
@@ -287,6 +311,11 @@ keyboard_ui_cancel={
  ]
 }
 
+[logging]
+
+file_logging/enable_file_logging=true
+
 [rendering]
 
+quality/driver/driver_name="GLES2"
 environment/default_environment="res://default_env.tres"

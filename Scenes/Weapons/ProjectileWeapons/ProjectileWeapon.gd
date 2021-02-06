@@ -38,7 +38,10 @@ func _ready():
 			p.free_when_finished = false
 			get_node("/root/Game").add_child(p)
 	
-func start_reload():
+remote func start_reload():
+	if Global.online_mode && is_network_master():
+		rpc("start_reload")
+		
 	if reload_tween.is_active() || !can_reload:
 		return
 	AudioManager.play("weapon_reload")
@@ -79,7 +82,9 @@ func make_projectile():
 		
 	return p
 	
-func shoot():
+remote func shoot():
+	if Global.online_mode && is_network_master():
+		rpc("shoot")
 	if shots_in_stack <= 0 && stack_size > 0:
 		if can_reload:
 			if reload_time > 0:
@@ -125,9 +130,6 @@ func shoot():
 		if !pool_projectiles:
 			get_node("/root/Game").add_child(p)
 			
-			
-		
-		#p.rotation_degrees = 0
 	return true
 	
 	

@@ -15,6 +15,9 @@ var initial_direction
 var state = STATE_STOPPED
 var weapon
 
+remote var slave_position
+remote var slave_rotation
+
 
 func _physics_process(_delta):
 	if state == STATE_STOPPED:
@@ -31,3 +34,11 @@ func hit_target(target):
 		
 func do_damage(target):
 	target.damage(weapon.damage, weapon.armor_multiplier, weapon.flesh_multiplier, false, weapon.player)
+
+func _integrate_forces(state):
+	if Global.online_mode:
+		if weapon.player.is_network_master():
+			rset("slave_position", position)
+			rset("slave_rotation", rotation)
+		else:			
+			state.transform = Transform2D(slave_rotation, slave_position)		

@@ -1166,13 +1166,14 @@ texture = ExtResource( 32 )
 position = Vector2( 0, -183.846 )
 scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 20 )
-frame = 3
+frame = 4
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="Background/Assets"]
 position = Vector2( 280.183, -183.846 )
 scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 20 )
+frame = 1
 playing = true
 
 [node name="Pngtreetransformer_equipment_vector_oil_filter_5780525" type="Sprite" parent="Background/Assets"]
@@ -1314,42 +1315,40 @@ texture = ExtResource( 20 )
 position = Vector2( 3388.46, 294.156 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 29 )
-frame = 4
+frame = 1
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="Engines"]
 position = Vector2( 3411.08, 780.646 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 29 )
-frame = 4
+frame = 1
 playing = true
 
 [node name="AnimatedSprite3" type="AnimatedSprite" parent="Engines"]
 position = Vector2( 3139.55, 571.342 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 29 )
-frame = 3
 playing = true
 
 [node name="AnimatedSprite4" type="AnimatedSprite" parent="Engines"]
 position = Vector2( 3422.4, -1555.63 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 29 )
-frame = 3
 playing = true
 
 [node name="AnimatedSprite5" type="AnimatedSprite" parent="Engines"]
 position = Vector2( 3422.4, -2053.44 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 29 )
-frame = 2
+frame = 4
 playing = true
 
 [node name="AnimatedSprite6" type="AnimatedSprite" parent="Engines"]
 position = Vector2( 3150.87, -1798.88 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 29 )
-frame = 2
+frame = 4
 playing = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]

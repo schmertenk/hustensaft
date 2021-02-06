@@ -98,7 +98,7 @@ func set_explosion_radius(value):
 	if has_node("ExplosionRadius/CollisionShape2D"):
 		$ExplosionRadius/CollisionShape2D.shape.radius = explosion_radius
 
-func _process(delta):
+func _process(_delta):
 	if explosion_state == EXPLOSION_STATE_TARGET_HIT:
 		if OS.get_ticks_msec() > body_hit_time + delay_after_hit:
 			explosion_state = EXPLOSION_STATE_EXPLODE
@@ -108,7 +108,7 @@ func _process(delta):
 		hit_target(null)
 	last_global_positions.push_front(global_position)
 	
-func do_damage(target):
+func do_damage(_target):
 	var bodies = bodies_in_explosion_radius
 	
 	for body in bodies:
